@@ -1,8 +1,8 @@
 import { BroadcastChannel } from 'broadcast-channel'
 import type { NotificationPayload } from 'firebase/messaging'
 import { TinyEmitter } from 'tiny-emitter'
-import type { Ref } from 'vue/'
-import { computed, ref } from 'vue/'
+import type { Ref } from 'vue'
+import { computed, ref } from 'vue'
 import { getDebugger } from './debug'
 const debug = getDebugger('Bus')
 

@@ -3,6 +3,23 @@ import type { VuetifyOptions } from 'vuetify'
 import { createVuetify } from 'vuetify'
 import 'vuetify/styles'
 
+export interface VuetifiableColors {
+  background: string
+  surface: string
+  primary: string
+  secondary: string
+  accent: string
+  highlight: string
+  notify: string
+  success: string
+  info: string
+  warning: string
+  error: string
+  question: string
+  cancel: string
+  [key: string]: string
+}
+
 export const colors = {
   background: '#212121',
   surface: '#333333',

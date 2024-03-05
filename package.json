@@ -4,7 +4,6 @@
   "description": "Groundwork Libraries and Plugins for use in Vue3 based Projects",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
-  "browser": "dist/index.umd.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist"
@@ -32,8 +31,6 @@
     "nodemon": "^3.1.0",
     "prettier": "^3.0.0",
     "rollup": "^4.9.1",
-    "rollup-plugin-polyfill-node": "^0.13.0",
-    "rollup-plugin-uglify": "^6.0.4",
     "typescript": "^5.1.6"
   },
   "engines": {
@@ -89,6 +86,8 @@
     "dot-object": "^2.1.4",
     "firebase": "^10.8.1",
     "joi": "^17.12.2",
+    "lodash.merge": "^4.6.2",
+    "luxon": "^3.4.4",
     "push.js": "^1.0.12",
     "secure-ls": "^1.2.6",
     "tiny-emitter": "^2.1.0",

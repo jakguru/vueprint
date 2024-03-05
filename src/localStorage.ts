@@ -2,8 +2,8 @@ import dot from 'dot-object'
 import merge from 'lodash.merge'
 import type SecureLS from 'secure-ls'
 import { TinyEmitter } from 'tiny-emitter'
-import type { Ref } from 'vue/'
-import { ref, watch } from 'vue/'
+import type { Ref } from 'vue'
+import { ref, watch } from 'vue'
 import { getDebugger } from './debug'
 const debug = getDebugger('LocalStorage')
 

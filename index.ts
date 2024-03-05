@@ -1,5 +1,5 @@
 import { getDebugger } from 'src/debug'
 import nuxt from './nuxt'
-import vue from './vue'
+import * as plugins from './plugins'
 
-export default { vue, nuxt, getDebugger }
+export default { nuxt, plugins, getDebugger }
