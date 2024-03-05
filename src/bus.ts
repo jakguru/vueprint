@@ -1,12 +1,14 @@
-import { BroadcastChannel } from 'broadcast-channel'
 import type { NotificationPayload } from 'firebase/messaging'
-import { TinyEmitter } from 'tiny-emitter'
 import type { Ref } from 'vue'
+import type { UserIdentity } from './identity'
+import { TinyEmitter } from 'tiny-emitter'
+import { BroadcastChannel } from 'broadcast-channel'
 import { computed, ref } from 'vue'
 import { getDebugger } from './debug'
 const debug = getDebugger('Bus')
 
 export type BusEventCallbackSignatures = {
+  'api:unauthorized': (from?: string) => void
   'tab:uuid': (uuid: string, active: boolean, from?: string) => void
   'tab:active': (from?: string) => void
   'tab:inactive': (from?: string) => void
@@ -15,6 +17,14 @@ export type BusEventCallbackSignatures = {
   'push:permission:granted': (from?: string) => void
   'push:notification': (payload: NotificationPayload, from?: string) => void
   'firebase:token:updated': (token: string | undefined, from?: string) => void
+  'identity:login': (
+    bearer: string,
+    expiration: string,
+    identity: UserIdentity,
+    from?: string
+  ) => void
+  'identity:logout': (from?: string) => void
+  'authentication:refreshable': (from?: string) => void
 }
 
 export type BusEvent = keyof BusEventCallbackSignatures

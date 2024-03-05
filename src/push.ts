@@ -1,16 +1,16 @@
 import type { FirebaseApp, FirebaseOptions } from 'firebase/app'
-import { initializeApp } from 'firebase/app'
 import type { Messaging, Unsubscribe } from 'firebase/messaging'
+import type { ComputedRef, Ref, WatchStopHandle } from 'vue'
+import type { BusEventCallbackSignatures } from './bus'
+import { initializeApp } from 'firebase/app'
 import { getMessaging, getToken, onMessage } from 'firebase/messaging'
 import Push from 'push.js'
-import type { ComputedRef, Ref, WatchStopHandle } from 'vue'
 import { computed, ref, watch } from 'vue'
-import type { Bus, BusEventCallbackSignatures } from './bus'
+import { Bus } from './bus'
 import { getDebugger } from './debug'
-import type { LocalStorage } from './localStorage'
-// import type { Identity } from './identity'
-import type { MiliCron } from '@jakguru/milicron'
-import type { Axios } from 'axios'
+import { LocalStorage } from './localStorage'
+import { Identity } from './identity'
+import { MiliCron } from '@jakguru/milicron'
 
 const debug = getDebugger('Push')
 const fbug = getDebugger('Firebase', '#1B3A57', '#FFCA28')
@@ -38,13 +38,16 @@ export interface PushedEvent {
   detail?: any
 }
 
+export interface FirebaseTokenAuthenticationCallback {
+  (token: string, signal?: AbortSignal): Promise<void> | void
+}
+
 export class PushService {
   readonly #booted: Ref<boolean>
   readonly #bus: Bus
   readonly #ls: LocalStorage
   readonly #cron: MiliCron
-  readonly #api: Axios
-  // readonly #identity: Identity
+  readonly #identity: Identity
   readonly #firebaseApp: FirebaseApp
   readonly #firebaseMessaging: Messaging
   readonly #serviceWorkerRegistration: Ref<ServiceWorkerRegistration | undefined>
@@ -53,6 +56,10 @@ export class PushService {
   readonly #doNotAskForPermissionPreference: Ref<boolean | undefined>
   readonly #canRequestPermission: ComputedRef<boolean>
   readonly #canPush: ComputedRef<boolean | null>
+  readonly #onAuthenticatedForFirebase: FirebaseTokenAuthenticationCallback
+  readonly #onUnauthenticatedForFirebase: FirebaseTokenAuthenticationCallback
+  readonly #serviceWorkerPath: string
+  readonly #serviceWorkerMode: 'classic' | 'module'
   #serviceWorkerRegistrationWatchStopHandle: WatchStopHandle | undefined
   #serviceWorkerRegistrationTokenWatchStopHandle: WatchStopHandle | undefined
   #pushPermissionWatchStopHandle: WatchStopHandle | undefined
@@ -65,20 +72,38 @@ export class PushService {
     bus: Bus,
     ls: LocalStorage,
     cron: MiliCron,
-    api: Axios,
-    // identity: Identity,
-    firebaseOptions: FirebaseOptions
+    identity: Identity,
+    firebaseOptions: FirebaseOptions,
+    onAuthenticatedForFirebase: FirebaseTokenAuthenticationCallback,
+    onUnauthenticatedForFirebase: FirebaseTokenAuthenticationCallback,
+    serviceWorkerPath: string,
+    serviceWorkerMode: 'classic' | 'module'
   ) {
+    if (!(bus instanceof Bus)) {
+      throw new Error('Invalid or missing Bus instance')
+    }
+    if (!(ls instanceof LocalStorage)) {
+      throw new Error('Invalid or missing LocalStorage instance')
+    }
+    if (!(cron instanceof MiliCron)) {
+      throw new Error('Invalid or missing MiliCron instance')
+    }
+    if (!(identity instanceof Identity)) {
+      throw new Error('Invalid or missing Identity instance')
+    }
     this.#booted = ref(false)
     this.#bus = bus
     this.#ls = ls
     this.#cron = cron
-    this.#api = api
-    // this.#identity = identity
+    this.#identity = identity
     this.#serviceWorkerRegistration = ref(undefined)
     this.#serviceWorkerRegistrationToken = ref(undefined)
     this.#pushPermission = ref(undefined)
     this.#doNotAskForPermissionPreference = ref(undefined)
+    this.#onAuthenticatedForFirebase = onAuthenticatedForFirebase
+    this.#onUnauthenticatedForFirebase = onUnauthenticatedForFirebase
+    this.#serviceWorkerPath = serviceWorkerPath
+    this.#serviceWorkerMode = serviceWorkerMode
     this.#canRequestPermission = computed(() => {
       if (
         true === this.#doNotAskForPermissionPreference.value ||
@@ -225,37 +250,37 @@ export class PushService {
         deep: true,
       }
     )
-    // this.#identityAuthenticatedWatchStopHandle = watch(
-    //   () => this.#identity.authenticated.value,
-    //   (is, was) => {
-    //     if (was === is) {
-    //       return
-    //     }
-    //     this.#updateApiAboutFirebase()
-    //   },
-    //   {
-    //     immediate: true,
-    //     deep: true,
-    //   }
-    // )
+    this.#identityAuthenticatedWatchStopHandle = watch(
+      () => this.#identity.authenticated.value,
+      (is, was) => {
+        if (was === is) {
+          return
+        }
+        this.#updateApiAboutFirebase()
+      },
+      {
+        immediate: true,
+        deep: true,
+      }
+    )
     this.#cron.$on('*/250 * * * * *', this.#update.bind(this))
     this.#bus.on('push:updated', this.#update.bind(this), { local: true, crossTab: true })
     this.#doUpdates(true)
     if ('undefined' !== typeof window && 'serviceWorker' in navigator) {
       if ('undefined' === typeof this.#serviceWorkerRegistration.value) {
-        // const path =
-        //   'production' === import.meta.env.MODE ? '/firebase-messaging-sw.js' : '/dev-sw.js?dev-sw'
-        // const mode = 'production' === import.meta.env.MODE ? 'classic' : 'module'
-        // debug('Attempting to register Service Worker', { path, mode })
-        // navigator.serviceWorker
-        //   .register(path, { type: mode })
-        //   .then((registration) => {
-        //     sbug('Service Worker Registered', registration)
-        //     this.#serviceWorkerRegistration.value = registration
-        //   })
-        //   .catch((error) => {
-        //     sbug('Service Worker Registration Failed', error)
-        //   })
+        debug('Attempting to register Service Worker', {
+          path: this.#serviceWorkerPath,
+          mode: this.#serviceWorkerMode,
+        })
+        navigator.serviceWorker
+          .register(this.#serviceWorkerPath, { type: this.#serviceWorkerMode })
+          .then((registration) => {
+            sbug('Service Worker Registered', registration)
+            this.#serviceWorkerRegistration.value = registration
+          })
+          .catch((error) => {
+            sbug('Service Worker Registration Failed', error)
+          })
       }
       navigator.serviceWorker.addEventListener('message', (event) => {
         sbug('Got new message from service worker', event.data)
@@ -342,6 +367,9 @@ export class PushService {
     const registration = this.#ls.get('push.serviceworker.registration') as
       | ServiceWorkerRegistration
       | undefined
+    if (registration) {
+      this.#serviceWorkerRegistration.value = registration
+    }
     const doNotAskForPermission = this.#ls.get('push.donotaskforpermission') || false
     this.#doNotAskForPermissionPreference.value = doNotAskForPermission
     this.#pushPermission.value = Push.Permission.get()
@@ -383,41 +411,49 @@ export class PushService {
 
   #updateApiAboutFirebase() {
     if (this.#serviceWorkerRegistrationToken.value) {
-      // const is = this.#identity.authenticated.value
+      const is = this.#identity.authenticated.value
       if (this.#apiFirebaseOperationAbortController) {
         this.#apiFirebaseOperationAbortController.abort()
       }
       this.#apiFirebaseOperationAbortController = new AbortController()
       try {
-        // if (is) {
-        //   fbug('Registering Firebase Messaging Token with API')
-        //   this.#api
-        //     .post('/push/create', {
-        //       token: this.#serviceWorkerRegistrationToken.value,
-        //     })
-        //     .then(() => {
-        //       fbug('Registered Firebase Messaging Token with API')
-        //     })
-        //     .catch((error) => {
-        //       if (error instanceof Error && error.name !== 'CancelError') {
-        //         fbug('Failed to register Firebase Messaging Token with API', error)
-        //       }
-        //     })
-        // } else {
-        //   fbug('Unregistering Firebase Messaging Token with API')
-        //   this.#api
-        //     .post('/push/destroy', {
-        //       token: this.#serviceWorkerRegistrationToken.value,
-        //     })
-        //     .then(() => {
-        //       fbug('Unregistered Firebase Messaging Token with API')
-        //     })
-        //     .catch((error) => {
-        //       if (error instanceof Error && error.name !== 'CancelError') {
-        //         fbug('Failed to unregister Firebase Messaging Token with API', error)
-        //       }
-        //     })
-        // }
+        if (is) {
+          ;(async () => {
+            fbug('Registering Firebase Messaging Token')
+            try {
+              await this.#onAuthenticatedForFirebase(
+                this.#serviceWorkerRegistrationToken.value!,
+                this.#apiFirebaseOperationAbortController!.signal
+              )
+              fbug('Registered Firebase Messaging Token')
+            } catch (error) {
+              if (
+                (error instanceof Error && error.name !== 'CancelError') ||
+                !(error instanceof Error)
+              ) {
+                fbug('Failed to register Firebase Messaging Token', error)
+              }
+            }
+          })()
+        } else {
+          ;(async () => {
+            fbug('Unregistering Firebase Messaging Token')
+            try {
+              await this.#onUnauthenticatedForFirebase(
+                this.#serviceWorkerRegistrationToken.value!,
+                this.#apiFirebaseOperationAbortController!.signal
+              )
+              fbug('Unregistered Firebase Messaging Token')
+            } catch (error) {
+              if (
+                (error instanceof Error && error.name !== 'CancelError') ||
+                !(error instanceof Error)
+              ) {
+                fbug('Failed to unregister Firebase Messaging Token', error)
+              }
+            }
+          })()
+        }
       } catch (error) {
         if (error instanceof Error && error.name !== 'CancelError') {
           fbug('API Firebase Operation threw and Error', error)

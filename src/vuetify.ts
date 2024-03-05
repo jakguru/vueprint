@@ -1,7 +1,10 @@
 import '@mdi/font/css/materialdesignicons.css'
-import type { VuetifyOptions } from 'vuetify'
+import type { VuetifyOptions, ThemeDefinition } from 'vuetify'
 import { createVuetify } from 'vuetify'
 import 'vuetify/styles'
+import merge from 'lodash.merge'
+
+let instance: ReturnType<typeof createVuetify> | undefined
 
 export interface VuetifiableColors {
   background: string
@@ -20,95 +23,38 @@ export interface VuetifiableColors {
   [key: string]: string
 }
 
-export const colors = {
-  background: '#212121',
-  surface: '#333333',
-  primary: '#d32f2f',
-  secondary: '#4d4d4d',
-  accent: '#f7931a',
-  highlight: '#0d579b',
-  notify: '#E53935',
-  success: '#06972E',
-  info: '#3F51B5',
-  warning: '#FFA000',
-  error: '#E43333',
-  question: '#554C7D',
-  cancel: '#666666',
-}
-const allColorNames = new Set(Object.keys(colors))
-export const config: VuetifyOptions = {
-  ssr: true,
-  theme: {
-    defaultTheme: 'tmp',
-    variations: {
-      colors: Array.from(allColorNames),
-      lighten: 5,
-      darken: 5,
-    },
-    themes: {
-      tmp: {
-        dark: false,
-        colors,
-      },
-    },
-  },
-  aliases: {},
-  defaults: {
-    Swal: {
-      backdrop: true,
-      color: '#000000',
-      background: colors.surface,
-      customClass: {
-        title: 'text-h6',
-        htmlContainer: 'text-body-2',
-        popup:
-          'v-card v-theme--tmp v-card--density-default v-card--variant-elevated bg-surface elevation-3 pb-3',
-        confirmButton:
-          'v-btn v-btn--elevated v-theme--tmp bg-primary v-btn--density-default v-btn--size-default v-btn--variant-elevated',
-        denyButton:
-          'v-btn v-btn--elevated v-theme--tmp bg-error v-btn--density-default v-btn--size-default v-btn--variant-elevated',
-        cancelButton:
-          'v-btn v-btn--elevated v-theme--tmp bg-cancel v-btn--density-default v-btn--size-default v-btn--variant-elevated',
-      },
-      confirmButtonColor: colors.primary,
-      denyButtonColor: colors.error,
-      cancelButtonColor: colors.cancel,
-      buttonsStyling: true,
-      reverseButtons: true,
-    },
-    VTextField: {
-      variant: 'outlined',
-      bgColor: 'surface',
-      baseColor: 'accent',
-      hideDetails: 'auto',
-    },
-    VSelect: {
-      variant: 'outlined',
-      bgColor: 'surface',
-      baseColor: 'accent',
-      hideDetails: 'auto',
-      itemTitle: 'title',
-      itemValue: 'value',
-    },
-    VAutocomplete: {
-      variant: 'outlined',
-      bgColor: 'surface',
-      baseColor: 'accent',
-      hideDetails: 'auto',
-      itemTitle: 'title',
-      itemValue: 'value',
-    },
-    VSwitch: {
-      color: 'primary',
-      hideDetails: 'auto',
-    },
-    VFileInput: {
-      variant: 'outlined',
-      bgColor: 'surface',
-      baseColor: 'accent',
-      hideDetails: 'auto',
-    },
-  },
+export interface VuetifiableTheme extends ThemeDefinition {
+  colors: VuetifiableColors
 }
 
-export const vuetify = createVuetify(config)
+export interface VuetifiableThemes {
+  [key: string]: VuetifiableTheme
+}
+
+export const initializeVuetify = (
+  defaultTheme: string,
+  themes: VuetifiableThemes,
+  options: VuetifyOptions
+) => {
+  const allColorNames = new Set(Object.values(themes).flatMap((theme) => Object.keys(theme.colors)))
+  const config: VuetifyOptions = merge({}, options, {
+    theme: {
+      defaultTheme,
+      variations: {
+        colors: Array.from(allColorNames),
+        lighten: 5,
+        darken: 5,
+      },
+      themes,
+    },
+  })
+  const vuetify = createVuetify(config)
+  return vuetify
+}
+
+export const getInstance = () => {
+  if (!instance) {
+    throw new Error('Vuetify instance has not been initialized yet')
+  }
+  return instance
+}

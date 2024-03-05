@@ -1,5 +1,5 @@
 import colors from 'vuetify/util/colors'
-import { vuetify } from './vuetify'
+import { getInstance } from './vuetify'
 import type Colors from 'vuetify/util/colors'
 type ColorKey = keyof typeof Colors
 
@@ -10,6 +10,7 @@ const stringToColor = new Map<string, string>()
 
 export function getColorMap() {
   if (!colorsPopulated) {
+    const vuetify = getInstance()
     const themeColors = vuetify.theme.current.value.colors
     for (const key in themeColors) {
       stringToColor.set(key, themeColors[key])

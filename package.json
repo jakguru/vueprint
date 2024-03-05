@@ -1,9 +1,9 @@
 {
-  "name": "vueprint",
+  "name": "@jakguru/vueprint",
   "version": "0.1.0",
   "description": "Groundwork Libraries and Plugins for use in Vue3 based Projects",
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.esm.js",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "files": [
     "dist"
@@ -28,9 +28,13 @@
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-adonis": "^2.1.1",
     "eslint-plugin-prettier": "^5.0.0",
+    "less": "^4.2.0",
+    "node-sass": "^9.0.0",
     "nodemon": "^3.1.0",
     "prettier": "^3.0.0",
     "rollup": "^4.9.1",
+    "rollup-plugin-styles": "^4.0.0",
+    "stylus": "^0.63.0",
     "typescript": "^5.1.6"
   },
   "engines": {
@@ -81,6 +85,7 @@
   },
   "dependencies": {
     "@jakguru/milicron": "^1.0.0",
+    "@mdi/font": "^7.4.47",
     "axios": "^1.6.7",
     "broadcast-channel": "^7.0.0",
     "dot-object": "^2.1.4",
@@ -90,6 +95,7 @@
     "luxon": "^3.4.4",
     "push.js": "^1.0.12",
     "secure-ls": "^1.2.6",
+    "sweetalert2": "^11.10.6",
     "tiny-emitter": "^2.1.0",
     "vue": "^3.4.21",
     "vue-i18n": "^9.10.1",
