@@ -1,0 +1,36 @@
+{
+    "extends": "adonis-preset-ts/tsconfig.json",
+    "include": [
+        "**/*"
+    ],
+    "exclude": [
+        "node_modules",
+        "dist",
+        "docs",
+        "templates"
+    ],
+    "compilerOptions": {
+        "outDir": "./dist",
+        "rootDir": "./",
+        "sourceMap": true,
+        "skipLibCheck": true,
+        "declaration": true,
+        "declarationMap": true,
+        "removeComments": false,
+        "lib": [
+            "webworker",
+            "es2020",
+            "dom",
+            "dom.iterable",
+            "scripthost"
+        ],
+        "paths": {
+            "src": [
+                "./src"
+            ]
+        }
+    },
+    "ts-node": {
+        "transpileOnly": true
+    }
+}

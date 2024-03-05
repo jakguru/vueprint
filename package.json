@@ -1,0 +1,99 @@
+{
+  "name": "vueprint",
+  "version": "0.1.0",
+  "description": "Groundwork Libraries and Plugins for use in Vue3 based Projects",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "browser": "dist/index.umd.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "author": "Jak Guru <jak@jak.guru>",
+  "license": "MIT",
+  "scripts": {
+    "watch": "nodemon",
+    "build": "rm -rf dist && npx rollup -c",
+    "build:watch": "rm -rf dist && npx rollup -c -w",
+    "type-check": "npx tsc --noEmit",
+    "lint": "eslint . --ext=.ts,.mjs",
+    "format": "eslint . --ext=.ts,.mjs --fix"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-typescript": "^11.1.6",
+    "adonis-preset-ts": "^2.1.0",
+    "eslint": "^8.44.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-adonis": "^2.1.1",
+    "eslint-plugin-prettier": "^5.0.0",
+    "nodemon": "^3.1.0",
+    "prettier": "^3.0.0",
+    "rollup": "^4.9.1",
+    "rollup-plugin-polyfill-node": "^0.13.0",
+    "rollup-plugin-uglify": "^6.0.4",
+    "typescript": "^5.1.6"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "eslintConfig": {
+    "extends": [
+      "plugin:adonis/typescriptApp",
+      "prettier"
+    ],
+    "parserOptions": {
+      "parser": {
+        "js": "espree",
+        "mjs": "espree",
+        "ts": "@typescript-eslint/parser"
+      },
+      "sourceType": "module",
+      "extraFileExtensions": [
+        ".js",
+        ".mjs"
+      ],
+      "warnOnUnsupportedTypeScriptVersion": false
+    },
+    "plugins": [
+      "prettier"
+    ],
+    "rules": {
+      "prettier/prettier": [
+        "error"
+      ]
+    }
+  },
+  "eslintIgnore": [
+    "dist",
+    "node_modules",
+    "*.tmp.*",
+    "*.tmp"
+  ],
+  "prettier": {
+    "trailingComma": "es5",
+    "semi": false,
+    "singleQuote": true,
+    "useTabs": false,
+    "quoteProps": "consistent",
+    "bracketSpacing": true,
+    "arrowParens": "always",
+    "printWidth": 100
+  },
+  "dependencies": {
+    "@jakguru/milicron": "^1.0.0",
+    "axios": "^1.6.7",
+    "broadcast-channel": "^7.0.0",
+    "dot-object": "^2.1.4",
+    "firebase": "^10.8.1",
+    "joi": "^17.12.2",
+    "push.js": "^1.0.12",
+    "secure-ls": "^1.2.6",
+    "tiny-emitter": "^2.1.0",
+    "vue": "^3.4.21",
+    "vue-i18n": "^9.10.1",
+    "vuetify": "^3.5.7"
+  }
+}
