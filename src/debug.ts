@@ -1,3 +1,11 @@
+/**
+ * Generate a function that will log messages to the console
+ * @group utilities
+ * @param name The name that will be used to prefix the log messages
+ * @param color The color of the text in the name
+ * @param background The color of the background in the name
+ * @returns A function that will log messages to the console
+ */
 /* eslint-disable no-console */
 export const getDebugger = (
   name: string,

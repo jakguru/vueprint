@@ -9,19 +9,20 @@ export default [
   {
     input: 'index.ts',
     external: pkg.dependencies ? Object.keys(pkg.dependencies) : [],
+    exclude: ['bin/**/*', 'tests/**/*', 'vitepress/**/*', 'docs/**/*'],
     output: [
       {
         file: pkg.main,
         format: 'cjs',
         sourcemap: true,
-        exports: 'default',
+        exports: 'named',
         assetFileNames: '[name][extname]',
       },
       {
         file: pkg.module,
         format: 'es',
         sourcemap: true,
-        exports: 'default',
+        exports: 'named',
         assetFileNames: '[name][extname]',
       },
     ],

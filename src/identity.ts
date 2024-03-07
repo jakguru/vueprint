@@ -9,19 +9,36 @@ import { DateTime } from 'luxon'
 
 const debug = getDebugger('Identity')
 
+/**
+ * Describes the shape of a user identity object
+ * @group identity
+ */
 export interface UserIdentity {
   [key: string]: string
 }
 
+/**
+ * Describes the shape of the feedback from the token refresh callback
+ * @group identity
+ */
 export interface TokenRefreshFeedback {
   bearer: string
   expiration: string
 }
 
+/**
+ * Describes the shape of the token refresh callback
+ * @group identity
+ */
 export interface TokenRefreshCallback {
   (signal: AbortSignal): Promise<TokenRefreshFeedback> | TokenRefreshFeedback
 }
 
+/**
+ * A service for managing the authentication state and identity of a user
+ * Uses LocalStorage, Bus, and Axios instances to manage the state of the user's identity across tabs
+ * @group identity
+ */
 export class Identity {
   #bus: Bus
   #api: Axios
@@ -42,6 +59,15 @@ export class Identity {
   #tokenRefresh: TokenRefreshCallback
   #tokenRefreshBuffer: number
 
+  /**
+   * Create a new Identity instance
+   * @param bus A Bus instance
+   * @param ls A LocalStorage instance
+   * @param cron A MiliCron instance
+   * @param api An Axios instance
+   * @param tokenRefresh A token refresh callback
+   * @param tokenRefreshBuffer The amount of time in milliseconds before the token expires before a token is considered refreshable (default: 5 minutes)
+   */
   constructor(
     bus: Bus,
     ls: LocalStorage,
@@ -107,30 +133,55 @@ export class Identity {
     this.#tokenRefreshAbortController = ref(undefined)
   }
 
+  /**
+   * Whether or not the Identity service has booted
+   */
   public get booted() {
     return this.#booted
   }
 
+  /**
+   * Whether or not the visitor is authenticated
+   */
   public get authenticated() {
     return this.#authenticated
   }
 
+  /**
+   * Whether or not the visitor is identified
+   */
   public get identified() {
     return this.#identified
   }
 
+  /**
+   * The user's identity
+   */
   public get user() {
     return this.#user
   }
 
+  /**
+   * Whether or not the token is refreshable
+   */
   public get refreshable() {
     return this.#refreshable
   }
 
+  /**
+   * The time until the authentication expires
+   */
   public get ttl() {
     return this.#calculatedAuthenticationExpiresIn
   }
 
+  /**
+   * Save the bearer token, expiration, and user identity to the LocalStorage and update the authentication & identification state
+   * @param bearer The bearer token
+   * @param expiration The expiration time of the token
+   * @param identity The user's identity
+   * @returns void
+   */
   public login(bearer: string, expiration: string, identity: UserIdentity) {
     if (!this.#booted) {
       debug('Login not processed because not booted')
@@ -155,6 +206,10 @@ export class Identity {
     )
   }
 
+  /**
+   * Remove the bearer token, expiration, and user identity from the LocalStorage and update the authentication & identification state
+   * @returns void
+   */
   public logout() {
     this.#ls.remove('bearer')
     this.#storedBearer.value = undefined
@@ -168,6 +223,9 @@ export class Identity {
     })
   }
 
+  /**
+   * Boot the Identity service
+   */
   public boot() {
     this.#bus.on('api:unauthorized', this.logout.bind(this), { local: true, crossTab: true })
     this.#bus.on('identity:login', this.#doUpdateFromLocalStorage.bind(this), {
@@ -230,6 +288,9 @@ export class Identity {
     this.#updateFromLocalStorage(true)
   }
 
+  /**
+   * Shutdown the Identity service
+   */
   public shutdown() {
     this.#bus.off('api:unauthorized', this.logout.bind(this), { local: true, crossTab: true })
     this.#bus.off('identity:login', this.#doUpdateFromLocalStorage.bind(this), {
@@ -319,12 +380,22 @@ export class Identity {
     }
   }
 
+  /**
+   * Force a refresh of the token
+   * @private
+   * @remarks This method is not intended to be used by the consumer of the Identity service, but is for development and testing purposes
+   */
   public async forceRefreshToken() {
     if (this.#booted.value) {
       await this.#tryToRefreshToken()
     }
   }
 
+  /**
+   * Make the token refreshable
+   * @private
+   * @remarks This method is not intended to be used by the consumer of the Identity service, but is for development and testing purposes
+   */
   public $makeRefreshable() {
     if (
       this.#booted.value &&

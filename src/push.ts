@@ -16,32 +16,36 @@ const debug = getDebugger('Push')
 const fbug = getDebugger('Firebase', '#1B3A57', '#FFCA28')
 const sbug = getDebugger('Service Worker', '#000000', '#FFFFFF')
 
+/**
+ * Describes the possible states of push permission.
+ * @group push
+ */
 type PushPermission =
   | typeof Push.Permission.GRANTED
   | typeof Push.Permission.DENIED
   | typeof Push.Permission.DEFAULT
 
+/**
+ * Describes the shape of an event that can be triggered and then forwarded to the bus.
+ * @group push
+ */
 export interface PushedEvent {
-  event:
-    | 'customer:login'
-    | 'customer:login:first'
-    | 'evidence:updated'
-    | 'pii:updated'
-    | 'profile:updated'
-    | 'rejected:evidence'
-    | 'rejected:rsaid'
-    | 'rsaid:rejected:mismatch'
-    | 'docfox:rsaid:rejected'
-    | 'updated:poi'
-    | 'docfox:application:create:failed'
-    | 'evidence:rejected'
+  event: string
   detail?: any
 }
 
+/**
+ * Describes the shape of the callback that is used to store the Firebase Messaging Token in an external service which requires it.
+ * @group push
+ */
 export interface FirebaseTokenAuthenticationCallback {
   (token: string, signal?: AbortSignal): Promise<void> | void
 }
 
+/**
+ * A service which manages desktop notifications and integration with Firebase Messaging.
+ * @group push
+ */
 export class PushService {
   readonly #booted: Ref<boolean>
   readonly #bus: Bus
@@ -68,6 +72,18 @@ export class PushService {
   #apiFirebaseOperationAbortController: AbortController | undefined
   #fcmOnMessageUnsubscribe: Unsubscribe | undefined
 
+  /**
+   * Create a new PushService instance.
+   * @param bus The Bus instance to use for communication
+   * @param ls The LocalStorage instance to use for storing and retrieving preferences and tokens
+   * @param cron The MiliCron instance to use for scheduling updates
+   * @param identity The Identity instance to use for determining if the user is authenticated
+   * @param firebaseOptions The options to use for initializing Firebase
+   * @param onAuthenticatedForFirebase The callback to use for storing the Firebase Messaging Token in an external service when the user is authenticated
+   * @param onUnauthenticatedForFirebase The callback to use for removing the Firebase Messaging Token from an external service when the user is unauthenticated
+   * @param serviceWorkerPath The path to the service worker to use for handling push notifications
+   * @param serviceWorkerMode The mode to use for the service worker
+   */
   constructor(
     bus: Bus,
     ls: LocalStorage,
@@ -135,18 +151,30 @@ export class PushService {
     fbug('Firebase Application & Messaging Initialized')
   }
 
+  /**
+   * Whether or not the service has been booted.
+   */
   public get booted() {
     return this.#booted
   }
 
+  /**
+   * Whether or not the UI should show a prompt for the user to allow push notifications.
+   */
   public get canRequestPermission() {
     return this.#canRequestPermission
   }
 
+  /**
+   * Whether or not permissions have been granted for push notifications.
+   */
   public get canPush() {
     return this.#canPush
   }
 
+  /**
+   * Request permission to show push notifications.
+   */
   public requestPushPermission() {
     Push.Permission.request(
       () => {
@@ -162,6 +190,10 @@ export class PushService {
     )
   }
 
+  /**
+   * Stop asking the user for permission to show push notifications.
+   * @returns void
+   */
   public doNotRequestPushPermission() {
     if (this.canPush.value) {
       return
@@ -170,11 +202,20 @@ export class PushService {
     this.#bus.emit('push:updated', { local: true, crossTab: true })
   }
 
+  /**
+   * Reset the preference to ask the user for permission to show push notifications.
+   * @private
+   * @returns void
+   * @remarks This is a function that should only be used for development and testing purposes.
+   */
   public $resetDoNotRequestPushPermissionPreference() {
     this.#ls.remove('push.donotaskforpermission')
     this.#bus.emit('push:updated', { local: true, crossTab: true })
   }
 
+  /**
+   * Boot the service.
+   */
   public boot() {
     if (this.#booted.value) {
       return
@@ -324,6 +365,9 @@ export class PushService {
     debug('Booted')
   }
 
+  /**
+   * Shut down the service.
+   */
   public shutdown() {
     if (!this.#booted.value) {
       return

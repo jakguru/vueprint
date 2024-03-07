@@ -10,11 +10,17 @@ declare module 'vue' {
   }
 }
 
+/**
+ * The options for the local storage plugin
+ */
 export interface LocalStoragePluginOptions {
   namespace?: string
 }
 
-export default {
+/**
+ * A plugin for interacting with local browser storage
+ */
+export const LocalStoragePlugin = {
   install: (app: App, options?: LocalStoragePluginOptions) => {
     const instance = new LocalStorage(options?.namespace || 'app')
     app.provide('ls', instance)

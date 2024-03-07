@@ -1,3 +1,10 @@
+/**
+ * Converts a list of strings into a human-readable list with commas and a glue word such as "and" before the last item
+ * @group utilities
+ * @param items The list of items to oxforidize
+ * @param glue The word to use to join the last two items
+ * @returns A string with the items joined by commas and the last two joined by the glue
+ */
 export const oxforidize = (items: string[], glue: string = 'and') => {
   if (items.length === 0) return ''
   if (items.length === 1) return items[0]

@@ -6,6 +6,10 @@ import merge from 'lodash.merge'
 
 let instance: ReturnType<typeof createVuetify> | undefined
 
+/**
+ * The colors which will be used by a Vuetify theme
+ * @group ui
+ */
 export interface VuetifiableColors {
   background: string
   surface: string
@@ -23,14 +27,31 @@ export interface VuetifiableColors {
   [key: string]: string
 }
 
+/**
+ * A theme which will be used by a Vuetify instance
+ * @group ui
+ */
 export interface VuetifiableTheme extends ThemeDefinition {
   colors: VuetifiableColors
 }
 
+/**
+ * A collection of themes which will be used by a Vuetify instance
+ * @group ui
+ */
 export interface VuetifiableThemes {
   [key: string]: VuetifiableTheme
 }
 
+/**
+ * Initialize the Vuetify instance
+ * @group ui
+ * @private
+ * @param defaultTheme The default theme to use
+ * @param themes The themes to use
+ * @param options The options to use
+ * @returns The Vuetify instance
+ */
 export const initializeVuetify = (
   defaultTheme: string,
   themes: VuetifiableThemes,
@@ -52,6 +73,12 @@ export const initializeVuetify = (
   return vuetify
 }
 
+/**
+ * Retrieve the already initialized Vuetify instance
+ * @group ui
+ * @private
+ * @returns The Vuetify instance
+ */
 export const getInstance = () => {
   if (!instance) {
     throw new Error('Vuetify instance has not been initialized yet')

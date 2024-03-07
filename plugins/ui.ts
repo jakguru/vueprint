@@ -13,7 +13,10 @@ declare module 'vue' {
   }
 }
 
-export default {
+/**
+ * A plugin for additional non-vuetify UI components
+ */
+export const UiPlugin = {
   install: (app: App) => {
     app.provide('swal', swal)
     app.config.globalProperties.$swal = swal

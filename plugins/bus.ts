@@ -10,11 +10,17 @@ declare module 'vue' {
   }
 }
 
+/**
+ * The options for the bus plugin
+ */
 export interface BusPluginOptions {
   namespace?: string
 }
 
-export default {
+/**
+ * A plugin for an event bus which supports events within the same window, across windows, and background push events
+ */
+export const BusPlugin = {
   install: (app: App, options?: BusPluginOptions) => {
     const instance = new Bus(options?.namespace)
     app.provide('bus', instance)

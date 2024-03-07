@@ -12,6 +12,9 @@ declare module 'vue' {
   }
 }
 
+/**
+ * The options for the push plugin
+ */
 export interface PushPluginOptions {
   firebaseOptions: FirebaseOptions
   onAuthenticatedForFirebase: FirebaseTokenAuthenticationCallback
@@ -20,7 +23,10 @@ export interface PushPluginOptions {
   serviceWorkerMode: 'classic' | 'module'
 }
 
-export default {
+/**
+ * A plugin for managing push notifications and integration with Firebase Cloud Messaging
+ */
+export const PushPlugin = {
   install: (app: App, options?: PushPluginOptions) => {
     const firebaseOptions = options?.firebaseOptions || {}
     const onAuthenticatedForFirebase = options?.onAuthenticatedForFirebase || (() => {})

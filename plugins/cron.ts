@@ -10,7 +10,10 @@ declare module 'vue' {
   }
 }
 
-export default {
+/**
+ * A plugin managing time based repeating tasks (cron jobs)
+ */
+export const CronPlugin = {
   install: (app: App) => {
     const instance = new MiliCron()
     app.provide('cron', instance)

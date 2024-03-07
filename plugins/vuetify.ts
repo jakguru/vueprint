@@ -3,13 +3,21 @@ import type { VuetifiableThemes } from 'src/vuetify'
 import type { VuetifyOptions } from 'vuetify'
 import { initializeVuetify } from 'src/vuetify'
 
+/**
+ * The options for the vuetify plugin
+ * @group plugins
+ */
 export interface VuetifyPluginOptions {
   defaultTheme: string
   themes: VuetifiableThemes
   options: VuetifyOptions
 }
 
-export default {
+/**
+ * A wrapper plugin for the Vuetify UI framework
+ * @group plugins
+ */
+export const VuetifyPlugin = {
   install: (app: App, options?: VuetifyPluginOptions) => {
     const defaultTheme = options?.defaultTheme || 'main'
     const themes = options?.themes || {

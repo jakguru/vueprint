@@ -1,0 +1,92 @@
+{
+    "entryPoints": [
+        "bootstraps/vue/client.ts",
+        "bootstraps/vue/main.ts",
+        "composables/useVueprint.ts",
+        "plugins/bus.ts",
+        "plugins/cron.ts",
+        "plugins/ls.ts",
+        "plugins/vuetify.ts",
+        "plugins/api.ts",
+        "plugins/identity.ts",
+        "plugins/push.ts",
+        "plugins/ui.ts",
+    ],
+    "out": "docs/api",
+    "json": "docs/api/reflections.json",
+    "plugin": [
+        "typedoc-plugin-markdown"
+    ],
+    "readme": "none",
+    "excludeExternals": false,
+    "excludePrivate": true,
+    "excludeProtected": true,
+    "excludeInternal": true,
+    "githubPages": false,
+    "theme": "default",
+    "hideGenerator": true,
+    "includeVersion": false,
+    "searchInComments": true,
+    "sourceLinkTemplate": "https://github.com/jakguru/vueprint/blob/{gitRevision}/{path}#L{line}",
+    "validation": {
+        "notExported": true,
+        "invalidLink": true,
+        "notDocumented": true
+    },
+    "externalSymbolLinkMappings": {
+        "global": {
+            "Boolean": "https://developer.mozilla.org/en-US/docs/Glossary/Boolean/JavaScript",
+            "String": "https://developer.mozilla.org/en-US/docs/Glossary/String",
+            "Void": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void",
+            "Number": "https://developer.mozilla.org/en-US/docs/Glossary/Number",
+            "Set": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set",
+            "Error": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error",
+            "Promise": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise"
+        },
+        "typescript": {
+            "Boolean": "https://developer.mozilla.org/en-US/docs/Glossary/Boolean/JavaScript",
+            "String": "https://developer.mozilla.org/en-US/docs/Glossary/String",
+            "Void": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void",
+            "Number": "https://developer.mozilla.org/en-US/docs/Glossary/Number",
+            "Set": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set",
+            "Error": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error",
+            "Promise": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise"
+        },
+        "events": {
+            "EventEmitter": "https://nodejs.org/docs/latest-v16.x/api/events.html#class-eventemitter",
+            "EventEmitter.on": "https://nodejs.org/docs/latest-v16.x/api/events.html#emitteroneventname-listener",
+            "EventEmitter.once": "https://nodejs.org/docs/latest-v16.x/api/events.html#emitteronceeventname-listener",
+            "EventEmitter.off": "https://nodejs.org/docs/latest-v16.x/api/events.html#emitteroffeventname-listener",
+            "EventEmitter.removeAllListeners": "https://nodejs.org/docs/latest-v16.x/api/events.html#emitterremovealllistenerseventname"
+        },
+        "EventEmitter": {
+            "on": "https://nodejs.org/docs/latest-v16.x/api/events.html#emitteroneventname-listener",
+            "once": "https://nodejs.org/docs/latest-v16.x/api/events.html#emitteronceeventname-listener",
+            "off": "https://nodejs.org/docs/latest-v16.x/api/events.html#emitteroffeventname-listener",
+            "removeAllListeners": "https://nodejs.org/docs/latest-v16.x/api/events.html#emitterremovealllistenerseventname"
+        },
+        "@types/luxon": {
+            "DateTime": "https://moment.github.io/luxon/api-docs/index.html#datetime"
+        },
+        "luxon": {
+            "DateTime": "https://moment.github.io/luxon/api-docs/index.html#datetime"
+        },
+        "axios": {
+            "InternalAxiosRequestConfig": "https://github.com/axios/axios/blob/main/index.d.ts",
+            "AxiosResponse": "https://github.com/axios/axios/blob/main/index.d.ts",
+            "AxiosRequestConfig": "https://github.com/axios/axios/blob/main/index.d.ts"
+        },
+        "knex": {
+            "QueryBuilder": "https://knexjs.org/guide/query-builder.html",
+            "Knex.QueryBuilder": "https://knexjs.org/guide/query-builder.html",
+        },
+        "Knex": {
+            "QueryBuilder": "https://knexjs.org/guide/query-builder.html",
+            "Knex.QueryBuilder": "https://knexjs.org/guide/query-builder.html",
+        }
+    },
+    "entryDocument": "index.md",
+    "hideBreadcrumbs": true,
+    "hideInPageTOC": true,
+    "namedAnchors": true,
+}

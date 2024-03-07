@@ -7,14 +7,10 @@ import { ref, watch } from 'vue'
 import { getDebugger } from './debug'
 const debug = getDebugger('LocalStorage')
 
-declare global {
-  interface Window {
-    _vueprint_loaded?: {
-      localstorage?: boolean
-    }
-  }
-}
-
+/**
+ * A SSR-friendly local storage service that uses secure-ls to store and retrieve data.
+ * @group localstorage
+ */
 export class LocalStorage {
   #namespace: string
   #bus: TinyEmitter
@@ -26,6 +22,10 @@ export class LocalStorage {
   #inServerEnvironment: boolean
   #channel?: BroadcastChannel
 
+  /**
+   * Create a new LocalStorage instance.
+   * @param namespace The namespace to use for the local storage.
+   */
   constructor(namespace: string) {
     this.#namespace = namespace
     this.#inServerEnvironment = !(typeof window !== 'undefined')
@@ -85,14 +85,23 @@ export class LocalStorage {
     this.#unwatch = () => {}
   }
 
+  /**
+   * Whether or not the local storage has been loaded.
+   */
   public get loaded() {
     return this.#loaded
   }
 
+  /**
+   * A promise which resolves when the local storage has been loaded.
+   */
   public get promise() {
     return this.#promise
   }
 
+  /**
+   * The current content of the local storage.
+   */
   public get value() {
     return this.#ref.value
   }
@@ -119,6 +128,9 @@ export class LocalStorage {
     }
   }
 
+  /**
+   * Refresh the information in the service from the browser's local storage.
+   */
   public refresh() {
     if (this.#unwatch) {
       this.#unwatch()
@@ -136,6 +148,9 @@ export class LocalStorage {
     )
   }
 
+  /**
+   * Get the encryption secret used by the local storage.
+   */
   public getEncryptionSecret() {
     if (!this.#instance && !this.#inServerEnvironment) {
       debug(
@@ -145,6 +160,11 @@ export class LocalStorage {
     return this.#instance?.getEncryptionSecret() || ''
   }
 
+  /**
+   * Get the value of a key in the local storage.
+   * @param key The key to fetch from the local storage.
+   * @returns The value of the key in the local storage, if it exists
+   */
   public get(key: string): any {
     if (!this.#instance && !this.#inServerEnvironment) {
       debug(`Trying to fetch ${key} from localStorage ${this.#namespace} before it is loaded.`)
@@ -152,6 +172,11 @@ export class LocalStorage {
     return dot.pick(key, this.#ref.value)
   }
 
+  /**
+   * Get the value of a key in the local storage.
+   * @param key The key to fetch from the local storage.
+   * @returns The value of the key in the local storage, if it exists
+   */
   public getDataFromLocalStorage(key: string): string | null {
     if (!this.#instance && !this.#inServerEnvironment) {
       debug(`Trying to fetch ${key} from localStorage ${this.#namespace} before it is loaded.`)
@@ -159,6 +184,10 @@ export class LocalStorage {
     return this.#instance?.getDataFromLocalStorage(key) || null
   }
 
+  /**
+   * Get all of the keys in the local storage.
+   * @returns An array of all of the keys in the local storage.
+   */
   public getAllKeys(): string[] {
     if (!this.#instance && !this.#inServerEnvironment) {
       debug(`Trying to fetch keys from localStorage ${this.#namespace} before it is loaded.`)
@@ -166,6 +195,11 @@ export class LocalStorage {
     return Object.keys(this.#ref.value)
   }
 
+  /**
+   * Set the value of a key in the local storage.
+   * @param key The key to set in the local storage.
+   * @param data The value to set for the key in the local storage.
+   */
   public set(key: string, data: any): void {
     if (!this.#instance && !this.#inServerEnvironment) {
       debug(`Trying to set ${key} in localStorage ${this.#namespace} before it is loaded.`)
@@ -188,6 +222,10 @@ export class LocalStorage {
     this.#bus.emit('change')
   }
 
+  /**
+   * Merge data into the local storage.
+   * @param data The data to merge into the local storage.
+   */
   public merge(data: any): void {
     const src = { ...this.#ref.value }
     const dst = { ...data }
@@ -196,6 +234,11 @@ export class LocalStorage {
     this.#commit()
   }
 
+  /**
+   * Set the value of a key in the local storage.
+   * @param key The key to set in the local storage.
+   * @param data The value to set for the key in the local storage.
+   */
   public setDataToLocalStorage(key: string, data: string): void {
     if (this.#instance) {
       this.#bus.emit('setDataToLocalStorage', key, data)
@@ -203,6 +246,10 @@ export class LocalStorage {
     return this.#instance?.setDataToLocalStorage(key, data)
   }
 
+  /**
+   * Remove a key from the local storage.
+   * @param key The key to remove from the local storage.
+   */
   public remove(key: string): void {
     if (!this.#instance && !this.#inServerEnvironment) {
       debug(`Trying to remove ${key} from localStorage ${this.#namespace} before it is loaded.`)
@@ -211,6 +258,9 @@ export class LocalStorage {
     this.#commit()
   }
 
+  /**
+   * Remove all keys from the local storage.
+   */
   public removeAll(): void {
     if (!this.#instance && !this.#inServerEnvironment) {
       debug(`Trying to remove all keys from localStorage ${this.#namespace} before it is loaded.`)
@@ -219,6 +269,9 @@ export class LocalStorage {
     this.#commit()
   }
 
+  /**
+   * Clear the local storage.
+   */
   public clear(): void {
     this.removeAll()
     if (this.#instance) {
@@ -229,6 +282,9 @@ export class LocalStorage {
     return this.#instance?.clear()
   }
 
+  /**
+   * Reset all keys in the local storage.
+   */
   public resetAllKeys(): [] {
     if (this.#instance) {
       this.#bus.emit('resetAllKeys')

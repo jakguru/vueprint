@@ -7,36 +7,119 @@ import { computed, ref } from 'vue'
 import { getDebugger } from './debug'
 const debug = getDebugger('Bus')
 
+/**
+ * Describes the events and the signatures of their callbacks
+ * Should be extended by the application to include all the events it needs
+ * @group Bus
+ */
 export type BusEventCallbackSignatures = {
+  /**
+   * Emitted when the API returns a 401 Unauthorized status
+   * @param from The ID of the tab that triggered the event
+   */
   'api:unauthorized': (from?: string) => void
+  /**
+   * A tab has been updated
+   * @param uuid The ID of the tab which has been updated
+   * @param active If the new tab is "active" or not
+   * @param from The ID of the tab that triggered the event
+   * @returns void
+   */
   'tab:uuid': (uuid: string, active: boolean, from?: string) => void
+  /**
+   * A tab has become active
+   * @param from The ID of the tab that triggered the event
+   */
   'tab:active': (from?: string) => void
+  /**
+   * A tab has become inactive
+   * @param from The ID of the tab that triggered the event
+   */
   'tab:inactive': (from?: string) => void
+  /**
+   * The push service has been updated
+   * @param from The ID of the tab that triggered the event
+   * @returns void
+   */
   'push:updated': (from?: string) => void
+  /**
+   * The push service has been granted permission
+   * @param from The ID of the tab that triggered the event
+   * @returns void
+   */
   'push:permission:denied': (from?: string) => void
+  /**
+   * The push service has been denied permission
+   * @param from The ID of the tab that triggered the event
+   * @returns void
+   */
   'push:permission:granted': (from?: string) => void
+  /**
+   * A push notification has been received
+   * @param payload The payload of the notification
+   * @param from The ID of the tab that triggered the event
+   * @returns void
+   */
   'push:notification': (payload: NotificationPayload, from?: string) => void
+  /**
+   * The Firebase token has been updated
+   * @param token The new token
+   * @param from The ID of the tab that triggered the event
+   * @returns void
+   */
   'firebase:token:updated': (token: string | undefined, from?: string) => void
+  /**
+   * The user has been authenticated and identified
+   * @param bearer The bearer token
+   * @param expiration The expiration date of the token
+   * @param identity The identity of the user
+   * @param from The ID of the tab that triggered the event
+   * @returns void
+   */
   'identity:login': (
     bearer: string,
     expiration: string,
     identity: UserIdentity,
     from?: string
   ) => void
+  /**
+   * The user has been logged out
+   * @param from The ID of the tab that triggered the event
+   * @returns void
+   */
   'identity:logout': (from?: string) => void
+  /**
+   * The user's authentication token is eligible for refresh
+   * @param from The ID of the tab that triggered the event
+   * @returns void
+   */
   'authentication:refreshable': (from?: string) => void
 }
 
+/**
+ * The events that can be emitted and listened to
+ * @group Bus
+ */
 export type BusEvent = keyof BusEventCallbackSignatures
 
+/**
+ * The callback signatures for the events
+ * @group Bus
+ */
 export type BusEventCallback<T extends keyof BusEventCallbackSignatures> =
   BusEventCallbackSignatures[T]
 
+/**
+ * The events that have already been triggered
+ * @group Bus
+ */
 export type BusEventAlreadyTriggered = {
   [key in keyof BusEventCallbackSignatures]: Parameters<BusEventCallback<key>>
 }
 
 /**
+ * Options for listening to events
+ * @group Bus
  * @param local - Emit and listen to events in the same tab
  * @param crossTab - Emit and listen to events in other tabs
  * @param immediate - If the event has already been triggered, trigger it immediately
@@ -47,12 +130,26 @@ export interface BusEventListenOptions {
   immediate?: boolean
 }
 
+/**
+ * Options for emitting events
+ * @group Bus
+ * @inheritdoc BusEventListenOptions
+ */
 export type BusEventEmitOptions = Omit<BusEventListenOptions, 'immediate'>
 
+/**
+ * Generate a likely unique short ID for identifying tabs
+ * @group Bus
+ * @returns A short ID
+ */
 export function shortid() {
   return Date.now().toString(36) + Math.random().toString(36).substring(2)
 }
 
+/**
+ * A bus for transmitting and subscribing to events acrosss components and tabs
+ * @group Bus
+ */
 export class Bus {
   #uuid: string
   #channel?: BroadcastChannel
@@ -63,6 +160,10 @@ export class Bus {
   #alreadyTriggeredLocalEvents: Ref<Partial<BusEventAlreadyTriggered>>
   #alreadyTriggeredCrossTabEvents: Ref<Partial<BusEventAlreadyTriggered>>
 
+  /**
+   * Create a new bus
+   * @param namespace The namespace for the BroadcastChannel
+   */
   constructor(namespace?: string) {
     this.#uuid = shortid()
     this.#localBus = new TinyEmitter()
@@ -119,14 +220,24 @@ export class Bus {
     this.#onWindowFocusChange(document.visibilityState === 'visible')
   }
 
+  /**
+   * The UUID of the tab
+   */
   public get uuid() {
     return this.#uuid
   }
 
+  /**
+   * Whether the tab is active
+   */
   public get active() {
     return computed(() => this.#active.value)
   }
 
+  /**
+   * Whether the tab has been inactive for too long and should have reduced functionality
+   * to save user resources
+   */
   public get inactiveTooLong() {
     return computed(() => {
       if (this.#active.value === true || this.#lastUpdatedAt.value === undefined) {
@@ -136,6 +247,12 @@ export class Bus {
     })
   }
 
+  /**
+   * Listen to an event
+   * @param event The event to listen to
+   * @param callback The callback to call when the event is emitted
+   * @param options The options for listening to the event
+   */
   public on<K extends BusEvent>(
     event: K,
     callback: BusEventCallback<K>,
@@ -167,6 +284,12 @@ export class Bus {
     }
   }
 
+  /**
+   * Stop listening to an event
+   * @param event The event to stop listening to
+   * @param callback The callback to remove from the event
+   * @param options The options for stopping listening to the event
+   */
   public off<K extends BusEvent>(
     event: K,
     callback: BusEventCallback<K>,
@@ -180,6 +303,12 @@ export class Bus {
     }
   }
 
+  /**
+   * Listen to an event once
+   * @param event The event to listen to
+   * @param callback The callback to call when the event is emitted
+   * @param options The options for listening to the event
+   */
   public once<K extends BusEvent>(
     event: K,
     callback: BusEventCallback<K>,
@@ -211,6 +340,12 @@ export class Bus {
     }
   }
 
+  /**
+   * Trigger an event
+   * @param event The name of the event to emit
+   * @param options The options for emitting the event
+   * @param args The arguments to pass to the event
+   */
   public emit<K extends BusEvent>(
     event: K,
     options: BusEventListenOptions = {},
@@ -228,6 +363,11 @@ export class Bus {
     }
   }
 
+  /**
+   * Get the active tabs
+   * @param wait The time to wait before returning the active tabs
+   * @returns The active tabs
+   */
   public async getActiveTabs(wait = 500) {
     return (await new Promise((resolve) => {
       const knownTabs = new Map()
@@ -257,6 +397,11 @@ export class Bus {
     })) as Array<string>
   }
 
+  /**
+   * Check if the tab is the main tab
+   * @param wait The time to wait before returning the active tabs
+   * @returns Whether the tab is the main tab
+   */
   public async isMain(wait = 500) {
     const ids = await this.getActiveTabs(wait)
     return ids.length > 0 ? ids[0] === this.#uuid : false

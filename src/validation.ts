@@ -3,8 +3,20 @@ import type { useI18n } from 'vue-i18n'
 
 type I18nT = ReturnType<typeof useI18n>['t']
 
+/**
+ * An error with a translated message
+ * @group utilities
+ * @group validation
+ */
 export class ErrorWithTranslatedMessage extends Error {}
 
+/**
+ * Check if a string is a valid Luhn number
+ * @group utilities
+ * @group validation
+ * @param input The input to check
+ * @returns A boolean indicating whether the input is a valid Luhn number
+ */
 export const isValidLuhn = (input: string | null) => {
   if (!input) {
     return false
@@ -30,11 +42,27 @@ export const isValidLuhn = (input: string | null) => {
   return sum % 10 === 0
 }
 
+/**
+ * Create a Joi schema from a serialized Joi schema
+ * @group utilities
+ * @group validation
+ * @param serialized The serialized Joi schema
+ * @returns A Joi schema
+ */
 export function getDeserializedSchema(serialized: string) {
   const description = JSON.parse(serialized)
   return Joi.build(description)
 }
 
+/**
+ * Get the translated error message for a Joi validation error
+ * @group utilities
+ * @group validation
+ * @param error The error to translate
+ * @param t The translation function
+ * @param label The label of the field being validated
+ * @returns The translated error message
+ */
 export function getJoiValidationErrorI18n(error: Error | undefined, t: I18nT, label = 'the Field') {
   if (!error) {
     return ''

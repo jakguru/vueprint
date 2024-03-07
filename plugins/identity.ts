@@ -12,12 +12,18 @@ declare module 'vue' {
   }
 }
 
+/**
+ * The options for the identity plugin
+ */
 export interface IdentityPluginOptions {
   tokenRefresh?: TokenRefreshCallback
   tokenRefreshBuffer?: number
 }
 
-export default {
+/**
+ * A plugin for managing user identity and authentication
+ */
+export const IdentityPlugin = {
   install: (app: App, options?: IdentityPluginOptions) => {
     const tokenRefreshBuffer = options?.tokenRefreshBuffer || 60 * 5
     const tokenRefresh =

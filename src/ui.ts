@@ -7,19 +7,22 @@ const defaults = {
   customClass: {
     title: 'text-h6',
     htmlContainer: 'text-body-2',
-    popup:
-      'v-card v-theme--tmp v-card--density-default v-card--variant-elevated bg-surface elevation-3 pb-3',
+    popup: 'v-card v-card--density-default v-card--variant-elevated bg-surface elevation-3 pb-3',
     confirmButton:
-      'v-btn v-btn--elevated v-theme--tmp bg-primary v-btn--density-default v-btn--size-default v-btn--variant-elevated',
+      'v-btn v-btn--elevated bg-primary v-btn--density-default v-btn--size-default v-btn--variant-elevated',
     denyButton:
-      'v-btn v-btn--elevated v-theme--tmp bg-error v-btn--density-default v-btn--size-default v-btn--variant-elevated',
+      'v-btn v-btn--elevated bg-error v-btn--density-default v-btn--size-default v-btn--variant-elevated',
     cancelButton:
-      'v-btn v-btn--elevated v-theme--tmp bg-cancel v-btn--density-default v-btn--size-default v-btn--variant-elevated',
+      'v-btn v-btn--elevated bg-cancel v-btn--density-default v-btn--size-default v-btn--variant-elevated',
   },
   buttonsStyling: true,
   reverseButtons: true,
 }
 
+/**
+ * A SweetAlert2 instance with the default settings
+ * @group ui
+ */
 export const swal = Swal.mixin(defaults)
 
 const toastDefaults = merge({}, defaults, {
@@ -36,4 +39,8 @@ const toastDefaults = merge({}, defaults, {
 })
 
 delete toastDefaults.backdrop
+/**
+ * A SweetAlert2 instance with the default settings for toasts
+ * @group ui
+ */
 export const toast = Swal.mixin(toastDefaults)

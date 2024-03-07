@@ -1,3 +1,7 @@
+export * from './src'
+export * from './plugins'
+export * from './composables'
+
 import { getDebugger } from 'src/debug'
 import {
   colorToCssColor,

@@ -16,7 +16,12 @@
     "build:watch": "rm -rf dist && npx rollup -c -w",
     "type-check": "npx tsc --noEmit",
     "lint": "eslint . --ext=.ts,.mjs",
-    "format": "eslint . --ext=.ts,.mjs --fix"
+    "format": "eslint . --ext=.ts,.mjs --fix",
+    "docs:dev": "npx vitepress dev docs",
+    "docs:build": "npx vitepress build docs",
+    "docs:preview": "npx vitepress preview docs",
+    "docs:api": "npx typedoc",
+    "docs:api:watch": "npx typedoc --watch"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^25.0.7",
@@ -35,7 +40,10 @@
     "rollup": "^4.9.1",
     "rollup-plugin-styles": "^4.0.0",
     "stylus": "^0.63.0",
-    "typescript": "^5.1.6"
+    "typedoc": "^0.25.11",
+    "typedoc-plugin-markdown": "^3.17.1",
+    "typescript": "^5.1.6",
+    "vitepress": "^1.0.0-rc.45"
   },
   "engines": {
     "node": ">=18.0.0"

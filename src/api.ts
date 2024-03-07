@@ -2,6 +2,14 @@ import axios, { Axios } from 'axios'
 import { LocalStorage } from './localStorage'
 import { Bus } from './bus'
 
+/**
+ * Initialize an instance of Axios with the given base URL, LocalStorage instance, and Bus instance
+ * @private
+ * @param baseURL The URL to use as the base for all requests
+ * @param ls The LocalStorage instance to use for storing and retrieving the bearer token
+ * @param bus The Bus instance to use for unauthorized requests
+ * @returns An Axios instance
+ */
 export const initializeApi = (baseURL: string, ls: LocalStorage, bus: Bus): Axios => {
   if (!(ls instanceof LocalStorage)) {
     throw new Error('Invalid or missing LocalStorage instance')

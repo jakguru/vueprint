@@ -1,0 +1,3292 @@
+{
+	"id": 0,
+	"name": "@jakguru/vueprint",
+	"variant": "project",
+	"kind": 1,
+	"flags": {},
+	"children": [
+		{
+			"id": 1,
+			"name": "bootstraps/vue/client",
+			"variant": "declaration",
+			"kind": 2,
+			"flags": {},
+			"children": [
+				{
+					"id": 2,
+					"name": "VueClientBootstrapOptions",
+					"variant": "declaration",
+					"kind": 256,
+					"flags": {},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "The options for the client-only Vue bootstrap"
+							}
+						]
+					},
+					"children": [
+						{
+							"id": 3,
+							"name": "push",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "bootstraps/vue/client.ts",
+									"line": 9,
+									"character": 2
+								}
+							],
+							"type": {
+								"type": "reference",
+								"target": 102,
+								"name": "PushPluginOptions",
+								"package": "@jakguru/vueprint"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"children": [
+								3
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "bootstraps/vue/client.ts",
+							"line": 8,
+							"character": 17
+						}
+					]
+				},
+				{
+					"id": 4,
+					"name": "default",
+					"variant": "declaration",
+					"kind": 32,
+					"flags": {
+						"isConst": true
+					},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "A plugin which bootstraps all of the Vue plugins which can only be loaded in a client environment, in the correct order"
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "bootstraps/vue/client.ts",
+							"line": 15,
+							"character": 6
+						}
+					],
+					"type": {
+						"type": "reflection",
+						"declaration": {
+							"id": 5,
+							"name": "__type",
+							"variant": "declaration",
+							"kind": 65536,
+							"flags": {},
+							"children": [
+								{
+									"id": 6,
+									"name": "install",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "bootstraps/vue/client.ts",
+											"line": 16,
+											"character": 2
+										}
+									],
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 7,
+											"name": "__type",
+											"variant": "declaration",
+											"kind": 65536,
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "bootstraps/vue/client.ts",
+													"line": 16,
+													"character": 11
+												}
+											],
+											"signatures": [
+												{
+													"id": 8,
+													"name": "__type",
+													"variant": "signature",
+													"kind": 4096,
+													"flags": {},
+													"sources": [
+														{
+															"fileName": "bootstraps/vue/client.ts",
+															"line": 16,
+															"character": 11
+														}
+													],
+													"parameters": [
+														{
+															"id": 9,
+															"name": "app",
+															"variant": "param",
+															"kind": 32768,
+															"flags": {},
+															"type": {
+																"type": "reference",
+																"target": {
+																	"sourceFileName": "node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+																	"qualifiedName": "App"
+																},
+																"typeArguments": [
+																	{
+																		"type": "intrinsic",
+																		"name": "any"
+																	}
+																],
+																"name": "App",
+																"package": "@vue/runtime-core"
+															}
+														},
+														{
+															"id": 10,
+															"name": "options",
+															"variant": "param",
+															"kind": 32768,
+															"flags": {
+																"isOptional": true
+															},
+															"type": {
+																"type": "reference",
+																"target": 2,
+																"name": "VueClientBootstrapOptions",
+																"package": "@jakguru/vueprint"
+															}
+														}
+													],
+													"type": {
+														"type": "intrinsic",
+														"name": "void"
+													}
+												}
+											]
+										}
+									},
+									"defaultValue": "..."
+								}
+							],
+							"groups": [
+								{
+									"title": "Properties",
+									"children": [
+										6
+									]
+								}
+							],
+							"sources": [
+								{
+									"fileName": "bootstraps/vue/client.ts",
+									"line": 15,
+									"character": 27
+								}
+							]
+						}
+					},
+					"defaultValue": "..."
+				}
+			],
+			"groups": [
+				{
+					"title": "Interfaces",
+					"children": [
+						2
+					]
+				},
+				{
+					"title": "Variables",
+					"children": [
+						4
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "bootstraps/vue/client.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 11,
+			"name": "bootstraps/vue/main",
+			"variant": "declaration",
+			"kind": 2,
+			"flags": {},
+			"children": [
+				{
+					"id": 12,
+					"name": "VueMainBootstrapOptions",
+					"variant": "declaration",
+					"kind": 256,
+					"flags": {},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "The options for the main Vue bootstrap"
+							}
+						]
+					},
+					"children": [
+						{
+							"id": 16,
+							"name": "api",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "bootstraps/vue/main.ts",
+									"line": 16,
+									"character": 2
+								}
+							],
+							"type": {
+								"type": "reference",
+								"target": 81,
+								"name": "ApiPluginOptions",
+								"package": "@jakguru/vueprint"
+							}
+						},
+						{
+							"id": 13,
+							"name": "bus",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "bootstraps/vue/main.ts",
+									"line": 13,
+									"character": 2
+								}
+							],
+							"type": {
+								"type": "reference",
+								"target": 42,
+								"name": "BusPluginOptions",
+								"package": "@jakguru/vueprint"
+							}
+						},
+						{
+							"id": 17,
+							"name": "identity",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "bootstraps/vue/main.ts",
+									"line": 17,
+									"character": 2
+								}
+							],
+							"type": {
+								"type": "reference",
+								"target": 91,
+								"name": "IdentityPluginOptions",
+								"package": "@jakguru/vueprint"
+							}
+						},
+						{
+							"id": 14,
+							"name": "ls",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "bootstraps/vue/main.ts",
+									"line": 14,
+									"character": 2
+								}
+							],
+							"type": {
+								"type": "reference",
+								"target": 59,
+								"name": "LocalStoragePluginOptions",
+								"package": "@jakguru/vueprint"
+							}
+						},
+						{
+							"id": 15,
+							"name": "vuetify",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "bootstraps/vue/main.ts",
+									"line": 15,
+									"character": 2
+								}
+							],
+							"type": {
+								"type": "reference",
+								"target": 69,
+								"name": "VuetifyPluginOptions",
+								"package": "@jakguru/vueprint"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"children": [
+								16,
+								13,
+								17,
+								14,
+								15
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "bootstraps/vue/main.ts",
+							"line": 12,
+							"character": 17
+						}
+					]
+				},
+				{
+					"id": 18,
+					"name": "default",
+					"variant": "declaration",
+					"kind": 32,
+					"flags": {
+						"isConst": true
+					},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "A plugin which bootstraps all of the Vue plugins which can be loaded in both a client and server environment, in the correct order"
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "bootstraps/vue/main.ts",
+							"line": 23,
+							"character": 6
+						}
+					],
+					"type": {
+						"type": "reflection",
+						"declaration": {
+							"id": 19,
+							"name": "__type",
+							"variant": "declaration",
+							"kind": 65536,
+							"flags": {},
+							"children": [
+								{
+									"id": 20,
+									"name": "install",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "bootstraps/vue/main.ts",
+											"line": 24,
+											"character": 2
+										}
+									],
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 21,
+											"name": "__type",
+											"variant": "declaration",
+											"kind": 65536,
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "bootstraps/vue/main.ts",
+													"line": 24,
+													"character": 11
+												}
+											],
+											"signatures": [
+												{
+													"id": 22,
+													"name": "__type",
+													"variant": "signature",
+													"kind": 4096,
+													"flags": {},
+													"sources": [
+														{
+															"fileName": "bootstraps/vue/main.ts",
+															"line": 24,
+															"character": 11
+														}
+													],
+													"parameters": [
+														{
+															"id": 23,
+															"name": "app",
+															"variant": "param",
+															"kind": 32768,
+															"flags": {},
+															"type": {
+																"type": "reference",
+																"target": {
+																	"sourceFileName": "node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+																	"qualifiedName": "App"
+																},
+																"typeArguments": [
+																	{
+																		"type": "intrinsic",
+																		"name": "any"
+																	}
+																],
+																"name": "App",
+																"package": "@vue/runtime-core"
+															}
+														},
+														{
+															"id": 24,
+															"name": "options",
+															"variant": "param",
+															"kind": 32768,
+															"flags": {
+																"isOptional": true
+															},
+															"type": {
+																"type": "reference",
+																"target": 12,
+																"name": "VueMainBootstrapOptions",
+																"package": "@jakguru/vueprint"
+															}
+														}
+													],
+													"type": {
+														"type": "intrinsic",
+														"name": "void"
+													}
+												}
+											]
+										}
+									},
+									"defaultValue": "..."
+								}
+							],
+							"groups": [
+								{
+									"title": "Properties",
+									"children": [
+										20
+									]
+								}
+							],
+							"sources": [
+								{
+									"fileName": "bootstraps/vue/main.ts",
+									"line": 23,
+									"character": 25
+								}
+							]
+						}
+					},
+					"defaultValue": "..."
+				}
+			],
+			"groups": [
+				{
+					"title": "Interfaces",
+					"children": [
+						12
+					]
+				},
+				{
+					"title": "Variables",
+					"children": [
+						18
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "bootstraps/vue/main.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 25,
+			"name": "composables/useVueprint",
+			"variant": "declaration",
+			"kind": 2,
+			"flags": {},
+			"children": [
+				{
+					"id": 26,
+					"name": "ApplicationHook",
+					"variant": "declaration",
+					"kind": 256,
+					"flags": {},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "Define the shape of a hook that will be used when an application property changes state"
+							}
+						]
+					},
+					"children": [
+						{
+							"id": 30,
+							"name": "onFalse",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "composables/useVueprint.ts",
+									"line": 22,
+									"character": 2
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 31,
+									"name": "__type",
+									"variant": "declaration",
+									"kind": 65536,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "composables/useVueprint.ts",
+											"line": 22,
+											"character": 11
+										}
+									],
+									"signatures": [
+										{
+											"id": 32,
+											"name": "__type",
+											"variant": "signature",
+											"kind": 4096,
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "composables/useVueprint.ts",
+													"line": 22,
+													"character": 11
+												}
+											],
+											"type": {
+												"type": "intrinsic",
+												"name": "void"
+											}
+										}
+									]
+								}
+							}
+						},
+						{
+							"id": 27,
+							"name": "onTrue",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "composables/useVueprint.ts",
+									"line": 21,
+									"character": 2
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 28,
+									"name": "__type",
+									"variant": "declaration",
+									"kind": 65536,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "composables/useVueprint.ts",
+											"line": 21,
+											"character": 10
+										}
+									],
+									"signatures": [
+										{
+											"id": 29,
+											"name": "__type",
+											"variant": "signature",
+											"kind": 4096,
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "composables/useVueprint.ts",
+													"line": 21,
+													"character": 10
+												}
+											],
+											"type": {
+												"type": "intrinsic",
+												"name": "void"
+											}
+										}
+									]
+								}
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"children": [
+								30,
+								27
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "composables/useVueprint.ts",
+							"line": 20,
+							"character": 17
+						}
+					]
+				},
+				{
+					"id": 33,
+					"name": "ApplicationHooks",
+					"variant": "declaration",
+					"kind": 256,
+					"flags": {},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "Define the hooks that will be used when an application property changes state"
+							}
+						]
+					},
+					"children": [
+						{
+							"id": 36,
+							"name": "onAuthenticated",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "composables/useVueprint.ts",
+									"line": 31,
+									"character": 2
+								}
+							],
+							"type": {
+								"type": "reference",
+								"target": 26,
+								"name": "ApplicationHook",
+								"package": "@jakguru/vueprint"
+							}
+						},
+						{
+							"id": 34,
+							"name": "onBooted",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "composables/useVueprint.ts",
+									"line": 29,
+									"character": 2
+								}
+							],
+							"type": {
+								"type": "reference",
+								"target": 26,
+								"name": "ApplicationHook",
+								"package": "@jakguru/vueprint"
+							}
+						},
+						{
+							"id": 37,
+							"name": "onPushPermissions",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "composables/useVueprint.ts",
+									"line": 32,
+									"character": 2
+								}
+							],
+							"type": {
+								"type": "reference",
+								"target": 26,
+								"name": "ApplicationHook",
+								"package": "@jakguru/vueprint"
+							}
+						},
+						{
+							"id": 35,
+							"name": "onReady",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "composables/useVueprint.ts",
+									"line": 30,
+									"character": 2
+								}
+							],
+							"type": {
+								"type": "reference",
+								"target": 26,
+								"name": "ApplicationHook",
+								"package": "@jakguru/vueprint"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"children": [
+								36,
+								34,
+								37,
+								35
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "composables/useVueprint.ts",
+							"line": 28,
+							"character": 17
+						}
+					]
+				},
+				{
+					"id": 38,
+					"name": "useVueprint",
+					"variant": "declaration",
+					"kind": 64,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "composables/useVueprint.ts",
+							"line": 39,
+							"character": 13
+						}
+					],
+					"signatures": [
+						{
+							"id": 39,
+							"name": "useVueprint",
+							"variant": "signature",
+							"kind": 4096,
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "Initialize the VuePrint integration with the application"
+									}
+								]
+							},
+							"sources": [
+								{
+									"fileName": "composables/useVueprint.ts",
+									"line": 39,
+									"character": 27
+								}
+							],
+							"parameters": [
+								{
+									"id": 40,
+									"name": "hooks",
+									"variant": "param",
+									"kind": 32768,
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "The hooks that will be used when an application property changes state"
+											}
+										]
+									},
+									"type": {
+										"type": "reference",
+										"target": 33,
+										"name": "ApplicationHooks",
+										"package": "@jakguru/vueprint"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "void"
+							}
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Interfaces",
+					"children": [
+						26,
+						33
+					]
+				},
+				{
+					"title": "Functions",
+					"children": [
+						38
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "composables/useVueprint.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 80,
+			"name": "plugins/api",
+			"variant": "declaration",
+			"kind": 2,
+			"flags": {},
+			"children": [
+				{
+					"id": 81,
+					"name": "ApiPluginOptions",
+					"variant": "declaration",
+					"kind": 256,
+					"flags": {},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "The options for the API plugin"
+							}
+						]
+					},
+					"children": [
+						{
+							"id": 82,
+							"name": "baseURL",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "plugins/api.ts",
+									"line": 18,
+									"character": 2,
+									"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/api.ts#L18"
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"children": [
+								82
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "plugins/api.ts",
+							"line": 17,
+							"character": 17,
+							"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/api.ts#L17"
+						}
+					]
+				},
+				{
+					"id": 83,
+					"name": "ApiPlugin",
+					"variant": "declaration",
+					"kind": 32,
+					"flags": {
+						"isConst": true
+					},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "A plugin for interacting with an API with a built-in authentication bearer token authentication mechanism"
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "plugins/api.ts",
+							"line": 24,
+							"character": 13,
+							"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/api.ts#L24"
+						}
+					],
+					"type": {
+						"type": "reflection",
+						"declaration": {
+							"id": 84,
+							"name": "__type",
+							"variant": "declaration",
+							"kind": 65536,
+							"flags": {},
+							"children": [
+								{
+									"id": 85,
+									"name": "install",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "plugins/api.ts",
+											"line": 25,
+											"character": 2,
+											"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/api.ts#L25"
+										}
+									],
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 86,
+											"name": "__type",
+											"variant": "declaration",
+											"kind": 65536,
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "plugins/api.ts",
+													"line": 25,
+													"character": 11,
+													"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/api.ts#L25"
+												}
+											],
+											"signatures": [
+												{
+													"id": 87,
+													"name": "__type",
+													"variant": "signature",
+													"kind": 4096,
+													"flags": {},
+													"sources": [
+														{
+															"fileName": "plugins/api.ts",
+															"line": 25,
+															"character": 11,
+															"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/api.ts#L25"
+														}
+													],
+													"parameters": [
+														{
+															"id": 88,
+															"name": "app",
+															"variant": "param",
+															"kind": 32768,
+															"flags": {},
+															"type": {
+																"type": "reference",
+																"target": {
+																	"sourceFileName": "node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+																	"qualifiedName": "App"
+																},
+																"typeArguments": [
+																	{
+																		"type": "intrinsic",
+																		"name": "any"
+																	}
+																],
+																"name": "App",
+																"package": "@vue/runtime-core"
+															}
+														},
+														{
+															"id": 89,
+															"name": "options",
+															"variant": "param",
+															"kind": 32768,
+															"flags": {
+																"isOptional": true
+															},
+															"type": {
+																"type": "reference",
+																"target": 81,
+																"name": "ApiPluginOptions",
+																"package": "@jakguru/vueprint"
+															}
+														}
+													],
+													"type": {
+														"type": "intrinsic",
+														"name": "void"
+													}
+												}
+											]
+										}
+									},
+									"defaultValue": "..."
+								}
+							],
+							"groups": [
+								{
+									"title": "Properties",
+									"children": [
+										85
+									]
+								}
+							],
+							"sources": [
+								{
+									"fileName": "plugins/api.ts",
+									"line": 24,
+									"character": 25,
+									"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/api.ts#L24"
+								}
+							]
+						}
+					},
+					"defaultValue": "..."
+				}
+			],
+			"groups": [
+				{
+					"title": "Interfaces",
+					"children": [
+						81
+					]
+				},
+				{
+					"title": "Variables",
+					"children": [
+						83
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "plugins/api.ts",
+					"line": 1,
+					"character": 0,
+					"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/api.ts#L1"
+				}
+			]
+		},
+		{
+			"id": 41,
+			"name": "plugins/bus",
+			"variant": "declaration",
+			"kind": 2,
+			"flags": {},
+			"children": [
+				{
+					"id": 42,
+					"name": "BusPluginOptions",
+					"variant": "declaration",
+					"kind": 256,
+					"flags": {},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "The options for the bus plugin"
+							}
+						]
+					},
+					"children": [
+						{
+							"id": 43,
+							"name": "namespace",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "plugins/bus.ts",
+									"line": 17,
+									"character": 2,
+									"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/bus.ts#L17"
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"children": [
+								43
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "plugins/bus.ts",
+							"line": 16,
+							"character": 17,
+							"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/bus.ts#L16"
+						}
+					]
+				},
+				{
+					"id": 44,
+					"name": "BusPlugin",
+					"variant": "declaration",
+					"kind": 32,
+					"flags": {
+						"isConst": true
+					},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "A plugin for an event bus which supports events within the same window, across windows, and background push events"
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "plugins/bus.ts",
+							"line": 23,
+							"character": 13,
+							"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/bus.ts#L23"
+						}
+					],
+					"type": {
+						"type": "reflection",
+						"declaration": {
+							"id": 45,
+							"name": "__type",
+							"variant": "declaration",
+							"kind": 65536,
+							"flags": {},
+							"children": [
+								{
+									"id": 46,
+									"name": "install",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "plugins/bus.ts",
+											"line": 24,
+											"character": 2,
+											"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/bus.ts#L24"
+										}
+									],
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 47,
+											"name": "__type",
+											"variant": "declaration",
+											"kind": 65536,
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "plugins/bus.ts",
+													"line": 24,
+													"character": 11,
+													"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/bus.ts#L24"
+												}
+											],
+											"signatures": [
+												{
+													"id": 48,
+													"name": "__type",
+													"variant": "signature",
+													"kind": 4096,
+													"flags": {},
+													"sources": [
+														{
+															"fileName": "plugins/bus.ts",
+															"line": 24,
+															"character": 11,
+															"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/bus.ts#L24"
+														}
+													],
+													"parameters": [
+														{
+															"id": 49,
+															"name": "app",
+															"variant": "param",
+															"kind": 32768,
+															"flags": {},
+															"type": {
+																"type": "reference",
+																"target": {
+																	"sourceFileName": "node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+																	"qualifiedName": "App"
+																},
+																"typeArguments": [
+																	{
+																		"type": "intrinsic",
+																		"name": "any"
+																	}
+																],
+																"name": "App",
+																"package": "@vue/runtime-core"
+															}
+														},
+														{
+															"id": 50,
+															"name": "options",
+															"variant": "param",
+															"kind": 32768,
+															"flags": {
+																"isOptional": true
+															},
+															"type": {
+																"type": "reference",
+																"target": 42,
+																"name": "BusPluginOptions",
+																"package": "@jakguru/vueprint"
+															}
+														}
+													],
+													"type": {
+														"type": "intrinsic",
+														"name": "void"
+													}
+												}
+											]
+										}
+									},
+									"defaultValue": "..."
+								}
+							],
+							"groups": [
+								{
+									"title": "Properties",
+									"children": [
+										46
+									]
+								}
+							],
+							"sources": [
+								{
+									"fileName": "plugins/bus.ts",
+									"line": 23,
+									"character": 25,
+									"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/bus.ts#L23"
+								}
+							]
+						}
+					},
+					"defaultValue": "..."
+				}
+			],
+			"groups": [
+				{
+					"title": "Interfaces",
+					"children": [
+						42
+					]
+				},
+				{
+					"title": "Variables",
+					"children": [
+						44
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "plugins/bus.ts",
+					"line": 1,
+					"character": 0,
+					"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/bus.ts#L1"
+				}
+			]
+		},
+		{
+			"id": 51,
+			"name": "plugins/cron",
+			"variant": "declaration",
+			"kind": 2,
+			"flags": {},
+			"children": [
+				{
+					"id": 52,
+					"name": "CronPlugin",
+					"variant": "declaration",
+					"kind": 32,
+					"flags": {
+						"isConst": true
+					},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "A plugin managing time based repeating tasks (cron jobs)"
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "plugins/cron.ts",
+							"line": 16,
+							"character": 13,
+							"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/cron.ts#L16"
+						}
+					],
+					"type": {
+						"type": "reflection",
+						"declaration": {
+							"id": 53,
+							"name": "__type",
+							"variant": "declaration",
+							"kind": 65536,
+							"flags": {},
+							"children": [
+								{
+									"id": 54,
+									"name": "install",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "plugins/cron.ts",
+											"line": 17,
+											"character": 2,
+											"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/cron.ts#L17"
+										}
+									],
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 55,
+											"name": "__type",
+											"variant": "declaration",
+											"kind": 65536,
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "plugins/cron.ts",
+													"line": 17,
+													"character": 11,
+													"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/cron.ts#L17"
+												}
+											],
+											"signatures": [
+												{
+													"id": 56,
+													"name": "__type",
+													"variant": "signature",
+													"kind": 4096,
+													"flags": {},
+													"sources": [
+														{
+															"fileName": "plugins/cron.ts",
+															"line": 17,
+															"character": 11,
+															"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/cron.ts#L17"
+														}
+													],
+													"parameters": [
+														{
+															"id": 57,
+															"name": "app",
+															"variant": "param",
+															"kind": 32768,
+															"flags": {},
+															"type": {
+																"type": "reference",
+																"target": {
+																	"sourceFileName": "node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+																	"qualifiedName": "App"
+																},
+																"typeArguments": [
+																	{
+																		"type": "intrinsic",
+																		"name": "any"
+																	}
+																],
+																"name": "App",
+																"package": "@vue/runtime-core"
+															}
+														}
+													],
+													"type": {
+														"type": "intrinsic",
+														"name": "void"
+													}
+												}
+											]
+										}
+									},
+									"defaultValue": "..."
+								}
+							],
+							"groups": [
+								{
+									"title": "Properties",
+									"children": [
+										54
+									]
+								}
+							],
+							"sources": [
+								{
+									"fileName": "plugins/cron.ts",
+									"line": 16,
+									"character": 26,
+									"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/cron.ts#L16"
+								}
+							]
+						}
+					},
+					"defaultValue": "..."
+				}
+			],
+			"groups": [
+				{
+					"title": "Variables",
+					"children": [
+						52
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "plugins/cron.ts",
+					"line": 1,
+					"character": 0,
+					"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/cron.ts#L1"
+				}
+			]
+		},
+		{
+			"id": 90,
+			"name": "plugins/identity",
+			"variant": "declaration",
+			"kind": 2,
+			"flags": {},
+			"children": [
+				{
+					"id": 91,
+					"name": "IdentityPluginOptions",
+					"variant": "declaration",
+					"kind": 256,
+					"flags": {},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "The options for the identity plugin"
+							}
+						]
+					},
+					"children": [
+						{
+							"id": 92,
+							"name": "tokenRefresh",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "plugins/identity.ts",
+									"line": 19,
+									"character": 2,
+									"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/identity.ts#L19"
+								}
+							],
+							"type": {
+								"type": "reference",
+								"target": {
+									"sourceFileName": "src/identity.ts",
+									"qualifiedName": "TokenRefreshCallback"
+								},
+								"name": "TokenRefreshCallback",
+								"package": "@jakguru/vueprint"
+							}
+						},
+						{
+							"id": 93,
+							"name": "tokenRefreshBuffer",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "plugins/identity.ts",
+									"line": 20,
+									"character": 2,
+									"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/identity.ts#L20"
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"children": [
+								92,
+								93
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "plugins/identity.ts",
+							"line": 18,
+							"character": 17,
+							"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/identity.ts#L18"
+						}
+					]
+				},
+				{
+					"id": 94,
+					"name": "IdentityPlugin",
+					"variant": "declaration",
+					"kind": 32,
+					"flags": {
+						"isConst": true
+					},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "A plugin for managing user identity and authentication"
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "plugins/identity.ts",
+							"line": 26,
+							"character": 13,
+							"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/identity.ts#L26"
+						}
+					],
+					"type": {
+						"type": "reflection",
+						"declaration": {
+							"id": 95,
+							"name": "__type",
+							"variant": "declaration",
+							"kind": 65536,
+							"flags": {},
+							"children": [
+								{
+									"id": 96,
+									"name": "install",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "plugins/identity.ts",
+											"line": 27,
+											"character": 2,
+											"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/identity.ts#L27"
+										}
+									],
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 97,
+											"name": "__type",
+											"variant": "declaration",
+											"kind": 65536,
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "plugins/identity.ts",
+													"line": 27,
+													"character": 11,
+													"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/identity.ts#L27"
+												}
+											],
+											"signatures": [
+												{
+													"id": 98,
+													"name": "__type",
+													"variant": "signature",
+													"kind": 4096,
+													"flags": {},
+													"sources": [
+														{
+															"fileName": "plugins/identity.ts",
+															"line": 27,
+															"character": 11,
+															"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/identity.ts#L27"
+														}
+													],
+													"parameters": [
+														{
+															"id": 99,
+															"name": "app",
+															"variant": "param",
+															"kind": 32768,
+															"flags": {},
+															"type": {
+																"type": "reference",
+																"target": {
+																	"sourceFileName": "node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+																	"qualifiedName": "App"
+																},
+																"typeArguments": [
+																	{
+																		"type": "intrinsic",
+																		"name": "any"
+																	}
+																],
+																"name": "App",
+																"package": "@vue/runtime-core"
+															}
+														},
+														{
+															"id": 100,
+															"name": "options",
+															"variant": "param",
+															"kind": 32768,
+															"flags": {
+																"isOptional": true
+															},
+															"type": {
+																"type": "reference",
+																"target": 91,
+																"name": "IdentityPluginOptions",
+																"package": "@jakguru/vueprint"
+															}
+														}
+													],
+													"type": {
+														"type": "intrinsic",
+														"name": "void"
+													}
+												}
+											]
+										}
+									},
+									"defaultValue": "..."
+								}
+							],
+							"groups": [
+								{
+									"title": "Properties",
+									"children": [
+										96
+									]
+								}
+							],
+							"sources": [
+								{
+									"fileName": "plugins/identity.ts",
+									"line": 26,
+									"character": 30,
+									"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/identity.ts#L26"
+								}
+							]
+						}
+					},
+					"defaultValue": "..."
+				}
+			],
+			"groups": [
+				{
+					"title": "Interfaces",
+					"children": [
+						91
+					]
+				},
+				{
+					"title": "Variables",
+					"children": [
+						94
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "plugins/identity.ts",
+					"line": 1,
+					"character": 0,
+					"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/identity.ts#L1"
+				}
+			]
+		},
+		{
+			"id": 58,
+			"name": "plugins/ls",
+			"variant": "declaration",
+			"kind": 2,
+			"flags": {},
+			"children": [
+				{
+					"id": 59,
+					"name": "LocalStoragePluginOptions",
+					"variant": "declaration",
+					"kind": 256,
+					"flags": {},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "The options for the local storage plugin"
+							}
+						]
+					},
+					"children": [
+						{
+							"id": 60,
+							"name": "namespace",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "plugins/ls.ts",
+									"line": 17,
+									"character": 2,
+									"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/ls.ts#L17"
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"children": [
+								60
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "plugins/ls.ts",
+							"line": 16,
+							"character": 17,
+							"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/ls.ts#L16"
+						}
+					]
+				},
+				{
+					"id": 61,
+					"name": "LocalStoragePlugin",
+					"variant": "declaration",
+					"kind": 32,
+					"flags": {
+						"isConst": true
+					},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "A plugin for interacting with local browser storage"
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "plugins/ls.ts",
+							"line": 23,
+							"character": 13,
+							"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/ls.ts#L23"
+						}
+					],
+					"type": {
+						"type": "reflection",
+						"declaration": {
+							"id": 62,
+							"name": "__type",
+							"variant": "declaration",
+							"kind": 65536,
+							"flags": {},
+							"children": [
+								{
+									"id": 63,
+									"name": "install",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "plugins/ls.ts",
+											"line": 24,
+											"character": 2,
+											"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/ls.ts#L24"
+										}
+									],
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 64,
+											"name": "__type",
+											"variant": "declaration",
+											"kind": 65536,
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "plugins/ls.ts",
+													"line": 24,
+													"character": 11,
+													"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/ls.ts#L24"
+												}
+											],
+											"signatures": [
+												{
+													"id": 65,
+													"name": "__type",
+													"variant": "signature",
+													"kind": 4096,
+													"flags": {},
+													"sources": [
+														{
+															"fileName": "plugins/ls.ts",
+															"line": 24,
+															"character": 11,
+															"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/ls.ts#L24"
+														}
+													],
+													"parameters": [
+														{
+															"id": 66,
+															"name": "app",
+															"variant": "param",
+															"kind": 32768,
+															"flags": {},
+															"type": {
+																"type": "reference",
+																"target": {
+																	"sourceFileName": "node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+																	"qualifiedName": "App"
+																},
+																"typeArguments": [
+																	{
+																		"type": "intrinsic",
+																		"name": "any"
+																	}
+																],
+																"name": "App",
+																"package": "@vue/runtime-core"
+															}
+														},
+														{
+															"id": 67,
+															"name": "options",
+															"variant": "param",
+															"kind": 32768,
+															"flags": {
+																"isOptional": true
+															},
+															"type": {
+																"type": "reference",
+																"target": 59,
+																"name": "LocalStoragePluginOptions",
+																"package": "@jakguru/vueprint"
+															}
+														}
+													],
+													"type": {
+														"type": "intrinsic",
+														"name": "void"
+													}
+												}
+											]
+										}
+									},
+									"defaultValue": "..."
+								}
+							],
+							"groups": [
+								{
+									"title": "Properties",
+									"children": [
+										63
+									]
+								}
+							],
+							"sources": [
+								{
+									"fileName": "plugins/ls.ts",
+									"line": 23,
+									"character": 34,
+									"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/ls.ts#L23"
+								}
+							]
+						}
+					},
+					"defaultValue": "..."
+				}
+			],
+			"groups": [
+				{
+					"title": "Interfaces",
+					"children": [
+						59
+					]
+				},
+				{
+					"title": "Variables",
+					"children": [
+						61
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "plugins/ls.ts",
+					"line": 1,
+					"character": 0,
+					"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/ls.ts#L1"
+				}
+			]
+		},
+		{
+			"id": 101,
+			"name": "plugins/push",
+			"variant": "declaration",
+			"kind": 2,
+			"flags": {},
+			"children": [
+				{
+					"id": 102,
+					"name": "PushPluginOptions",
+					"variant": "declaration",
+					"kind": 256,
+					"flags": {},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "The options for the push plugin"
+							}
+						]
+					},
+					"children": [
+						{
+							"id": 103,
+							"name": "firebaseOptions",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "plugins/push.ts",
+									"line": 19,
+									"character": 2,
+									"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/push.ts#L19"
+								}
+							],
+							"type": {
+								"type": "reference",
+								"target": {
+									"sourceFileName": "node_modules/@firebase/app/dist/app-public.d.ts",
+									"qualifiedName": "FirebaseOptions"
+								},
+								"name": "FirebaseOptions",
+								"package": "@firebase/app"
+							}
+						},
+						{
+							"id": 104,
+							"name": "onAuthenticatedForFirebase",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "plugins/push.ts",
+									"line": 20,
+									"character": 2,
+									"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/push.ts#L20"
+								}
+							],
+							"type": {
+								"type": "reference",
+								"target": {
+									"sourceFileName": "src/push.ts",
+									"qualifiedName": "FirebaseTokenAuthenticationCallback"
+								},
+								"name": "FirebaseTokenAuthenticationCallback",
+								"package": "@jakguru/vueprint"
+							}
+						},
+						{
+							"id": 105,
+							"name": "onUnauthenticatedForFirebase",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "plugins/push.ts",
+									"line": 21,
+									"character": 2,
+									"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/push.ts#L21"
+								}
+							],
+							"type": {
+								"type": "reference",
+								"target": {
+									"sourceFileName": "src/push.ts",
+									"qualifiedName": "FirebaseTokenAuthenticationCallback"
+								},
+								"name": "FirebaseTokenAuthenticationCallback",
+								"package": "@jakguru/vueprint"
+							}
+						},
+						{
+							"id": 107,
+							"name": "serviceWorkerMode",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "plugins/push.ts",
+									"line": 23,
+									"character": 2,
+									"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/push.ts#L23"
+								}
+							],
+							"type": {
+								"type": "union",
+								"types": [
+									{
+										"type": "literal",
+										"value": "classic"
+									},
+									{
+										"type": "literal",
+										"value": "module"
+									}
+								]
+							}
+						},
+						{
+							"id": 106,
+							"name": "serviceWorkerPath",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "plugins/push.ts",
+									"line": 22,
+									"character": 2,
+									"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/push.ts#L22"
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"children": [
+								103,
+								104,
+								105,
+								107,
+								106
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "plugins/push.ts",
+							"line": 18,
+							"character": 17,
+							"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/push.ts#L18"
+						}
+					]
+				},
+				{
+					"id": 108,
+					"name": "PushPlugin",
+					"variant": "declaration",
+					"kind": 32,
+					"flags": {
+						"isConst": true
+					},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "A plugin for managing push notifications and integration with Firebase Cloud Messaging"
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "plugins/push.ts",
+							"line": 29,
+							"character": 13,
+							"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/push.ts#L29"
+						}
+					],
+					"type": {
+						"type": "reflection",
+						"declaration": {
+							"id": 109,
+							"name": "__type",
+							"variant": "declaration",
+							"kind": 65536,
+							"flags": {},
+							"children": [
+								{
+									"id": 110,
+									"name": "install",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "plugins/push.ts",
+											"line": 30,
+											"character": 2,
+											"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/push.ts#L30"
+										}
+									],
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 111,
+											"name": "__type",
+											"variant": "declaration",
+											"kind": 65536,
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "plugins/push.ts",
+													"line": 30,
+													"character": 11,
+													"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/push.ts#L30"
+												}
+											],
+											"signatures": [
+												{
+													"id": 112,
+													"name": "__type",
+													"variant": "signature",
+													"kind": 4096,
+													"flags": {},
+													"sources": [
+														{
+															"fileName": "plugins/push.ts",
+															"line": 30,
+															"character": 11,
+															"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/push.ts#L30"
+														}
+													],
+													"parameters": [
+														{
+															"id": 113,
+															"name": "app",
+															"variant": "param",
+															"kind": 32768,
+															"flags": {},
+															"type": {
+																"type": "reference",
+																"target": {
+																	"sourceFileName": "node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+																	"qualifiedName": "App"
+																},
+																"typeArguments": [
+																	{
+																		"type": "intrinsic",
+																		"name": "any"
+																	}
+																],
+																"name": "App",
+																"package": "@vue/runtime-core"
+															}
+														},
+														{
+															"id": 114,
+															"name": "options",
+															"variant": "param",
+															"kind": 32768,
+															"flags": {
+																"isOptional": true
+															},
+															"type": {
+																"type": "reference",
+																"target": 102,
+																"name": "PushPluginOptions",
+																"package": "@jakguru/vueprint"
+															}
+														}
+													],
+													"type": {
+														"type": "intrinsic",
+														"name": "void"
+													}
+												}
+											]
+										}
+									},
+									"defaultValue": "..."
+								}
+							],
+							"groups": [
+								{
+									"title": "Properties",
+									"children": [
+										110
+									]
+								}
+							],
+							"sources": [
+								{
+									"fileName": "plugins/push.ts",
+									"line": 29,
+									"character": 26,
+									"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/push.ts#L29"
+								}
+							]
+						}
+					},
+					"defaultValue": "..."
+				}
+			],
+			"groups": [
+				{
+					"title": "Interfaces",
+					"children": [
+						102
+					]
+				},
+				{
+					"title": "Variables",
+					"children": [
+						108
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "plugins/push.ts",
+					"line": 1,
+					"character": 0,
+					"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/push.ts#L1"
+				}
+			]
+		},
+		{
+			"id": 115,
+			"name": "plugins/ui",
+			"variant": "declaration",
+			"kind": 2,
+			"flags": {},
+			"children": [
+				{
+					"id": 116,
+					"name": "UiPlugin",
+					"variant": "declaration",
+					"kind": 32,
+					"flags": {
+						"isConst": true
+					},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "A plugin for additional non-vuetify UI components"
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "plugins/ui.ts",
+							"line": 19,
+							"character": 13,
+							"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/ui.ts#L19"
+						}
+					],
+					"type": {
+						"type": "reflection",
+						"declaration": {
+							"id": 117,
+							"name": "__type",
+							"variant": "declaration",
+							"kind": 65536,
+							"flags": {},
+							"children": [
+								{
+									"id": 118,
+									"name": "install",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "plugins/ui.ts",
+											"line": 20,
+											"character": 2,
+											"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/ui.ts#L20"
+										}
+									],
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 119,
+											"name": "__type",
+											"variant": "declaration",
+											"kind": 65536,
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "plugins/ui.ts",
+													"line": 20,
+													"character": 11,
+													"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/ui.ts#L20"
+												}
+											],
+											"signatures": [
+												{
+													"id": 120,
+													"name": "__type",
+													"variant": "signature",
+													"kind": 4096,
+													"flags": {},
+													"sources": [
+														{
+															"fileName": "plugins/ui.ts",
+															"line": 20,
+															"character": 11,
+															"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/ui.ts#L20"
+														}
+													],
+													"parameters": [
+														{
+															"id": 121,
+															"name": "app",
+															"variant": "param",
+															"kind": 32768,
+															"flags": {},
+															"type": {
+																"type": "reference",
+																"target": {
+																	"sourceFileName": "node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+																	"qualifiedName": "App"
+																},
+																"typeArguments": [
+																	{
+																		"type": "intrinsic",
+																		"name": "any"
+																	}
+																],
+																"name": "App",
+																"package": "@vue/runtime-core"
+															}
+														}
+													],
+													"type": {
+														"type": "intrinsic",
+														"name": "void"
+													}
+												}
+											]
+										}
+									},
+									"defaultValue": "..."
+								}
+							],
+							"groups": [
+								{
+									"title": "Properties",
+									"children": [
+										118
+									]
+								}
+							],
+							"sources": [
+								{
+									"fileName": "plugins/ui.ts",
+									"line": 19,
+									"character": 24,
+									"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/ui.ts#L19"
+								}
+							]
+						}
+					},
+					"defaultValue": "..."
+				}
+			],
+			"groups": [
+				{
+					"title": "Variables",
+					"children": [
+						116
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "plugins/ui.ts",
+					"line": 1,
+					"character": 0,
+					"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/ui.ts#L1"
+				}
+			]
+		},
+		{
+			"id": 68,
+			"name": "plugins/vuetify",
+			"variant": "declaration",
+			"kind": 2,
+			"flags": {},
+			"children": [
+				{
+					"id": 69,
+					"name": "VuetifyPluginOptions",
+					"variant": "declaration",
+					"kind": 256,
+					"flags": {},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "The options for the vuetify plugin"
+							}
+						]
+					},
+					"children": [
+						{
+							"id": 70,
+							"name": "defaultTheme",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "plugins/vuetify.ts",
+									"line": 11,
+									"character": 2,
+									"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/vuetify.ts#L11"
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 72,
+							"name": "options",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "plugins/vuetify.ts",
+									"line": 13,
+									"character": 2,
+									"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/vuetify.ts#L13"
+								}
+							],
+							"type": {
+								"type": "reference",
+								"target": {
+									"sourceFileName": "node_modules/vuetify/lib/index.d.mts",
+									"qualifiedName": "VuetifyOptions"
+								},
+								"name": "VuetifyOptions",
+								"package": "vuetify"
+							}
+						},
+						{
+							"id": 71,
+							"name": "themes",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "plugins/vuetify.ts",
+									"line": 12,
+									"character": 2,
+									"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/vuetify.ts#L12"
+								}
+							],
+							"type": {
+								"type": "reference",
+								"target": {
+									"sourceFileName": "src/vuetify.ts",
+									"qualifiedName": "VuetifiableThemes"
+								},
+								"name": "VuetifiableThemes",
+								"package": "@jakguru/vueprint"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"children": [
+								70,
+								72,
+								71
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "plugins/vuetify.ts",
+							"line": 10,
+							"character": 17,
+							"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/vuetify.ts#L10"
+						}
+					]
+				},
+				{
+					"id": 73,
+					"name": "VuetifyPlugin",
+					"variant": "declaration",
+					"kind": 32,
+					"flags": {
+						"isConst": true
+					},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "A wrapper plugin for the Vuetify UI framework"
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "plugins/vuetify.ts",
+							"line": 20,
+							"character": 13,
+							"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/vuetify.ts#L20"
+						}
+					],
+					"type": {
+						"type": "reflection",
+						"declaration": {
+							"id": 74,
+							"name": "__type",
+							"variant": "declaration",
+							"kind": 65536,
+							"flags": {},
+							"children": [
+								{
+									"id": 75,
+									"name": "install",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "plugins/vuetify.ts",
+											"line": 21,
+											"character": 2,
+											"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/vuetify.ts#L21"
+										}
+									],
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 76,
+											"name": "__type",
+											"variant": "declaration",
+											"kind": 65536,
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "plugins/vuetify.ts",
+													"line": 21,
+													"character": 11,
+													"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/vuetify.ts#L21"
+												}
+											],
+											"signatures": [
+												{
+													"id": 77,
+													"name": "__type",
+													"variant": "signature",
+													"kind": 4096,
+													"flags": {},
+													"sources": [
+														{
+															"fileName": "plugins/vuetify.ts",
+															"line": 21,
+															"character": 11,
+															"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/vuetify.ts#L21"
+														}
+													],
+													"parameters": [
+														{
+															"id": 78,
+															"name": "app",
+															"variant": "param",
+															"kind": 32768,
+															"flags": {},
+															"type": {
+																"type": "reference",
+																"target": {
+																	"sourceFileName": "node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+																	"qualifiedName": "App"
+																},
+																"typeArguments": [
+																	{
+																		"type": "intrinsic",
+																		"name": "any"
+																	}
+																],
+																"name": "App",
+																"package": "@vue/runtime-core"
+															}
+														},
+														{
+															"id": 79,
+															"name": "options",
+															"variant": "param",
+															"kind": 32768,
+															"flags": {
+																"isOptional": true
+															},
+															"type": {
+																"type": "reference",
+																"target": 69,
+																"name": "VuetifyPluginOptions",
+																"package": "@jakguru/vueprint"
+															}
+														}
+													],
+													"type": {
+														"type": "intrinsic",
+														"name": "void"
+													}
+												}
+											]
+										}
+									},
+									"defaultValue": "..."
+								}
+							],
+							"groups": [
+								{
+									"title": "Properties",
+									"children": [
+										75
+									]
+								}
+							],
+							"sources": [
+								{
+									"fileName": "plugins/vuetify.ts",
+									"line": 20,
+									"character": 29,
+									"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/vuetify.ts#L20"
+								}
+							]
+						}
+					},
+					"defaultValue": "..."
+				}
+			],
+			"groups": [
+				{
+					"title": "plugins",
+					"children": [
+						69,
+						73
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "plugins/vuetify.ts",
+					"line": 1,
+					"character": 0,
+					"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/vuetify.ts#L1"
+				}
+			]
+		}
+	],
+	"groups": [
+		{
+			"title": "Modules",
+			"children": [
+				1,
+				11,
+				25,
+				80,
+				41,
+				51,
+				90,
+				58,
+				101,
+				115,
+				68
+			]
+		}
+	],
+	"packageName": "@jakguru/vueprint",
+	"symbolIdMap": {
+		"1": {
+			"sourceFileName": "bootstraps/vue/client.ts",
+			"qualifiedName": ""
+		},
+		"2": {
+			"sourceFileName": "bootstraps/vue/client.ts",
+			"qualifiedName": "VueClientBootstrapOptions"
+		},
+		"3": {
+			"sourceFileName": "bootstraps/vue/client.ts",
+			"qualifiedName": "VueClientBootstrapOptions.push"
+		},
+		"4": {
+			"sourceFileName": "bootstraps/vue/client.ts",
+			"qualifiedName": "VueClientBootstrap"
+		},
+		"5": {
+			"sourceFileName": "bootstraps/vue/client.ts",
+			"qualifiedName": "__object"
+		},
+		"6": {
+			"sourceFileName": "bootstraps/vue/client.ts",
+			"qualifiedName": "__object.install"
+		},
+		"7": {
+			"sourceFileName": "bootstraps/vue/client.ts",
+			"qualifiedName": "__function"
+		},
+		"8": {
+			"sourceFileName": "bootstraps/vue/client.ts",
+			"qualifiedName": "__function"
+		},
+		"9": {
+			"sourceFileName": "bootstraps/vue/client.ts",
+			"qualifiedName": "app"
+		},
+		"10": {
+			"sourceFileName": "bootstraps/vue/client.ts",
+			"qualifiedName": "options"
+		},
+		"11": {
+			"sourceFileName": "bootstraps/vue/main.ts",
+			"qualifiedName": ""
+		},
+		"12": {
+			"sourceFileName": "bootstraps/vue/main.ts",
+			"qualifiedName": "VueMainBootstrapOptions"
+		},
+		"13": {
+			"sourceFileName": "bootstraps/vue/main.ts",
+			"qualifiedName": "VueMainBootstrapOptions.bus"
+		},
+		"14": {
+			"sourceFileName": "bootstraps/vue/main.ts",
+			"qualifiedName": "VueMainBootstrapOptions.ls"
+		},
+		"15": {
+			"sourceFileName": "bootstraps/vue/main.ts",
+			"qualifiedName": "VueMainBootstrapOptions.vuetify"
+		},
+		"16": {
+			"sourceFileName": "bootstraps/vue/main.ts",
+			"qualifiedName": "VueMainBootstrapOptions.api"
+		},
+		"17": {
+			"sourceFileName": "bootstraps/vue/main.ts",
+			"qualifiedName": "VueMainBootstrapOptions.identity"
+		},
+		"18": {
+			"sourceFileName": "bootstraps/vue/main.ts",
+			"qualifiedName": "VueMainBootstrap"
+		},
+		"19": {
+			"sourceFileName": "bootstraps/vue/main.ts",
+			"qualifiedName": "__object"
+		},
+		"20": {
+			"sourceFileName": "bootstraps/vue/main.ts",
+			"qualifiedName": "__object.install"
+		},
+		"21": {
+			"sourceFileName": "bootstraps/vue/main.ts",
+			"qualifiedName": "__function"
+		},
+		"22": {
+			"sourceFileName": "bootstraps/vue/main.ts",
+			"qualifiedName": "__function"
+		},
+		"23": {
+			"sourceFileName": "bootstraps/vue/main.ts",
+			"qualifiedName": "app"
+		},
+		"24": {
+			"sourceFileName": "bootstraps/vue/main.ts",
+			"qualifiedName": "options"
+		},
+		"25": {
+			"sourceFileName": "composables/useVueprint.ts",
+			"qualifiedName": ""
+		},
+		"26": {
+			"sourceFileName": "composables/useVueprint.ts",
+			"qualifiedName": "ApplicationHook"
+		},
+		"27": {
+			"sourceFileName": "composables/useVueprint.ts",
+			"qualifiedName": "ApplicationHook.onTrue"
+		},
+		"28": {
+			"sourceFileName": "composables/useVueprint.ts",
+			"qualifiedName": "__type"
+		},
+		"29": {
+			"sourceFileName": "composables/useVueprint.ts",
+			"qualifiedName": "__type"
+		},
+		"30": {
+			"sourceFileName": "composables/useVueprint.ts",
+			"qualifiedName": "ApplicationHook.onFalse"
+		},
+		"31": {
+			"sourceFileName": "composables/useVueprint.ts",
+			"qualifiedName": "__type"
+		},
+		"32": {
+			"sourceFileName": "composables/useVueprint.ts",
+			"qualifiedName": "__type"
+		},
+		"33": {
+			"sourceFileName": "composables/useVueprint.ts",
+			"qualifiedName": "ApplicationHooks"
+		},
+		"34": {
+			"sourceFileName": "composables/useVueprint.ts",
+			"qualifiedName": "ApplicationHooks.onBooted"
+		},
+		"35": {
+			"sourceFileName": "composables/useVueprint.ts",
+			"qualifiedName": "ApplicationHooks.onReady"
+		},
+		"36": {
+			"sourceFileName": "composables/useVueprint.ts",
+			"qualifiedName": "ApplicationHooks.onAuthenticated"
+		},
+		"37": {
+			"sourceFileName": "composables/useVueprint.ts",
+			"qualifiedName": "ApplicationHooks.onPushPermissions"
+		},
+		"38": {
+			"sourceFileName": "composables/useVueprint.ts",
+			"qualifiedName": "useVueprint"
+		},
+		"39": {
+			"sourceFileName": "composables/useVueprint.ts",
+			"qualifiedName": "useVueprint"
+		},
+		"40": {
+			"sourceFileName": "composables/useVueprint.ts",
+			"qualifiedName": "hooks"
+		},
+		"41": {
+			"sourceFileName": "plugins/bus.ts",
+			"qualifiedName": ""
+		},
+		"42": {
+			"sourceFileName": "plugins/bus.ts",
+			"qualifiedName": "BusPluginOptions"
+		},
+		"43": {
+			"sourceFileName": "plugins/bus.ts",
+			"qualifiedName": "BusPluginOptions.namespace"
+		},
+		"44": {
+			"sourceFileName": "plugins/bus.ts",
+			"qualifiedName": "BusPlugin"
+		},
+		"45": {
+			"sourceFileName": "plugins/bus.ts",
+			"qualifiedName": "__object"
+		},
+		"46": {
+			"sourceFileName": "plugins/bus.ts",
+			"qualifiedName": "__object.install"
+		},
+		"47": {
+			"sourceFileName": "plugins/bus.ts",
+			"qualifiedName": "__function"
+		},
+		"48": {
+			"sourceFileName": "plugins/bus.ts",
+			"qualifiedName": "__function"
+		},
+		"49": {
+			"sourceFileName": "plugins/bus.ts",
+			"qualifiedName": "app"
+		},
+		"50": {
+			"sourceFileName": "plugins/bus.ts",
+			"qualifiedName": "options"
+		},
+		"51": {
+			"sourceFileName": "plugins/cron.ts",
+			"qualifiedName": ""
+		},
+		"52": {
+			"sourceFileName": "plugins/cron.ts",
+			"qualifiedName": "CronPlugin"
+		},
+		"53": {
+			"sourceFileName": "plugins/cron.ts",
+			"qualifiedName": "__object"
+		},
+		"54": {
+			"sourceFileName": "plugins/cron.ts",
+			"qualifiedName": "__object.install"
+		},
+		"55": {
+			"sourceFileName": "plugins/cron.ts",
+			"qualifiedName": "__function"
+		},
+		"56": {
+			"sourceFileName": "plugins/cron.ts",
+			"qualifiedName": "__function"
+		},
+		"57": {
+			"sourceFileName": "plugins/cron.ts",
+			"qualifiedName": "app"
+		},
+		"58": {
+			"sourceFileName": "plugins/ls.ts",
+			"qualifiedName": ""
+		},
+		"59": {
+			"sourceFileName": "plugins/ls.ts",
+			"qualifiedName": "LocalStoragePluginOptions"
+		},
+		"60": {
+			"sourceFileName": "plugins/ls.ts",
+			"qualifiedName": "LocalStoragePluginOptions.namespace"
+		},
+		"61": {
+			"sourceFileName": "plugins/ls.ts",
+			"qualifiedName": "LocalStoragePlugin"
+		},
+		"62": {
+			"sourceFileName": "plugins/ls.ts",
+			"qualifiedName": "__object"
+		},
+		"63": {
+			"sourceFileName": "plugins/ls.ts",
+			"qualifiedName": "__object.install"
+		},
+		"64": {
+			"sourceFileName": "plugins/ls.ts",
+			"qualifiedName": "__function"
+		},
+		"65": {
+			"sourceFileName": "plugins/ls.ts",
+			"qualifiedName": "__function"
+		},
+		"66": {
+			"sourceFileName": "plugins/ls.ts",
+			"qualifiedName": "app"
+		},
+		"67": {
+			"sourceFileName": "plugins/ls.ts",
+			"qualifiedName": "options"
+		},
+		"68": {
+			"sourceFileName": "plugins/vuetify.ts",
+			"qualifiedName": ""
+		},
+		"69": {
+			"sourceFileName": "plugins/vuetify.ts",
+			"qualifiedName": "VuetifyPluginOptions"
+		},
+		"70": {
+			"sourceFileName": "plugins/vuetify.ts",
+			"qualifiedName": "VuetifyPluginOptions.defaultTheme"
+		},
+		"71": {
+			"sourceFileName": "plugins/vuetify.ts",
+			"qualifiedName": "VuetifyPluginOptions.themes"
+		},
+		"72": {
+			"sourceFileName": "plugins/vuetify.ts",
+			"qualifiedName": "VuetifyPluginOptions.options"
+		},
+		"73": {
+			"sourceFileName": "plugins/vuetify.ts",
+			"qualifiedName": "VuetifyPlugin"
+		},
+		"74": {
+			"sourceFileName": "plugins/vuetify.ts",
+			"qualifiedName": "__object"
+		},
+		"75": {
+			"sourceFileName": "plugins/vuetify.ts",
+			"qualifiedName": "__object.install"
+		},
+		"76": {
+			"sourceFileName": "plugins/vuetify.ts",
+			"qualifiedName": "__function"
+		},
+		"77": {
+			"sourceFileName": "plugins/vuetify.ts",
+			"qualifiedName": "__function"
+		},
+		"78": {
+			"sourceFileName": "plugins/vuetify.ts",
+			"qualifiedName": "app"
+		},
+		"79": {
+			"sourceFileName": "plugins/vuetify.ts",
+			"qualifiedName": "options"
+		},
+		"80": {
+			"sourceFileName": "plugins/api.ts",
+			"qualifiedName": ""
+		},
+		"81": {
+			"sourceFileName": "plugins/api.ts",
+			"qualifiedName": "ApiPluginOptions"
+		},
+		"82": {
+			"sourceFileName": "plugins/api.ts",
+			"qualifiedName": "ApiPluginOptions.baseURL"
+		},
+		"83": {
+			"sourceFileName": "plugins/api.ts",
+			"qualifiedName": "ApiPlugin"
+		},
+		"84": {
+			"sourceFileName": "plugins/api.ts",
+			"qualifiedName": "__object"
+		},
+		"85": {
+			"sourceFileName": "plugins/api.ts",
+			"qualifiedName": "__object.install"
+		},
+		"86": {
+			"sourceFileName": "plugins/api.ts",
+			"qualifiedName": "__function"
+		},
+		"87": {
+			"sourceFileName": "plugins/api.ts",
+			"qualifiedName": "__function"
+		},
+		"88": {
+			"sourceFileName": "plugins/api.ts",
+			"qualifiedName": "app"
+		},
+		"89": {
+			"sourceFileName": "plugins/api.ts",
+			"qualifiedName": "options"
+		},
+		"90": {
+			"sourceFileName": "plugins/identity.ts",
+			"qualifiedName": ""
+		},
+		"91": {
+			"sourceFileName": "plugins/identity.ts",
+			"qualifiedName": "IdentityPluginOptions"
+		},
+		"92": {
+			"sourceFileName": "plugins/identity.ts",
+			"qualifiedName": "IdentityPluginOptions.tokenRefresh"
+		},
+		"93": {
+			"sourceFileName": "plugins/identity.ts",
+			"qualifiedName": "IdentityPluginOptions.tokenRefreshBuffer"
+		},
+		"94": {
+			"sourceFileName": "plugins/identity.ts",
+			"qualifiedName": "IdentityPlugin"
+		},
+		"95": {
+			"sourceFileName": "plugins/identity.ts",
+			"qualifiedName": "__object"
+		},
+		"96": {
+			"sourceFileName": "plugins/identity.ts",
+			"qualifiedName": "__object.install"
+		},
+		"97": {
+			"sourceFileName": "plugins/identity.ts",
+			"qualifiedName": "__function"
+		},
+		"98": {
+			"sourceFileName": "plugins/identity.ts",
+			"qualifiedName": "__function"
+		},
+		"99": {
+			"sourceFileName": "plugins/identity.ts",
+			"qualifiedName": "app"
+		},
+		"100": {
+			"sourceFileName": "plugins/identity.ts",
+			"qualifiedName": "options"
+		},
+		"101": {
+			"sourceFileName": "plugins/push.ts",
+			"qualifiedName": ""
+		},
+		"102": {
+			"sourceFileName": "plugins/push.ts",
+			"qualifiedName": "PushPluginOptions"
+		},
+		"103": {
+			"sourceFileName": "plugins/push.ts",
+			"qualifiedName": "PushPluginOptions.firebaseOptions"
+		},
+		"104": {
+			"sourceFileName": "plugins/push.ts",
+			"qualifiedName": "PushPluginOptions.onAuthenticatedForFirebase"
+		},
+		"105": {
+			"sourceFileName": "plugins/push.ts",
+			"qualifiedName": "PushPluginOptions.onUnauthenticatedForFirebase"
+		},
+		"106": {
+			"sourceFileName": "plugins/push.ts",
+			"qualifiedName": "PushPluginOptions.serviceWorkerPath"
+		},
+		"107": {
+			"sourceFileName": "plugins/push.ts",
+			"qualifiedName": "PushPluginOptions.serviceWorkerMode"
+		},
+		"108": {
+			"sourceFileName": "plugins/push.ts",
+			"qualifiedName": "PushPlugin"
+		},
+		"109": {
+			"sourceFileName": "plugins/push.ts",
+			"qualifiedName": "__object"
+		},
+		"110": {
+			"sourceFileName": "plugins/push.ts",
+			"qualifiedName": "__object.install"
+		},
+		"111": {
+			"sourceFileName": "plugins/push.ts",
+			"qualifiedName": "__function"
+		},
+		"112": {
+			"sourceFileName": "plugins/push.ts",
+			"qualifiedName": "__function"
+		},
+		"113": {
+			"sourceFileName": "plugins/push.ts",
+			"qualifiedName": "app"
+		},
+		"114": {
+			"sourceFileName": "plugins/push.ts",
+			"qualifiedName": "options"
+		},
+		"115": {
+			"sourceFileName": "plugins/ui.ts",
+			"qualifiedName": ""
+		},
+		"116": {
+			"sourceFileName": "plugins/ui.ts",
+			"qualifiedName": "UiPlugin"
+		},
+		"117": {
+			"sourceFileName": "plugins/ui.ts",
+			"qualifiedName": "__object"
+		},
+		"118": {
+			"sourceFileName": "plugins/ui.ts",
+			"qualifiedName": "__object.install"
+		},
+		"119": {
+			"sourceFileName": "plugins/ui.ts",
+			"qualifiedName": "__function"
+		},
+		"120": {
+			"sourceFileName": "plugins/ui.ts",
+			"qualifiedName": "__function"
+		},
+		"121": {
+			"sourceFileName": "plugins/ui.ts",
+			"qualifiedName": "app"
+		}
+	}
+}
