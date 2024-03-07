@@ -12,7 +12,7 @@ The options for the main Vue bootstrap
 
 #### Defined in
 
-bootstraps/vue/main.ts:16
+[bootstraps/vue/main.ts:16](https://github.com/jakguru/vueprint/blob/cca61f2/bootstraps/vue/main.ts#L16)
 
 ___
 
@@ -22,7 +22,7 @@ ___
 
 #### Defined in
 
-bootstraps/vue/main.ts:13
+[bootstraps/vue/main.ts:13](https://github.com/jakguru/vueprint/blob/cca61f2/bootstraps/vue/main.ts#L13)
 
 ___
 
@@ -32,7 +32,7 @@ ___
 
 #### Defined in
 
-bootstraps/vue/main.ts:17
+[bootstraps/vue/main.ts:17](https://github.com/jakguru/vueprint/blob/cca61f2/bootstraps/vue/main.ts#L17)
 
 ___
 
@@ -42,7 +42,7 @@ ___
 
 #### Defined in
 
-bootstraps/vue/main.ts:14
+[bootstraps/vue/main.ts:14](https://github.com/jakguru/vueprint/blob/cca61f2/bootstraps/vue/main.ts#L14)
 
 ___
 
@@ -52,4 +52,4 @@ ___
 
 #### Defined in
 
-bootstraps/vue/main.ts:15
+[bootstraps/vue/main.ts:15](https://github.com/jakguru/vueprint/blob/cca61f2/bootstraps/vue/main.ts#L15)

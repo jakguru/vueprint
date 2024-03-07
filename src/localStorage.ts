@@ -9,7 +9,6 @@ const debug = getDebugger('LocalStorage')
 
 /**
  * A SSR-friendly local storage service that uses secure-ls to store and retrieve data.
- * @group localstorage
  */
 export class LocalStorage {
   #namespace: string

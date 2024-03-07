@@ -2,6 +2,7 @@
     "entryPoints": [
         "bootstraps/vue/client.ts",
         "bootstraps/vue/main.ts",
+        "nuxt/index.ts",
         "composables/useVueprint.ts",
         "plugins/bus.ts",
         "plugins/cron.ts",
@@ -22,6 +23,7 @@
     "excludePrivate": true,
     "excludeProtected": true,
     "excludeInternal": true,
+    "excludeReferences": true,
     "githubPages": false,
     "theme": "default",
     "hideGenerator": true,
@@ -53,17 +55,17 @@
             "Promise": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise"
         },
         "events": {
-            "EventEmitter": "https://nodejs.org/docs/latest-v16.x/api/events.html#class-eventemitter",
-            "EventEmitter.on": "https://nodejs.org/docs/latest-v16.x/api/events.html#emitteroneventname-listener",
-            "EventEmitter.once": "https://nodejs.org/docs/latest-v16.x/api/events.html#emitteronceeventname-listener",
-            "EventEmitter.off": "https://nodejs.org/docs/latest-v16.x/api/events.html#emitteroffeventname-listener",
-            "EventEmitter.removeAllListeners": "https://nodejs.org/docs/latest-v16.x/api/events.html#emitterremovealllistenerseventname"
+            "EventEmitter": "https://nodejs.org/docs/latest-v18.x/api/events.html#class-eventemitter",
+            "EventEmitter.on": "https://nodejs.org/docs/latest-v18.x/api/events.html#emitteroneventname-listener",
+            "EventEmitter.once": "https://nodejs.org/docs/latest-v18.x/api/events.html#emitteronceeventname-listener",
+            "EventEmitter.off": "https://nodejs.org/docs/latest-v18.x/api/events.html#emitteroffeventname-listener",
+            "EventEmitter.removeAllListeners": "https://nodejs.org/docs/latest-v18.x/api/events.html#emitterremovealllistenerseventname"
         },
         "EventEmitter": {
-            "on": "https://nodejs.org/docs/latest-v16.x/api/events.html#emitteroneventname-listener",
-            "once": "https://nodejs.org/docs/latest-v16.x/api/events.html#emitteronceeventname-listener",
-            "off": "https://nodejs.org/docs/latest-v16.x/api/events.html#emitteroffeventname-listener",
-            "removeAllListeners": "https://nodejs.org/docs/latest-v16.x/api/events.html#emitterremovealllistenerseventname"
+            "on": "https://nodejs.org/docs/latest-v18.x/api/events.html#emitteroneventname-listener",
+            "once": "https://nodejs.org/docs/latest-v18.x/api/events.html#emitteronceeventname-listener",
+            "off": "https://nodejs.org/docs/latest-v18.x/api/events.html#emitteroffeventname-listener",
+            "removeAllListeners": "https://nodejs.org/docs/latest-v18.x/api/events.html#emitterremovealllistenerseventname"
         },
         "@types/luxon": {
             "DateTime": "https://moment.github.io/luxon/api-docs/index.html#datetime"
@@ -83,6 +85,10 @@
         "Knex": {
             "QueryBuilder": "https://knexjs.org/guide/query-builder.html",
             "Knex.QueryBuilder": "https://knexjs.org/guide/query-builder.html",
+        },
+        "vuetify": {
+            "VuetifyOptions": "https://vuetifyjs.com/en/features/global-configuration/#setup",
+            "ThemeDefinition": "https://vuetifyjs.com/en/features/theme/#api"
         }
     },
     "entryDocument": "index.md",

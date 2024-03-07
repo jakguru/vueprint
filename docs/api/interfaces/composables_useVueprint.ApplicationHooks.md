@@ -12,7 +12,7 @@ Define the hooks that will be used when an application property changes state
 
 #### Defined in
 
-composables/useVueprint.ts:31
+[composables/useVueprint.ts:31](https://github.com/jakguru/vueprint/blob/cca61f2/composables/useVueprint.ts#L31)
 
 ___
 
@@ -22,7 +22,7 @@ ___
 
 #### Defined in
 
-composables/useVueprint.ts:29
+[composables/useVueprint.ts:29](https://github.com/jakguru/vueprint/blob/cca61f2/composables/useVueprint.ts#L29)
 
 ___
 
@@ -32,7 +32,7 @@ ___
 
 #### Defined in
 
-composables/useVueprint.ts:32
+[composables/useVueprint.ts:32](https://github.com/jakguru/vueprint/blob/cca61f2/composables/useVueprint.ts#L32)
 
 ___
 
@@ -42,4 +42,4 @@ ___
 
 #### Defined in
 
-composables/useVueprint.ts:30
+[composables/useVueprint.ts:30](https://github.com/jakguru/vueprint/blob/cca61f2/composables/useVueprint.ts#L30)

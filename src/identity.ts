@@ -11,7 +11,6 @@ const debug = getDebugger('Identity')
 
 /**
  * Describes the shape of a user identity object
- * @group identity
  */
 export interface UserIdentity {
   [key: string]: string
@@ -19,7 +18,6 @@ export interface UserIdentity {
 
 /**
  * Describes the shape of the feedback from the token refresh callback
- * @group identity
  */
 export interface TokenRefreshFeedback {
   bearer: string
@@ -28,16 +26,14 @@ export interface TokenRefreshFeedback {
 
 /**
  * Describes the shape of the token refresh callback
- * @group identity
  */
 export interface TokenRefreshCallback {
-  (signal: AbortSignal): Promise<TokenRefreshFeedback> | TokenRefreshFeedback
+  (api: Axios, signal: AbortSignal): Promise<TokenRefreshFeedback> | TokenRefreshFeedback
 }
 
 /**
  * A service for managing the authentication state and identity of a user
  * Uses LocalStorage, Bus, and Axios instances to manage the state of the user's identity across tabs
- * @group identity
  */
 export class Identity {
   #bus: Bus
@@ -364,6 +360,7 @@ export class Identity {
         this.#tokenRefreshAbortController.value = new AbortController()
         try {
           const { bearer, expiration } = await this.#tokenRefresh(
+            this.#api,
             this.#tokenRefreshAbortController.value.signal
           )
           this.#ls.set('bearer', bearer)

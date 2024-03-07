@@ -25,4 +25,4 @@ Initialize the VuePrint integration with the application
 
 #### Defined in
 
-composables/useVueprint.ts:39
+[composables/useVueprint.ts:39](https://github.com/jakguru/vueprint/blob/cca61f2/composables/useVueprint.ts#L39)

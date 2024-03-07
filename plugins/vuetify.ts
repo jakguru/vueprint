@@ -1,21 +1,31 @@
 import type { App } from 'vue'
 import type { VuetifiableThemes } from 'src/vuetify'
+export type { VuetifiableTheme, VuetifiableColors } from 'src/vuetify'
 import type { VuetifyOptions } from 'vuetify'
 import { initializeVuetify } from 'src/vuetify'
 
+export { VuetifiableThemes }
+
 /**
  * The options for the vuetify plugin
- * @group plugins
  */
 export interface VuetifyPluginOptions {
+  /**
+   * The key of the themes object to use as the default theme
+   */
   defaultTheme: string
+  /**
+   * An object containing the configuration of a theme
+   */
   themes: VuetifiableThemes
+  /**
+   * The options to pass to the Vuetify instance
+   */
   options: VuetifyOptions
 }
 
 /**
  * A wrapper plugin for the Vuetify UI framework
- * @group plugins
  */
 export const VuetifyPlugin = {
   install: (app: App, options?: VuetifyPluginOptions) => {

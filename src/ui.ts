@@ -21,7 +21,6 @@ const defaults = {
 
 /**
  * A SweetAlert2 instance with the default settings
- * @group ui
  */
 export const swal = Swal.mixin(defaults)
 
@@ -41,6 +40,5 @@ const toastDefaults = merge({}, defaults, {
 delete toastDefaults.backdrop
 /**
  * A SweetAlert2 instance with the default settings for toasts
- * @group ui
  */
 export const toast = Swal.mixin(toastDefaults)

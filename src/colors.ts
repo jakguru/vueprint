@@ -10,8 +10,6 @@ const stringToColor = new Map<string, string>()
 
 /**
  * Get a map of color names to their hex values
- * @group colors
- * @group utilities
  * @returns A map of color names to their hex values
  */
 export function getColorMap() {
@@ -52,8 +50,6 @@ export function getColorMap() {
 
 /**
  * Returns a CSS-safe color string
- * @group colors
- * @group utilities
  * @param color The color to convert to a CSS color
  * @returns The css-safe color string
  */
@@ -74,8 +70,6 @@ export function colorToCssColor(color: string) {
 
 /**
  * Get the hex value of a color
- * @group colors
- * @group utilities
  * @param hex The hex color to convert to an RGB object
  * @returns an object with the r, g, and b values of the hex color
  */
@@ -96,8 +90,6 @@ export function hexToRGBObject(hex: string) {
 
 /**
  * Get an RGBA string from a hex color
- * @group colors
- * @group utilities
  * @param hex The hex color to convert to an RGBA string
  * @param alpha The alpha value to use for the RGBA string
  * @returns an RGBA string
@@ -112,8 +104,6 @@ export function hexToRGBA(hex: string, alpha = 1) {
  * This function is a helper function, typically used within a larger algorithm to convert HSL colors to RGB format.
  * It interpolates the RGB value based on the hue's position within its segment of the color wheel.
  *
- * @group colors
- * @group utilities
  * @param {number} p An intermediary value calculated from the lightness, used to adjust the RGB value based on the lightness.
  * @param {number} q Another intermediary value calculated from the lightness and saturation, used to fine-tune the RGB adjustment.
  * @param {number} t Represents the hue component adjusted to fit within one of three ranges for RGB conversion. It should be modified based on the specific RGB channel (red, green, blue) being calculated.
@@ -134,8 +124,6 @@ export function hueToRgb(p: number, q: number, t: number) {
  * Assumes h, s, and l are contained in the set [0, 1] and
  * returns r, g, and b in the set [0, 255].
  *
- * @group colors
- * @group utilities
  * @param   {number}  h       The hue
  * @param   {number}  s       The saturation
  * @param   {number}  l       The lightness
@@ -161,8 +149,6 @@ export function hslToRgb(h: number, s: number, l: number) {
 
 /**
  * Convert a color from a variety of formats to an RGBA string
- * @group colors
- * @group utilities
  * @param color The color to convert to an RGBA string
  * @param alpha The alpha value to use for the RGBA string
  * @returns an RGBA string
@@ -198,8 +184,6 @@ export function colorToCssWithAlpha(color: string, alpha = 1) {
 
 /**
  * Convert a color from a variety of formats to a Lottie color array
- * @group colors
- * @group utilities
  * @param color The color to convert to a Lottie color array
  * @param alpha The alpha value to use for the Lottie color array
  * @returns a Lottie color array

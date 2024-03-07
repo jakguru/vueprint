@@ -10,26 +10,32 @@ The options for the vuetify plugin
 
 • **defaultTheme**: `string`
 
+The key of the themes object to use as the default theme
+
 #### Defined in
 
-[plugins/vuetify.ts:11](https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/vuetify.ts#L11)
+[plugins/vuetify.ts:16](https://github.com/jakguru/vueprint/blob/cca61f2/plugins/vuetify.ts#L16)
 
 ___
 
 ### <a id="options" name="options"></a> options
 
-• **options**: `VuetifyOptions`
+• **options**: [`VuetifyOptions`]( https://vuetifyjs.com/en/features/global-configuration/#setup )
+
+The options to pass to the Vuetify instance
 
 #### Defined in
 
-[plugins/vuetify.ts:13](https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/vuetify.ts#L13)
+[plugins/vuetify.ts:24](https://github.com/jakguru/vueprint/blob/cca61f2/plugins/vuetify.ts#L24)
 
 ___
 
 ### <a id="themes" name="themes"></a> themes
 
-• **themes**: `VuetifiableThemes`
+• **themes**: [`VuetifiableThemes`](plugins_vuetify.VuetifiableThemes.md)
+
+An object containing the configuration of a theme
 
 #### Defined in
 
-[plugins/vuetify.ts:12](https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/vuetify.ts#L12)
+[plugins/vuetify.ts:20](https://github.com/jakguru/vueprint/blob/cca61f2/plugins/vuetify.ts#L20)

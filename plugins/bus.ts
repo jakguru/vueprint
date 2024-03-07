@@ -1,5 +1,13 @@
 import type { App } from 'vue'
 import { Bus } from 'src/bus'
+export {
+  BusEventCallbackSignatures,
+  BusEvent,
+  BusEventCallback,
+  BusEventAlreadyTriggered,
+  BusEventListenOptions,
+  BusEventEmitOptions,
+} from 'src/bus'
 
 declare module 'vue' {
   interface ComponentCustomProperties {

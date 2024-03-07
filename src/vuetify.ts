@@ -8,7 +8,6 @@ let instance: ReturnType<typeof createVuetify> | undefined
 
 /**
  * The colors which will be used by a Vuetify theme
- * @group ui
  */
 export interface VuetifiableColors {
   background: string
@@ -29,7 +28,6 @@ export interface VuetifiableColors {
 
 /**
  * A theme which will be used by a Vuetify instance
- * @group ui
  */
 export interface VuetifiableTheme extends ThemeDefinition {
   colors: VuetifiableColors
@@ -37,7 +35,6 @@ export interface VuetifiableTheme extends ThemeDefinition {
 
 /**
  * A collection of themes which will be used by a Vuetify instance
- * @group ui
  */
 export interface VuetifiableThemes {
   [key: string]: VuetifiableTheme
@@ -45,7 +42,6 @@ export interface VuetifiableThemes {
 
 /**
  * Initialize the Vuetify instance
- * @group ui
  * @private
  * @param defaultTheme The default theme to use
  * @param themes The themes to use
@@ -75,7 +71,6 @@ export const initializeVuetify = (
 
 /**
  * Retrieve the already initialized Vuetify instance
- * @group ui
  * @private
  * @returns The Vuetify instance
  */

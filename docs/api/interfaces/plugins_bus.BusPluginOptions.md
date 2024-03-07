@@ -12,4 +12,4 @@ The options for the bus plugin
 
 #### Defined in
 
-[plugins/bus.ts:17](https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/bus.ts#L17)
+[plugins/bus.ts:25](https://github.com/jakguru/vueprint/blob/cca61f2/plugins/bus.ts#L25)

@@ -24,17 +24,25 @@ export default defineConfig({
     ['meta', { name: 'theme-color', content: '#ffffff' }],
   ],
   themeConfig: {
-    logo: '/logo.jpg',
+    logo: '/icon.jpg',
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
-      // { text: 'Examples', link: '/markdown-examples' }
+      { text: 'Usage', link: '/getting-started/' },
+      { text: 'API', link: '/api/' }
     ],
 
     sidebar: [
       {
         text: 'Getting Started',
-        link: '/getting-started/',
+        items: [
+          { text: 'Installation', link: '/getting-started/' },
+          { text: 'Typescript Augmentations', link: '/getting-started/typescript-augmentations' },
+          { text: 'Integrations', items: [
+            { text: 'Vue', link: '/getting-started/integrations/vue/' },
+            { text: 'Nuxt', link: '/getting-started/integrations/nuxt/' },
+          ] }
+        ]
       }
     ],
 

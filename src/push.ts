@@ -18,7 +18,6 @@ const sbug = getDebugger('Service Worker', '#000000', '#FFFFFF')
 
 /**
  * Describes the possible states of push permission.
- * @group push
  */
 type PushPermission =
   | typeof Push.Permission.GRANTED
@@ -27,7 +26,6 @@ type PushPermission =
 
 /**
  * Describes the shape of an event that can be triggered and then forwarded to the bus.
- * @group push
  */
 export interface PushedEvent {
   event: string
@@ -36,7 +34,6 @@ export interface PushedEvent {
 
 /**
  * Describes the shape of the callback that is used to store the Firebase Messaging Token in an external service which requires it.
- * @group push
  */
 export interface FirebaseTokenAuthenticationCallback {
   (token: string, signal?: AbortSignal): Promise<void> | void
@@ -44,7 +41,6 @@ export interface FirebaseTokenAuthenticationCallback {
 
 /**
  * A service which manages desktop notifications and integration with Firebase Messaging.
- * @group push
  */
 export class PushService {
   readonly #booted: Ref<boolean>

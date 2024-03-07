@@ -20,4 +20,4 @@ A plugin which bootstraps all of the Vue plugins which can be loaded in both a c
 
 #### Defined in
 
-bootstraps/vue/main.ts:23
+[bootstraps/vue/main.ts:23](https://github.com/jakguru/vueprint/blob/cca61f2/bootstraps/vue/main.ts#L23)

@@ -5,15 +5,11 @@ type I18nT = ReturnType<typeof useI18n>['t']
 
 /**
  * An error with a translated message
- * @group utilities
- * @group validation
  */
 export class ErrorWithTranslatedMessage extends Error {}
 
 /**
  * Check if a string is a valid Luhn number
- * @group utilities
- * @group validation
  * @param input The input to check
  * @returns A boolean indicating whether the input is a valid Luhn number
  */
@@ -44,8 +40,6 @@ export const isValidLuhn = (input: string | null) => {
 
 /**
  * Create a Joi schema from a serialized Joi schema
- * @group utilities
- * @group validation
  * @param serialized The serialized Joi schema
  * @returns A Joi schema
  */
@@ -56,8 +50,6 @@ export function getDeserializedSchema(serialized: string) {
 
 /**
  * Get the translated error message for a Joi validation error
- * @group utilities
- * @group validation
  * @param error The error to translate
  * @param t The translation function
  * @param label The label of the field being validated

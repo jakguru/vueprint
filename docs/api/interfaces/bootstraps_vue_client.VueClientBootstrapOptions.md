@@ -12,4 +12,4 @@ The options for the client-only Vue bootstrap
 
 #### Defined in
 
-bootstraps/vue/client.ts:9
+[bootstraps/vue/client.ts:9](https://github.com/jakguru/vueprint/blob/cca61f2/bootstraps/vue/client.ts#L9)

@@ -12,7 +12,7 @@ The options for the identity plugin
 
 #### Defined in
 
-[plugins/identity.ts:19](https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/identity.ts#L19)
+[plugins/identity.ts:19](https://github.com/jakguru/vueprint/blob/cca61f2/plugins/identity.ts#L19)
 
 ___
 
@@ -22,4 +22,4 @@ ___
 
 #### Defined in
 
-[plugins/identity.ts:20](https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/identity.ts#L20)
+[plugins/identity.ts:20](https://github.com/jakguru/vueprint/blob/cca61f2/plugins/identity.ts#L20)

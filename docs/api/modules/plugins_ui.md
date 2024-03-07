@@ -16,4 +16,4 @@ A plugin for additional non-vuetify UI components
 
 #### Defined in
 
-[plugins/ui.ts:19](https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/ui.ts#L19)
+[plugins/ui.ts:19](https://github.com/jakguru/vueprint/blob/cca61f2/plugins/ui.ts#L19)

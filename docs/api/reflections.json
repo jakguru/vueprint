@@ -1,19 +1,19 @@
 {
-	"id": 0,
+	"id": 1140,
 	"name": "@jakguru/vueprint",
 	"variant": "project",
 	"kind": 1,
 	"flags": {},
 	"children": [
 		{
-			"id": 1,
+			"id": 1141,
 			"name": "bootstraps/vue/client",
 			"variant": "declaration",
 			"kind": 2,
 			"flags": {},
 			"children": [
 				{
-					"id": 2,
+					"id": 1142,
 					"name": "VueClientBootstrapOptions",
 					"variant": "declaration",
 					"kind": 256,
@@ -28,7 +28,7 @@
 					},
 					"children": [
 						{
-							"id": 3,
+							"id": 1143,
 							"name": "push",
 							"variant": "declaration",
 							"kind": 1024,
@@ -39,12 +39,13 @@
 								{
 									"fileName": "bootstraps/vue/client.ts",
 									"line": 9,
-									"character": 2
+									"character": 2,
+									"url": "https://github.com/jakguru/vueprint/blob/cca61f2/bootstraps/vue/client.ts#L9"
 								}
 							],
 							"type": {
 								"type": "reference",
-								"target": 102,
+								"target": 1259,
 								"name": "PushPluginOptions",
 								"package": "@jakguru/vueprint"
 							}
@@ -54,7 +55,7 @@
 						{
 							"title": "Properties",
 							"children": [
-								3
+								1143
 							]
 						}
 					],
@@ -62,12 +63,13 @@
 						{
 							"fileName": "bootstraps/vue/client.ts",
 							"line": 8,
-							"character": 17
+							"character": 17,
+							"url": "https://github.com/jakguru/vueprint/blob/cca61f2/bootstraps/vue/client.ts#L8"
 						}
 					]
 				},
 				{
-					"id": 4,
+					"id": 1144,
 					"name": "default",
 					"variant": "declaration",
 					"kind": 32,
@@ -86,20 +88,21 @@
 						{
 							"fileName": "bootstraps/vue/client.ts",
 							"line": 15,
-							"character": 6
+							"character": 6,
+							"url": "https://github.com/jakguru/vueprint/blob/cca61f2/bootstraps/vue/client.ts#L15"
 						}
 					],
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 5,
+							"id": 1145,
 							"name": "__type",
 							"variant": "declaration",
 							"kind": 65536,
 							"flags": {},
 							"children": [
 								{
-									"id": 6,
+									"id": 1146,
 									"name": "install",
 									"variant": "declaration",
 									"kind": 1024,
@@ -108,13 +111,14 @@
 										{
 											"fileName": "bootstraps/vue/client.ts",
 											"line": 16,
-											"character": 2
+											"character": 2,
+											"url": "https://github.com/jakguru/vueprint/blob/cca61f2/bootstraps/vue/client.ts#L16"
 										}
 									],
 									"type": {
 										"type": "reflection",
 										"declaration": {
-											"id": 7,
+											"id": 1147,
 											"name": "__type",
 											"variant": "declaration",
 											"kind": 65536,
@@ -123,12 +127,13 @@
 												{
 													"fileName": "bootstraps/vue/client.ts",
 													"line": 16,
-													"character": 11
+													"character": 11,
+													"url": "https://github.com/jakguru/vueprint/blob/cca61f2/bootstraps/vue/client.ts#L16"
 												}
 											],
 											"signatures": [
 												{
-													"id": 8,
+													"id": 1148,
 													"name": "__type",
 													"variant": "signature",
 													"kind": 4096,
@@ -137,12 +142,13 @@
 														{
 															"fileName": "bootstraps/vue/client.ts",
 															"line": 16,
-															"character": 11
+															"character": 11,
+															"url": "https://github.com/jakguru/vueprint/blob/cca61f2/bootstraps/vue/client.ts#L16"
 														}
 													],
 													"parameters": [
 														{
-															"id": 9,
+															"id": 1149,
 															"name": "app",
 															"variant": "param",
 															"kind": 32768,
@@ -164,7 +170,7 @@
 															}
 														},
 														{
-															"id": 10,
+															"id": 1150,
 															"name": "options",
 															"variant": "param",
 															"kind": 32768,
@@ -173,7 +179,7 @@
 															},
 															"type": {
 																"type": "reference",
-																"target": 2,
+																"target": 1142,
 																"name": "VueClientBootstrapOptions",
 																"package": "@jakguru/vueprint"
 															}
@@ -194,7 +200,7 @@
 								{
 									"title": "Properties",
 									"children": [
-										6
+										1146
 									]
 								}
 							],
@@ -202,7 +208,8 @@
 								{
 									"fileName": "bootstraps/vue/client.ts",
 									"line": 15,
-									"character": 27
+									"character": 27,
+									"url": "https://github.com/jakguru/vueprint/blob/cca61f2/bootstraps/vue/client.ts#L15"
 								}
 							]
 						}
@@ -214,13 +221,13 @@
 				{
 					"title": "Interfaces",
 					"children": [
-						2
+						1142
 					]
 				},
 				{
 					"title": "Variables",
 					"children": [
-						4
+						1144
 					]
 				}
 			],
@@ -228,19 +235,20 @@
 				{
 					"fileName": "bootstraps/vue/client.ts",
 					"line": 1,
-					"character": 0
+					"character": 0,
+					"url": "https://github.com/jakguru/vueprint/blob/cca61f2/bootstraps/vue/client.ts#L1"
 				}
 			]
 		},
 		{
-			"id": 11,
+			"id": 1151,
 			"name": "bootstraps/vue/main",
 			"variant": "declaration",
 			"kind": 2,
 			"flags": {},
 			"children": [
 				{
-					"id": 12,
+					"id": 1152,
 					"name": "VueMainBootstrapOptions",
 					"variant": "declaration",
 					"kind": 256,
@@ -255,7 +263,7 @@
 					},
 					"children": [
 						{
-							"id": 16,
+							"id": 1156,
 							"name": "api",
 							"variant": "declaration",
 							"kind": 1024,
@@ -266,18 +274,19 @@
 								{
 									"fileName": "bootstraps/vue/main.ts",
 									"line": 16,
-									"character": 2
+									"character": 2,
+									"url": "https://github.com/jakguru/vueprint/blob/cca61f2/bootstraps/vue/main.ts#L16"
 								}
 							],
 							"type": {
 								"type": "reference",
-								"target": 81,
+								"target": 1238,
 								"name": "ApiPluginOptions",
 								"package": "@jakguru/vueprint"
 							}
 						},
 						{
-							"id": 13,
+							"id": 1153,
 							"name": "bus",
 							"variant": "declaration",
 							"kind": 1024,
@@ -288,18 +297,19 @@
 								{
 									"fileName": "bootstraps/vue/main.ts",
 									"line": 13,
-									"character": 2
+									"character": 2,
+									"url": "https://github.com/jakguru/vueprint/blob/cca61f2/bootstraps/vue/main.ts#L13"
 								}
 							],
 							"type": {
 								"type": "reference",
-								"target": 42,
+								"target": 1199,
 								"name": "BusPluginOptions",
 								"package": "@jakguru/vueprint"
 							}
 						},
 						{
-							"id": 17,
+							"id": 1157,
 							"name": "identity",
 							"variant": "declaration",
 							"kind": 1024,
@@ -310,18 +320,19 @@
 								{
 									"fileName": "bootstraps/vue/main.ts",
 									"line": 17,
-									"character": 2
+									"character": 2,
+									"url": "https://github.com/jakguru/vueprint/blob/cca61f2/bootstraps/vue/main.ts#L17"
 								}
 							],
 							"type": {
 								"type": "reference",
-								"target": 91,
+								"target": 1248,
 								"name": "IdentityPluginOptions",
 								"package": "@jakguru/vueprint"
 							}
 						},
 						{
-							"id": 14,
+							"id": 1154,
 							"name": "ls",
 							"variant": "declaration",
 							"kind": 1024,
@@ -332,18 +343,19 @@
 								{
 									"fileName": "bootstraps/vue/main.ts",
 									"line": 14,
-									"character": 2
+									"character": 2,
+									"url": "https://github.com/jakguru/vueprint/blob/cca61f2/bootstraps/vue/main.ts#L14"
 								}
 							],
 							"type": {
 								"type": "reference",
-								"target": 59,
+								"target": 1216,
 								"name": "LocalStoragePluginOptions",
 								"package": "@jakguru/vueprint"
 							}
 						},
 						{
-							"id": 15,
+							"id": 1155,
 							"name": "vuetify",
 							"variant": "declaration",
 							"kind": 1024,
@@ -354,12 +366,13 @@
 								{
 									"fileName": "bootstraps/vue/main.ts",
 									"line": 15,
-									"character": 2
+									"character": 2,
+									"url": "https://github.com/jakguru/vueprint/blob/cca61f2/bootstraps/vue/main.ts#L15"
 								}
 							],
 							"type": {
 								"type": "reference",
-								"target": 69,
+								"target": 1226,
 								"name": "VuetifyPluginOptions",
 								"package": "@jakguru/vueprint"
 							}
@@ -369,11 +382,11 @@
 						{
 							"title": "Properties",
 							"children": [
-								16,
-								13,
-								17,
-								14,
-								15
+								1156,
+								1153,
+								1157,
+								1154,
+								1155
 							]
 						}
 					],
@@ -381,12 +394,13 @@
 						{
 							"fileName": "bootstraps/vue/main.ts",
 							"line": 12,
-							"character": 17
+							"character": 17,
+							"url": "https://github.com/jakguru/vueprint/blob/cca61f2/bootstraps/vue/main.ts#L12"
 						}
 					]
 				},
 				{
-					"id": 18,
+					"id": 1158,
 					"name": "default",
 					"variant": "declaration",
 					"kind": 32,
@@ -405,20 +419,21 @@
 						{
 							"fileName": "bootstraps/vue/main.ts",
 							"line": 23,
-							"character": 6
+							"character": 6,
+							"url": "https://github.com/jakguru/vueprint/blob/cca61f2/bootstraps/vue/main.ts#L23"
 						}
 					],
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 19,
+							"id": 1159,
 							"name": "__type",
 							"variant": "declaration",
 							"kind": 65536,
 							"flags": {},
 							"children": [
 								{
-									"id": 20,
+									"id": 1160,
 									"name": "install",
 									"variant": "declaration",
 									"kind": 1024,
@@ -427,13 +442,14 @@
 										{
 											"fileName": "bootstraps/vue/main.ts",
 											"line": 24,
-											"character": 2
+											"character": 2,
+											"url": "https://github.com/jakguru/vueprint/blob/cca61f2/bootstraps/vue/main.ts#L24"
 										}
 									],
 									"type": {
 										"type": "reflection",
 										"declaration": {
-											"id": 21,
+											"id": 1161,
 											"name": "__type",
 											"variant": "declaration",
 											"kind": 65536,
@@ -442,12 +458,13 @@
 												{
 													"fileName": "bootstraps/vue/main.ts",
 													"line": 24,
-													"character": 11
+													"character": 11,
+													"url": "https://github.com/jakguru/vueprint/blob/cca61f2/bootstraps/vue/main.ts#L24"
 												}
 											],
 											"signatures": [
 												{
-													"id": 22,
+													"id": 1162,
 													"name": "__type",
 													"variant": "signature",
 													"kind": 4096,
@@ -456,12 +473,13 @@
 														{
 															"fileName": "bootstraps/vue/main.ts",
 															"line": 24,
-															"character": 11
+															"character": 11,
+															"url": "https://github.com/jakguru/vueprint/blob/cca61f2/bootstraps/vue/main.ts#L24"
 														}
 													],
 													"parameters": [
 														{
-															"id": 23,
+															"id": 1163,
 															"name": "app",
 															"variant": "param",
 															"kind": 32768,
@@ -483,7 +501,7 @@
 															}
 														},
 														{
-															"id": 24,
+															"id": 1164,
 															"name": "options",
 															"variant": "param",
 															"kind": 32768,
@@ -492,7 +510,7 @@
 															},
 															"type": {
 																"type": "reference",
-																"target": 12,
+																"target": 1152,
 																"name": "VueMainBootstrapOptions",
 																"package": "@jakguru/vueprint"
 															}
@@ -513,7 +531,7 @@
 								{
 									"title": "Properties",
 									"children": [
-										20
+										1160
 									]
 								}
 							],
@@ -521,7 +539,8 @@
 								{
 									"fileName": "bootstraps/vue/main.ts",
 									"line": 23,
-									"character": 25
+									"character": 25,
+									"url": "https://github.com/jakguru/vueprint/blob/cca61f2/bootstraps/vue/main.ts#L23"
 								}
 							]
 						}
@@ -533,13 +552,13 @@
 				{
 					"title": "Interfaces",
 					"children": [
-						12
+						1152
 					]
 				},
 				{
 					"title": "Variables",
 					"children": [
-						18
+						1158
 					]
 				}
 			],
@@ -547,19 +566,20 @@
 				{
 					"fileName": "bootstraps/vue/main.ts",
 					"line": 1,
-					"character": 0
+					"character": 0,
+					"url": "https://github.com/jakguru/vueprint/blob/cca61f2/bootstraps/vue/main.ts#L1"
 				}
 			]
 		},
 		{
-			"id": 25,
+			"id": 1182,
 			"name": "composables/useVueprint",
 			"variant": "declaration",
 			"kind": 2,
 			"flags": {},
 			"children": [
 				{
-					"id": 26,
+					"id": 1183,
 					"name": "ApplicationHook",
 					"variant": "declaration",
 					"kind": 256,
@@ -574,7 +594,7 @@
 					},
 					"children": [
 						{
-							"id": 30,
+							"id": 1187,
 							"name": "onFalse",
 							"variant": "declaration",
 							"kind": 1024,
@@ -583,13 +603,14 @@
 								{
 									"fileName": "composables/useVueprint.ts",
 									"line": 22,
-									"character": 2
+									"character": 2,
+									"url": "https://github.com/jakguru/vueprint/blob/cca61f2/composables/useVueprint.ts#L22"
 								}
 							],
 							"type": {
 								"type": "reflection",
 								"declaration": {
-									"id": 31,
+									"id": 1188,
 									"name": "__type",
 									"variant": "declaration",
 									"kind": 65536,
@@ -598,12 +619,13 @@
 										{
 											"fileName": "composables/useVueprint.ts",
 											"line": 22,
-											"character": 11
+											"character": 11,
+											"url": "https://github.com/jakguru/vueprint/blob/cca61f2/composables/useVueprint.ts#L22"
 										}
 									],
 									"signatures": [
 										{
-											"id": 32,
+											"id": 1189,
 											"name": "__type",
 											"variant": "signature",
 											"kind": 4096,
@@ -612,7 +634,8 @@
 												{
 													"fileName": "composables/useVueprint.ts",
 													"line": 22,
-													"character": 11
+													"character": 11,
+													"url": "https://github.com/jakguru/vueprint/blob/cca61f2/composables/useVueprint.ts#L22"
 												}
 											],
 											"type": {
@@ -625,7 +648,7 @@
 							}
 						},
 						{
-							"id": 27,
+							"id": 1184,
 							"name": "onTrue",
 							"variant": "declaration",
 							"kind": 1024,
@@ -634,13 +657,14 @@
 								{
 									"fileName": "composables/useVueprint.ts",
 									"line": 21,
-									"character": 2
+									"character": 2,
+									"url": "https://github.com/jakguru/vueprint/blob/cca61f2/composables/useVueprint.ts#L21"
 								}
 							],
 							"type": {
 								"type": "reflection",
 								"declaration": {
-									"id": 28,
+									"id": 1185,
 									"name": "__type",
 									"variant": "declaration",
 									"kind": 65536,
@@ -649,12 +673,13 @@
 										{
 											"fileName": "composables/useVueprint.ts",
 											"line": 21,
-											"character": 10
+											"character": 10,
+											"url": "https://github.com/jakguru/vueprint/blob/cca61f2/composables/useVueprint.ts#L21"
 										}
 									],
 									"signatures": [
 										{
-											"id": 29,
+											"id": 1186,
 											"name": "__type",
 											"variant": "signature",
 											"kind": 4096,
@@ -663,7 +688,8 @@
 												{
 													"fileName": "composables/useVueprint.ts",
 													"line": 21,
-													"character": 10
+													"character": 10,
+													"url": "https://github.com/jakguru/vueprint/blob/cca61f2/composables/useVueprint.ts#L21"
 												}
 											],
 											"type": {
@@ -680,8 +706,8 @@
 						{
 							"title": "Properties",
 							"children": [
-								30,
-								27
+								1187,
+								1184
 							]
 						}
 					],
@@ -689,12 +715,13 @@
 						{
 							"fileName": "composables/useVueprint.ts",
 							"line": 20,
-							"character": 17
+							"character": 17,
+							"url": "https://github.com/jakguru/vueprint/blob/cca61f2/composables/useVueprint.ts#L20"
 						}
 					]
 				},
 				{
-					"id": 33,
+					"id": 1190,
 					"name": "ApplicationHooks",
 					"variant": "declaration",
 					"kind": 256,
@@ -709,7 +736,7 @@
 					},
 					"children": [
 						{
-							"id": 36,
+							"id": 1193,
 							"name": "onAuthenticated",
 							"variant": "declaration",
 							"kind": 1024,
@@ -718,18 +745,19 @@
 								{
 									"fileName": "composables/useVueprint.ts",
 									"line": 31,
-									"character": 2
+									"character": 2,
+									"url": "https://github.com/jakguru/vueprint/blob/cca61f2/composables/useVueprint.ts#L31"
 								}
 							],
 							"type": {
 								"type": "reference",
-								"target": 26,
+								"target": 1183,
 								"name": "ApplicationHook",
 								"package": "@jakguru/vueprint"
 							}
 						},
 						{
-							"id": 34,
+							"id": 1191,
 							"name": "onBooted",
 							"variant": "declaration",
 							"kind": 1024,
@@ -738,18 +766,19 @@
 								{
 									"fileName": "composables/useVueprint.ts",
 									"line": 29,
-									"character": 2
+									"character": 2,
+									"url": "https://github.com/jakguru/vueprint/blob/cca61f2/composables/useVueprint.ts#L29"
 								}
 							],
 							"type": {
 								"type": "reference",
-								"target": 26,
+								"target": 1183,
 								"name": "ApplicationHook",
 								"package": "@jakguru/vueprint"
 							}
 						},
 						{
-							"id": 37,
+							"id": 1194,
 							"name": "onPushPermissions",
 							"variant": "declaration",
 							"kind": 1024,
@@ -758,18 +787,19 @@
 								{
 									"fileName": "composables/useVueprint.ts",
 									"line": 32,
-									"character": 2
+									"character": 2,
+									"url": "https://github.com/jakguru/vueprint/blob/cca61f2/composables/useVueprint.ts#L32"
 								}
 							],
 							"type": {
 								"type": "reference",
-								"target": 26,
+								"target": 1183,
 								"name": "ApplicationHook",
 								"package": "@jakguru/vueprint"
 							}
 						},
 						{
-							"id": 35,
+							"id": 1192,
 							"name": "onReady",
 							"variant": "declaration",
 							"kind": 1024,
@@ -778,12 +808,13 @@
 								{
 									"fileName": "composables/useVueprint.ts",
 									"line": 30,
-									"character": 2
+									"character": 2,
+									"url": "https://github.com/jakguru/vueprint/blob/cca61f2/composables/useVueprint.ts#L30"
 								}
 							],
 							"type": {
 								"type": "reference",
-								"target": 26,
+								"target": 1183,
 								"name": "ApplicationHook",
 								"package": "@jakguru/vueprint"
 							}
@@ -793,10 +824,10 @@
 						{
 							"title": "Properties",
 							"children": [
-								36,
-								34,
-								37,
-								35
+								1193,
+								1191,
+								1194,
+								1192
 							]
 						}
 					],
@@ -804,12 +835,13 @@
 						{
 							"fileName": "composables/useVueprint.ts",
 							"line": 28,
-							"character": 17
+							"character": 17,
+							"url": "https://github.com/jakguru/vueprint/blob/cca61f2/composables/useVueprint.ts#L28"
 						}
 					]
 				},
 				{
-					"id": 38,
+					"id": 1195,
 					"name": "useVueprint",
 					"variant": "declaration",
 					"kind": 64,
@@ -818,12 +850,13 @@
 						{
 							"fileName": "composables/useVueprint.ts",
 							"line": 39,
-							"character": 13
+							"character": 13,
+							"url": "https://github.com/jakguru/vueprint/blob/cca61f2/composables/useVueprint.ts#L39"
 						}
 					],
 					"signatures": [
 						{
-							"id": 39,
+							"id": 1196,
 							"name": "useVueprint",
 							"variant": "signature",
 							"kind": 4096,
@@ -840,12 +873,13 @@
 								{
 									"fileName": "composables/useVueprint.ts",
 									"line": 39,
-									"character": 27
+									"character": 27,
+									"url": "https://github.com/jakguru/vueprint/blob/cca61f2/composables/useVueprint.ts#L39"
 								}
 							],
 							"parameters": [
 								{
-									"id": 40,
+									"id": 1197,
 									"name": "hooks",
 									"variant": "param",
 									"kind": 32768,
@@ -860,7 +894,7 @@
 									},
 									"type": {
 										"type": "reference",
-										"target": 33,
+										"target": 1190,
 										"name": "ApplicationHooks",
 										"package": "@jakguru/vueprint"
 									}
@@ -878,14 +912,14 @@
 				{
 					"title": "Interfaces",
 					"children": [
-						26,
-						33
+						1183,
+						1190
 					]
 				},
 				{
 					"title": "Functions",
 					"children": [
-						38
+						1195
 					]
 				}
 			],
@@ -893,19 +927,363 @@
 				{
 					"fileName": "composables/useVueprint.ts",
 					"line": 1,
-					"character": 0
+					"character": 0,
+					"url": "https://github.com/jakguru/vueprint/blob/cca61f2/composables/useVueprint.ts#L1"
 				}
 			]
 		},
 		{
-			"id": 80,
+			"id": 1165,
+			"name": "nuxt",
+			"variant": "declaration",
+			"kind": 2,
+			"flags": {},
+			"children": [
+				{
+					"id": 1166,
+					"name": "default",
+					"variant": "declaration",
+					"kind": 64,
+					"flags": {},
+					"children": [
+						{
+							"id": 1179,
+							"name": "getMeta",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {
+								"isExternal": true,
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "node_modules/@nuxt/schema/dist/index.d.ts",
+									"line": 707,
+									"character": 4
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 1180,
+									"name": "__type",
+									"variant": "declaration",
+									"kind": 65536,
+									"flags": {
+										"isExternal": true
+									},
+									"sources": [
+										{
+											"fileName": "node_modules/@nuxt/schema/dist/index.d.ts",
+											"line": 707,
+											"character": 14
+										}
+									],
+									"signatures": [
+										{
+											"id": 1181,
+											"name": "__type",
+											"variant": "signature",
+											"kind": 4096,
+											"flags": {
+												"isExternal": true
+											},
+											"sources": [
+												{
+													"fileName": "node_modules/@nuxt/schema/dist/index.d.ts",
+													"line": 707,
+													"character": 14
+												}
+											],
+											"type": {
+												"type": "reference",
+												"target": {
+													"sourceFileName": "node_modules/typescript/lib/lib.es5.d.ts",
+													"qualifiedName": "Promise"
+												},
+												"typeArguments": [
+													{
+														"type": "reference",
+														"target": {
+															"sourceFileName": "node_modules/@nuxt/schema/dist/index.d.ts",
+															"qualifiedName": "ModuleMeta"
+														},
+														"name": "ModuleMeta",
+														"package": "@nuxt/schema"
+													}
+												],
+												"name": "Promise",
+												"package": "typescript",
+												"externalUrl": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise"
+											}
+										}
+									]
+								}
+							}
+						},
+						{
+							"id": 1172,
+							"name": "getOptions",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {
+								"isExternal": true,
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "node_modules/@nuxt/schema/dist/index.d.ts",
+									"line": 706,
+									"character": 4
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 1173,
+									"name": "__type",
+									"variant": "declaration",
+									"kind": 65536,
+									"flags": {
+										"isExternal": true
+									},
+									"sources": [
+										{
+											"fileName": "node_modules/@nuxt/schema/dist/index.d.ts",
+											"line": 706,
+											"character": 17
+										}
+									],
+									"signatures": [
+										{
+											"id": 1174,
+											"name": "__type",
+											"variant": "signature",
+											"kind": 4096,
+											"flags": {
+												"isExternal": true
+											},
+											"sources": [
+												{
+													"fileName": "node_modules/@nuxt/schema/dist/index.d.ts",
+													"line": 706,
+													"character": 17
+												}
+											],
+											"parameters": [
+												{
+													"id": 1175,
+													"name": "inlineOptions",
+													"variant": "param",
+													"kind": 32768,
+													"flags": {
+														"isExternal": true,
+														"isOptional": true
+													},
+													"type": {
+														"type": "reflection",
+														"declaration": {
+															"id": 1176,
+															"name": "__type",
+															"variant": "declaration",
+															"kind": 65536,
+															"flags": {
+																"isExternal": true
+															},
+															"sources": [
+																{
+																	"fileName": "nuxt/index.ts",
+																	"line": 12,
+																	"character": 12,
+																	"url": "https://github.com/jakguru/vueprint/blob/cca61f2/nuxt/index.ts#L12"
+																}
+															]
+														}
+													}
+												},
+												{
+													"id": 1177,
+													"name": "nuxt",
+													"variant": "param",
+													"kind": 32768,
+													"flags": {
+														"isExternal": true,
+														"isOptional": true
+													},
+													"type": {
+														"type": "reference",
+														"target": {
+															"sourceFileName": "node_modules/@nuxt/schema/dist/index.d.ts",
+															"qualifiedName": "Nuxt"
+														},
+														"name": "Nuxt",
+														"package": "@nuxt/schema"
+													}
+												}
+											],
+											"type": {
+												"type": "reference",
+												"target": {
+													"sourceFileName": "node_modules/typescript/lib/lib.es5.d.ts",
+													"qualifiedName": "Promise"
+												},
+												"typeArguments": [
+													{
+														"type": "reflection",
+														"declaration": {
+															"id": 1178,
+															"name": "__type",
+															"variant": "declaration",
+															"kind": 65536,
+															"flags": {
+																"isExternal": true
+															},
+															"sources": [
+																{
+																	"fileName": "nuxt/index.ts",
+																	"line": 12,
+																	"character": 12,
+																	"url": "https://github.com/jakguru/vueprint/blob/cca61f2/nuxt/index.ts#L12"
+																}
+															]
+														}
+													}
+												],
+												"name": "Promise",
+												"package": "typescript",
+												"externalUrl": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise"
+											}
+										}
+									]
+								}
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"children": [
+								1179,
+								1172
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "nuxt/index.ts",
+							"line": 3,
+							"character": 0,
+							"url": "https://github.com/jakguru/vueprint/blob/cca61f2/nuxt/index.ts#L3"
+						}
+					],
+					"signatures": [
+						{
+							"id": 1167,
+							"name": "default",
+							"variant": "signature",
+							"kind": 4096,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "nuxt/index.ts",
+									"line": 3,
+									"character": 0,
+									"url": "https://github.com/jakguru/vueprint/blob/cca61f2/nuxt/index.ts#L3"
+								}
+							],
+							"parameters": [
+								{
+									"id": 1168,
+									"name": "this",
+									"variant": "param",
+									"kind": 32768,
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								},
+								{
+									"id": 1169,
+									"name": "inlineOptions",
+									"variant": "param",
+									"kind": 32768,
+									"flags": {},
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 1170,
+											"name": "__type",
+											"variant": "declaration",
+											"kind": 65536,
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "nuxt/index.ts",
+													"line": 12,
+													"character": 12,
+													"url": "https://github.com/jakguru/vueprint/blob/cca61f2/nuxt/index.ts#L12"
+												}
+											]
+										}
+									}
+								},
+								{
+									"id": 1171,
+									"name": "nuxt",
+									"variant": "param",
+									"kind": 32768,
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"target": {
+											"sourceFileName": "node_modules/@nuxt/schema/dist/index.d.ts",
+											"qualifiedName": "Nuxt"
+										},
+										"name": "Nuxt",
+										"package": "@nuxt/schema"
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"target": {
+									"sourceFileName": "node_modules/@nuxt/schema/dist/index.d.ts",
+									"qualifiedName": "_ModuleSetupReturn"
+								},
+								"name": "_ModuleSetupReturn",
+								"package": "@nuxt/schema"
+							}
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Functions",
+					"children": [
+						1166
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "nuxt/index.ts",
+					"line": 1,
+					"character": 0,
+					"url": "https://github.com/jakguru/vueprint/blob/cca61f2/nuxt/index.ts#L1"
+				}
+			]
+		},
+		{
+			"id": 1237,
 			"name": "plugins/api",
 			"variant": "declaration",
 			"kind": 2,
 			"flags": {},
 			"children": [
 				{
-					"id": 81,
+					"id": 1238,
 					"name": "ApiPluginOptions",
 					"variant": "declaration",
 					"kind": 256,
@@ -920,7 +1298,7 @@
 					},
 					"children": [
 						{
-							"id": 82,
+							"id": 1239,
 							"name": "baseURL",
 							"variant": "declaration",
 							"kind": 1024,
@@ -932,7 +1310,7 @@
 									"fileName": "plugins/api.ts",
 									"line": 18,
 									"character": 2,
-									"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/api.ts#L18"
+									"url": "https://github.com/jakguru/vueprint/blob/cca61f2/plugins/api.ts#L18"
 								}
 							],
 							"type": {
@@ -945,7 +1323,7 @@
 						{
 							"title": "Properties",
 							"children": [
-								82
+								1239
 							]
 						}
 					],
@@ -954,12 +1332,12 @@
 							"fileName": "plugins/api.ts",
 							"line": 17,
 							"character": 17,
-							"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/api.ts#L17"
+							"url": "https://github.com/jakguru/vueprint/blob/cca61f2/plugins/api.ts#L17"
 						}
 					]
 				},
 				{
-					"id": 83,
+					"id": 1240,
 					"name": "ApiPlugin",
 					"variant": "declaration",
 					"kind": 32,
@@ -979,20 +1357,20 @@
 							"fileName": "plugins/api.ts",
 							"line": 24,
 							"character": 13,
-							"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/api.ts#L24"
+							"url": "https://github.com/jakguru/vueprint/blob/cca61f2/plugins/api.ts#L24"
 						}
 					],
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 84,
+							"id": 1241,
 							"name": "__type",
 							"variant": "declaration",
 							"kind": 65536,
 							"flags": {},
 							"children": [
 								{
-									"id": 85,
+									"id": 1242,
 									"name": "install",
 									"variant": "declaration",
 									"kind": 1024,
@@ -1002,13 +1380,13 @@
 											"fileName": "plugins/api.ts",
 											"line": 25,
 											"character": 2,
-											"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/api.ts#L25"
+											"url": "https://github.com/jakguru/vueprint/blob/cca61f2/plugins/api.ts#L25"
 										}
 									],
 									"type": {
 										"type": "reflection",
 										"declaration": {
-											"id": 86,
+											"id": 1243,
 											"name": "__type",
 											"variant": "declaration",
 											"kind": 65536,
@@ -1018,12 +1396,12 @@
 													"fileName": "plugins/api.ts",
 													"line": 25,
 													"character": 11,
-													"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/api.ts#L25"
+													"url": "https://github.com/jakguru/vueprint/blob/cca61f2/plugins/api.ts#L25"
 												}
 											],
 											"signatures": [
 												{
-													"id": 87,
+													"id": 1244,
 													"name": "__type",
 													"variant": "signature",
 													"kind": 4096,
@@ -1033,12 +1411,12 @@
 															"fileName": "plugins/api.ts",
 															"line": 25,
 															"character": 11,
-															"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/api.ts#L25"
+															"url": "https://github.com/jakguru/vueprint/blob/cca61f2/plugins/api.ts#L25"
 														}
 													],
 													"parameters": [
 														{
-															"id": 88,
+															"id": 1245,
 															"name": "app",
 															"variant": "param",
 															"kind": 32768,
@@ -1060,7 +1438,7 @@
 															}
 														},
 														{
-															"id": 89,
+															"id": 1246,
 															"name": "options",
 															"variant": "param",
 															"kind": 32768,
@@ -1069,7 +1447,7 @@
 															},
 															"type": {
 																"type": "reference",
-																"target": 81,
+																"target": 1238,
 																"name": "ApiPluginOptions",
 																"package": "@jakguru/vueprint"
 															}
@@ -1090,7 +1468,7 @@
 								{
 									"title": "Properties",
 									"children": [
-										85
+										1242
 									]
 								}
 							],
@@ -1099,7 +1477,7 @@
 									"fileName": "plugins/api.ts",
 									"line": 24,
 									"character": 25,
-									"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/api.ts#L24"
+									"url": "https://github.com/jakguru/vueprint/blob/cca61f2/plugins/api.ts#L24"
 								}
 							]
 						}
@@ -1111,13 +1489,13 @@
 				{
 					"title": "Interfaces",
 					"children": [
-						81
+						1238
 					]
 				},
 				{
 					"title": "Variables",
 					"children": [
-						83
+						1240
 					]
 				}
 			],
@@ -1126,19 +1504,1464 @@
 					"fileName": "plugins/api.ts",
 					"line": 1,
 					"character": 0,
-					"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/api.ts#L1"
+					"url": "https://github.com/jakguru/vueprint/blob/cca61f2/plugins/api.ts#L1"
 				}
 			]
 		},
 		{
-			"id": 41,
+			"id": 1198,
 			"name": "plugins/bus",
 			"variant": "declaration",
 			"kind": 2,
 			"flags": {},
 			"children": [
 				{
-					"id": 42,
+					"id": 1279,
+					"name": "BusEventCallbackSignatures",
+					"variant": "declaration",
+					"kind": 256,
+					"flags": {},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "Describes the events and the signatures of their callbacks\nShould be extended by the application to include all the events it needs"
+							}
+						]
+					},
+					"children": [
+						{
+							"id": 1280,
+							"name": "api:unauthorized",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "Emitted when the API returns a 401 Unauthorized status"
+									}
+								]
+							},
+							"sources": [
+								{
+									"fileName": "src/bus.ts",
+									"line": 19,
+									"character": 2,
+									"url": "https://github.com/jakguru/vueprint/blob/cca61f2/src/bus.ts#L19"
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 1281,
+									"name": "__type",
+									"variant": "declaration",
+									"kind": 65536,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "src/bus.ts",
+											"line": 19,
+											"character": 22,
+											"url": "https://github.com/jakguru/vueprint/blob/cca61f2/src/bus.ts#L19"
+										}
+									],
+									"signatures": [
+										{
+											"id": 1282,
+											"name": "__type",
+											"variant": "signature",
+											"kind": 4096,
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "src/bus.ts",
+													"line": 19,
+													"character": 22,
+													"url": "https://github.com/jakguru/vueprint/blob/cca61f2/src/bus.ts#L19"
+												}
+											],
+											"parameters": [
+												{
+													"id": 1283,
+													"name": "from",
+													"variant": "param",
+													"kind": 32768,
+													"flags": {
+														"isOptional": true
+													},
+													"comment": {
+														"summary": [
+															{
+																"kind": "text",
+																"text": "The ID of the tab that triggered the event"
+															}
+														]
+													},
+													"type": {
+														"type": "intrinsic",
+														"name": "string"
+													}
+												}
+											],
+											"type": {
+												"type": "intrinsic",
+												"name": "void"
+											}
+										}
+									]
+								}
+							}
+						},
+						{
+							"id": 1331,
+							"name": "authentication:refreshable",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "The user's authentication token is eligible for refresh"
+									}
+								],
+								"blockTags": [
+									{
+										"tag": "@returns",
+										"content": [
+											{
+												"kind": "text",
+												"text": "void"
+											}
+										]
+									}
+								]
+							},
+							"sources": [
+								{
+									"fileName": "src/bus.ts",
+									"line": 95,
+									"character": 2,
+									"url": "https://github.com/jakguru/vueprint/blob/cca61f2/src/bus.ts#L95"
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 1332,
+									"name": "__type",
+									"variant": "declaration",
+									"kind": 65536,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "src/bus.ts",
+											"line": 95,
+											"character": 32,
+											"url": "https://github.com/jakguru/vueprint/blob/cca61f2/src/bus.ts#L95"
+										}
+									],
+									"signatures": [
+										{
+											"id": 1333,
+											"name": "__type",
+											"variant": "signature",
+											"kind": 4096,
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "src/bus.ts",
+													"line": 95,
+													"character": 32,
+													"url": "https://github.com/jakguru/vueprint/blob/cca61f2/src/bus.ts#L95"
+												}
+											],
+											"parameters": [
+												{
+													"id": 1334,
+													"name": "from",
+													"variant": "param",
+													"kind": 32768,
+													"flags": {
+														"isOptional": true
+													},
+													"comment": {
+														"summary": [
+															{
+																"kind": "text",
+																"text": "The ID of the tab that triggered the event"
+															}
+														]
+													},
+													"type": {
+														"type": "intrinsic",
+														"name": "string"
+													}
+												}
+											],
+											"type": {
+												"type": "intrinsic",
+												"name": "void"
+											}
+										}
+									]
+								}
+							}
+						},
+						{
+							"id": 1315,
+							"name": "firebase:token:updated",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "The Firebase token has been updated"
+									}
+								],
+								"blockTags": [
+									{
+										"tag": "@returns",
+										"content": [
+											{
+												"kind": "text",
+												"text": "void"
+											}
+										]
+									}
+								]
+							},
+							"sources": [
+								{
+									"fileName": "src/bus.ts",
+									"line": 69,
+									"character": 2,
+									"url": "https://github.com/jakguru/vueprint/blob/cca61f2/src/bus.ts#L69"
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 1316,
+									"name": "__type",
+									"variant": "declaration",
+									"kind": 65536,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "src/bus.ts",
+											"line": 69,
+											"character": 28,
+											"url": "https://github.com/jakguru/vueprint/blob/cca61f2/src/bus.ts#L69"
+										}
+									],
+									"signatures": [
+										{
+											"id": 1317,
+											"name": "__type",
+											"variant": "signature",
+											"kind": 4096,
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "src/bus.ts",
+													"line": 69,
+													"character": 28,
+													"url": "https://github.com/jakguru/vueprint/blob/cca61f2/src/bus.ts#L69"
+												}
+											],
+											"parameters": [
+												{
+													"id": 1318,
+													"name": "token",
+													"variant": "param",
+													"kind": 32768,
+													"flags": {},
+													"comment": {
+														"summary": [
+															{
+																"kind": "text",
+																"text": "The new token"
+															}
+														]
+													},
+													"type": {
+														"type": "union",
+														"types": [
+															{
+																"type": "intrinsic",
+																"name": "undefined"
+															},
+															{
+																"type": "intrinsic",
+																"name": "string"
+															}
+														]
+													}
+												},
+												{
+													"id": 1319,
+													"name": "from",
+													"variant": "param",
+													"kind": 32768,
+													"flags": {
+														"isOptional": true
+													},
+													"comment": {
+														"summary": [
+															{
+																"kind": "text",
+																"text": "The ID of the tab that triggered the event"
+															}
+														]
+													},
+													"type": {
+														"type": "intrinsic",
+														"name": "string"
+													}
+												}
+											],
+											"type": {
+												"type": "intrinsic",
+												"name": "void"
+											}
+										}
+									]
+								}
+							}
+						},
+						{
+							"id": 1320,
+							"name": "identity:login",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "The user has been authenticated and identified"
+									}
+								],
+								"blockTags": [
+									{
+										"tag": "@returns",
+										"content": [
+											{
+												"kind": "text",
+												"text": "void"
+											}
+										]
+									}
+								]
+							},
+							"sources": [
+								{
+									"fileName": "src/bus.ts",
+									"line": 78,
+									"character": 2,
+									"url": "https://github.com/jakguru/vueprint/blob/cca61f2/src/bus.ts#L78"
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 1321,
+									"name": "__type",
+									"variant": "declaration",
+									"kind": 65536,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "src/bus.ts",
+											"line": 78,
+											"character": 20,
+											"url": "https://github.com/jakguru/vueprint/blob/cca61f2/src/bus.ts#L78"
+										}
+									],
+									"signatures": [
+										{
+											"id": 1322,
+											"name": "__type",
+											"variant": "signature",
+											"kind": 4096,
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "src/bus.ts",
+													"line": 78,
+													"character": 20,
+													"url": "https://github.com/jakguru/vueprint/blob/cca61f2/src/bus.ts#L78"
+												}
+											],
+											"parameters": [
+												{
+													"id": 1323,
+													"name": "bearer",
+													"variant": "param",
+													"kind": 32768,
+													"flags": {},
+													"comment": {
+														"summary": [
+															{
+																"kind": "text",
+																"text": "The bearer token"
+															}
+														]
+													},
+													"type": {
+														"type": "intrinsic",
+														"name": "string"
+													}
+												},
+												{
+													"id": 1324,
+													"name": "expiration",
+													"variant": "param",
+													"kind": 32768,
+													"flags": {},
+													"comment": {
+														"summary": [
+															{
+																"kind": "text",
+																"text": "The expiration date of the token"
+															}
+														]
+													},
+													"type": {
+														"type": "intrinsic",
+														"name": "string"
+													}
+												},
+												{
+													"id": 1325,
+													"name": "identity",
+													"variant": "param",
+													"kind": 32768,
+													"flags": {},
+													"comment": {
+														"summary": [
+															{
+																"kind": "text",
+																"text": "The identity of the user"
+															}
+														]
+													},
+													"type": {
+														"type": "reference",
+														"target": {
+															"sourceFileName": "src/identity.ts",
+															"qualifiedName": "UserIdentity"
+														},
+														"name": "UserIdentity",
+														"package": "@jakguru/vueprint"
+													}
+												},
+												{
+													"id": 1326,
+													"name": "from",
+													"variant": "param",
+													"kind": 32768,
+													"flags": {
+														"isOptional": true
+													},
+													"comment": {
+														"summary": [
+															{
+																"kind": "text",
+																"text": "The ID of the tab that triggered the event"
+															}
+														]
+													},
+													"type": {
+														"type": "intrinsic",
+														"name": "string"
+													}
+												}
+											],
+											"type": {
+												"type": "intrinsic",
+												"name": "void"
+											}
+										}
+									]
+								}
+							}
+						},
+						{
+							"id": 1327,
+							"name": "identity:logout",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "The user has been logged out"
+									}
+								],
+								"blockTags": [
+									{
+										"tag": "@returns",
+										"content": [
+											{
+												"kind": "text",
+												"text": "void"
+											}
+										]
+									}
+								]
+							},
+							"sources": [
+								{
+									"fileName": "src/bus.ts",
+									"line": 89,
+									"character": 2,
+									"url": "https://github.com/jakguru/vueprint/blob/cca61f2/src/bus.ts#L89"
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 1328,
+									"name": "__type",
+									"variant": "declaration",
+									"kind": 65536,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "src/bus.ts",
+											"line": 89,
+											"character": 21,
+											"url": "https://github.com/jakguru/vueprint/blob/cca61f2/src/bus.ts#L89"
+										}
+									],
+									"signatures": [
+										{
+											"id": 1329,
+											"name": "__type",
+											"variant": "signature",
+											"kind": 4096,
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "src/bus.ts",
+													"line": 89,
+													"character": 21,
+													"url": "https://github.com/jakguru/vueprint/blob/cca61f2/src/bus.ts#L89"
+												}
+											],
+											"parameters": [
+												{
+													"id": 1330,
+													"name": "from",
+													"variant": "param",
+													"kind": 32768,
+													"flags": {
+														"isOptional": true
+													},
+													"comment": {
+														"summary": [
+															{
+																"kind": "text",
+																"text": "The ID of the tab that triggered the event"
+															}
+														]
+													},
+													"type": {
+														"type": "intrinsic",
+														"name": "string"
+													}
+												}
+											],
+											"type": {
+												"type": "intrinsic",
+												"name": "void"
+											}
+										}
+									]
+								}
+							}
+						},
+						{
+							"id": 1310,
+							"name": "push:notification",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "A push notification has been received"
+									}
+								],
+								"blockTags": [
+									{
+										"tag": "@returns",
+										"content": [
+											{
+												"kind": "text",
+												"text": "void"
+											}
+										]
+									}
+								]
+							},
+							"sources": [
+								{
+									"fileName": "src/bus.ts",
+									"line": 62,
+									"character": 2,
+									"url": "https://github.com/jakguru/vueprint/blob/cca61f2/src/bus.ts#L62"
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 1311,
+									"name": "__type",
+									"variant": "declaration",
+									"kind": 65536,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "src/bus.ts",
+											"line": 62,
+											"character": 23,
+											"url": "https://github.com/jakguru/vueprint/blob/cca61f2/src/bus.ts#L62"
+										}
+									],
+									"signatures": [
+										{
+											"id": 1312,
+											"name": "__type",
+											"variant": "signature",
+											"kind": 4096,
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "src/bus.ts",
+													"line": 62,
+													"character": 23,
+													"url": "https://github.com/jakguru/vueprint/blob/cca61f2/src/bus.ts#L62"
+												}
+											],
+											"parameters": [
+												{
+													"id": 1313,
+													"name": "payload",
+													"variant": "param",
+													"kind": 32768,
+													"flags": {},
+													"comment": {
+														"summary": [
+															{
+																"kind": "text",
+																"text": "The payload of the notification"
+															}
+														]
+													},
+													"type": {
+														"type": "reference",
+														"target": {
+															"sourceFileName": "node_modules/@firebase/messaging/dist/index-public.d.ts",
+															"qualifiedName": "NotificationPayload"
+														},
+														"name": "NotificationPayload",
+														"package": "@firebase/messaging"
+													}
+												},
+												{
+													"id": 1314,
+													"name": "from",
+													"variant": "param",
+													"kind": 32768,
+													"flags": {
+														"isOptional": true
+													},
+													"comment": {
+														"summary": [
+															{
+																"kind": "text",
+																"text": "The ID of the tab that triggered the event"
+															}
+														]
+													},
+													"type": {
+														"type": "intrinsic",
+														"name": "string"
+													}
+												}
+											],
+											"type": {
+												"type": "intrinsic",
+												"name": "void"
+											}
+										}
+									]
+								}
+							}
+						},
+						{
+							"id": 1302,
+							"name": "push:permission:denied",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "The push service has been granted permission"
+									}
+								],
+								"blockTags": [
+									{
+										"tag": "@returns",
+										"content": [
+											{
+												"kind": "text",
+												"text": "void"
+											}
+										]
+									}
+								]
+							},
+							"sources": [
+								{
+									"fileName": "src/bus.ts",
+									"line": 49,
+									"character": 2,
+									"url": "https://github.com/jakguru/vueprint/blob/cca61f2/src/bus.ts#L49"
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 1303,
+									"name": "__type",
+									"variant": "declaration",
+									"kind": 65536,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "src/bus.ts",
+											"line": 49,
+											"character": 28,
+											"url": "https://github.com/jakguru/vueprint/blob/cca61f2/src/bus.ts#L49"
+										}
+									],
+									"signatures": [
+										{
+											"id": 1304,
+											"name": "__type",
+											"variant": "signature",
+											"kind": 4096,
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "src/bus.ts",
+													"line": 49,
+													"character": 28,
+													"url": "https://github.com/jakguru/vueprint/blob/cca61f2/src/bus.ts#L49"
+												}
+											],
+											"parameters": [
+												{
+													"id": 1305,
+													"name": "from",
+													"variant": "param",
+													"kind": 32768,
+													"flags": {
+														"isOptional": true
+													},
+													"comment": {
+														"summary": [
+															{
+																"kind": "text",
+																"text": "The ID of the tab that triggered the event"
+															}
+														]
+													},
+													"type": {
+														"type": "intrinsic",
+														"name": "string"
+													}
+												}
+											],
+											"type": {
+												"type": "intrinsic",
+												"name": "void"
+											}
+										}
+									]
+								}
+							}
+						},
+						{
+							"id": 1306,
+							"name": "push:permission:granted",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "The push service has been denied permission"
+									}
+								],
+								"blockTags": [
+									{
+										"tag": "@returns",
+										"content": [
+											{
+												"kind": "text",
+												"text": "void"
+											}
+										]
+									}
+								]
+							},
+							"sources": [
+								{
+									"fileName": "src/bus.ts",
+									"line": 55,
+									"character": 2,
+									"url": "https://github.com/jakguru/vueprint/blob/cca61f2/src/bus.ts#L55"
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 1307,
+									"name": "__type",
+									"variant": "declaration",
+									"kind": 65536,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "src/bus.ts",
+											"line": 55,
+											"character": 29,
+											"url": "https://github.com/jakguru/vueprint/blob/cca61f2/src/bus.ts#L55"
+										}
+									],
+									"signatures": [
+										{
+											"id": 1308,
+											"name": "__type",
+											"variant": "signature",
+											"kind": 4096,
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "src/bus.ts",
+													"line": 55,
+													"character": 29,
+													"url": "https://github.com/jakguru/vueprint/blob/cca61f2/src/bus.ts#L55"
+												}
+											],
+											"parameters": [
+												{
+													"id": 1309,
+													"name": "from",
+													"variant": "param",
+													"kind": 32768,
+													"flags": {
+														"isOptional": true
+													},
+													"comment": {
+														"summary": [
+															{
+																"kind": "text",
+																"text": "The ID of the tab that triggered the event"
+															}
+														]
+													},
+													"type": {
+														"type": "intrinsic",
+														"name": "string"
+													}
+												}
+											],
+											"type": {
+												"type": "intrinsic",
+												"name": "void"
+											}
+										}
+									]
+								}
+							}
+						},
+						{
+							"id": 1298,
+							"name": "push:updated",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "The push service has been updated"
+									}
+								],
+								"blockTags": [
+									{
+										"tag": "@returns",
+										"content": [
+											{
+												"kind": "text",
+												"text": "void"
+											}
+										]
+									}
+								]
+							},
+							"sources": [
+								{
+									"fileName": "src/bus.ts",
+									"line": 43,
+									"character": 2,
+									"url": "https://github.com/jakguru/vueprint/blob/cca61f2/src/bus.ts#L43"
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 1299,
+									"name": "__type",
+									"variant": "declaration",
+									"kind": 65536,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "src/bus.ts",
+											"line": 43,
+											"character": 18,
+											"url": "https://github.com/jakguru/vueprint/blob/cca61f2/src/bus.ts#L43"
+										}
+									],
+									"signatures": [
+										{
+											"id": 1300,
+											"name": "__type",
+											"variant": "signature",
+											"kind": 4096,
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "src/bus.ts",
+													"line": 43,
+													"character": 18,
+													"url": "https://github.com/jakguru/vueprint/blob/cca61f2/src/bus.ts#L43"
+												}
+											],
+											"parameters": [
+												{
+													"id": 1301,
+													"name": "from",
+													"variant": "param",
+													"kind": 32768,
+													"flags": {
+														"isOptional": true
+													},
+													"comment": {
+														"summary": [
+															{
+																"kind": "text",
+																"text": "The ID of the tab that triggered the event"
+															}
+														]
+													},
+													"type": {
+														"type": "intrinsic",
+														"name": "string"
+													}
+												}
+											],
+											"type": {
+												"type": "intrinsic",
+												"name": "void"
+											}
+										}
+									]
+								}
+							}
+						},
+						{
+							"id": 1290,
+							"name": "tab:active",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "A tab has become active"
+									}
+								]
+							},
+							"sources": [
+								{
+									"fileName": "src/bus.ts",
+									"line": 32,
+									"character": 2,
+									"url": "https://github.com/jakguru/vueprint/blob/cca61f2/src/bus.ts#L32"
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 1291,
+									"name": "__type",
+									"variant": "declaration",
+									"kind": 65536,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "src/bus.ts",
+											"line": 32,
+											"character": 16,
+											"url": "https://github.com/jakguru/vueprint/blob/cca61f2/src/bus.ts#L32"
+										}
+									],
+									"signatures": [
+										{
+											"id": 1292,
+											"name": "__type",
+											"variant": "signature",
+											"kind": 4096,
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "src/bus.ts",
+													"line": 32,
+													"character": 16,
+													"url": "https://github.com/jakguru/vueprint/blob/cca61f2/src/bus.ts#L32"
+												}
+											],
+											"parameters": [
+												{
+													"id": 1293,
+													"name": "from",
+													"variant": "param",
+													"kind": 32768,
+													"flags": {
+														"isOptional": true
+													},
+													"comment": {
+														"summary": [
+															{
+																"kind": "text",
+																"text": "The ID of the tab that triggered the event"
+															}
+														]
+													},
+													"type": {
+														"type": "intrinsic",
+														"name": "string"
+													}
+												}
+											],
+											"type": {
+												"type": "intrinsic",
+												"name": "void"
+											}
+										}
+									]
+								}
+							}
+						},
+						{
+							"id": 1294,
+							"name": "tab:inactive",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "A tab has become inactive"
+									}
+								]
+							},
+							"sources": [
+								{
+									"fileName": "src/bus.ts",
+									"line": 37,
+									"character": 2,
+									"url": "https://github.com/jakguru/vueprint/blob/cca61f2/src/bus.ts#L37"
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 1295,
+									"name": "__type",
+									"variant": "declaration",
+									"kind": 65536,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "src/bus.ts",
+											"line": 37,
+											"character": 18,
+											"url": "https://github.com/jakguru/vueprint/blob/cca61f2/src/bus.ts#L37"
+										}
+									],
+									"signatures": [
+										{
+											"id": 1296,
+											"name": "__type",
+											"variant": "signature",
+											"kind": 4096,
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "src/bus.ts",
+													"line": 37,
+													"character": 18,
+													"url": "https://github.com/jakguru/vueprint/blob/cca61f2/src/bus.ts#L37"
+												}
+											],
+											"parameters": [
+												{
+													"id": 1297,
+													"name": "from",
+													"variant": "param",
+													"kind": 32768,
+													"flags": {
+														"isOptional": true
+													},
+													"comment": {
+														"summary": [
+															{
+																"kind": "text",
+																"text": "The ID of the tab that triggered the event"
+															}
+														]
+													},
+													"type": {
+														"type": "intrinsic",
+														"name": "string"
+													}
+												}
+											],
+											"type": {
+												"type": "intrinsic",
+												"name": "void"
+											}
+										}
+									]
+								}
+							}
+						},
+						{
+							"id": 1284,
+							"name": "tab:uuid",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "A tab has been updated"
+									}
+								],
+								"blockTags": [
+									{
+										"tag": "@returns",
+										"content": [
+											{
+												"kind": "text",
+												"text": "void"
+											}
+										]
+									}
+								]
+							},
+							"sources": [
+								{
+									"fileName": "src/bus.ts",
+									"line": 27,
+									"character": 2,
+									"url": "https://github.com/jakguru/vueprint/blob/cca61f2/src/bus.ts#L27"
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 1285,
+									"name": "__type",
+									"variant": "declaration",
+									"kind": 65536,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "src/bus.ts",
+											"line": 27,
+											"character": 14,
+											"url": "https://github.com/jakguru/vueprint/blob/cca61f2/src/bus.ts#L27"
+										}
+									],
+									"signatures": [
+										{
+											"id": 1286,
+											"name": "__type",
+											"variant": "signature",
+											"kind": 4096,
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "src/bus.ts",
+													"line": 27,
+													"character": 14,
+													"url": "https://github.com/jakguru/vueprint/blob/cca61f2/src/bus.ts#L27"
+												}
+											],
+											"parameters": [
+												{
+													"id": 1287,
+													"name": "uuid",
+													"variant": "param",
+													"kind": 32768,
+													"flags": {},
+													"comment": {
+														"summary": [
+															{
+																"kind": "text",
+																"text": "The ID of the tab which has been updated"
+															}
+														]
+													},
+													"type": {
+														"type": "intrinsic",
+														"name": "string"
+													}
+												},
+												{
+													"id": 1288,
+													"name": "active",
+													"variant": "param",
+													"kind": 32768,
+													"flags": {},
+													"comment": {
+														"summary": [
+															{
+																"kind": "text",
+																"text": "If the new tab is \"active\" or not"
+															}
+														]
+													},
+													"type": {
+														"type": "intrinsic",
+														"name": "boolean"
+													}
+												},
+												{
+													"id": 1289,
+													"name": "from",
+													"variant": "param",
+													"kind": 32768,
+													"flags": {
+														"isOptional": true
+													},
+													"comment": {
+														"summary": [
+															{
+																"kind": "text",
+																"text": "The ID of the tab that triggered the event"
+															}
+														]
+													},
+													"type": {
+														"type": "intrinsic",
+														"name": "string"
+													}
+												}
+											],
+											"type": {
+												"type": "intrinsic",
+												"name": "void"
+											}
+										}
+									]
+								}
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"children": [
+								1280,
+								1331,
+								1315,
+								1320,
+								1327,
+								1310,
+								1302,
+								1306,
+								1298,
+								1290,
+								1294,
+								1284
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "src/bus.ts",
+							"line": 14,
+							"character": 17,
+							"url": "https://github.com/jakguru/vueprint/blob/cca61f2/src/bus.ts#L14"
+						}
+					]
+				},
+				{
+					"id": 1339,
+					"name": "BusEventListenOptions",
+					"variant": "declaration",
+					"kind": 256,
+					"flags": {},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "Options for listening to events"
+							}
+						],
+						"blockTags": [
+							{
+								"tag": "@param",
+								"name": "local",
+								"content": [
+									{
+										"kind": "text",
+										"text": "Emit and listen to events in the same tab"
+									}
+								]
+							},
+							{
+								"tag": "@param",
+								"name": "crossTab",
+								"content": [
+									{
+										"kind": "text",
+										"text": "Emit and listen to events in other tabs"
+									}
+								]
+							},
+							{
+								"tag": "@param",
+								"name": "immediate",
+								"content": [
+									{
+										"kind": "text",
+										"text": "If the event has already been triggered, trigger it immediately"
+									}
+								]
+							}
+						]
+					},
+					"children": [
+						{
+							"id": 1341,
+							"name": "crossTab",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "src/bus.ts",
+									"line": 124,
+									"character": 2,
+									"url": "https://github.com/jakguru/vueprint/blob/cca61f2/src/bus.ts#L124"
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							}
+						},
+						{
+							"id": 1342,
+							"name": "immediate",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "src/bus.ts",
+									"line": 125,
+									"character": 2,
+									"url": "https://github.com/jakguru/vueprint/blob/cca61f2/src/bus.ts#L125"
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							}
+						},
+						{
+							"id": 1340,
+							"name": "local",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "src/bus.ts",
+									"line": 123,
+									"character": 2,
+									"url": "https://github.com/jakguru/vueprint/blob/cca61f2/src/bus.ts#L123"
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"children": [
+								1341,
+								1342,
+								1340
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "src/bus.ts",
+							"line": 122,
+							"character": 17,
+							"url": "https://github.com/jakguru/vueprint/blob/cca61f2/src/bus.ts#L122"
+						}
+					]
+				},
+				{
+					"id": 1199,
 					"name": "BusPluginOptions",
 					"variant": "declaration",
 					"kind": 256,
@@ -1153,7 +2976,7 @@
 					},
 					"children": [
 						{
-							"id": 43,
+							"id": 1200,
 							"name": "namespace",
 							"variant": "declaration",
 							"kind": 1024,
@@ -1163,9 +2986,9 @@
 							"sources": [
 								{
 									"fileName": "plugins/bus.ts",
-									"line": 17,
+									"line": 25,
 									"character": 2,
-									"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/bus.ts#L17"
+									"url": "https://github.com/jakguru/vueprint/blob/cca61f2/plugins/bus.ts#L25"
 								}
 							],
 							"type": {
@@ -1178,21 +3001,222 @@
 						{
 							"title": "Properties",
 							"children": [
-								43
+								1200
 							]
 						}
 					],
 					"sources": [
 						{
 							"fileName": "plugins/bus.ts",
-							"line": 16,
+							"line": 24,
 							"character": 17,
-							"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/bus.ts#L16"
+							"url": "https://github.com/jakguru/vueprint/blob/cca61f2/plugins/bus.ts#L24"
 						}
 					]
 				},
 				{
-					"id": 44,
+					"id": 1335,
+					"name": "BusEvent",
+					"variant": "declaration",
+					"kind": 2097152,
+					"flags": {},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "The events that can be emitted and listened to"
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "src/bus.ts",
+							"line": 101,
+							"character": 12,
+							"url": "https://github.com/jakguru/vueprint/blob/cca61f2/src/bus.ts#L101"
+						}
+					],
+					"type": {
+						"type": "typeOperator",
+						"operator": "keyof",
+						"target": {
+							"type": "reference",
+							"target": 1279,
+							"name": "BusEventCallbackSignatures",
+							"package": "@jakguru/vueprint"
+						}
+					}
+				},
+				{
+					"id": 1338,
+					"name": "BusEventAlreadyTriggered",
+					"variant": "declaration",
+					"kind": 2097152,
+					"flags": {},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "The events that have already been triggered"
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "src/bus.ts",
+							"line": 112,
+							"character": 12,
+							"url": "https://github.com/jakguru/vueprint/blob/cca61f2/src/bus.ts#L112"
+						}
+					],
+					"type": {
+						"type": "mapped",
+						"parameter": "key",
+						"parameterType": {
+							"type": "typeOperator",
+							"operator": "keyof",
+							"target": {
+								"type": "reference",
+								"target": 1279,
+								"name": "BusEventCallbackSignatures",
+								"package": "@jakguru/vueprint"
+							}
+						},
+						"templateType": {
+							"type": "reference",
+							"target": {
+								"sourceFileName": "node_modules/typescript/lib/lib.es5.d.ts",
+								"qualifiedName": "Parameters"
+							},
+							"typeArguments": [
+								{
+									"type": "reference",
+									"target": 1336,
+									"typeArguments": [
+										{
+											"type": "reference",
+											"target": {
+												"sourceFileName": "src/bus.ts",
+												"qualifiedName": "key"
+											},
+											"name": "key",
+											"package": "@jakguru/vueprint",
+											"refersToTypeParameter": true
+										}
+									],
+									"name": "BusEventCallback",
+									"package": "@jakguru/vueprint"
+								}
+							],
+							"name": "Parameters",
+							"package": "typescript"
+						}
+					}
+				},
+				{
+					"id": 1336,
+					"name": "BusEventCallback",
+					"variant": "declaration",
+					"kind": 2097152,
+					"flags": {},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "The callback signatures for the events"
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "src/bus.ts",
+							"line": 106,
+							"character": 12,
+							"url": "https://github.com/jakguru/vueprint/blob/cca61f2/src/bus.ts#L106"
+						}
+					],
+					"typeParameters": [
+						{
+							"id": 1337,
+							"name": "T",
+							"variant": "typeParam",
+							"kind": 131072,
+							"flags": {},
+							"type": {
+								"type": "typeOperator",
+								"operator": "keyof",
+								"target": {
+									"type": "reference",
+									"target": 1279,
+									"name": "BusEventCallbackSignatures",
+									"package": "@jakguru/vueprint"
+								}
+							}
+						}
+					],
+					"type": {
+						"type": "indexedAccess",
+						"indexType": {
+							"type": "reference",
+							"target": 1337,
+							"name": "T",
+							"package": "@jakguru/vueprint",
+							"refersToTypeParameter": true
+						},
+						"objectType": {
+							"type": "reference",
+							"target": 1279,
+							"name": "BusEventCallbackSignatures",
+							"package": "@jakguru/vueprint"
+						}
+					}
+				},
+				{
+					"id": 1343,
+					"name": "BusEventEmitOptions",
+					"variant": "declaration",
+					"kind": 2097152,
+					"flags": {},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "Options for listening to events"
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "src/bus.ts",
+							"line": 132,
+							"character": 12,
+							"url": "https://github.com/jakguru/vueprint/blob/cca61f2/src/bus.ts#L132"
+						}
+					],
+					"type": {
+						"type": "reference",
+						"target": {
+							"sourceFileName": "node_modules/typescript/lib/lib.es5.d.ts",
+							"qualifiedName": "Omit"
+						},
+						"typeArguments": [
+							{
+								"type": "reference",
+								"target": 1339,
+								"name": "BusEventListenOptions",
+								"package": "@jakguru/vueprint"
+							},
+							{
+								"type": "literal",
+								"value": "immediate"
+							}
+						],
+						"name": "Omit",
+						"package": "typescript"
+					}
+				},
+				{
+					"id": 1201,
 					"name": "BusPlugin",
 					"variant": "declaration",
 					"kind": 32,
@@ -1210,22 +3234,22 @@
 					"sources": [
 						{
 							"fileName": "plugins/bus.ts",
-							"line": 23,
+							"line": 31,
 							"character": 13,
-							"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/bus.ts#L23"
+							"url": "https://github.com/jakguru/vueprint/blob/cca61f2/plugins/bus.ts#L31"
 						}
 					],
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 45,
+							"id": 1202,
 							"name": "__type",
 							"variant": "declaration",
 							"kind": 65536,
 							"flags": {},
 							"children": [
 								{
-									"id": 46,
+									"id": 1203,
 									"name": "install",
 									"variant": "declaration",
 									"kind": 1024,
@@ -1233,15 +3257,15 @@
 									"sources": [
 										{
 											"fileName": "plugins/bus.ts",
-											"line": 24,
+											"line": 32,
 											"character": 2,
-											"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/bus.ts#L24"
+											"url": "https://github.com/jakguru/vueprint/blob/cca61f2/plugins/bus.ts#L32"
 										}
 									],
 									"type": {
 										"type": "reflection",
 										"declaration": {
-											"id": 47,
+											"id": 1204,
 											"name": "__type",
 											"variant": "declaration",
 											"kind": 65536,
@@ -1249,14 +3273,14 @@
 											"sources": [
 												{
 													"fileName": "plugins/bus.ts",
-													"line": 24,
+													"line": 32,
 													"character": 11,
-													"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/bus.ts#L24"
+													"url": "https://github.com/jakguru/vueprint/blob/cca61f2/plugins/bus.ts#L32"
 												}
 											],
 											"signatures": [
 												{
-													"id": 48,
+													"id": 1205,
 													"name": "__type",
 													"variant": "signature",
 													"kind": 4096,
@@ -1264,14 +3288,14 @@
 													"sources": [
 														{
 															"fileName": "plugins/bus.ts",
-															"line": 24,
+															"line": 32,
 															"character": 11,
-															"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/bus.ts#L24"
+															"url": "https://github.com/jakguru/vueprint/blob/cca61f2/plugins/bus.ts#L32"
 														}
 													],
 													"parameters": [
 														{
-															"id": 49,
+															"id": 1206,
 															"name": "app",
 															"variant": "param",
 															"kind": 32768,
@@ -1293,7 +3317,7 @@
 															}
 														},
 														{
-															"id": 50,
+															"id": 1207,
 															"name": "options",
 															"variant": "param",
 															"kind": 32768,
@@ -1302,7 +3326,7 @@
 															},
 															"type": {
 																"type": "reference",
-																"target": 42,
+																"target": 1199,
 																"name": "BusPluginOptions",
 																"package": "@jakguru/vueprint"
 															}
@@ -1323,16 +3347,16 @@
 								{
 									"title": "Properties",
 									"children": [
-										46
+										1203
 									]
 								}
 							],
 							"sources": [
 								{
 									"fileName": "plugins/bus.ts",
-									"line": 23,
+									"line": 31,
 									"character": 25,
-									"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/bus.ts#L23"
+									"url": "https://github.com/jakguru/vueprint/blob/cca61f2/plugins/bus.ts#L31"
 								}
 							]
 						}
@@ -1344,13 +3368,24 @@
 				{
 					"title": "Interfaces",
 					"children": [
-						42
+						1279,
+						1339,
+						1199
+					]
+				},
+				{
+					"title": "Type Aliases",
+					"children": [
+						1335,
+						1338,
+						1336,
+						1343
 					]
 				},
 				{
 					"title": "Variables",
 					"children": [
-						44
+						1201
 					]
 				}
 			],
@@ -1359,19 +3394,19 @@
 					"fileName": "plugins/bus.ts",
 					"line": 1,
 					"character": 0,
-					"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/bus.ts#L1"
+					"url": "https://github.com/jakguru/vueprint/blob/cca61f2/plugins/bus.ts#L1"
 				}
 			]
 		},
 		{
-			"id": 51,
+			"id": 1208,
 			"name": "plugins/cron",
 			"variant": "declaration",
 			"kind": 2,
 			"flags": {},
 			"children": [
 				{
-					"id": 52,
+					"id": 1209,
 					"name": "CronPlugin",
 					"variant": "declaration",
 					"kind": 32,
@@ -1391,20 +3426,20 @@
 							"fileName": "plugins/cron.ts",
 							"line": 16,
 							"character": 13,
-							"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/cron.ts#L16"
+							"url": "https://github.com/jakguru/vueprint/blob/cca61f2/plugins/cron.ts#L16"
 						}
 					],
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 53,
+							"id": 1210,
 							"name": "__type",
 							"variant": "declaration",
 							"kind": 65536,
 							"flags": {},
 							"children": [
 								{
-									"id": 54,
+									"id": 1211,
 									"name": "install",
 									"variant": "declaration",
 									"kind": 1024,
@@ -1414,13 +3449,13 @@
 											"fileName": "plugins/cron.ts",
 											"line": 17,
 											"character": 2,
-											"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/cron.ts#L17"
+											"url": "https://github.com/jakguru/vueprint/blob/cca61f2/plugins/cron.ts#L17"
 										}
 									],
 									"type": {
 										"type": "reflection",
 										"declaration": {
-											"id": 55,
+											"id": 1212,
 											"name": "__type",
 											"variant": "declaration",
 											"kind": 65536,
@@ -1430,12 +3465,12 @@
 													"fileName": "plugins/cron.ts",
 													"line": 17,
 													"character": 11,
-													"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/cron.ts#L17"
+													"url": "https://github.com/jakguru/vueprint/blob/cca61f2/plugins/cron.ts#L17"
 												}
 											],
 											"signatures": [
 												{
-													"id": 56,
+													"id": 1213,
 													"name": "__type",
 													"variant": "signature",
 													"kind": 4096,
@@ -1445,12 +3480,12 @@
 															"fileName": "plugins/cron.ts",
 															"line": 17,
 															"character": 11,
-															"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/cron.ts#L17"
+															"url": "https://github.com/jakguru/vueprint/blob/cca61f2/plugins/cron.ts#L17"
 														}
 													],
 													"parameters": [
 														{
-															"id": 57,
+															"id": 1214,
 															"name": "app",
 															"variant": "param",
 															"kind": 32768,
@@ -1487,7 +3522,7 @@
 								{
 									"title": "Properties",
 									"children": [
-										54
+										1211
 									]
 								}
 							],
@@ -1496,7 +3531,7 @@
 									"fileName": "plugins/cron.ts",
 									"line": 16,
 									"character": 26,
-									"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/cron.ts#L16"
+									"url": "https://github.com/jakguru/vueprint/blob/cca61f2/plugins/cron.ts#L16"
 								}
 							]
 						}
@@ -1508,7 +3543,7 @@
 				{
 					"title": "Variables",
 					"children": [
-						52
+						1209
 					]
 				}
 			],
@@ -1517,19 +3552,19 @@
 					"fileName": "plugins/cron.ts",
 					"line": 1,
 					"character": 0,
-					"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/cron.ts#L1"
+					"url": "https://github.com/jakguru/vueprint/blob/cca61f2/plugins/cron.ts#L1"
 				}
 			]
 		},
 		{
-			"id": 90,
+			"id": 1247,
 			"name": "plugins/identity",
 			"variant": "declaration",
 			"kind": 2,
 			"flags": {},
 			"children": [
 				{
-					"id": 91,
+					"id": 1248,
 					"name": "IdentityPluginOptions",
 					"variant": "declaration",
 					"kind": 256,
@@ -1544,7 +3579,7 @@
 					},
 					"children": [
 						{
-							"id": 92,
+							"id": 1249,
 							"name": "tokenRefresh",
 							"variant": "declaration",
 							"kind": 1024,
@@ -1556,7 +3591,7 @@
 									"fileName": "plugins/identity.ts",
 									"line": 19,
 									"character": 2,
-									"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/identity.ts#L19"
+									"url": "https://github.com/jakguru/vueprint/blob/cca61f2/plugins/identity.ts#L19"
 								}
 							],
 							"type": {
@@ -1570,7 +3605,7 @@
 							}
 						},
 						{
-							"id": 93,
+							"id": 1250,
 							"name": "tokenRefreshBuffer",
 							"variant": "declaration",
 							"kind": 1024,
@@ -1582,7 +3617,7 @@
 									"fileName": "plugins/identity.ts",
 									"line": 20,
 									"character": 2,
-									"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/identity.ts#L20"
+									"url": "https://github.com/jakguru/vueprint/blob/cca61f2/plugins/identity.ts#L20"
 								}
 							],
 							"type": {
@@ -1595,8 +3630,8 @@
 						{
 							"title": "Properties",
 							"children": [
-								92,
-								93
+								1249,
+								1250
 							]
 						}
 					],
@@ -1605,12 +3640,12 @@
 							"fileName": "plugins/identity.ts",
 							"line": 18,
 							"character": 17,
-							"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/identity.ts#L18"
+							"url": "https://github.com/jakguru/vueprint/blob/cca61f2/plugins/identity.ts#L18"
 						}
 					]
 				},
 				{
-					"id": 94,
+					"id": 1251,
 					"name": "IdentityPlugin",
 					"variant": "declaration",
 					"kind": 32,
@@ -1630,20 +3665,20 @@
 							"fileName": "plugins/identity.ts",
 							"line": 26,
 							"character": 13,
-							"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/identity.ts#L26"
+							"url": "https://github.com/jakguru/vueprint/blob/cca61f2/plugins/identity.ts#L26"
 						}
 					],
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 95,
+							"id": 1252,
 							"name": "__type",
 							"variant": "declaration",
 							"kind": 65536,
 							"flags": {},
 							"children": [
 								{
-									"id": 96,
+									"id": 1253,
 									"name": "install",
 									"variant": "declaration",
 									"kind": 1024,
@@ -1653,13 +3688,13 @@
 											"fileName": "plugins/identity.ts",
 											"line": 27,
 											"character": 2,
-											"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/identity.ts#L27"
+											"url": "https://github.com/jakguru/vueprint/blob/cca61f2/plugins/identity.ts#L27"
 										}
 									],
 									"type": {
 										"type": "reflection",
 										"declaration": {
-											"id": 97,
+											"id": 1254,
 											"name": "__type",
 											"variant": "declaration",
 											"kind": 65536,
@@ -1669,12 +3704,12 @@
 													"fileName": "plugins/identity.ts",
 													"line": 27,
 													"character": 11,
-													"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/identity.ts#L27"
+													"url": "https://github.com/jakguru/vueprint/blob/cca61f2/plugins/identity.ts#L27"
 												}
 											],
 											"signatures": [
 												{
-													"id": 98,
+													"id": 1255,
 													"name": "__type",
 													"variant": "signature",
 													"kind": 4096,
@@ -1684,12 +3719,12 @@
 															"fileName": "plugins/identity.ts",
 															"line": 27,
 															"character": 11,
-															"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/identity.ts#L27"
+															"url": "https://github.com/jakguru/vueprint/blob/cca61f2/plugins/identity.ts#L27"
 														}
 													],
 													"parameters": [
 														{
-															"id": 99,
+															"id": 1256,
 															"name": "app",
 															"variant": "param",
 															"kind": 32768,
@@ -1711,7 +3746,7 @@
 															}
 														},
 														{
-															"id": 100,
+															"id": 1257,
 															"name": "options",
 															"variant": "param",
 															"kind": 32768,
@@ -1720,7 +3755,7 @@
 															},
 															"type": {
 																"type": "reference",
-																"target": 91,
+																"target": 1248,
 																"name": "IdentityPluginOptions",
 																"package": "@jakguru/vueprint"
 															}
@@ -1741,7 +3776,7 @@
 								{
 									"title": "Properties",
 									"children": [
-										96
+										1253
 									]
 								}
 							],
@@ -1750,7 +3785,7 @@
 									"fileName": "plugins/identity.ts",
 									"line": 26,
 									"character": 30,
-									"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/identity.ts#L26"
+									"url": "https://github.com/jakguru/vueprint/blob/cca61f2/plugins/identity.ts#L26"
 								}
 							]
 						}
@@ -1762,13 +3797,13 @@
 				{
 					"title": "Interfaces",
 					"children": [
-						91
+						1248
 					]
 				},
 				{
 					"title": "Variables",
 					"children": [
-						94
+						1251
 					]
 				}
 			],
@@ -1777,19 +3812,19 @@
 					"fileName": "plugins/identity.ts",
 					"line": 1,
 					"character": 0,
-					"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/identity.ts#L1"
+					"url": "https://github.com/jakguru/vueprint/blob/cca61f2/plugins/identity.ts#L1"
 				}
 			]
 		},
 		{
-			"id": 58,
+			"id": 1215,
 			"name": "plugins/ls",
 			"variant": "declaration",
 			"kind": 2,
 			"flags": {},
 			"children": [
 				{
-					"id": 59,
+					"id": 1216,
 					"name": "LocalStoragePluginOptions",
 					"variant": "declaration",
 					"kind": 256,
@@ -1804,7 +3839,7 @@
 					},
 					"children": [
 						{
-							"id": 60,
+							"id": 1217,
 							"name": "namespace",
 							"variant": "declaration",
 							"kind": 1024,
@@ -1816,7 +3851,7 @@
 									"fileName": "plugins/ls.ts",
 									"line": 17,
 									"character": 2,
-									"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/ls.ts#L17"
+									"url": "https://github.com/jakguru/vueprint/blob/cca61f2/plugins/ls.ts#L17"
 								}
 							],
 							"type": {
@@ -1829,7 +3864,7 @@
 						{
 							"title": "Properties",
 							"children": [
-								60
+								1217
 							]
 						}
 					],
@@ -1838,12 +3873,12 @@
 							"fileName": "plugins/ls.ts",
 							"line": 16,
 							"character": 17,
-							"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/ls.ts#L16"
+							"url": "https://github.com/jakguru/vueprint/blob/cca61f2/plugins/ls.ts#L16"
 						}
 					]
 				},
 				{
-					"id": 61,
+					"id": 1218,
 					"name": "LocalStoragePlugin",
 					"variant": "declaration",
 					"kind": 32,
@@ -1863,20 +3898,20 @@
 							"fileName": "plugins/ls.ts",
 							"line": 23,
 							"character": 13,
-							"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/ls.ts#L23"
+							"url": "https://github.com/jakguru/vueprint/blob/cca61f2/plugins/ls.ts#L23"
 						}
 					],
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 62,
+							"id": 1219,
 							"name": "__type",
 							"variant": "declaration",
 							"kind": 65536,
 							"flags": {},
 							"children": [
 								{
-									"id": 63,
+									"id": 1220,
 									"name": "install",
 									"variant": "declaration",
 									"kind": 1024,
@@ -1886,13 +3921,13 @@
 											"fileName": "plugins/ls.ts",
 											"line": 24,
 											"character": 2,
-											"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/ls.ts#L24"
+											"url": "https://github.com/jakguru/vueprint/blob/cca61f2/plugins/ls.ts#L24"
 										}
 									],
 									"type": {
 										"type": "reflection",
 										"declaration": {
-											"id": 64,
+											"id": 1221,
 											"name": "__type",
 											"variant": "declaration",
 											"kind": 65536,
@@ -1902,12 +3937,12 @@
 													"fileName": "plugins/ls.ts",
 													"line": 24,
 													"character": 11,
-													"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/ls.ts#L24"
+													"url": "https://github.com/jakguru/vueprint/blob/cca61f2/plugins/ls.ts#L24"
 												}
 											],
 											"signatures": [
 												{
-													"id": 65,
+													"id": 1222,
 													"name": "__type",
 													"variant": "signature",
 													"kind": 4096,
@@ -1917,12 +3952,12 @@
 															"fileName": "plugins/ls.ts",
 															"line": 24,
 															"character": 11,
-															"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/ls.ts#L24"
+															"url": "https://github.com/jakguru/vueprint/blob/cca61f2/plugins/ls.ts#L24"
 														}
 													],
 													"parameters": [
 														{
-															"id": 66,
+															"id": 1223,
 															"name": "app",
 															"variant": "param",
 															"kind": 32768,
@@ -1944,7 +3979,7 @@
 															}
 														},
 														{
-															"id": 67,
+															"id": 1224,
 															"name": "options",
 															"variant": "param",
 															"kind": 32768,
@@ -1953,7 +3988,7 @@
 															},
 															"type": {
 																"type": "reference",
-																"target": 59,
+																"target": 1216,
 																"name": "LocalStoragePluginOptions",
 																"package": "@jakguru/vueprint"
 															}
@@ -1974,7 +4009,7 @@
 								{
 									"title": "Properties",
 									"children": [
-										63
+										1220
 									]
 								}
 							],
@@ -1983,7 +4018,7 @@
 									"fileName": "plugins/ls.ts",
 									"line": 23,
 									"character": 34,
-									"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/ls.ts#L23"
+									"url": "https://github.com/jakguru/vueprint/blob/cca61f2/plugins/ls.ts#L23"
 								}
 							]
 						}
@@ -1995,13 +4030,13 @@
 				{
 					"title": "Interfaces",
 					"children": [
-						59
+						1216
 					]
 				},
 				{
 					"title": "Variables",
 					"children": [
-						61
+						1218
 					]
 				}
 			],
@@ -2010,19 +4045,19 @@
 					"fileName": "plugins/ls.ts",
 					"line": 1,
 					"character": 0,
-					"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/ls.ts#L1"
+					"url": "https://github.com/jakguru/vueprint/blob/cca61f2/plugins/ls.ts#L1"
 				}
 			]
 		},
 		{
-			"id": 101,
+			"id": 1258,
 			"name": "plugins/push",
 			"variant": "declaration",
 			"kind": 2,
 			"flags": {},
 			"children": [
 				{
-					"id": 102,
+					"id": 1259,
 					"name": "PushPluginOptions",
 					"variant": "declaration",
 					"kind": 256,
@@ -2037,7 +4072,7 @@
 					},
 					"children": [
 						{
-							"id": 103,
+							"id": 1260,
 							"name": "firebaseOptions",
 							"variant": "declaration",
 							"kind": 1024,
@@ -2047,7 +4082,7 @@
 									"fileName": "plugins/push.ts",
 									"line": 19,
 									"character": 2,
-									"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/push.ts#L19"
+									"url": "https://github.com/jakguru/vueprint/blob/cca61f2/plugins/push.ts#L19"
 								}
 							],
 							"type": {
@@ -2061,7 +4096,7 @@
 							}
 						},
 						{
-							"id": 104,
+							"id": 1261,
 							"name": "onAuthenticatedForFirebase",
 							"variant": "declaration",
 							"kind": 1024,
@@ -2071,7 +4106,7 @@
 									"fileName": "plugins/push.ts",
 									"line": 20,
 									"character": 2,
-									"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/push.ts#L20"
+									"url": "https://github.com/jakguru/vueprint/blob/cca61f2/plugins/push.ts#L20"
 								}
 							],
 							"type": {
@@ -2085,7 +4120,7 @@
 							}
 						},
 						{
-							"id": 105,
+							"id": 1262,
 							"name": "onUnauthenticatedForFirebase",
 							"variant": "declaration",
 							"kind": 1024,
@@ -2095,7 +4130,7 @@
 									"fileName": "plugins/push.ts",
 									"line": 21,
 									"character": 2,
-									"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/push.ts#L21"
+									"url": "https://github.com/jakguru/vueprint/blob/cca61f2/plugins/push.ts#L21"
 								}
 							],
 							"type": {
@@ -2109,7 +4144,7 @@
 							}
 						},
 						{
-							"id": 107,
+							"id": 1264,
 							"name": "serviceWorkerMode",
 							"variant": "declaration",
 							"kind": 1024,
@@ -2119,7 +4154,7 @@
 									"fileName": "plugins/push.ts",
 									"line": 23,
 									"character": 2,
-									"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/push.ts#L23"
+									"url": "https://github.com/jakguru/vueprint/blob/cca61f2/plugins/push.ts#L23"
 								}
 							],
 							"type": {
@@ -2137,7 +4172,7 @@
 							}
 						},
 						{
-							"id": 106,
+							"id": 1263,
 							"name": "serviceWorkerPath",
 							"variant": "declaration",
 							"kind": 1024,
@@ -2147,7 +4182,7 @@
 									"fileName": "plugins/push.ts",
 									"line": 22,
 									"character": 2,
-									"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/push.ts#L22"
+									"url": "https://github.com/jakguru/vueprint/blob/cca61f2/plugins/push.ts#L22"
 								}
 							],
 							"type": {
@@ -2160,11 +4195,11 @@
 						{
 							"title": "Properties",
 							"children": [
-								103,
-								104,
-								105,
-								107,
-								106
+								1260,
+								1261,
+								1262,
+								1264,
+								1263
 							]
 						}
 					],
@@ -2173,12 +4208,12 @@
 							"fileName": "plugins/push.ts",
 							"line": 18,
 							"character": 17,
-							"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/push.ts#L18"
+							"url": "https://github.com/jakguru/vueprint/blob/cca61f2/plugins/push.ts#L18"
 						}
 					]
 				},
 				{
-					"id": 108,
+					"id": 1265,
 					"name": "PushPlugin",
 					"variant": "declaration",
 					"kind": 32,
@@ -2198,20 +4233,20 @@
 							"fileName": "plugins/push.ts",
 							"line": 29,
 							"character": 13,
-							"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/push.ts#L29"
+							"url": "https://github.com/jakguru/vueprint/blob/cca61f2/plugins/push.ts#L29"
 						}
 					],
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 109,
+							"id": 1266,
 							"name": "__type",
 							"variant": "declaration",
 							"kind": 65536,
 							"flags": {},
 							"children": [
 								{
-									"id": 110,
+									"id": 1267,
 									"name": "install",
 									"variant": "declaration",
 									"kind": 1024,
@@ -2221,13 +4256,13 @@
 											"fileName": "plugins/push.ts",
 											"line": 30,
 											"character": 2,
-											"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/push.ts#L30"
+											"url": "https://github.com/jakguru/vueprint/blob/cca61f2/plugins/push.ts#L30"
 										}
 									],
 									"type": {
 										"type": "reflection",
 										"declaration": {
-											"id": 111,
+											"id": 1268,
 											"name": "__type",
 											"variant": "declaration",
 											"kind": 65536,
@@ -2237,12 +4272,12 @@
 													"fileName": "plugins/push.ts",
 													"line": 30,
 													"character": 11,
-													"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/push.ts#L30"
+													"url": "https://github.com/jakguru/vueprint/blob/cca61f2/plugins/push.ts#L30"
 												}
 											],
 											"signatures": [
 												{
-													"id": 112,
+													"id": 1269,
 													"name": "__type",
 													"variant": "signature",
 													"kind": 4096,
@@ -2252,12 +4287,12 @@
 															"fileName": "plugins/push.ts",
 															"line": 30,
 															"character": 11,
-															"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/push.ts#L30"
+															"url": "https://github.com/jakguru/vueprint/blob/cca61f2/plugins/push.ts#L30"
 														}
 													],
 													"parameters": [
 														{
-															"id": 113,
+															"id": 1270,
 															"name": "app",
 															"variant": "param",
 															"kind": 32768,
@@ -2279,7 +4314,7 @@
 															}
 														},
 														{
-															"id": 114,
+															"id": 1271,
 															"name": "options",
 															"variant": "param",
 															"kind": 32768,
@@ -2288,7 +4323,7 @@
 															},
 															"type": {
 																"type": "reference",
-																"target": 102,
+																"target": 1259,
 																"name": "PushPluginOptions",
 																"package": "@jakguru/vueprint"
 															}
@@ -2309,7 +4344,7 @@
 								{
 									"title": "Properties",
 									"children": [
-										110
+										1267
 									]
 								}
 							],
@@ -2318,7 +4353,7 @@
 									"fileName": "plugins/push.ts",
 									"line": 29,
 									"character": 26,
-									"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/push.ts#L29"
+									"url": "https://github.com/jakguru/vueprint/blob/cca61f2/plugins/push.ts#L29"
 								}
 							]
 						}
@@ -2330,13 +4365,13 @@
 				{
 					"title": "Interfaces",
 					"children": [
-						102
+						1259
 					]
 				},
 				{
 					"title": "Variables",
 					"children": [
-						108
+						1265
 					]
 				}
 			],
@@ -2345,19 +4380,19 @@
 					"fileName": "plugins/push.ts",
 					"line": 1,
 					"character": 0,
-					"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/push.ts#L1"
+					"url": "https://github.com/jakguru/vueprint/blob/cca61f2/plugins/push.ts#L1"
 				}
 			]
 		},
 		{
-			"id": 115,
+			"id": 1272,
 			"name": "plugins/ui",
 			"variant": "declaration",
 			"kind": 2,
 			"flags": {},
 			"children": [
 				{
-					"id": 116,
+					"id": 1273,
 					"name": "UiPlugin",
 					"variant": "declaration",
 					"kind": 32,
@@ -2377,20 +4412,20 @@
 							"fileName": "plugins/ui.ts",
 							"line": 19,
 							"character": 13,
-							"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/ui.ts#L19"
+							"url": "https://github.com/jakguru/vueprint/blob/cca61f2/plugins/ui.ts#L19"
 						}
 					],
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 117,
+							"id": 1274,
 							"name": "__type",
 							"variant": "declaration",
 							"kind": 65536,
 							"flags": {},
 							"children": [
 								{
-									"id": 118,
+									"id": 1275,
 									"name": "install",
 									"variant": "declaration",
 									"kind": 1024,
@@ -2400,13 +4435,13 @@
 											"fileName": "plugins/ui.ts",
 											"line": 20,
 											"character": 2,
-											"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/ui.ts#L20"
+											"url": "https://github.com/jakguru/vueprint/blob/cca61f2/plugins/ui.ts#L20"
 										}
 									],
 									"type": {
 										"type": "reflection",
 										"declaration": {
-											"id": 119,
+											"id": 1276,
 											"name": "__type",
 											"variant": "declaration",
 											"kind": 65536,
@@ -2416,12 +4451,12 @@
 													"fileName": "plugins/ui.ts",
 													"line": 20,
 													"character": 11,
-													"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/ui.ts#L20"
+													"url": "https://github.com/jakguru/vueprint/blob/cca61f2/plugins/ui.ts#L20"
 												}
 											],
 											"signatures": [
 												{
-													"id": 120,
+													"id": 1277,
 													"name": "__type",
 													"variant": "signature",
 													"kind": 4096,
@@ -2431,12 +4466,12 @@
 															"fileName": "plugins/ui.ts",
 															"line": 20,
 															"character": 11,
-															"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/ui.ts#L20"
+															"url": "https://github.com/jakguru/vueprint/blob/cca61f2/plugins/ui.ts#L20"
 														}
 													],
 													"parameters": [
 														{
-															"id": 121,
+															"id": 1278,
 															"name": "app",
 															"variant": "param",
 															"kind": 32768,
@@ -2473,7 +4508,7 @@
 								{
 									"title": "Properties",
 									"children": [
-										118
+										1275
 									]
 								}
 							],
@@ -2482,7 +4517,7 @@
 									"fileName": "plugins/ui.ts",
 									"line": 19,
 									"character": 24,
-									"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/ui.ts#L19"
+									"url": "https://github.com/jakguru/vueprint/blob/cca61f2/plugins/ui.ts#L19"
 								}
 							]
 						}
@@ -2494,7 +4529,7 @@
 				{
 					"title": "Variables",
 					"children": [
-						116
+						1273
 					]
 				}
 			],
@@ -2503,19 +4538,540 @@
 					"fileName": "plugins/ui.ts",
 					"line": 1,
 					"character": 0,
-					"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/ui.ts#L1"
+					"url": "https://github.com/jakguru/vueprint/blob/cca61f2/plugins/ui.ts#L1"
 				}
 			]
 		},
 		{
-			"id": 68,
+			"id": 1225,
 			"name": "plugins/vuetify",
 			"variant": "declaration",
 			"kind": 2,
 			"flags": {},
 			"children": [
 				{
-					"id": 69,
+					"id": 1349,
+					"name": "VuetifiableColors",
+					"variant": "declaration",
+					"kind": 256,
+					"flags": {},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "The colors which will be used by a Vuetify theme"
+							}
+						]
+					},
+					"children": [
+						{
+							"id": 1354,
+							"name": "accent",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "src/vuetify.ts",
+									"line": 17,
+									"character": 2,
+									"url": "https://github.com/jakguru/vueprint/blob/cca61f2/src/vuetify.ts#L17"
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 1350,
+							"name": "background",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "src/vuetify.ts",
+									"line": 13,
+									"character": 2,
+									"url": "https://github.com/jakguru/vueprint/blob/cca61f2/src/vuetify.ts#L13"
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 1362,
+							"name": "cancel",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "src/vuetify.ts",
+									"line": 25,
+									"character": 2,
+									"url": "https://github.com/jakguru/vueprint/blob/cca61f2/src/vuetify.ts#L25"
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 1360,
+							"name": "error",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "src/vuetify.ts",
+									"line": 23,
+									"character": 2,
+									"url": "https://github.com/jakguru/vueprint/blob/cca61f2/src/vuetify.ts#L23"
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 1355,
+							"name": "highlight",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "src/vuetify.ts",
+									"line": 18,
+									"character": 2,
+									"url": "https://github.com/jakguru/vueprint/blob/cca61f2/src/vuetify.ts#L18"
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 1358,
+							"name": "info",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "src/vuetify.ts",
+									"line": 21,
+									"character": 2,
+									"url": "https://github.com/jakguru/vueprint/blob/cca61f2/src/vuetify.ts#L21"
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 1356,
+							"name": "notify",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "src/vuetify.ts",
+									"line": 19,
+									"character": 2,
+									"url": "https://github.com/jakguru/vueprint/blob/cca61f2/src/vuetify.ts#L19"
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 1352,
+							"name": "primary",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "src/vuetify.ts",
+									"line": 15,
+									"character": 2,
+									"url": "https://github.com/jakguru/vueprint/blob/cca61f2/src/vuetify.ts#L15"
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 1361,
+							"name": "question",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "src/vuetify.ts",
+									"line": 24,
+									"character": 2,
+									"url": "https://github.com/jakguru/vueprint/blob/cca61f2/src/vuetify.ts#L24"
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 1353,
+							"name": "secondary",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "src/vuetify.ts",
+									"line": 16,
+									"character": 2,
+									"url": "https://github.com/jakguru/vueprint/blob/cca61f2/src/vuetify.ts#L16"
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 1357,
+							"name": "success",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "src/vuetify.ts",
+									"line": 20,
+									"character": 2,
+									"url": "https://github.com/jakguru/vueprint/blob/cca61f2/src/vuetify.ts#L20"
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 1351,
+							"name": "surface",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "src/vuetify.ts",
+									"line": 14,
+									"character": 2,
+									"url": "https://github.com/jakguru/vueprint/blob/cca61f2/src/vuetify.ts#L14"
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 1359,
+							"name": "warning",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "src/vuetify.ts",
+									"line": 22,
+									"character": 2,
+									"url": "https://github.com/jakguru/vueprint/blob/cca61f2/src/vuetify.ts#L22"
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"children": [
+								1354,
+								1350,
+								1362,
+								1360,
+								1355,
+								1358,
+								1356,
+								1352,
+								1361,
+								1353,
+								1357,
+								1351,
+								1359
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "src/vuetify.ts",
+							"line": 12,
+							"character": 17,
+							"url": "https://github.com/jakguru/vueprint/blob/cca61f2/src/vuetify.ts#L12"
+						}
+					],
+					"indexSignature": {
+						"id": 1363,
+						"name": "__index",
+						"variant": "signature",
+						"kind": 8192,
+						"flags": {},
+						"sources": [
+							{
+								"fileName": "src/vuetify.ts",
+								"line": 26,
+								"character": 2,
+								"url": "https://github.com/jakguru/vueprint/blob/cca61f2/src/vuetify.ts#L26"
+							}
+						],
+						"parameters": [
+							{
+								"id": 1364,
+								"name": "key",
+								"variant": "param",
+								"kind": 32768,
+								"flags": {},
+								"type": {
+									"type": "intrinsic",
+									"name": "string"
+								}
+							}
+						],
+						"type": {
+							"type": "intrinsic",
+							"name": "string"
+						}
+					}
+				},
+				{
+					"id": 1344,
+					"name": "VuetifiableTheme",
+					"variant": "declaration",
+					"kind": 256,
+					"flags": {},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "A theme which will be used by a Vuetify instance"
+							}
+						]
+					},
+					"children": [
+						{
+							"id": 1345,
+							"name": "colors",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "src/vuetify.ts",
+									"line": 33,
+									"character": 2,
+									"url": "https://github.com/jakguru/vueprint/blob/cca61f2/src/vuetify.ts#L33"
+								}
+							],
+							"type": {
+								"type": "reference",
+								"target": 1349,
+								"name": "VuetifiableColors",
+								"package": "@jakguru/vueprint"
+							},
+							"overwrites": {
+								"type": "reference",
+								"target": -1,
+								"name": "ThemeDefinition.colors"
+							}
+						},
+						{
+							"id": 1346,
+							"name": "dark",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {
+								"isExternal": true,
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "node_modules/vuetify/lib/index.d.mts",
+									"line": 149,
+									"character": 4
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"target": -1,
+								"name": "ThemeDefinition.dark"
+							}
+						},
+						{
+							"id": 1347,
+							"name": "variables",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {
+								"isExternal": true,
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "node_modules/vuetify/lib/index.d.mts",
+									"line": 151,
+									"character": 4
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 1348,
+									"name": "__type",
+									"variant": "declaration",
+									"kind": 65536,
+									"flags": {
+										"isExternal": true
+									},
+									"sources": [
+										{
+											"fileName": "node_modules/vuetify/lib/index.d.mts",
+											"line": 133,
+											"character": 41
+										}
+									]
+								}
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"target": -1,
+								"name": "ThemeDefinition.variables"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"children": [
+								1345,
+								1346,
+								1347
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "src/vuetify.ts",
+							"line": 32,
+							"character": 17,
+							"url": "https://github.com/jakguru/vueprint/blob/cca61f2/src/vuetify.ts#L32"
+						}
+					],
+					"extendedTypes": [
+						{
+							"type": "reference",
+							"target": {
+								"sourceFileName": "node_modules/vuetify/lib/index.d.mts",
+								"qualifiedName": "ThemeDefinition"
+							},
+							"name": "ThemeDefinition",
+							"package": "vuetify",
+							"externalUrl": "https://vuetifyjs.com/en/features/theme/#api"
+						}
+					]
+				},
+				{
+					"id": 1365,
+					"name": "VuetifiableThemes",
+					"variant": "declaration",
+					"kind": 256,
+					"flags": {},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "A collection of themes which will be used by a Vuetify instance"
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "src/vuetify.ts",
+							"line": 39,
+							"character": 17,
+							"url": "https://github.com/jakguru/vueprint/blob/cca61f2/src/vuetify.ts#L39"
+						}
+					],
+					"indexSignature": {
+						"id": 1366,
+						"name": "__index",
+						"variant": "signature",
+						"kind": 8192,
+						"flags": {},
+						"sources": [
+							{
+								"fileName": "src/vuetify.ts",
+								"line": 40,
+								"character": 2,
+								"url": "https://github.com/jakguru/vueprint/blob/cca61f2/src/vuetify.ts#L40"
+							}
+						],
+						"parameters": [
+							{
+								"id": 1367,
+								"name": "key",
+								"variant": "param",
+								"kind": 32768,
+								"flags": {},
+								"type": {
+									"type": "intrinsic",
+									"name": "string"
+								}
+							}
+						],
+						"type": {
+							"type": "reference",
+							"target": 1344,
+							"name": "VuetifiableTheme",
+							"package": "@jakguru/vueprint"
+						}
+					}
+				},
+				{
+					"id": 1226,
 					"name": "VuetifyPluginOptions",
 					"variant": "declaration",
 					"kind": 256,
@@ -2530,17 +5086,25 @@
 					},
 					"children": [
 						{
-							"id": 70,
+							"id": 1227,
 							"name": "defaultTheme",
 							"variant": "declaration",
 							"kind": 1024,
 							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "The key of the themes object to use as the default theme"
+									}
+								]
+							},
 							"sources": [
 								{
 									"fileName": "plugins/vuetify.ts",
-									"line": 11,
+									"line": 16,
 									"character": 2,
-									"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/vuetify.ts#L11"
+									"url": "https://github.com/jakguru/vueprint/blob/cca61f2/plugins/vuetify.ts#L16"
 								}
 							],
 							"type": {
@@ -2549,17 +5113,25 @@
 							}
 						},
 						{
-							"id": 72,
+							"id": 1229,
 							"name": "options",
 							"variant": "declaration",
 							"kind": 1024,
 							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "The options to pass to the Vuetify instance"
+									}
+								]
+							},
 							"sources": [
 								{
 									"fileName": "plugins/vuetify.ts",
-									"line": 13,
+									"line": 24,
 									"character": 2,
-									"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/vuetify.ts#L13"
+									"url": "https://github.com/jakguru/vueprint/blob/cca61f2/plugins/vuetify.ts#L24"
 								}
 							],
 							"type": {
@@ -2569,29 +5141,35 @@
 									"qualifiedName": "VuetifyOptions"
 								},
 								"name": "VuetifyOptions",
-								"package": "vuetify"
+								"package": "vuetify",
+								"externalUrl": "https://vuetifyjs.com/en/features/global-configuration/#setup"
 							}
 						},
 						{
-							"id": 71,
+							"id": 1228,
 							"name": "themes",
 							"variant": "declaration",
 							"kind": 1024,
 							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "An object containing the configuration of a theme"
+									}
+								]
+							},
 							"sources": [
 								{
 									"fileName": "plugins/vuetify.ts",
-									"line": 12,
+									"line": 20,
 									"character": 2,
-									"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/vuetify.ts#L12"
+									"url": "https://github.com/jakguru/vueprint/blob/cca61f2/plugins/vuetify.ts#L20"
 								}
 							],
 							"type": {
 								"type": "reference",
-								"target": {
-									"sourceFileName": "src/vuetify.ts",
-									"qualifiedName": "VuetifiableThemes"
-								},
+								"target": 1365,
 								"name": "VuetifiableThemes",
 								"package": "@jakguru/vueprint"
 							}
@@ -2601,23 +5179,23 @@
 						{
 							"title": "Properties",
 							"children": [
-								70,
-								72,
-								71
+								1227,
+								1229,
+								1228
 							]
 						}
 					],
 					"sources": [
 						{
 							"fileName": "plugins/vuetify.ts",
-							"line": 10,
+							"line": 12,
 							"character": 17,
-							"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/vuetify.ts#L10"
+							"url": "https://github.com/jakguru/vueprint/blob/cca61f2/plugins/vuetify.ts#L12"
 						}
 					]
 				},
 				{
-					"id": 73,
+					"id": 1230,
 					"name": "VuetifyPlugin",
 					"variant": "declaration",
 					"kind": 32,
@@ -2635,22 +5213,22 @@
 					"sources": [
 						{
 							"fileName": "plugins/vuetify.ts",
-							"line": 20,
+							"line": 30,
 							"character": 13,
-							"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/vuetify.ts#L20"
+							"url": "https://github.com/jakguru/vueprint/blob/cca61f2/plugins/vuetify.ts#L30"
 						}
 					],
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 74,
+							"id": 1231,
 							"name": "__type",
 							"variant": "declaration",
 							"kind": 65536,
 							"flags": {},
 							"children": [
 								{
-									"id": 75,
+									"id": 1232,
 									"name": "install",
 									"variant": "declaration",
 									"kind": 1024,
@@ -2658,15 +5236,15 @@
 									"sources": [
 										{
 											"fileName": "plugins/vuetify.ts",
-											"line": 21,
+											"line": 31,
 											"character": 2,
-											"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/vuetify.ts#L21"
+											"url": "https://github.com/jakguru/vueprint/blob/cca61f2/plugins/vuetify.ts#L31"
 										}
 									],
 									"type": {
 										"type": "reflection",
 										"declaration": {
-											"id": 76,
+											"id": 1233,
 											"name": "__type",
 											"variant": "declaration",
 											"kind": 65536,
@@ -2674,14 +5252,14 @@
 											"sources": [
 												{
 													"fileName": "plugins/vuetify.ts",
-													"line": 21,
+													"line": 31,
 													"character": 11,
-													"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/vuetify.ts#L21"
+													"url": "https://github.com/jakguru/vueprint/blob/cca61f2/plugins/vuetify.ts#L31"
 												}
 											],
 											"signatures": [
 												{
-													"id": 77,
+													"id": 1234,
 													"name": "__type",
 													"variant": "signature",
 													"kind": 4096,
@@ -2689,14 +5267,14 @@
 													"sources": [
 														{
 															"fileName": "plugins/vuetify.ts",
-															"line": 21,
+															"line": 31,
 															"character": 11,
-															"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/vuetify.ts#L21"
+															"url": "https://github.com/jakguru/vueprint/blob/cca61f2/plugins/vuetify.ts#L31"
 														}
 													],
 													"parameters": [
 														{
-															"id": 78,
+															"id": 1235,
 															"name": "app",
 															"variant": "param",
 															"kind": 32768,
@@ -2718,7 +5296,7 @@
 															}
 														},
 														{
-															"id": 79,
+															"id": 1236,
 															"name": "options",
 															"variant": "param",
 															"kind": 32768,
@@ -2727,7 +5305,7 @@
 															},
 															"type": {
 																"type": "reference",
-																"target": 69,
+																"target": 1226,
 																"name": "VuetifyPluginOptions",
 																"package": "@jakguru/vueprint"
 															}
@@ -2748,16 +5326,16 @@
 								{
 									"title": "Properties",
 									"children": [
-										75
+										1232
 									]
 								}
 							],
 							"sources": [
 								{
 									"fileName": "plugins/vuetify.ts",
-									"line": 20,
+									"line": 30,
 									"character": 29,
-									"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/vuetify.ts#L20"
+									"url": "https://github.com/jakguru/vueprint/blob/cca61f2/plugins/vuetify.ts#L30"
 								}
 							]
 						}
@@ -2767,10 +5345,18 @@
 			],
 			"groups": [
 				{
-					"title": "plugins",
+					"title": "Interfaces",
 					"children": [
-						69,
-						73
+						1349,
+						1344,
+						1365,
+						1226
+					]
+				},
+				{
+					"title": "Variables",
+					"children": [
+						1230
 					]
 				}
 			],
@@ -2779,7 +5365,7 @@
 					"fileName": "plugins/vuetify.ts",
 					"line": 1,
 					"character": 0,
-					"url": "https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/vuetify.ts#L1"
+					"url": "https://github.com/jakguru/vueprint/blob/cca61f2/plugins/vuetify.ts#L1"
 				}
 			]
 		}
@@ -2788,505 +5374,922 @@
 		{
 			"title": "Modules",
 			"children": [
-				1,
-				11,
-				25,
-				80,
-				41,
-				51,
-				90,
-				58,
-				101,
-				115,
-				68
+				1141,
+				1151,
+				1182,
+				1165,
+				1237,
+				1198,
+				1208,
+				1247,
+				1215,
+				1258,
+				1272,
+				1225
 			]
 		}
 	],
 	"packageName": "@jakguru/vueprint",
 	"symbolIdMap": {
-		"1": {
+		"1141": {
 			"sourceFileName": "bootstraps/vue/client.ts",
 			"qualifiedName": ""
 		},
-		"2": {
+		"1142": {
 			"sourceFileName": "bootstraps/vue/client.ts",
 			"qualifiedName": "VueClientBootstrapOptions"
 		},
-		"3": {
+		"1143": {
 			"sourceFileName": "bootstraps/vue/client.ts",
 			"qualifiedName": "VueClientBootstrapOptions.push"
 		},
-		"4": {
+		"1144": {
 			"sourceFileName": "bootstraps/vue/client.ts",
 			"qualifiedName": "VueClientBootstrap"
 		},
-		"5": {
+		"1145": {
 			"sourceFileName": "bootstraps/vue/client.ts",
 			"qualifiedName": "__object"
 		},
-		"6": {
+		"1146": {
 			"sourceFileName": "bootstraps/vue/client.ts",
 			"qualifiedName": "__object.install"
 		},
-		"7": {
+		"1147": {
 			"sourceFileName": "bootstraps/vue/client.ts",
 			"qualifiedName": "__function"
 		},
-		"8": {
+		"1148": {
 			"sourceFileName": "bootstraps/vue/client.ts",
 			"qualifiedName": "__function"
 		},
-		"9": {
+		"1149": {
 			"sourceFileName": "bootstraps/vue/client.ts",
 			"qualifiedName": "app"
 		},
-		"10": {
+		"1150": {
 			"sourceFileName": "bootstraps/vue/client.ts",
 			"qualifiedName": "options"
 		},
-		"11": {
+		"1151": {
 			"sourceFileName": "bootstraps/vue/main.ts",
 			"qualifiedName": ""
 		},
-		"12": {
+		"1152": {
 			"sourceFileName": "bootstraps/vue/main.ts",
 			"qualifiedName": "VueMainBootstrapOptions"
 		},
-		"13": {
+		"1153": {
 			"sourceFileName": "bootstraps/vue/main.ts",
 			"qualifiedName": "VueMainBootstrapOptions.bus"
 		},
-		"14": {
+		"1154": {
 			"sourceFileName": "bootstraps/vue/main.ts",
 			"qualifiedName": "VueMainBootstrapOptions.ls"
 		},
-		"15": {
+		"1155": {
 			"sourceFileName": "bootstraps/vue/main.ts",
 			"qualifiedName": "VueMainBootstrapOptions.vuetify"
 		},
-		"16": {
+		"1156": {
 			"sourceFileName": "bootstraps/vue/main.ts",
 			"qualifiedName": "VueMainBootstrapOptions.api"
 		},
-		"17": {
+		"1157": {
 			"sourceFileName": "bootstraps/vue/main.ts",
 			"qualifiedName": "VueMainBootstrapOptions.identity"
 		},
-		"18": {
+		"1158": {
 			"sourceFileName": "bootstraps/vue/main.ts",
 			"qualifiedName": "VueMainBootstrap"
 		},
-		"19": {
+		"1159": {
 			"sourceFileName": "bootstraps/vue/main.ts",
 			"qualifiedName": "__object"
 		},
-		"20": {
+		"1160": {
 			"sourceFileName": "bootstraps/vue/main.ts",
 			"qualifiedName": "__object.install"
 		},
-		"21": {
+		"1161": {
 			"sourceFileName": "bootstraps/vue/main.ts",
 			"qualifiedName": "__function"
 		},
-		"22": {
+		"1162": {
 			"sourceFileName": "bootstraps/vue/main.ts",
 			"qualifiedName": "__function"
 		},
-		"23": {
+		"1163": {
 			"sourceFileName": "bootstraps/vue/main.ts",
 			"qualifiedName": "app"
 		},
-		"24": {
+		"1164": {
 			"sourceFileName": "bootstraps/vue/main.ts",
 			"qualifiedName": "options"
 		},
-		"25": {
+		"1165": {
+			"sourceFileName": "nuxt/index.ts",
+			"qualifiedName": ""
+		},
+		"1166": {
+			"sourceFileName": "nuxt/index.ts",
+			"qualifiedName": "default"
+		},
+		"1167": {
+			"sourceFileName": "node_modules/@nuxt/schema/dist/index.d.ts",
+			"qualifiedName": "default"
+		},
+		"1168": {
+			"sourceFileName": "node_modules/@nuxt/schema/dist/index.d.ts",
+			"qualifiedName": "this"
+		},
+		"1169": {
+			"sourceFileName": "node_modules/@nuxt/schema/dist/index.d.ts",
+			"qualifiedName": "inlineOptions"
+		},
+		"1170": {
+			"sourceFileName": "nuxt/index.ts",
+			"qualifiedName": "__object"
+		},
+		"1171": {
+			"sourceFileName": "node_modules/@nuxt/schema/dist/index.d.ts",
+			"qualifiedName": "nuxt"
+		},
+		"1172": {
+			"sourceFileName": "node_modules/@nuxt/schema/dist/index.d.ts",
+			"qualifiedName": "NuxtModule.getOptions"
+		},
+		"1173": {
+			"sourceFileName": "node_modules/@nuxt/schema/dist/index.d.ts",
+			"qualifiedName": "__type"
+		},
+		"1174": {
+			"sourceFileName": "node_modules/@nuxt/schema/dist/index.d.ts",
+			"qualifiedName": "__type"
+		},
+		"1175": {
+			"sourceFileName": "node_modules/@nuxt/schema/dist/index.d.ts",
+			"qualifiedName": "inlineOptions"
+		},
+		"1176": {
+			"sourceFileName": "nuxt/index.ts",
+			"qualifiedName": "__object"
+		},
+		"1177": {
+			"sourceFileName": "node_modules/@nuxt/schema/dist/index.d.ts",
+			"qualifiedName": "nuxt"
+		},
+		"1178": {
+			"sourceFileName": "nuxt/index.ts",
+			"qualifiedName": "__object"
+		},
+		"1179": {
+			"sourceFileName": "node_modules/@nuxt/schema/dist/index.d.ts",
+			"qualifiedName": "NuxtModule.getMeta"
+		},
+		"1180": {
+			"sourceFileName": "node_modules/@nuxt/schema/dist/index.d.ts",
+			"qualifiedName": "__type"
+		},
+		"1181": {
+			"sourceFileName": "node_modules/@nuxt/schema/dist/index.d.ts",
+			"qualifiedName": "__type"
+		},
+		"1182": {
 			"sourceFileName": "composables/useVueprint.ts",
 			"qualifiedName": ""
 		},
-		"26": {
+		"1183": {
 			"sourceFileName": "composables/useVueprint.ts",
 			"qualifiedName": "ApplicationHook"
 		},
-		"27": {
+		"1184": {
 			"sourceFileName": "composables/useVueprint.ts",
 			"qualifiedName": "ApplicationHook.onTrue"
 		},
-		"28": {
+		"1185": {
 			"sourceFileName": "composables/useVueprint.ts",
 			"qualifiedName": "__type"
 		},
-		"29": {
+		"1186": {
 			"sourceFileName": "composables/useVueprint.ts",
 			"qualifiedName": "__type"
 		},
-		"30": {
+		"1187": {
 			"sourceFileName": "composables/useVueprint.ts",
 			"qualifiedName": "ApplicationHook.onFalse"
 		},
-		"31": {
+		"1188": {
 			"sourceFileName": "composables/useVueprint.ts",
 			"qualifiedName": "__type"
 		},
-		"32": {
+		"1189": {
 			"sourceFileName": "composables/useVueprint.ts",
 			"qualifiedName": "__type"
 		},
-		"33": {
+		"1190": {
 			"sourceFileName": "composables/useVueprint.ts",
 			"qualifiedName": "ApplicationHooks"
 		},
-		"34": {
+		"1191": {
 			"sourceFileName": "composables/useVueprint.ts",
 			"qualifiedName": "ApplicationHooks.onBooted"
 		},
-		"35": {
+		"1192": {
 			"sourceFileName": "composables/useVueprint.ts",
 			"qualifiedName": "ApplicationHooks.onReady"
 		},
-		"36": {
+		"1193": {
 			"sourceFileName": "composables/useVueprint.ts",
 			"qualifiedName": "ApplicationHooks.onAuthenticated"
 		},
-		"37": {
+		"1194": {
 			"sourceFileName": "composables/useVueprint.ts",
 			"qualifiedName": "ApplicationHooks.onPushPermissions"
 		},
-		"38": {
+		"1195": {
 			"sourceFileName": "composables/useVueprint.ts",
 			"qualifiedName": "useVueprint"
 		},
-		"39": {
+		"1196": {
 			"sourceFileName": "composables/useVueprint.ts",
 			"qualifiedName": "useVueprint"
 		},
-		"40": {
+		"1197": {
 			"sourceFileName": "composables/useVueprint.ts",
 			"qualifiedName": "hooks"
 		},
-		"41": {
+		"1198": {
 			"sourceFileName": "plugins/bus.ts",
 			"qualifiedName": ""
 		},
-		"42": {
+		"1199": {
 			"sourceFileName": "plugins/bus.ts",
 			"qualifiedName": "BusPluginOptions"
 		},
-		"43": {
+		"1200": {
 			"sourceFileName": "plugins/bus.ts",
 			"qualifiedName": "BusPluginOptions.namespace"
 		},
-		"44": {
+		"1201": {
 			"sourceFileName": "plugins/bus.ts",
 			"qualifiedName": "BusPlugin"
 		},
-		"45": {
+		"1202": {
 			"sourceFileName": "plugins/bus.ts",
 			"qualifiedName": "__object"
 		},
-		"46": {
+		"1203": {
 			"sourceFileName": "plugins/bus.ts",
 			"qualifiedName": "__object.install"
 		},
-		"47": {
+		"1204": {
 			"sourceFileName": "plugins/bus.ts",
 			"qualifiedName": "__function"
 		},
-		"48": {
+		"1205": {
 			"sourceFileName": "plugins/bus.ts",
 			"qualifiedName": "__function"
 		},
-		"49": {
+		"1206": {
 			"sourceFileName": "plugins/bus.ts",
 			"qualifiedName": "app"
 		},
-		"50": {
+		"1207": {
 			"sourceFileName": "plugins/bus.ts",
 			"qualifiedName": "options"
 		},
-		"51": {
+		"1208": {
 			"sourceFileName": "plugins/cron.ts",
 			"qualifiedName": ""
 		},
-		"52": {
+		"1209": {
 			"sourceFileName": "plugins/cron.ts",
 			"qualifiedName": "CronPlugin"
 		},
-		"53": {
+		"1210": {
 			"sourceFileName": "plugins/cron.ts",
 			"qualifiedName": "__object"
 		},
-		"54": {
+		"1211": {
 			"sourceFileName": "plugins/cron.ts",
 			"qualifiedName": "__object.install"
 		},
-		"55": {
+		"1212": {
 			"sourceFileName": "plugins/cron.ts",
 			"qualifiedName": "__function"
 		},
-		"56": {
+		"1213": {
 			"sourceFileName": "plugins/cron.ts",
 			"qualifiedName": "__function"
 		},
-		"57": {
+		"1214": {
 			"sourceFileName": "plugins/cron.ts",
 			"qualifiedName": "app"
 		},
-		"58": {
+		"1215": {
 			"sourceFileName": "plugins/ls.ts",
 			"qualifiedName": ""
 		},
-		"59": {
+		"1216": {
 			"sourceFileName": "plugins/ls.ts",
 			"qualifiedName": "LocalStoragePluginOptions"
 		},
-		"60": {
+		"1217": {
 			"sourceFileName": "plugins/ls.ts",
 			"qualifiedName": "LocalStoragePluginOptions.namespace"
 		},
-		"61": {
+		"1218": {
 			"sourceFileName": "plugins/ls.ts",
 			"qualifiedName": "LocalStoragePlugin"
 		},
-		"62": {
+		"1219": {
 			"sourceFileName": "plugins/ls.ts",
 			"qualifiedName": "__object"
 		},
-		"63": {
+		"1220": {
 			"sourceFileName": "plugins/ls.ts",
 			"qualifiedName": "__object.install"
 		},
-		"64": {
+		"1221": {
 			"sourceFileName": "plugins/ls.ts",
 			"qualifiedName": "__function"
 		},
-		"65": {
+		"1222": {
 			"sourceFileName": "plugins/ls.ts",
 			"qualifiedName": "__function"
 		},
-		"66": {
+		"1223": {
 			"sourceFileName": "plugins/ls.ts",
 			"qualifiedName": "app"
 		},
-		"67": {
+		"1224": {
 			"sourceFileName": "plugins/ls.ts",
 			"qualifiedName": "options"
 		},
-		"68": {
+		"1225": {
 			"sourceFileName": "plugins/vuetify.ts",
 			"qualifiedName": ""
 		},
-		"69": {
+		"1226": {
 			"sourceFileName": "plugins/vuetify.ts",
 			"qualifiedName": "VuetifyPluginOptions"
 		},
-		"70": {
+		"1227": {
 			"sourceFileName": "plugins/vuetify.ts",
 			"qualifiedName": "VuetifyPluginOptions.defaultTheme"
 		},
-		"71": {
+		"1228": {
 			"sourceFileName": "plugins/vuetify.ts",
 			"qualifiedName": "VuetifyPluginOptions.themes"
 		},
-		"72": {
+		"1229": {
 			"sourceFileName": "plugins/vuetify.ts",
 			"qualifiedName": "VuetifyPluginOptions.options"
 		},
-		"73": {
+		"1230": {
 			"sourceFileName": "plugins/vuetify.ts",
 			"qualifiedName": "VuetifyPlugin"
 		},
-		"74": {
+		"1231": {
 			"sourceFileName": "plugins/vuetify.ts",
 			"qualifiedName": "__object"
 		},
-		"75": {
+		"1232": {
 			"sourceFileName": "plugins/vuetify.ts",
 			"qualifiedName": "__object.install"
 		},
-		"76": {
+		"1233": {
 			"sourceFileName": "plugins/vuetify.ts",
 			"qualifiedName": "__function"
 		},
-		"77": {
+		"1234": {
 			"sourceFileName": "plugins/vuetify.ts",
 			"qualifiedName": "__function"
 		},
-		"78": {
+		"1235": {
 			"sourceFileName": "plugins/vuetify.ts",
 			"qualifiedName": "app"
 		},
-		"79": {
+		"1236": {
 			"sourceFileName": "plugins/vuetify.ts",
 			"qualifiedName": "options"
 		},
-		"80": {
+		"1237": {
 			"sourceFileName": "plugins/api.ts",
 			"qualifiedName": ""
 		},
-		"81": {
+		"1238": {
 			"sourceFileName": "plugins/api.ts",
 			"qualifiedName": "ApiPluginOptions"
 		},
-		"82": {
+		"1239": {
 			"sourceFileName": "plugins/api.ts",
 			"qualifiedName": "ApiPluginOptions.baseURL"
 		},
-		"83": {
+		"1240": {
 			"sourceFileName": "plugins/api.ts",
 			"qualifiedName": "ApiPlugin"
 		},
-		"84": {
+		"1241": {
 			"sourceFileName": "plugins/api.ts",
 			"qualifiedName": "__object"
 		},
-		"85": {
+		"1242": {
 			"sourceFileName": "plugins/api.ts",
 			"qualifiedName": "__object.install"
 		},
-		"86": {
+		"1243": {
 			"sourceFileName": "plugins/api.ts",
 			"qualifiedName": "__function"
 		},
-		"87": {
+		"1244": {
 			"sourceFileName": "plugins/api.ts",
 			"qualifiedName": "__function"
 		},
-		"88": {
+		"1245": {
 			"sourceFileName": "plugins/api.ts",
 			"qualifiedName": "app"
 		},
-		"89": {
+		"1246": {
 			"sourceFileName": "plugins/api.ts",
 			"qualifiedName": "options"
 		},
-		"90": {
+		"1247": {
 			"sourceFileName": "plugins/identity.ts",
 			"qualifiedName": ""
 		},
-		"91": {
+		"1248": {
 			"sourceFileName": "plugins/identity.ts",
 			"qualifiedName": "IdentityPluginOptions"
 		},
-		"92": {
+		"1249": {
 			"sourceFileName": "plugins/identity.ts",
 			"qualifiedName": "IdentityPluginOptions.tokenRefresh"
 		},
-		"93": {
+		"1250": {
 			"sourceFileName": "plugins/identity.ts",
 			"qualifiedName": "IdentityPluginOptions.tokenRefreshBuffer"
 		},
-		"94": {
+		"1251": {
 			"sourceFileName": "plugins/identity.ts",
 			"qualifiedName": "IdentityPlugin"
 		},
-		"95": {
+		"1252": {
 			"sourceFileName": "plugins/identity.ts",
 			"qualifiedName": "__object"
 		},
-		"96": {
+		"1253": {
 			"sourceFileName": "plugins/identity.ts",
 			"qualifiedName": "__object.install"
 		},
-		"97": {
+		"1254": {
 			"sourceFileName": "plugins/identity.ts",
 			"qualifiedName": "__function"
 		},
-		"98": {
+		"1255": {
 			"sourceFileName": "plugins/identity.ts",
 			"qualifiedName": "__function"
 		},
-		"99": {
+		"1256": {
 			"sourceFileName": "plugins/identity.ts",
 			"qualifiedName": "app"
 		},
-		"100": {
+		"1257": {
 			"sourceFileName": "plugins/identity.ts",
 			"qualifiedName": "options"
 		},
-		"101": {
+		"1258": {
 			"sourceFileName": "plugins/push.ts",
 			"qualifiedName": ""
 		},
-		"102": {
+		"1259": {
 			"sourceFileName": "plugins/push.ts",
 			"qualifiedName": "PushPluginOptions"
 		},
-		"103": {
+		"1260": {
 			"sourceFileName": "plugins/push.ts",
 			"qualifiedName": "PushPluginOptions.firebaseOptions"
 		},
-		"104": {
+		"1261": {
 			"sourceFileName": "plugins/push.ts",
 			"qualifiedName": "PushPluginOptions.onAuthenticatedForFirebase"
 		},
-		"105": {
+		"1262": {
 			"sourceFileName": "plugins/push.ts",
 			"qualifiedName": "PushPluginOptions.onUnauthenticatedForFirebase"
 		},
-		"106": {
+		"1263": {
 			"sourceFileName": "plugins/push.ts",
 			"qualifiedName": "PushPluginOptions.serviceWorkerPath"
 		},
-		"107": {
+		"1264": {
 			"sourceFileName": "plugins/push.ts",
 			"qualifiedName": "PushPluginOptions.serviceWorkerMode"
 		},
-		"108": {
+		"1265": {
 			"sourceFileName": "plugins/push.ts",
 			"qualifiedName": "PushPlugin"
 		},
-		"109": {
+		"1266": {
 			"sourceFileName": "plugins/push.ts",
 			"qualifiedName": "__object"
 		},
-		"110": {
+		"1267": {
 			"sourceFileName": "plugins/push.ts",
 			"qualifiedName": "__object.install"
 		},
-		"111": {
+		"1268": {
 			"sourceFileName": "plugins/push.ts",
 			"qualifiedName": "__function"
 		},
-		"112": {
+		"1269": {
 			"sourceFileName": "plugins/push.ts",
 			"qualifiedName": "__function"
 		},
-		"113": {
+		"1270": {
 			"sourceFileName": "plugins/push.ts",
 			"qualifiedName": "app"
 		},
-		"114": {
+		"1271": {
 			"sourceFileName": "plugins/push.ts",
 			"qualifiedName": "options"
 		},
-		"115": {
+		"1272": {
 			"sourceFileName": "plugins/ui.ts",
 			"qualifiedName": ""
 		},
-		"116": {
+		"1273": {
 			"sourceFileName": "plugins/ui.ts",
 			"qualifiedName": "UiPlugin"
 		},
-		"117": {
+		"1274": {
 			"sourceFileName": "plugins/ui.ts",
 			"qualifiedName": "__object"
 		},
-		"118": {
+		"1275": {
 			"sourceFileName": "plugins/ui.ts",
 			"qualifiedName": "__object.install"
 		},
-		"119": {
+		"1276": {
 			"sourceFileName": "plugins/ui.ts",
 			"qualifiedName": "__function"
 		},
-		"120": {
+		"1277": {
 			"sourceFileName": "plugins/ui.ts",
 			"qualifiedName": "__function"
 		},
-		"121": {
+		"1278": {
 			"sourceFileName": "plugins/ui.ts",
 			"qualifiedName": "app"
+		},
+		"1279": {
+			"sourceFileName": "src/bus.ts",
+			"qualifiedName": "BusEventCallbackSignatures"
+		},
+		"1280": {
+			"sourceFileName": "src/bus.ts",
+			"qualifiedName": "BusEventCallbackSignatures.api:unauthorized"
+		},
+		"1281": {
+			"sourceFileName": "src/bus.ts",
+			"qualifiedName": "__type"
+		},
+		"1282": {
+			"sourceFileName": "src/bus.ts",
+			"qualifiedName": "__type"
+		},
+		"1283": {
+			"sourceFileName": "src/bus.ts",
+			"qualifiedName": "from"
+		},
+		"1284": {
+			"sourceFileName": "src/bus.ts",
+			"qualifiedName": "BusEventCallbackSignatures.tab:uuid"
+		},
+		"1285": {
+			"sourceFileName": "src/bus.ts",
+			"qualifiedName": "__type"
+		},
+		"1286": {
+			"sourceFileName": "src/bus.ts",
+			"qualifiedName": "__type"
+		},
+		"1287": {
+			"sourceFileName": "src/bus.ts",
+			"qualifiedName": "uuid"
+		},
+		"1288": {
+			"sourceFileName": "src/bus.ts",
+			"qualifiedName": "active"
+		},
+		"1289": {
+			"sourceFileName": "src/bus.ts",
+			"qualifiedName": "from"
+		},
+		"1290": {
+			"sourceFileName": "src/bus.ts",
+			"qualifiedName": "BusEventCallbackSignatures.tab:active"
+		},
+		"1291": {
+			"sourceFileName": "src/bus.ts",
+			"qualifiedName": "__type"
+		},
+		"1292": {
+			"sourceFileName": "src/bus.ts",
+			"qualifiedName": "__type"
+		},
+		"1293": {
+			"sourceFileName": "src/bus.ts",
+			"qualifiedName": "from"
+		},
+		"1294": {
+			"sourceFileName": "src/bus.ts",
+			"qualifiedName": "BusEventCallbackSignatures.tab:inactive"
+		},
+		"1295": {
+			"sourceFileName": "src/bus.ts",
+			"qualifiedName": "__type"
+		},
+		"1296": {
+			"sourceFileName": "src/bus.ts",
+			"qualifiedName": "__type"
+		},
+		"1297": {
+			"sourceFileName": "src/bus.ts",
+			"qualifiedName": "from"
+		},
+		"1298": {
+			"sourceFileName": "src/bus.ts",
+			"qualifiedName": "BusEventCallbackSignatures.push:updated"
+		},
+		"1299": {
+			"sourceFileName": "src/bus.ts",
+			"qualifiedName": "__type"
+		},
+		"1300": {
+			"sourceFileName": "src/bus.ts",
+			"qualifiedName": "__type"
+		},
+		"1301": {
+			"sourceFileName": "src/bus.ts",
+			"qualifiedName": "from"
+		},
+		"1302": {
+			"sourceFileName": "src/bus.ts",
+			"qualifiedName": "BusEventCallbackSignatures.push:permission:denied"
+		},
+		"1303": {
+			"sourceFileName": "src/bus.ts",
+			"qualifiedName": "__type"
+		},
+		"1304": {
+			"sourceFileName": "src/bus.ts",
+			"qualifiedName": "__type"
+		},
+		"1305": {
+			"sourceFileName": "src/bus.ts",
+			"qualifiedName": "from"
+		},
+		"1306": {
+			"sourceFileName": "src/bus.ts",
+			"qualifiedName": "BusEventCallbackSignatures.push:permission:granted"
+		},
+		"1307": {
+			"sourceFileName": "src/bus.ts",
+			"qualifiedName": "__type"
+		},
+		"1308": {
+			"sourceFileName": "src/bus.ts",
+			"qualifiedName": "__type"
+		},
+		"1309": {
+			"sourceFileName": "src/bus.ts",
+			"qualifiedName": "from"
+		},
+		"1310": {
+			"sourceFileName": "src/bus.ts",
+			"qualifiedName": "BusEventCallbackSignatures.push:notification"
+		},
+		"1311": {
+			"sourceFileName": "src/bus.ts",
+			"qualifiedName": "__type"
+		},
+		"1312": {
+			"sourceFileName": "src/bus.ts",
+			"qualifiedName": "__type"
+		},
+		"1313": {
+			"sourceFileName": "src/bus.ts",
+			"qualifiedName": "payload"
+		},
+		"1314": {
+			"sourceFileName": "src/bus.ts",
+			"qualifiedName": "from"
+		},
+		"1315": {
+			"sourceFileName": "src/bus.ts",
+			"qualifiedName": "BusEventCallbackSignatures.firebase:token:updated"
+		},
+		"1316": {
+			"sourceFileName": "src/bus.ts",
+			"qualifiedName": "__type"
+		},
+		"1317": {
+			"sourceFileName": "src/bus.ts",
+			"qualifiedName": "__type"
+		},
+		"1318": {
+			"sourceFileName": "src/bus.ts",
+			"qualifiedName": "token"
+		},
+		"1319": {
+			"sourceFileName": "src/bus.ts",
+			"qualifiedName": "from"
+		},
+		"1320": {
+			"sourceFileName": "src/bus.ts",
+			"qualifiedName": "BusEventCallbackSignatures.identity:login"
+		},
+		"1321": {
+			"sourceFileName": "src/bus.ts",
+			"qualifiedName": "__type"
+		},
+		"1322": {
+			"sourceFileName": "src/bus.ts",
+			"qualifiedName": "__type"
+		},
+		"1323": {
+			"sourceFileName": "src/bus.ts",
+			"qualifiedName": "bearer"
+		},
+		"1324": {
+			"sourceFileName": "src/bus.ts",
+			"qualifiedName": "expiration"
+		},
+		"1325": {
+			"sourceFileName": "src/bus.ts",
+			"qualifiedName": "identity"
+		},
+		"1326": {
+			"sourceFileName": "src/bus.ts",
+			"qualifiedName": "from"
+		},
+		"1327": {
+			"sourceFileName": "src/bus.ts",
+			"qualifiedName": "BusEventCallbackSignatures.identity:logout"
+		},
+		"1328": {
+			"sourceFileName": "src/bus.ts",
+			"qualifiedName": "__type"
+		},
+		"1329": {
+			"sourceFileName": "src/bus.ts",
+			"qualifiedName": "__type"
+		},
+		"1330": {
+			"sourceFileName": "src/bus.ts",
+			"qualifiedName": "from"
+		},
+		"1331": {
+			"sourceFileName": "src/bus.ts",
+			"qualifiedName": "BusEventCallbackSignatures.authentication:refreshable"
+		},
+		"1332": {
+			"sourceFileName": "src/bus.ts",
+			"qualifiedName": "__type"
+		},
+		"1333": {
+			"sourceFileName": "src/bus.ts",
+			"qualifiedName": "__type"
+		},
+		"1334": {
+			"sourceFileName": "src/bus.ts",
+			"qualifiedName": "from"
+		},
+		"1335": {
+			"sourceFileName": "src/bus.ts",
+			"qualifiedName": "BusEvent"
+		},
+		"1336": {
+			"sourceFileName": "src/bus.ts",
+			"qualifiedName": "BusEventCallback"
+		},
+		"1337": {
+			"sourceFileName": "src/bus.ts",
+			"qualifiedName": "T"
+		},
+		"1338": {
+			"sourceFileName": "src/bus.ts",
+			"qualifiedName": "BusEventAlreadyTriggered"
+		},
+		"1339": {
+			"sourceFileName": "src/bus.ts",
+			"qualifiedName": "BusEventListenOptions"
+		},
+		"1340": {
+			"sourceFileName": "src/bus.ts",
+			"qualifiedName": "BusEventListenOptions.local"
+		},
+		"1341": {
+			"sourceFileName": "src/bus.ts",
+			"qualifiedName": "BusEventListenOptions.crossTab"
+		},
+		"1342": {
+			"sourceFileName": "src/bus.ts",
+			"qualifiedName": "BusEventListenOptions.immediate"
+		},
+		"1343": {
+			"sourceFileName": "src/bus.ts",
+			"qualifiedName": "BusEventEmitOptions"
+		},
+		"1344": {
+			"sourceFileName": "src/vuetify.ts",
+			"qualifiedName": "VuetifiableTheme"
+		},
+		"1345": {
+			"sourceFileName": "src/vuetify.ts",
+			"qualifiedName": "VuetifiableTheme.colors"
+		},
+		"1346": {
+			"sourceFileName": "node_modules/vuetify/lib/index.d.mts",
+			"qualifiedName": "dark"
+		},
+		"1347": {
+			"sourceFileName": "node_modules/vuetify/lib/index.d.mts",
+			"qualifiedName": "variables"
+		},
+		"1348": {
+			"sourceFileName": "node_modules/vuetify/lib/index.d.mts",
+			"qualifiedName": "__type"
+		},
+		"1349": {
+			"sourceFileName": "src/vuetify.ts",
+			"qualifiedName": "VuetifiableColors"
+		},
+		"1350": {
+			"sourceFileName": "src/vuetify.ts",
+			"qualifiedName": "VuetifiableColors.background"
+		},
+		"1351": {
+			"sourceFileName": "src/vuetify.ts",
+			"qualifiedName": "VuetifiableColors.surface"
+		},
+		"1352": {
+			"sourceFileName": "src/vuetify.ts",
+			"qualifiedName": "VuetifiableColors.primary"
+		},
+		"1353": {
+			"sourceFileName": "src/vuetify.ts",
+			"qualifiedName": "VuetifiableColors.secondary"
+		},
+		"1354": {
+			"sourceFileName": "src/vuetify.ts",
+			"qualifiedName": "VuetifiableColors.accent"
+		},
+		"1355": {
+			"sourceFileName": "src/vuetify.ts",
+			"qualifiedName": "VuetifiableColors.highlight"
+		},
+		"1356": {
+			"sourceFileName": "src/vuetify.ts",
+			"qualifiedName": "VuetifiableColors.notify"
+		},
+		"1357": {
+			"sourceFileName": "src/vuetify.ts",
+			"qualifiedName": "VuetifiableColors.success"
+		},
+		"1358": {
+			"sourceFileName": "src/vuetify.ts",
+			"qualifiedName": "VuetifiableColors.info"
+		},
+		"1359": {
+			"sourceFileName": "src/vuetify.ts",
+			"qualifiedName": "VuetifiableColors.warning"
+		},
+		"1360": {
+			"sourceFileName": "src/vuetify.ts",
+			"qualifiedName": "VuetifiableColors.error"
+		},
+		"1361": {
+			"sourceFileName": "src/vuetify.ts",
+			"qualifiedName": "VuetifiableColors.question"
+		},
+		"1362": {
+			"sourceFileName": "src/vuetify.ts",
+			"qualifiedName": "VuetifiableColors.cancel"
+		},
+		"1363": {
+			"sourceFileName": "src/vuetify.ts",
+			"qualifiedName": "VuetifiableColors.__index"
+		},
+		"1365": {
+			"sourceFileName": "src/vuetify.ts",
+			"qualifiedName": "VuetifiableThemes"
+		},
+		"1366": {
+			"sourceFileName": "src/vuetify.ts",
+			"qualifiedName": "VuetifiableThemes.__index"
 		}
 	}
 }

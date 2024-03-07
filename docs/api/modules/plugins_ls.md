@@ -20,4 +20,4 @@ A plugin for interacting with local browser storage
 
 #### Defined in
 
-[plugins/ls.ts:23](https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/ls.ts#L23)
+[plugins/ls.ts:23](https://github.com/jakguru/vueprint/blob/cca61f2/plugins/ls.ts#L23)

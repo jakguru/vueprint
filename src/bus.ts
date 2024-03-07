@@ -10,9 +10,8 @@ const debug = getDebugger('Bus')
 /**
  * Describes the events and the signatures of their callbacks
  * Should be extended by the application to include all the events it needs
- * @group Bus
  */
-export type BusEventCallbackSignatures = {
+export interface BusEventCallbackSignatures {
   /**
    * Emitted when the API returns a 401 Unauthorized status
    * @param from The ID of the tab that triggered the event
@@ -98,20 +97,17 @@ export type BusEventCallbackSignatures = {
 
 /**
  * The events that can be emitted and listened to
- * @group Bus
  */
 export type BusEvent = keyof BusEventCallbackSignatures
 
 /**
  * The callback signatures for the events
- * @group Bus
  */
 export type BusEventCallback<T extends keyof BusEventCallbackSignatures> =
   BusEventCallbackSignatures[T]
 
 /**
  * The events that have already been triggered
- * @group Bus
  */
 export type BusEventAlreadyTriggered = {
   [key in keyof BusEventCallbackSignatures]: Parameters<BusEventCallback<key>>
@@ -119,7 +115,6 @@ export type BusEventAlreadyTriggered = {
 
 /**
  * Options for listening to events
- * @group Bus
  * @param local - Emit and listen to events in the same tab
  * @param crossTab - Emit and listen to events in other tabs
  * @param immediate - If the event has already been triggered, trigger it immediately
@@ -132,14 +127,12 @@ export interface BusEventListenOptions {
 
 /**
  * Options for emitting events
- * @group Bus
  * @inheritdoc BusEventListenOptions
  */
 export type BusEventEmitOptions = Omit<BusEventListenOptions, 'immediate'>
 
 /**
  * Generate a likely unique short ID for identifying tabs
- * @group Bus
  * @returns A short ID
  */
 export function shortid() {
@@ -148,7 +141,6 @@ export function shortid() {
 
 /**
  * A bus for transmitting and subscribing to events acrosss components and tabs
- * @group Bus
  */
 export class Bus {
   #uuid: string

@@ -12,7 +12,7 @@ The options for the push plugin
 
 #### Defined in
 
-[plugins/push.ts:19](https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/push.ts#L19)
+[plugins/push.ts:19](https://github.com/jakguru/vueprint/blob/cca61f2/plugins/push.ts#L19)
 
 ___
 
@@ -22,7 +22,7 @@ ___
 
 #### Defined in
 
-[plugins/push.ts:20](https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/push.ts#L20)
+[plugins/push.ts:20](https://github.com/jakguru/vueprint/blob/cca61f2/plugins/push.ts#L20)
 
 ___
 
@@ -32,7 +32,7 @@ ___
 
 #### Defined in
 
-[plugins/push.ts:21](https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/push.ts#L21)
+[plugins/push.ts:21](https://github.com/jakguru/vueprint/blob/cca61f2/plugins/push.ts#L21)
 
 ___
 
@@ -42,7 +42,7 @@ ___
 
 #### Defined in
 
-[plugins/push.ts:23](https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/push.ts#L23)
+[plugins/push.ts:23](https://github.com/jakguru/vueprint/blob/cca61f2/plugins/push.ts#L23)
 
 ___
 
@@ -52,4 +52,4 @@ ___
 
 #### Defined in
 
-[plugins/push.ts:22](https://github.com/jakguru/vueprint/blob/cb50a9e/plugins/push.ts#L22)
+[plugins/push.ts:22](https://github.com/jakguru/vueprint/blob/cca61f2/plugins/push.ts#L22)

@@ -8,8 +8,7 @@ import pkg from './package.json' assert { type: 'json' }
 export default [
   {
     input: 'index.ts',
-    external: pkg.dependencies ? Object.keys(pkg.dependencies) : [],
-    exclude: ['bin/**/*', 'tests/**/*', 'vitepress/**/*', 'docs/**/*'],
+    external: pkg.dependencies ? ['@nuxt/kit', ...Object.keys(pkg.dependencies)] : ['@nuxt/kit'],
     output: [
       {
         file: pkg.main,
@@ -29,7 +28,7 @@ export default [
     plugins: [
       typescript({
         outputToFilesystem: true,
-        exclude: ['bin/**/*', 'tests/**/*', 'vitepress/**/*'],
+        exclude: ['bin/**/*', 'tests/**/*', 'vitepress/**/*', 'docs/**/*', 'playgrounds/**/*'],
       }),
       styles({
         mode: ['extract', 'assets/styles.css'],
