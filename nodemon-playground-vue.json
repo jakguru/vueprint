@@ -1,8 +1,0 @@
-{
-    "verbose": true,
-    "watch": [
-        "dist/**/*"
-    ],
-    "ext": "vue,ts,js,mjs",
-    "exec": "cd playgrounds/vueprint-playground-vue && yarn install --frozen-lockfile --no-progress && yarn upgrade @jakguru/vueprint && NODE_ENV=development npx vite build -m development && npx vite preview"
-}

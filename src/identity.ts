@@ -1,3 +1,4 @@
+import { isAxiosInstance } from './api'
 import { Bus } from './bus'
 import { LocalStorage } from './localStorage'
 import { MiliCron } from '@jakguru/milicron'
@@ -73,15 +74,19 @@ export class Identity {
     tokenRefreshBuffer = 60 * 5
   ) {
     if (!(bus instanceof Bus)) {
+      debug({ bus })
       throw new Error('Invalid or missing Bus instance')
     }
     if (!(ls instanceof LocalStorage)) {
+      debug({ ls })
       throw new Error('Invalid or missing LocalStorage instance')
     }
     if (!(cron instanceof MiliCron)) {
+      debug({ cron })
       throw new Error('Invalid or missing MiliCron instance')
     }
-    if (!(api instanceof Axios)) {
+    if (!isAxiosInstance(api)) {
+      debug({ api })
       throw new Error('Invalid or missing Axios instance')
     }
     this.#booted = ref(false)

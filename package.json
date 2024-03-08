@@ -6,7 +6,7 @@
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "files": [
-    "dist"
+    "dist/**/*"
   ],
   "author": "Jak Guru <jak@jak.guru>",
   "license": "MIT",
@@ -21,8 +21,7 @@
     "docs:build": "npx vitepress build docs",
     "docs:preview": "npx vitepress preview docs",
     "docs:api": "npx typedoc",
-    "docs:api:watch": "npx typedoc --watch",
-    "playground:vue": "rm -rf dist && mkdir -p dist && npx concurrently \"npx rollup -c -w\" \"sleep 10 && npx nodemon --config nodemon-playground-vue.json\""
+    "docs:api:watch": "npx typedoc --watch"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^25.0.7",

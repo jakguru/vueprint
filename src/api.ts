@@ -64,3 +64,23 @@ export const initializeApi = (baseURL: string, ls: LocalStorage, bus: Bus): Axio
   )
   return instance
 }
+
+/**
+ * Check if the given variable is an Axios instance
+ * @param instance The variable that should be checked to see if it is an Axios instance
+ * @returns boolean indicating whether the given variable is an Axios instance
+ */
+export const isAxiosInstance = (instance: any): boolean => {
+  return (
+    'function' === typeof instance &&
+    'object' === typeof instance.defaults &&
+    'function' === typeof instance.request &&
+    'function' === typeof instance.get &&
+    'function' === typeof instance.delete &&
+    'function' === typeof instance.head &&
+    'function' === typeof instance.options &&
+    'function' === typeof instance.post &&
+    'function' === typeof instance.put &&
+    'function' === typeof instance.patch
+  )
+}

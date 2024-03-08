@@ -14,7 +14,7 @@ import { MiliCron } from '@jakguru/milicron'
 
 const debug = getDebugger('Push')
 const fbug = getDebugger('Firebase', '#1B3A57', '#FFCA28')
-const sbug = getDebugger('Service Worker', '#000000', '#FFFFFF')
+const sbug = getDebugger('Service Worker')
 
 /**
  * Describes the possible states of push permission.
@@ -142,8 +142,18 @@ export class PushService {
           return false
       }
     })
-    this.#firebaseApp = initializeApp(firebaseOptions)
-    this.#firebaseMessaging = getMessaging(this.#firebaseApp)
+    try {
+      this.#firebaseApp = initializeApp(firebaseOptions)
+    } catch (error) {
+      fbug('Failed to Initialize Firebase Application', error)
+    }
+    if (this.#firebaseApp) {
+      try {
+        this.#firebaseMessaging = getMessaging(this.#firebaseApp)
+      } catch (error) {
+        fbug('Failed to Initialize Firebase Messaging', error)
+      }
+    }
     fbug('Firebase Application & Messaging Initialized')
   }
 

@@ -4,13 +4,13 @@ import resolve from '@rollup/plugin-node-resolve'
 import typescript from '@rollup/plugin-typescript'
 import styles from 'rollup-plugin-styles'
 import pkg from './package.json' assert { type: 'json' }
-import { fileURLToPath } from 'url'
-import { dirname, join } from 'path'
+// import { fileURLToPath } from 'url'
+// import { dirname, join } from 'path'
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
-const __filename = fileURLToPath(import.meta.url)
+// const __filename = fileURLToPath(import.meta.url)
 // eslint-disable-next-line @typescript-eslint/naming-convention
-const __dirname = dirname(__filename)
+// const __dirname = dirname(__filename)
 
 const files = [
   'index.ts',
