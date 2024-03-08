@@ -6,4 +6,5 @@ export {
   ApiPluginOptions,
   PushPluginOptions,
   IdentityPluginOptions,
+  UiPluginOptions,
 } from './plugins'

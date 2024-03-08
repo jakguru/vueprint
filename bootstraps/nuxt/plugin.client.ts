@@ -8,7 +8,6 @@ const debug = getDebugger('Nuxt:Plugin:Client')
 
 const plugin: Plugin = defineNuxtPlugin({
   name: 'vueprint:client',
-  dependsOn: ['vueprint:main'],
   async setup(nuxtApp) {
     const {
       public: { vueprint: vueprintOptions },

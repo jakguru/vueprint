@@ -25,6 +25,7 @@ interface VueprintModuleOptions {
   api?: ApiPluginOptions
   identity?: IdentityPluginOptions
   push?: PushPluginOptions
+  sounds?: Record<string, string>
 }
 
 export default defineNuxtModule({
@@ -96,6 +97,7 @@ export default defineNuxtModule({
             api?: ApiPluginOptions
             identity?: IdentityPluginOptions
             push?: PushPluginOptions
+            sounds?: Record<string, string>
           }
 
           declare module '@nuxt/schema' {

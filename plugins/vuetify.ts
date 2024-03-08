@@ -21,7 +21,7 @@ export interface VuetifyPluginOptions {
   /**
    * The options to pass to the Vuetify instance
    */
-  options: VuetifyOptions
+  options?: VuetifyOptions
 }
 
 /**

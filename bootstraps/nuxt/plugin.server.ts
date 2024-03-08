@@ -6,7 +6,7 @@ import { getDebugger } from '../../dist'
 const debug = getDebugger('Nuxt:Plugin:Server')
 
 const plugin: Plugin = defineNuxtPlugin({
-  name: 'vueprint:main',
+  name: 'vueprint:server',
   async setup(nuxtApp) {
     const {
       public: { vueprint: vueprintOptions },

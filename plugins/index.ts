@@ -12,6 +12,7 @@ export * from './vuetify'
 export * from './api'
 export * from './identity'
 export * from './push'
+export * from './ui'
 export default {
   bus: BusPlugin,
   cron: CronPlugin,

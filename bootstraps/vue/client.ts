@@ -7,6 +7,7 @@ import { UiPlugin } from '../../plugins/ui'
  */
 export interface VueClientBootstrapOptions {
   push?: PushPluginOptions
+  sounds?: Record<string, string>
 }
 
 /**
@@ -15,7 +16,7 @@ export interface VueClientBootstrapOptions {
 const VueClientBootstrap = {
   install: (app: App, options?: VueClientBootstrapOptions) => {
     app.use(PushPlugin, options?.push)
-    app.use(UiPlugin)
+    app.use(UiPlugin, { sounds: options?.sounds })
   },
 }
 

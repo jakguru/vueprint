@@ -16,9 +16,9 @@ declare module 'vue' {
  * The options for the push plugin
  */
 export interface PushPluginOptions {
-  firebaseOptions: FirebaseOptions
-  onAuthenticatedForFirebase: FirebaseTokenAuthenticationCallback
-  onUnauthenticatedForFirebase: FirebaseTokenAuthenticationCallback
+  firebaseOptions?: FirebaseOptions
+  onAuthenticatedForFirebase?: FirebaseTokenAuthenticationCallback
+  onUnauthenticatedForFirebase?: FirebaseTokenAuthenticationCallback
   serviceWorkerPath?: undefined | null | string
   serviceWorkerMode?: undefined | null | 'classic' | 'module'
 }
