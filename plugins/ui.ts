@@ -1,6 +1,6 @@
 import type { App } from 'vue'
 import type Swal from 'sweetalert2'
-import { swal, toast } from 'src/ui'
+import { swal, toast } from '../src/ui'
 
 declare module 'vue' {
   interface ComponentCustomProperties {

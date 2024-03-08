@@ -1,6 +1,6 @@
 import type { App } from 'vue'
-import type { TokenRefreshCallback } from 'src/identity'
-import { Identity } from 'src/identity'
+import type { TokenRefreshCallback } from '../src/identity'
+import { Identity } from '../src/identity'
 import { DateTime } from 'luxon'
 
 declare module 'vue' {

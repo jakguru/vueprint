@@ -1,8 +1,8 @@
 import type { App } from 'vue'
-import type { VuetifiableThemes } from 'src/vuetify'
-export type { VuetifiableTheme, VuetifiableColors } from 'src/vuetify'
+import type { VuetifiableThemes } from '../src/vuetify'
+export type { VuetifiableTheme, VuetifiableColors } from '../src/vuetify'
 import type { VuetifyOptions } from 'vuetify'
-import { initializeVuetify } from 'src/vuetify'
+import { initializeVuetify } from '../src/vuetify'
 
 export { VuetifiableThemes }
 

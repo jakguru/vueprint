@@ -1,5 +1,6 @@
 {
     "entryPoints": [
+        "index.ts",
         "bootstraps/vue/client.ts",
         "bootstraps/vue/main.ts",
         "nuxt/index.ts",

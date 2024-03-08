@@ -22,7 +22,7 @@
     "docs:preview": "npx vitepress preview docs",
     "docs:api": "npx typedoc",
     "docs:api:watch": "npx typedoc --watch",
-    "playground:vue": "rm -rf dist && mkdir -p dist && npx concurrently \"npx rollup -c -w\" \"npx nodemon --config nodemon-playground-vue.json\""
+    "playground:vue": "rm -rf dist && mkdir -p dist && npx concurrently \"npx rollup -c -w\" \"sleep 10 && npx nodemon --config nodemon-playground-vue.json\""
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^25.0.7",

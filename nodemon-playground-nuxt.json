@@ -1,14 +1,8 @@
 {
+    "verbose": true,
     "watch": [
-        "**/*",
-        ".env"
+        "dist/**/*"
     ],
-    "ext": "ts,json,env",
-    "ignore": [
-        "node_modules",
-        "dist",
-        "docs",
-        "tests"
-    ],
-    "exec": "rm -rf dist/* && npx rollup -c"
+    "ext": "vue,ts,js,mjs",
+    "exec": "cd playgrounds/vueprint-playground-nuxt && yarn install --frozen-lockfile --no-progress && yarn upgrade @jakguru/vueprint && NODE_ENV=development npx nuxt build -m development && npx nuxt preview"
 }

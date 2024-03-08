@@ -1,6 +1,6 @@
 import type { App } from 'vue'
 import type { Axios } from 'axios'
-import { initializeApi } from 'src/api'
+import { initializeApi } from '../src/api'
 
 declare module 'vue' {
   interface ComponentCustomProperties {

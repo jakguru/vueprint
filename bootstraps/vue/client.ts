@@ -14,6 +14,7 @@ export interface VueClientBootstrapOptions {
  */
 const VueClientBootstrap = {
   install: (app: App, options?: VueClientBootstrapOptions) => {
+    console.log(app)
     app.use(PushPlugin, options?.push)
     app.use(UiPlugin)
   },

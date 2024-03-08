@@ -1,7 +1,7 @@
 import type { App } from 'vue'
 import type { FirebaseOptions } from 'firebase/app'
-import type { FirebaseTokenAuthenticationCallback } from 'src/push'
-import { PushService } from 'src/push'
+import type { FirebaseTokenAuthenticationCallback } from '../src/push'
+import { PushService } from '../src/push'
 
 declare module 'vue' {
   interface ComponentCustomProperties {

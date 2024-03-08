@@ -4,5 +4,5 @@
         "dist/**/*"
     ],
     "ext": "vue,ts,js,mjs",
-    "exec": "cd playgrounds/vueprint-playground-vue && yarn install && npx vite build && npx vite preview"
+    "exec": "cd playgrounds/vueprint-playground-vue && yarn install --frozen-lockfile --no-progress && yarn upgrade @jakguru/vueprint && NODE_ENV=development npx vite build -m development && npx vite preview"
 }
