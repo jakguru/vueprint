@@ -10,9 +10,10 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@jakguru/vueprint": "file:../../",
     "nuxt": "^3.10.3",
+    "vite-plugin-node-polyfills": "^0.21.0",
     "vue": "^3.4.19",
-    "vue-router": "^4.3.0",
-    "@jakguru/vueprint": "file:../../"
+    "vue-router": "^4.3.0"
   }
 }

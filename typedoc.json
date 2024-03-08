@@ -3,7 +3,7 @@
         "index.ts",
         "bootstraps/vue/client.ts",
         "bootstraps/vue/main.ts",
-        "nuxt/index.ts",
+        "bootstraps/nuxt/index.ts",
         "composables/useVueprint.ts",
         "plugins/bus.ts",
         "plugins/cron.ts",

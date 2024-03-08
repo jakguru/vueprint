@@ -16,7 +16,9 @@ const files = [
   'index.ts',
   'bootstraps/vue/client.ts',
   'bootstraps/vue/main.ts',
-  'nuxt/index.ts',
+  'bootstraps/nuxt/index.ts',
+  'bootstraps/nuxt/plugin.client.ts',
+  'bootstraps/nuxt/plugin.server.ts',
   'composables/useVueprint.ts',
   'plugins/bus.ts',
   'plugins/cron.ts',
@@ -31,7 +33,7 @@ const files = [
 const configurations = files.map((file) => {
   return {
     input: file,
-    external: pkg.dependencies ? ['@nuxt/kit', ...Object.keys(pkg.dependencies)] : ['@nuxt/kit'],
+    external: pkg.dependencies ? [...Object.keys(pkg.dependencies)] : [],
     output: [
       {
         file: ['dist', file.replace(/\.ts$/, '.js')].join('/'),
@@ -67,41 +69,3 @@ const configurations = files.map((file) => {
 })
 
 export default configurations
-
-// export default [
-//   {
-//     input: 'index.ts',
-//     external: pkg.dependencies ? ['@nuxt/kit', ...Object.keys(pkg.dependencies)] : ['@nuxt/kit'],
-//     output: [
-//       {
-//         file: pkg.main,
-//         format: 'cjs',
-//         sourcemap: true,
-//         exports: 'named',
-//         assetFileNames: '[name][extname]',
-//       },
-//       {
-//         file: pkg.module,
-//         format: 'es',
-//         sourcemap: true,
-//         exports: 'named',
-//         assetFileNames: '[name][extname]',
-//       },
-//     ],
-//     plugins: [
-//       typescript({
-//         outputToFilesystem: true,
-//         exclude: ['bin/**/*', 'tests/**/*', 'vitepress/**/*', 'docs/**/*', 'playgrounds/**/*'],
-//       }),
-//       styles({
-//         mode: ['extract', 'assets/styles.css'],
-//         dts: true,
-//         minimize: true,
-//         sourceMap: true,
-//       }),
-//       resolve(),
-//       commonjs(),
-//       json(),
-//     ],
-//   },
-// ]

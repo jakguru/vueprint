@@ -145,16 +145,20 @@ export class PushService {
     try {
       this.#firebaseApp = initializeApp(firebaseOptions)
     } catch (error) {
-      fbug('Failed to Initialize Firebase Application', error)
+      fbug('Failed to Initialize Firebase Application', error.message)
     }
     if (this.#firebaseApp) {
       try {
         this.#firebaseMessaging = getMessaging(this.#firebaseApp)
       } catch (error) {
-        fbug('Failed to Initialize Firebase Messaging', error)
+        fbug('Failed to Initialize Firebase Messaging', error.message)
       }
     }
-    fbug('Firebase Application & Messaging Initialized')
+    if (this.#firebaseApp && this.#firebaseMessaging) {
+      fbug('Firebase Application & Messaging Initialized')
+    } else {
+      fbug('Firebase Application & Messaging Skipped')
+    }
   }
 
   /**

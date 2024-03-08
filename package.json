@@ -22,9 +22,9 @@
     "docs:preview": "npx vitepress preview docs",
     "docs:api": "npx typedoc",
     "docs:api:watch": "npx typedoc --watch",
-    "playground:watch:src": "npx rollup -c --watch --watch.onEnd=\"touch .playground\"",
-    "playground:vue:prepare": "cd playgrounds/vueprint-playground-vue && rm -rf node_modules/.yarn-integrity && yarn install",
-    "playground:nuxt:prepare": "cd playgrounds/vueprint-playground-nuxt && rm -rf node_modules/.yarn-integrity && yarn install",
+    "playground:watch:src": "NODE_OPTIONS='--max-old-space-size=8192' npx rollup -c --watch --watch.onEnd=\"touch .playground\"",
+    "playground:vue:prepare": "cd playgrounds/vueprint-playground-vue && npm install",
+    "playground:nuxt:prepare": "cd playgrounds/vueprint-playground-nuxt && npm install",
     "playground:vue": "npx concurrently \"yarn playground:watch:src\" \"sleep 10 && npx nodemon --config nodemon-playground-vue.json\"",
     "playground:nuxt": "npx concurrently \"yarn playground:watch:src\" \"sleep 10 && npx nodemon --config nodemon-playground-nuxt.json\""
   },
@@ -49,8 +49,7 @@
     "typedoc": "^0.25.11",
     "typedoc-plugin-markdown": "^3.17.1",
     "typescript": "^5.1.6",
-    "vitepress": "^1.0.0-rc.45",
-    "@nuxt/kit": "^3.10.3"
+    "vitepress": "^1.0.0-rc.45"
   },
   "engines": {
     "node": ">=18.0.0"
@@ -101,17 +100,22 @@
   "dependencies": {
     "@jakguru/milicron": "^1.0.0",
     "@mdi/font": "^7.4.47",
+    "@nuxt/kit": "^3.10.3",
     "axios": "^1.6.7",
     "broadcast-channel": "^7.0.0",
+    "defu": "^6.1.4",
     "dot-object": "^2.1.4",
     "firebase": "^10.8.1",
     "joi": "^17.12.2",
     "lodash.merge": "^4.6.2",
     "luxon": "^3.4.4",
+    "nuxt": "^3.10.3",
     "push.js": "^1.0.12",
     "secure-ls": "^1.2.6",
     "sweetalert2": "^11.10.6",
     "tiny-emitter": "^2.1.0",
+    "vite-plugin-node-polyfills": "^0.21.0",
+    "vite-plugin-vuetify": "^2.0.2",
     "vue": "^3.4.21",
     "vue-i18n": "^9.10.1",
     "vuetify": "^3.5.7"
