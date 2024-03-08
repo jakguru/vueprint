@@ -19,8 +19,8 @@ export interface PushPluginOptions {
   firebaseOptions: FirebaseOptions
   onAuthenticatedForFirebase: FirebaseTokenAuthenticationCallback
   onUnauthenticatedForFirebase: FirebaseTokenAuthenticationCallback
-  serviceWorkerPath: string
-  serviceWorkerMode: 'classic' | 'module'
+  serviceWorkerPath?: undefined | null | string
+  serviceWorkerMode?: undefined | null | 'classic' | 'module'
 }
 
 /**
@@ -31,8 +31,8 @@ export const PushPlugin = {
     const firebaseOptions = options?.firebaseOptions || {}
     const onAuthenticatedForFirebase = options?.onAuthenticatedForFirebase || (() => {})
     const onUnauthenticatedForFirebase = options?.onUnauthenticatedForFirebase || (() => {})
-    const serviceWorkerPath = options?.serviceWorkerPath || '/service-worker.js'
-    const serviceWorkerMode = options?.serviceWorkerMode || 'classic'
+    const serviceWorkerPath = options?.serviceWorkerPath
+    const serviceWorkerMode = options?.serviceWorkerMode
     const instance = new PushService(
       app.config.globalProperties.$bus!,
       app.config.globalProperties.$ls!,

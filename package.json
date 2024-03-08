@@ -6,7 +6,7 @@
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "files": [
-    "dist/**/*"
+    "dist"
   ],
   "author": "Jak Guru <jak@jak.guru>",
   "license": "MIT",
@@ -21,7 +21,12 @@
     "docs:build": "npx vitepress build docs",
     "docs:preview": "npx vitepress preview docs",
     "docs:api": "npx typedoc",
-    "docs:api:watch": "npx typedoc --watch"
+    "docs:api:watch": "npx typedoc --watch",
+    "playground:watch:src": "npx rollup -c --watch --watch.onEnd=\"touch .playground\"",
+    "playground:vue:prepare": "cd playgrounds/vueprint-playground-vue && rm -rf node_modules/.yarn-integrity && yarn install",
+    "playground:nuxt:prepare": "cd playgrounds/vueprint-playground-nuxt && rm -rf node_modules/.yarn-integrity && yarn install",
+    "playground:vue": "npx concurrently \"yarn playground:watch:src\" \"sleep 10 && npx nodemon --config nodemon-playground-vue.json\"",
+    "playground:nuxt": "npx concurrently \"yarn playground:watch:src\" \"sleep 10 && npx nodemon --config nodemon-playground-nuxt.json\""
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^25.0.7",

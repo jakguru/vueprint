@@ -58,8 +58,8 @@ export class PushService {
   readonly #canPush: ComputedRef<boolean | null>
   readonly #onAuthenticatedForFirebase: FirebaseTokenAuthenticationCallback
   readonly #onUnauthenticatedForFirebase: FirebaseTokenAuthenticationCallback
-  readonly #serviceWorkerPath: string
-  readonly #serviceWorkerMode: 'classic' | 'module'
+  readonly #serviceWorkerPath: undefined | null | string
+  readonly #serviceWorkerMode: undefined | null | 'classic' | 'module'
   #serviceWorkerRegistrationWatchStopHandle: WatchStopHandle | undefined
   #serviceWorkerRegistrationTokenWatchStopHandle: WatchStopHandle | undefined
   #pushPermissionWatchStopHandle: WatchStopHandle | undefined
@@ -88,8 +88,8 @@ export class PushService {
     firebaseOptions: FirebaseOptions,
     onAuthenticatedForFirebase: FirebaseTokenAuthenticationCallback,
     onUnauthenticatedForFirebase: FirebaseTokenAuthenticationCallback,
-    serviceWorkerPath: string,
-    serviceWorkerMode: 'classic' | 'module'
+    serviceWorkerPath?: undefined | null | string,
+    serviceWorkerMode?: undefined | null | 'classic' | 'module'
   ) {
     if (!(bus instanceof Bus)) {
       throw new Error('Invalid or missing Bus instance')
@@ -315,6 +315,10 @@ export class PushService {
     this.#doUpdates(true)
     if ('undefined' !== typeof window && 'serviceWorker' in navigator) {
       if ('undefined' === typeof this.#serviceWorkerRegistration.value) {
+        if (!this.#serviceWorkerPath || !this.#serviceWorkerMode) {
+          debug('Service Worker Path or Mode not set, skipping registration')
+          return
+        }
         debug('Attempting to register Service Worker', {
           path: this.#serviceWorkerPath,
           mode: this.#serviceWorkerMode,

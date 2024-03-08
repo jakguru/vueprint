@@ -1,6 +1,6 @@
 import type { App } from 'vue'
 import { Bus } from '../src/bus'
-export {
+export type {
   BusEventCallbackSignatures,
   BusEvent,
   BusEventCallback,

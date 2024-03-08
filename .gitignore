@@ -16,3 +16,4 @@ docs/.vitepress/dist
 playgrounds/vueprint-playground-vue/.yarn-cache
 playgrounds/vueprint-playground-nuxt/.yarn-cache
 .yarn-cache
+.playground

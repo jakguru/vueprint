@@ -1,0 +1,9 @@
+{
+    "verbose": true,
+    "watch": [
+        ".playground"
+    ],
+    "delay": 30,
+    "ext": "vue,ts,js,mjs",
+    "exec": "cd playgrounds/vueprint-playground-vue && npm update @jakguru/vueprint && npx vite dev"
+}
