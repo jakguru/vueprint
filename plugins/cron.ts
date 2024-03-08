@@ -1,6 +1,10 @@
 import type { App } from 'vue'
 import { MiliCron } from '@jakguru/milicron'
 
+/**
+ * @todo: change milicron to use something other than the nodejs event emitter as a foundation
+ */
+
 declare module 'vue' {
   interface ComponentCustomProperties {
     $cron?: MiliCron
