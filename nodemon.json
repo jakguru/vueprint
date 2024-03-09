@@ -1,7 +1,8 @@
 {
     "watch": [
-        "**/*",
-        ".env"
+        "src/**/*",
+        ".env",
+        "package.json"
     ],
     "ext": "ts,json,env",
     "ignore": [
@@ -10,5 +11,5 @@
         "docs",
         "tests"
     ],
-    "exec": "rm -rf dist/* && npx rollup -c"
+    "exec": "npx unbuild --sourcemap"
 }

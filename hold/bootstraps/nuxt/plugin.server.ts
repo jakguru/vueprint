@@ -1,7 +1,8 @@
 /// <reference types="./nuxt-types.d.ts" />
 import VueMainBootstrap from '../vue/main'
 import { defineNuxtPlugin, Plugin, useRuntimeConfig } from '#app'
-import { getDebugger } from '../../dist'
+import { getDebugger } from '../../'
+import { defu } from 'defu'
 
 const debug = getDebugger('Nuxt:Plugin:Server')
 
@@ -12,7 +13,16 @@ const plugin: Plugin = defineNuxtPlugin({
       public: { vueprint: vueprintOptions },
     } = useRuntimeConfig()
     if (!process.client) {
-      nuxtApp.vueApp.use(VueMainBootstrap, vueprintOptions)
+      nuxtApp.vueApp.use(
+        VueMainBootstrap,
+        defu(vueprintOptions, {
+          vuetify: {
+            options: {
+              ssr: true,
+            },
+          },
+        })
+      )
       debug('Setup Complete')
     } else {
       debug('Skipping setup, not server')

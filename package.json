@@ -2,18 +2,42 @@
   "name": "@jakguru/vueprint",
   "version": "0.1.0",
   "description": "Groundwork Libraries and Plugins for use in Vue3 based Projects",
-  "main": "dist/index.js",
+  "main": "dist/index.cjs",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs",
+      "types": "./dist/types.d.ts"
+    },
+    "./utilities": {
+      "import": "./dist/utilities/index.mjs",
+      "require": "./dist/utilities/index.cjs",
+      "types": "./dist/utilities/index.d.ts"
+    },
+    "./utilities/validation": {
+      "import": "./dist/utilities/validation.mjs",
+      "require": "./dist/utilities/validation.cjs",
+      "types": "./dist/utilities/validation.d.ts"
+    },
+    "./utilities/debug": {
+      "import": "./dist/utilities/debug.mjs",
+      "require": "./dist/utilities/debug.cjs",
+      "types": "./dist/utilities/debug.d.ts"
+    },
+    "./package.json": "./package.json"
+  },
   "author": "Jak Guru <jak@jak.guru>",
   "license": "MIT",
   "scripts": {
     "watch": "nodemon",
-    "build": "rm -rf dist && npx rollup -c",
-    "build:watch": "rm -rf dist && npx rollup -c -w",
+    "build": "npx unbuild --sourcemap",
+    "build:watch": "nodemon",
     "type-check": "npx tsc --noEmit",
     "lint": "eslint . --ext=.ts,.mjs",
     "format": "eslint . --ext=.ts,.mjs --fix",
@@ -49,6 +73,7 @@
     "typedoc": "^0.25.11",
     "typedoc-plugin-markdown": "^3.17.1",
     "typescript": "^5.1.6",
+    "unbuild": "^2.0.0",
     "vitepress": "^1.0.0-rc.45"
   },
   "engines": {

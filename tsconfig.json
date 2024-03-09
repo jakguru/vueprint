@@ -10,7 +10,7 @@
         "templates"
     ],
     "compilerOptions": {
-        "module": "es2020",
+        "module": "esnext",
         "outDir": "./dist",
         "rootDir": "./",
         "sourceMap": true,
@@ -18,6 +18,8 @@
         "declaration": true,
         "declarationMap": true,
         "removeComments": false,
+        "resolveJsonModule": true,
+        "incremental": false,
         "lib": [
             "webworker",
             "es2020",
@@ -26,9 +28,12 @@
             "scripthost"
         ],
         "paths": {
-            "src": [
-                "./src"
-            ]
+            "#app": [
+                "./node_modules/nuxt/dist/app"
+            ],
+            "#app/*": [
+                "./node_modules/nuxt/dist/app/*"
+            ],
         }
     },
     "ts-node": {

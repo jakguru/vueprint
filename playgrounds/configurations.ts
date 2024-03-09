@@ -20,7 +20,7 @@ export const vuetifyPluginOptions: VuetifyPluginOptions = {
       dark: true,
       colors: {
         background: '#227fb9',
-        surface: '#aac2d0',
+        surface: '#024180',
         primary: '#34495E',
         secondary: '#41B883',
         accent: '#676464',

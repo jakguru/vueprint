@@ -1,7 +1,7 @@
 import '@mdi/font/css/materialdesignicons.css'
+import 'vuetify/styles'
 import type { VuetifyOptions, ThemeDefinition } from 'vuetify'
 import { createVuetify } from 'vuetify'
-import 'vuetify/styles'
 import merge from 'lodash.merge'
 
 let instance: ReturnType<typeof createVuetify> | undefined

@@ -1,7 +1,7 @@
-import type { Bus, BusEvent } from 'src/bus'
+import type { Bus, BusEvent } from '../src/bus'
 import type { MiliCron } from '@jakguru/milicron'
-import type { Identity } from 'src/identity'
-import type { PushService } from 'src/push'
+import type { Identity } from '../src/identity'
+import type { PushService } from '../src/push'
 import type { WatchStopHandle } from 'vue'
 import { inject, ref, watch, computed, onMounted, onBeforeUnmount, nextTick } from 'vue'
 
@@ -37,6 +37,7 @@ export interface ApplicationHooks {
  * @param hooks The hooks that will be used when an application property changes state
  */
 export const useVueprint = (hooks: ApplicationHooks) => {
+  const mounted = ref(false)
   const bus = inject<Bus>('bus')
   const cron = inject<MiliCron>('cron')
   const identity = inject<Identity>('identity')
@@ -102,6 +103,8 @@ export const useVueprint = (hooks: ApplicationHooks) => {
   const isReady = computed(() => isBooted.value && isDependanciesBooted.value)
   let bootedWatchCanceller: WatchStopHandle | undefined
   let readyWatchCanceller: WatchStopHandle | undefined
+  let identityBootedWatchCanceller: WatchStopHandle | undefined
+  let pushBootedWatchCanceller: WatchStopHandle | undefined
   let authenticatedWatchCanceller: WatchStopHandle | undefined
   let pushPermissionWatchCanceller: WatchStopHandle | undefined
   onMounted(() => {
@@ -127,17 +130,33 @@ export const useVueprint = (hooks: ApplicationHooks) => {
       },
       { immediate: true }
     )
-    pushPermissionWatchCanceller = watch(
-      () => push?.canPush.value,
-      (permission) => {
-        if (permission) {
-          hooks.onPushPermissions.onTrue()
-        } else {
-          hooks.onPushPermissions.onFalse()
+    if (push) {
+      pushPermissionWatchCanceller = watch(
+        () => push.canPush.value,
+        (permission) => {
+          if (permission) {
+            hooks.onPushPermissions.onTrue()
+          } else {
+            hooks.onPushPermissions.onFalse()
+          }
         }
-      }
-    )
+      )
+      pushBootedWatchCanceller = watch(
+        () => push.booted.value,
+        (booted) => {
+          dependanciesBooted.value.push = booted
+        },
+        { immediate: true }
+      )
+    }
     if (identity) {
+      identityBootedWatchCanceller = watch(
+        () => identity.booted.value,
+        (is) => {
+          dependanciesBooted.value.identity = is
+        },
+        { immediate: true }
+      )
       authenticatedWatchCanceller = watch(identity.authenticated, (authenticated) => {
         if (authenticated) {
           hooks.onAuthenticated.onTrue()
@@ -179,6 +198,7 @@ export const useVueprint = (hooks: ApplicationHooks) => {
       if (push) {
         push.boot()
       }
+      mounted.value = true
     })
   })
   onBeforeUnmount(() => {
@@ -207,11 +227,23 @@ export const useVueprint = (hooks: ApplicationHooks) => {
     if (readyWatchCanceller) {
       readyWatchCanceller()
     }
+    if (identityBootedWatchCanceller) {
+      identityBootedWatchCanceller()
+    }
     if (authenticatedWatchCanceller) {
       authenticatedWatchCanceller()
+    }
+    if (pushBootedWatchCanceller) {
+      pushBootedWatchCanceller()
     }
     if (pushPermissionWatchCanceller) {
       pushPermissionWatchCanceller()
     }
+    mounted.value = false
   })
+  return {
+    mounted,
+    booted: isBooted,
+    ready: isReady,
+  }
 }

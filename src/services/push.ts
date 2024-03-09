@@ -1,12 +1,12 @@
 import type { FirebaseApp, FirebaseOptions } from 'firebase/app'
 import type { Messaging, Unsubscribe } from 'firebase/messaging'
 import type { ComputedRef, Ref, WatchStopHandle } from 'vue'
-import type { BusEventCallbackSignatures } from './bus'
+import type { BusServiceEventCallbackSignatures } from './bus'
 import { initializeApp } from 'firebase/app'
 import { getMessaging, getToken, onMessage } from 'firebase/messaging'
 import Push from 'push.js'
 import { computed, ref, watch } from 'vue'
-import { Bus } from './bus'
+import { BusService } from './bus'
 import { getDebugger } from './debug'
 import { LocalStorage } from './localStorage'
 import { Identity } from './identity'
@@ -44,7 +44,7 @@ export interface FirebaseTokenAuthenticationCallback {
  */
 export class PushService {
   readonly #booted: Ref<boolean>
-  readonly #bus: Bus
+  readonly #bus: BusService
   readonly #ls: LocalStorage
   readonly #cron: MiliCron
   readonly #identity: Identity
@@ -70,7 +70,7 @@ export class PushService {
 
   /**
    * Create a new PushService instance.
-   * @param bus The Bus instance to use for communication
+   * @param bus The BusService instance to use for communication
    * @param ls The LocalStorage instance to use for storing and retrieving preferences and tokens
    * @param cron The MiliCron instance to use for scheduling updates
    * @param identity The Identity instance to use for determining if the user is authenticated
@@ -81,7 +81,7 @@ export class PushService {
    * @param serviceWorkerMode The mode to use for the service worker
    */
   constructor(
-    bus: Bus,
+    bus: BusService,
     ls: LocalStorage,
     cron: MiliCron,
     identity: Identity,
@@ -91,8 +91,8 @@ export class PushService {
     serviceWorkerPath?: undefined | null | string,
     serviceWorkerMode?: undefined | null | 'classic' | 'module'
   ) {
-    if (!(bus instanceof Bus)) {
-      throw new Error('Invalid or missing Bus instance')
+    if (!(bus instanceof BusService)) {
+      throw new Error('Invalid or missing BusService instance')
     }
     if (!(ls instanceof LocalStorage)) {
       throw new Error('Invalid or missing LocalStorage instance')
@@ -231,6 +231,10 @@ export class PushService {
       return
     }
     debug('Booting')
+    const booted = () => {
+      this.#booted.value = true
+      debug('Booted')
+    }
     this.#serviceWorkerRegistrationWatchStopHandle = watch(
       () => this.#serviceWorkerRegistration.value,
       (is, was) => {
@@ -321,7 +325,7 @@ export class PushService {
       if ('undefined' === typeof this.#serviceWorkerRegistration.value) {
         if (!this.#serviceWorkerPath || !this.#serviceWorkerMode) {
           debug('Service Worker Path or Mode not set, skipping registration')
-          return
+          return booted()
         }
         debug('Attempting to register Service Worker', {
           path: this.#serviceWorkerPath,
@@ -346,13 +350,13 @@ export class PushService {
         ) {
           sbug('Got push notification from service worker', event.data.data)
           const { event: pushEvent, detail } = event.data.data as PushedEvent
-          const busEvent = `background:${pushEvent}` as keyof BusEventCallbackSignatures
+          const busEvent = `background:${pushEvent}` as keyof BusServiceEventCallbackSignatures
           this.#bus.emit(busEvent, { local: true }, detail)
         }
         if (event.data.messageType === 'sw-received' && event.data.data && event.data.data.event) {
           sbug('Got event from service worker', event.data.data)
           const { event: pushEvent, detail } = event.data.data as PushedEvent
-          const busEvent = `background:${pushEvent}` as keyof BusEventCallbackSignatures
+          const busEvent = `background:${pushEvent}` as keyof BusServiceEventCallbackSignatures
           this.#bus.emit(busEvent, { local: true }, detail)
         }
         if (event.data.notification) {
@@ -371,12 +375,11 @@ export class PushService {
       fbug('Got Firebase Messaging Payload', payload)
       if (payload.data && payload.data.event) {
         const { event: pushEvent, detail } = payload.data as unknown as PushedEvent
-        const busEvent = `background:${pushEvent}` as keyof BusEventCallbackSignatures
+        const busEvent = `background:${pushEvent}` as keyof BusServiceEventCallbackSignatures
         this.#bus.emit(busEvent, { local: true }, detail)
       }
     })
-    this.#booted.value = true
-    debug('Booted')
+    return booted()
   }
 
   /**

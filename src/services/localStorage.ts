@@ -4,13 +4,13 @@ import type SecureLS from 'secure-ls'
 import { TinyEmitter } from 'tiny-emitter'
 import type { Ref } from 'vue'
 import { ref, watch } from 'vue'
-import { getDebugger } from './debug'
+import { getDebugger } from '../utilities/debug'
 const debug = getDebugger('LocalStorage')
 
 /**
  * A SSR-friendly local storage service that uses secure-ls to store and retrieve data.
  */
-export class LocalStorage {
+export class LocalStorageService {
   #namespace: string
   #bus: TinyEmitter
   #instance?: SecureLS
