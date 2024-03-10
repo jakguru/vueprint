@@ -1,7 +1,9 @@
 {
     "watch": [
         "src/**/*",
+        "types/**/*",
         ".env",
+        "build.config.ts",
         "package.json"
     ],
     "ext": "ts,json,env",

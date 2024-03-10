@@ -20,4 +20,4 @@ A plugin for managing push notifications and integration with Firebase Cloud Mes
 
 #### Defined in
 
-[plugins/push.ts:29](https://github.com/jakguru/vueprint/blob/cca61f2/plugins/push.ts#L29)
+src/plugins/push.ts:21

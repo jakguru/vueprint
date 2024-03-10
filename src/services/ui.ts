@@ -3,7 +3,11 @@ import merge from 'lodash.merge'
 import * as Tone from 'tone'
 import { Notyf } from 'notyf'
 import 'notyf/notyf.min.css'
-import { getDebugger } from '../src/debug'
+import { getDebugger } from '../utilities/debug'
+
+export type SwalService = typeof Swal
+export type ToastService = typeof Swal
+export type NotyfService = Notyf
 
 const defaults = {
   backdrop: true,
@@ -26,7 +30,7 @@ const defaults = {
 /**
  * A SweetAlert2 instance with the default settings
  */
-export const swal = Swal.mixin(defaults)
+export const swal: SwalService = Swal.mixin(defaults)
 
 const toastDefaults = merge({}, defaults, {
   toast: true,
@@ -45,90 +49,79 @@ delete toastDefaults.backdrop
 /**
  * A SweetAlert2 instance with the default settings for toasts
  */
-export const toast = Swal.mixin(toastDefaults)
+export const toast: ToastService = Swal.mixin(toastDefaults)
 
+const sdbg = getDebugger('Sounds')
 /**
- * Initializes the sounds as Tone.Player objects
- * @param sounds A map of sound names to their urls
- * @returns an object with the sounds initialized as Tone.Player objects
+ * A service to manage sounds
  */
-export const initializeSounds = (sounds: Record<string, string>) => {
-  const debug = getDebugger('Sounds')
-  debug('Initializing sounds')
-  const ret = Object.assign(
-    {},
-    ...Object.keys(sounds).map((key) => {
-      const sound = sounds[key]
-      return {
-        [key]:
-          typeof document !== 'undefined'
-            ? new Tone.Player({
-                url: sound,
-              }).toDestination()
-            : {
-                autostart: undefined,
-                blockTime: undefined,
-                buffer: undefined,
-                channelCount: undefined,
-                channelCountMode: undefined,
-                channelInterpretation: undefined,
-                context: undefined,
-                debug: undefined,
-                disposed: undefined,
-                fadeIn: undefined,
-                fadeOut: undefined,
-                input: undefined,
-                loaded: undefined,
-                loop: undefined,
-                loopEnd: undefined,
-                loopStart: undefined,
-                mute: undefined,
-                name: undefined,
-                numberOfInputs: undefined,
-                numberOfOutputs: undefined,
-                onstop: undefined,
-                output: undefined,
-                playbackRate: undefined,
-                reverse: undefined,
-                sampleTime: undefined,
-                state: undefined,
-                version: undefined,
-                volume: undefined,
-                chain: () => {},
-                connect: () => {},
-                disconnect: () => {},
-                dispose: () => {},
-                fan: () => {},
-                get: () => {},
-                getDefaults: () => {},
-                immediate: () => {},
-                load: () => {},
-                now: () => {},
-                restart: () => {},
-                seek: () => {},
-                set: () => {},
-                setLoopPoints: () => {},
-                start: () => {},
-                stop: () => {},
-                sync: () => {},
-                toDestination: () => {},
-                toFrequency: () => {},
-                toMaster: () => {},
-                toSeconds: () => {},
-                toString: () => {},
-                toTicks: () => {},
-                unsync: () => {},
-              },
+export class SoundsService {
+  #sounds: Record<string, Tone.Player> = {}
+
+  /**
+   * Creates a new SoundsService
+   * @param sounds A map of sound names to their urls
+   */
+  constructor(sounds?: Record<string, string>) {
+    if (sounds) {
+      sdbg('Initializing sounds', sounds)
+      this.add(sounds)
+    }
+  }
+
+  /**
+   * Adds sounds to the service
+   * @param sounds A map of sound names to their urls
+   */
+  public add(sounds: Record<string, string>) {
+    Object.keys(sounds).forEach((key) => {
+      if (!this.#sounds[key]) {
+        sdbg('Adding sound', key)
+        const sound = sounds[key]
+        this.#sounds[key] = new Tone.Player({
+          url: sound,
+        }).toDestination()
       }
     })
-  )
-  debug('Sounds initialized')
-  return ret
+  }
+
+  /**
+   * Gets a sound from the service
+   * @param key The key of the sound to retrieve
+   * @returns The Tone.Player object for the sound
+   */
+  public get(key: string) {
+    return this.#sounds[key]
+  }
+
+  /**
+   * Plays a sound
+   * @param key The key of the sound to play
+   */
+  public play(key: string) {
+    const sound = this.#sounds[key]
+    if (sound) {
+      sdbg('Playing sound', key)
+      sound.start()
+    }
+  }
+
+  /**
+   * Stops a sound
+   * @param key The key of the sound to stop
+   */
+  public stop(key: string) {
+    const sound = this.#sounds[key]
+    if (sound) {
+      sdbg('Stopping sound', key)
+      sound.stop()
+    }
+  }
 }
 
 /**
  * A Notyf instance with the default settings
  */
-export const notyf = new Notyf({
+export const notyf: NotyfService = new Notyf({
   dismissible: true,
 })

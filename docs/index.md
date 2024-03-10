@@ -10,6 +10,9 @@ hero:
     alt: VuePrint
   actions:
     - theme: brand
+      text: What's Included
+      link: /whats-included/
+    - theme: brand
       text: Get Started
       link: /getting-started/
     - theme: alt

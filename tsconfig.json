@@ -1,13 +1,13 @@
 {
     "extends": "adonis-preset-ts/tsconfig.json",
     "include": [
-        "**/*"
+        "**/*",
+        "types/**/*.d.ts"
     ],
     "exclude": [
         "node_modules",
         "dist",
         "docs",
-        "templates"
     ],
     "compilerOptions": {
         "module": "esnext",
@@ -34,7 +34,11 @@
             "#app/*": [
                 "./node_modules/nuxt/dist/app/*"
             ],
-        }
+        },
+        "typeRoots": [
+            "./node_modules/@types",
+            "./types"
+        ]
     },
     "ts-node": {
         "transpileOnly": true

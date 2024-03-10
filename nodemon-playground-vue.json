@@ -1,9 +1,17 @@
 {
-    "verbose": true,
     "watch": [
-        ".playground"
+        "src/**/*",
+        "types/**/*",
+        ".env",
+        "build.config.ts",
+        "package.json"
     ],
-    "delay": 30,
-    "ext": "vue,ts,js,mjs",
-    "exec": "cd playgrounds/vueprint-playground-vue && npm update @jakguru/vueprint && npx vite dev"
+    "ext": "ts,json,env",
+    "ignore": [
+        "node_modules",
+        "dist",
+        "docs",
+        "tests"
+    ],
+    "exec": "npx unbuild --sourcemap && cd playgrounds/vueprint-playground-vue && npm update @jakguru/vueprint && npx vite dev"
 }

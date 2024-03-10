@@ -8,11 +8,11 @@ The options for the identity plugin
 
 ### <a id="tokenrefresh" name="tokenrefresh"></a> tokenRefresh
 
-• `Optional` **tokenRefresh**: `TokenRefreshCallback`
+• `Optional` **tokenRefresh**: [`TokenRefreshCallback`](services_identity.TokenRefreshCallback.md)
 
 #### Defined in
 
-[plugins/identity.ts:19](https://github.com/jakguru/vueprint/blob/cca61f2/plugins/identity.ts#L19)
+src/plugins/identity.ts:11
 
 ___
 
@@ -22,4 +22,4 @@ ___
 
 #### Defined in
 
-[plugins/identity.ts:20](https://github.com/jakguru/vueprint/blob/cca61f2/plugins/identity.ts#L20)
+src/plugins/identity.ts:12

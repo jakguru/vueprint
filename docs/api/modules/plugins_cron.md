@@ -16,4 +16,4 @@ A plugin managing time based repeating tasks (cron jobs)
 
 #### Defined in
 
-[plugins/cron.ts:16](https://github.com/jakguru/vueprint/blob/cca61f2/plugins/cron.ts#L16)
+src/plugins/cron.ts:12

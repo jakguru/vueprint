@@ -20,4 +20,4 @@ A plugin for interacting with an API with a built-in authentication bearer token
 
 #### Defined in
 
-[plugins/api.ts:24](https://github.com/jakguru/vueprint/blob/cca61f2/plugins/api.ts#L24)
+src/plugins/api.ts:15

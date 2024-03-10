@@ -1,4 +1,74 @@
-import * as utilities from './utilities'
+export * as utilities from './utilities'
+export * as services from './services'
+export * as plugins from './plugins'
+import type { ApplicationHook, ApplicationHooks } from './utilities'
+import type {
+  ApiService,
+  BusEventCallbackSignatures,
+  BusEvent,
+  BusEventCallback,
+  BusEventAlreadyTriggered,
+  BusEventListenOptions,
+  BusEventEmitOptions,
+  BusService,
+  IdentityService,
+  LocalStorageService,
+  PushedEvent,
+  FirebaseTokenAuthenticationCallback,
+  PushService,
+  SwalService,
+  ToastService,
+  NotyfService,
+  SoundsService,
+  VuetifyInstance,
+  VuetifiableColors,
+  VuetifiableTheme,
+  VuetifiableThemes,
+} from './services'
+import type {
+  ApiPluginOptions,
+  BusPluginOptions,
+  VueClientBootstrapOptions,
+  IdentityPluginOptions,
+  LocalStoragePluginOptions,
+  VueMainBootstrapOptions,
+  PushPluginOptions,
+  UiPluginOptions,
+  VuetifyPluginOptions,
+} from './plugins'
 
 export const PACKAGE_NAME = '@jakguru/vueprint'
-export { utilities }
+export {
+  ApplicationHook,
+  ApplicationHooks,
+  ApiService,
+  BusEventCallbackSignatures,
+  BusEvent,
+  BusEventCallback,
+  BusEventAlreadyTriggered,
+  BusEventListenOptions,
+  BusEventEmitOptions,
+  BusService,
+  LocalStorageService,
+  PushedEvent,
+  FirebaseTokenAuthenticationCallback,
+  PushService,
+  SwalService,
+  ToastService,
+  NotyfService,
+  SoundsService,
+  VuetifyInstance,
+  VuetifiableColors,
+  VuetifiableTheme,
+  VuetifiableThemes,
+  ApiPluginOptions,
+  BusPluginOptions,
+  VueClientBootstrapOptions,
+  IdentityPluginOptions,
+  LocalStoragePluginOptions,
+  VueMainBootstrapOptions,
+  PushPluginOptions,
+  UiPluginOptions,
+  VuetifyPluginOptions,
+  IdentityService,
+}

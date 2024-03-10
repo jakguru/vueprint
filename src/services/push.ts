@@ -1,15 +1,15 @@
 import type { FirebaseApp, FirebaseOptions } from 'firebase/app'
 import type { Messaging, Unsubscribe } from 'firebase/messaging'
 import type { ComputedRef, Ref, WatchStopHandle } from 'vue'
-import type { BusServiceEventCallbackSignatures } from './bus'
+import type { BusEventCallbackSignatures } from './bus'
 import { initializeApp } from 'firebase/app'
 import { getMessaging, getToken, onMessage } from 'firebase/messaging'
 import Push from 'push.js'
 import { computed, ref, watch } from 'vue'
 import { BusService } from './bus'
-import { getDebugger } from './debug'
-import { LocalStorage } from './localStorage'
-import { Identity } from './identity'
+import { getDebugger } from '../utilities/debug'
+import { LocalStorageService } from './localStorage'
+import { IdentityService } from './identity'
 import { MiliCron } from '@jakguru/milicron'
 
 const debug = getDebugger('Push')
@@ -40,14 +40,33 @@ export interface FirebaseTokenAuthenticationCallback {
 }
 
 /**
+ * Describes the options for creating a web push notification.
+ */
+export interface WebPushNotificationOptions {
+  title: string
+  body?: string
+  icon?: string
+  link?: string
+  requireInteraction?: boolean
+  timeout?: number
+  vibrate?: number[]
+  silent?: boolean
+  closeOnClick?: boolean
+  onClick?: (event: Event) => void
+  onClose?: (event: Event) => void
+  onError?: (error: Error) => void
+  onShow?: (event: Event) => void
+}
+
+/**
  * A service which manages desktop notifications and integration with Firebase Messaging.
  */
 export class PushService {
   readonly #booted: Ref<boolean>
   readonly #bus: BusService
-  readonly #ls: LocalStorage
+  readonly #ls: LocalStorageService
   readonly #cron: MiliCron
-  readonly #identity: Identity
+  readonly #identity: IdentityService
   readonly #firebaseApp: FirebaseApp
   readonly #firebaseMessaging: Messaging
   readonly #serviceWorkerRegistration: Ref<ServiceWorkerRegistration | undefined>
@@ -71,9 +90,9 @@ export class PushService {
   /**
    * Create a new PushService instance.
    * @param bus The BusService instance to use for communication
-   * @param ls The LocalStorage instance to use for storing and retrieving preferences and tokens
+   * @param ls The LocalStorageService instance to use for storing and retrieving preferences and tokens
    * @param cron The MiliCron instance to use for scheduling updates
-   * @param identity The Identity instance to use for determining if the user is authenticated
+   * @param identity The IdentityService instance to use for determining if the user is authenticated
    * @param firebaseOptions The options to use for initializing Firebase
    * @param onAuthenticatedForFirebase The callback to use for storing the Firebase Messaging Token in an external service when the user is authenticated
    * @param onUnauthenticatedForFirebase The callback to use for removing the Firebase Messaging Token from an external service when the user is unauthenticated
@@ -82,9 +101,9 @@ export class PushService {
    */
   constructor(
     bus: BusService,
-    ls: LocalStorage,
+    ls: LocalStorageService,
     cron: MiliCron,
-    identity: Identity,
+    identity: IdentityService,
     firebaseOptions: FirebaseOptions,
     onAuthenticatedForFirebase: FirebaseTokenAuthenticationCallback,
     onUnauthenticatedForFirebase: FirebaseTokenAuthenticationCallback,
@@ -94,14 +113,14 @@ export class PushService {
     if (!(bus instanceof BusService)) {
       throw new Error('Invalid or missing BusService instance')
     }
-    if (!(ls instanceof LocalStorage)) {
-      throw new Error('Invalid or missing LocalStorage instance')
+    if (!(ls instanceof LocalStorageService)) {
+      throw new Error('Invalid or missing LocalStorageService instance')
     }
     if (!(cron instanceof MiliCron)) {
       throw new Error('Invalid or missing MiliCron instance')
     }
-    if (!(identity instanceof Identity)) {
-      throw new Error('Invalid or missing Identity instance')
+    if (!(identity instanceof IdentityService)) {
+      throw new Error('Invalid or missing IdentityService instance')
     }
     this.#booted = ref(false)
     this.#bus = bus
@@ -210,6 +229,55 @@ export class PushService {
     }
     this.#ls.set('push.donotaskforpermission', true)
     this.#bus.emit('push:updated', { local: true, crossTab: true })
+  }
+
+  public createWebPushNotification(options: WebPushNotificationOptions) {
+    if (!this.canPush.value) {
+      return
+    }
+    const opts = {
+      body: options.body,
+      icon: options.icon,
+      link: options.link,
+      requireInteraction: options.requireInteraction,
+      timeout: options.timeout,
+      vibrate: options.vibrate,
+      silent: options.silent,
+      onClick: function (event: Event) {
+        debug('Web Push Notification Clicked', event)
+        if (options.onClick) {
+          options.onClick(event)
+        }
+        if (options.closeOnClick) {
+          window.focus()
+          this.close()
+        }
+      },
+      onClose: function (event: Event) {
+        debug('Web Push Notification Closed', event)
+        if (options.onClose) {
+          options.onClose(event)
+        }
+      },
+      onError: function (error: Error) {
+        debug('Web Push Notification Error', error)
+        if (options.onError) {
+          options.onError(error)
+        }
+      },
+      onShow: function (event: Event) {
+        debug('Web Push Notification Shown', event)
+        if (options.onShow) {
+          options.onShow(event)
+        }
+      },
+    }
+    try {
+      // @ts-ignore - Push.js has incorrect types for notification creation options
+      Push.create(options.title, opts)
+    } catch (error) {
+      debug('Web Push Notification Error', error)
+    }
   }
 
   /**
@@ -350,13 +418,13 @@ export class PushService {
         ) {
           sbug('Got push notification from service worker', event.data.data)
           const { event: pushEvent, detail } = event.data.data as PushedEvent
-          const busEvent = `background:${pushEvent}` as keyof BusServiceEventCallbackSignatures
+          const busEvent = `background:${pushEvent}` as keyof BusEventCallbackSignatures
           this.#bus.emit(busEvent, { local: true }, detail)
         }
         if (event.data.messageType === 'sw-received' && event.data.data && event.data.data.event) {
           sbug('Got event from service worker', event.data.data)
           const { event: pushEvent, detail } = event.data.data as PushedEvent
-          const busEvent = `background:${pushEvent}` as keyof BusServiceEventCallbackSignatures
+          const busEvent = `background:${pushEvent}` as keyof BusEventCallbackSignatures
           this.#bus.emit(busEvent, { local: true }, detail)
         }
         if (event.data.notification) {
@@ -375,7 +443,7 @@ export class PushService {
       fbug('Got Firebase Messaging Payload', payload)
       if (payload.data && payload.data.event) {
         const { event: pushEvent, detail } = payload.data as unknown as PushedEvent
-        const busEvent = `background:${pushEvent}` as keyof BusServiceEventCallbackSignatures
+        const busEvent = `background:${pushEvent}` as keyof BusEventCallbackSignatures
         this.#bus.emit(busEvent, { local: true }, detail)
       }
     })

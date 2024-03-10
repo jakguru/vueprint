@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-app-bar app flat color="primary">
-      <v-toolbar-title>VuePrint Vue Playground</v-toolbar-title>
+      <v-toolbar-title>VuePrint Nuxt Playground</v-toolbar-title>
     </v-app-bar>
     <v-main>
       <v-container class="fill-height">
@@ -16,14 +16,14 @@
           <v-col cols="12" sm="6">
             <v-card>
               <v-list class="bg-transparent">
-                <v-list-item title="Tab Focused">
+                <v-list-item title="Application Mounted">
                   <template #prepend>
                     <v-switch
                       :false-value="false"
                       :true-value="true"
                       hide-details
                       readonly
-                      :model-value="active"
+                      :model-value="mounted"
                       class="me-3"
                       color="success"
                     />
@@ -60,6 +60,20 @@
                   </template>
                 </v-list-item>
                 <v-divider />
+                <v-list-item title="Tab Focused">
+                  <template #prepend>
+                    <v-switch
+                      :false-value="false"
+                      :true-value="true"
+                      hide-details
+                      readonly
+                      :model-value="active"
+                      class="me-3"
+                      color="success"
+                    />
+                  </template>
+                </v-list-item>
+                <v-divider />
                 <v-list-item title="Visitor Authenticated">
                   <template #prepend>
                     <v-switch
@@ -72,6 +86,10 @@
                       class="me-3"
                       color="success"
                     />
+                  </template>
+                  <template #append>
+                    <v-btn v-if="!authenticated" :disabled="disabled" color="secondary" variant="tonal" @click="authenticateVisitor">Authenticate</v-btn>
+                    <v-btn v-if="authenticated" :disabled="disabled" color="secondary" variant="tonal" @click="deauthenticateVisitor">Log Out</v-btn>
                   </template>
                 </v-list-item>
                 <v-divider />
@@ -88,8 +106,19 @@
                       color="success"
                     />
                   </template>
+                  <template #append>
+                    <v-btn v-if="canRequestPush" :disabled="disabled" color="secondary" variant="tonal" @click="doRequestPush">Permit</v-btn>
+                    <v-btn v-if="canPush" :disabled="disabled" color="secondary" variant="tonal" @click="doPushNotification">Push</v-btn>
+                  </template>
                 </v-list-item>
               </v-list>
+              <v-divider />
+              <v-card-actions>
+                <v-btn :disabled="disabled" color="secondary" variant="tonal" @click="doNotyf">Notyf</v-btn>
+                <v-btn :disabled="disabled" color="secondary" variant="tonal" @click="doSwal">Swal</v-btn>
+                <v-btn :disabled="disabled" color="secondary" variant="tonal" @click="doToast">Swal Toast</v-btn>
+                <v-btn :disabled="disabled" color="secondary" variant="tonal" @click="doSound">Sound</v-btn>
+              </v-card-actions>
             </v-card>
           </v-col>
         </v-row>
@@ -99,40 +128,42 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, computed, inject, onMounted } from 'vue'
-import { getDebugger } from '@jakguru/vueprint'
-import type { BusInstance, IdentityInstance, PushServiceInstance, NotyfInstance, SwalInstance } from '@jakguru/vueprint'
-import { useVueprint } from '@jakguru/vueprint/composables/useVueprint'
+import { defineComponent, computed, inject, onMounted } from 'vue'
+import { getDebugger } from '@jakguru/vueprint/utilities/debug'
+import type { BusService, IdentityService, PushService, NotyfService, SwalService, ToastService, SoundsService } from '@jakguru/vueprint'
+import { useVueprint } from '@jakguru/vueprint/utilities'
+import screamMp3 from '@/assets/scream.mp3'
+import iconJpg from '@/assets/icon.jpg'
 const debug = getDebugger('App')
 export default defineComponent({
   name: 'App',
   setup() {
-    const bus = inject<BusInstance>('bus')
-    const identity = inject<IdentityInstance>('identity')
-    const push = inject<PushServiceInstance>('push')
-    const notyf = inject<NotyfInstance>('notyf')
-    const swal = inject<SwalInstance>('swal')
-    const toast = inject<SwalInstance>('toast')
-    // const authenticated = ref<boolean | null>(false)
-    // const pushPermissions = ref<boolean | null>(false)
+    const bus = inject<BusService>('bus')
+    const identity = inject<IdentityService>('identity')
+    const push = inject<PushService>('push')
+    const notyf = inject<NotyfService>('notyf')
+    const swal = inject<SwalService>('swal')
+    const toast = inject<ToastService>('toast')
+    const sounds = inject<SoundsService>('sounds')
+    onMounted(() => {
+      if (sounds) {
+        sounds.add({ scream: screamMp3 })
+      }
+    })
     const { mounted, booted, ready } = useVueprint({
       onBooted: {
         onTrue: () => {
-          booted.value = true
           debug('Booted is true')
         },
         onFalse: () => {
-          booted.value = true === booted.value ? false : null
           debug('Booted is false')
         },
       },
       onReady: {
         onTrue: () => {
-          ready.value = true
           debug('Ready is true')
         },
         onFalse: () => {
-          ready.value = true === ready.value ? false : null
           debug('Ready is false')
         },
       },
@@ -154,7 +185,7 @@ export default defineComponent({
       },
     })
     const authenticated = computed(() => {
-      if (!ready.value || !identity) {
+      if (!mounted.value || !ready.value || !identity) {
         return null
       }
       if (!identity.authenticated.value) {
@@ -163,7 +194,7 @@ export default defineComponent({
       return identity.authenticated.value
     })
     const pushPermissions = computed(() => {
-      if (!ready.value || !push) {
+      if (!mounted.value || !ready.value || !push) {
         return null
       }
       if (!push.canPush.value && push.canRequestPermission.value) {
@@ -171,13 +202,102 @@ export default defineComponent({
       }
       return push.canPush.value
     })
-    const active = computed(() => bus && bus.active.value)
+    const canRequestPush = computed(() => {
+      if (!mounted.value || !ready.value || !push) {
+        return false
+      }
+      return push.canRequestPermission.value
+    })
+    const canPush = computed(() => {
+      if (!mounted.value || !ready.value || !push) {
+        return false
+      }
+      return push.canPush.value
+    })
+    const active = computed(() => mounted.value && bus && bus.active.value)
+    const disabled = computed(() => !mounted.value || !ready.value || !booted.value || !active.value)
+    const authenticateVisitor = () => {
+      if (!identity) {
+        return
+      }
+      identity.login('Bearer', '2030-01-01T00:00:00Z', {
+        id: 0,
+        name: 'Playground User',
+        email: 'playground@example.com',
+      })
+    }
+    const deauthenticateVisitor = () => {
+      if (!identity) {
+        return
+      }
+      identity.logout()
+    }
+    const doNotyf = () => {
+      if (!notyf) {
+        return
+      }
+      notyf.success('This is a test notyf notification')
+    }
+    const doSwal = () => {
+      if (!swal) {
+        return
+      }
+      swal.fire({
+        icon: 'success',
+        title: 'This is a test alert',
+        text: 'This is a test alert message',
+      })
+    }
+    const doToast = () => {
+      if (!toast) {
+        return
+      }
+      toast.fire({
+        icon: 'success',
+        title: 'This is a test toast',
+        text: 'This is a test toast message',
+      })
+    }
+    const doSound = () => {
+      if (!sounds) {
+        return
+      }
+      sounds.play('scream')
+    }
+    const doRequestPush = () => {
+      if (!push) {
+        return
+      }
+      push.requestPushPermission()
+    }
+    const doPushNotification = () => {
+      if (!push) {
+        return
+      }
+      push.createWebPushNotification({
+        title: 'This is a test push notification',
+        body: 'This is a test push notification message',
+        icon: iconJpg,
+      })
+    }
     return {
+      mounted,
       booted,
       ready,
       authenticated,
       pushPermissions,
       active,
+      disabled,
+      authenticateVisitor,
+      deauthenticateVisitor,
+      doNotyf,
+      doSwal,
+      doToast,
+      doSound,
+      canRequestPush,
+      doRequestPush,
+      canPush,
+      doPushNotification,
     }
   },
 })

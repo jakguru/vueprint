@@ -14,7 +14,7 @@ const debug = getDebugger('Identity')
  * Describes the shape of a user identity object
  */
 export interface UserIdentity {
-  [key: string]: string
+  [key: string]: string | number | boolean | null | undefined
 }
 
 /**

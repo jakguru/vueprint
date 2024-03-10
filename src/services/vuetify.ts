@@ -4,7 +4,9 @@ import type { VuetifyOptions, ThemeDefinition } from 'vuetify'
 import { createVuetify } from 'vuetify'
 import merge from 'lodash.merge'
 
-let instance: ReturnType<typeof createVuetify> | undefined
+export type VuetifyInstance = ReturnType<typeof createVuetify> | undefined
+
+let instance: VuetifyInstance
 
 /**
  * The colors which will be used by a Vuetify theme
