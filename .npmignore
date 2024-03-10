@@ -4,3 +4,4 @@
 # But don't ignore these files
 !/package.json
 !/dist/
+!/types/

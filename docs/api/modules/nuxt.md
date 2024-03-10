@@ -1,5 +1,9 @@
 # Module: nuxt
 
+## Interfaces
+
+- [VueprintModuleOptions](../interfaces/nuxt.VueprintModuleOptions.md)
+
 ## Functions
 
 ### <a id="default" name="default"></a> default
@@ -20,4 +24,4 @@
 
 #### Defined in
 
-[nuxt/index.ts:3](https://github.com/jakguru/vueprint/blob/cca61f2/nuxt/index.ts#L3)
+src/nuxt/index.ts:35

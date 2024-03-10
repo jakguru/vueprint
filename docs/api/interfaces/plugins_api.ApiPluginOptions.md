@@ -12,4 +12,4 @@ The options for the API plugin
 
 #### Defined in
 
-[plugins/api.ts:18](https://github.com/jakguru/vueprint/blob/cca61f2/plugins/api.ts#L18)
+src/plugins/api.ts:9

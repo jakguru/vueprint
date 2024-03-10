@@ -8,48 +8,48 @@ The options for the push plugin
 
 ### <a id="firebaseoptions" name="firebaseoptions"></a> firebaseOptions
 
-• **firebaseOptions**: `FirebaseOptions`
+• `Optional` **firebaseOptions**: `FirebaseOptions`
 
 #### Defined in
 
-[plugins/push.ts:19](https://github.com/jakguru/vueprint/blob/cca61f2/plugins/push.ts#L19)
+src/plugins/push.ts:11
 
 ___
 
 ### <a id="onauthenticatedforfirebase" name="onauthenticatedforfirebase"></a> onAuthenticatedForFirebase
 
-• **onAuthenticatedForFirebase**: `FirebaseTokenAuthenticationCallback`
+• `Optional` **onAuthenticatedForFirebase**: [`FirebaseTokenAuthenticationCallback`](services_push.FirebaseTokenAuthenticationCallback.md)
 
 #### Defined in
 
-[plugins/push.ts:20](https://github.com/jakguru/vueprint/blob/cca61f2/plugins/push.ts#L20)
+src/plugins/push.ts:12
 
 ___
 
 ### <a id="onunauthenticatedforfirebase" name="onunauthenticatedforfirebase"></a> onUnauthenticatedForFirebase
 
-• **onUnauthenticatedForFirebase**: `FirebaseTokenAuthenticationCallback`
+• `Optional` **onUnauthenticatedForFirebase**: [`FirebaseTokenAuthenticationCallback`](services_push.FirebaseTokenAuthenticationCallback.md)
 
 #### Defined in
 
-[plugins/push.ts:21](https://github.com/jakguru/vueprint/blob/cca61f2/plugins/push.ts#L21)
+src/plugins/push.ts:13
 
 ___
 
 ### <a id="serviceworkermode" name="serviceworkermode"></a> serviceWorkerMode
 
-• **serviceWorkerMode**: ``"classic"`` \| ``"module"``
+• `Optional` **serviceWorkerMode**: ``null`` \| ``"classic"`` \| ``"module"``
 
 #### Defined in
 
-[plugins/push.ts:23](https://github.com/jakguru/vueprint/blob/cca61f2/plugins/push.ts#L23)
+src/plugins/push.ts:15
 
 ___
 
 ### <a id="serviceworkerpath" name="serviceworkerpath"></a> serviceWorkerPath
 
-• **serviceWorkerPath**: `string`
+• `Optional` **serviceWorkerPath**: ``null`` \| `string`
 
 #### Defined in
 
-[plugins/push.ts:22](https://github.com/jakguru/vueprint/blob/cca61f2/plugins/push.ts#L22)
+src/plugins/push.ts:14

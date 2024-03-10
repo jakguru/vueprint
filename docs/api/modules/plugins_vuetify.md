@@ -2,9 +2,6 @@
 
 ## Interfaces
 
-- [VuetifiableColors](../interfaces/plugins_vuetify.VuetifiableColors.md)
-- [VuetifiableTheme](../interfaces/plugins_vuetify.VuetifiableTheme.md)
-- [VuetifiableThemes](../interfaces/plugins_vuetify.VuetifiableThemes.md)
 - [VuetifyPluginOptions](../interfaces/plugins_vuetify.VuetifyPluginOptions.md)
 
 ## Variables
@@ -23,4 +20,4 @@ A wrapper plugin for the Vuetify UI framework
 
 #### Defined in
 
-[plugins/vuetify.ts:30](https://github.com/jakguru/vueprint/blob/cca61f2/plugins/vuetify.ts#L30)
+src/plugins/vuetify.ts:31

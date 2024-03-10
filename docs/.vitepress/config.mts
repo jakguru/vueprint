@@ -38,12 +38,28 @@ export default defineConfig({
         items: [
           { text: 'Installation', link: '/getting-started/' },
           { text: 'Typescript Augmentations', link: '/getting-started/typescript-augmentations' },
-          { text: 'Integrations', items: [
-            { text: 'Vue', link: '/getting-started/integrations/vue/' },
-            { text: 'Nuxt', link: '/getting-started/integrations/nuxt/' },
-          ] }
-        ]
-      }
+          { text: 'Configuration', link: '/getting-started/configuration' },
+        ],
+        collapsed: true,
+      },
+      {
+        text: 'What\'s Included',
+        items: [
+          { text: 'What\'s Included', link: '/whats-included/' },
+          {text: "The API Service", link: "/whats-included/api-service" },
+          {text: "The Bus Service", link: "/whats-included/bus-service" },
+          {text: "The Cron Service", link: "/whats-included/cron-service" },
+          {text: "The Identity Service", link: "/whats-included/identity-service" },
+          {text: "The Local Storage Service", link: "/whats-included/local-storage-service" },
+          {text: "The Push Service", link: "/whats-included/push-service" },
+          {text: "The UI Service", link: "/whats-included/ui-service" },
+          {text: "The Vuetify Service", link: "/whats-included/vuetify-service" },
+          {text: "Color Utilities", link: "/whats-included/color-utilities" },
+          {text: "Debug Utilities", link: "/whats-included/debug-utilities" },
+          {text: "Validation Utilities", link: "/whats-included/validation-utilities" },
+        ],
+        collapsed: true,
+      },
     ],
 
     socialLinks: [

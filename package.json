@@ -2,31 +2,170 @@
   "name": "@jakguru/vueprint",
   "version": "0.1.0",
   "description": "Groundwork Libraries and Plugins for use in Vue3 based Projects",
-  "main": "dist/index.js",
+  "main": "dist/index.cjs",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "types"
   ],
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
+    },
+    "./utilities": {
+      "import": "./dist/utilities/index.mjs",
+      "require": "./dist/utilities/index.cjs",
+      "types": "./dist/utilities/index.d.ts"
+    },
+    "./utilities/colors": {
+      "import": "./dist/utilities/colors.mjs",
+      "require": "./dist/utilities/colors.cjs",
+      "types": "./dist/utilities/colors.d.ts"
+    },
+    "./utilities/validation": {
+      "import": "./dist/utilities/validation.mjs",
+      "require": "./dist/utilities/validation.cjs",
+      "types": "./dist/utilities/validation.d.ts"
+    },
+    "./utilities/debug": {
+      "import": "./dist/utilities/debug.mjs",
+      "require": "./dist/utilities/debug.cjs",
+      "types": "./dist/utilities/debug.d.ts"
+    },
+    "./services": {
+      "import": "./dist/services/index.mjs",
+      "require": "./dist/services/index.cjs",
+      "types": "./dist/services/index.d.ts"
+    },
+    "./services/api": {
+      "import": "./dist/services/api.mjs",
+      "require": "./dist/services/api.cjs",
+      "types": "./dist/services/api.d.ts"
+    },
+    "./services/bus": {
+      "import": "./dist/services/bus.mjs",
+      "require": "./dist/services/bus.cjs",
+      "types": "./dist/services/bus.d.ts"
+    },
+    "./services/identity": {
+      "import": "./dist/services/identity.mjs",
+      "require": "./dist/services/identity.cjs",
+      "types": "./dist/services/identity.d.ts"
+    },
+    "./services/localStorage": {
+      "import": "./dist/services/localStorage.mjs",
+      "require": "./dist/services/localStorage.cjs",
+      "types": "./dist/services/localStorage.d.ts"
+    },
+    "./services/push": {
+      "import": "./dist/services/push.mjs",
+      "require": "./dist/services/push.cjs",
+      "types": "./dist/services/push.d.ts"
+    },
+    "./services/ui": {
+      "import": "./dist/services/ui.mjs",
+      "require": "./dist/services/ui.cjs",
+      "types": "./dist/services/ui.d.ts"
+    },
+    "./services/vuetify": {
+      "import": "./dist/services/vuetify.mjs",
+      "require": "./dist/services/vuetify.cjs",
+      "types": "./dist/services/vuetify.d.ts"
+    },
+    "./plugins": {
+      "import": "./dist/plugins/index.mjs",
+      "require": "./dist/plugins/index.cjs",
+      "types": "./dist/plugins/index.d.ts"
+    },
+    "./plugins/api": {
+      "import": "./dist/plugins/api.mjs",
+      "require": "./dist/plugins/api.cjs",
+      "types": "./dist/plugins/api.d.ts"
+    },
+    "./plugins/bus": {
+      "import": "./dist/plugins/bus.mjs",
+      "require": "./dist/plugins/bus.cjs",
+      "types": "./dist/plugins/bus.d.ts"
+    },
+    "./plugins/cron": {
+      "import": "./dist/plugins/cron.mjs",
+      "require": "./dist/plugins/cron.cjs",
+      "types": "./dist/plugins/cron.d.ts"
+    },
+    "./plugins/identity": {
+      "import": "./dist/plugins/identity.mjs",
+      "require": "./dist/plugins/identity.cjs",
+      "types": "./dist/plugins/identity.d.ts"
+    },
+    "./plugins/ls": {
+      "import": "./dist/plugins/ls.mjs",
+      "require": "./dist/plugins/ls.cjs",
+      "types": "./dist/plugins/ls.d.ts"
+    },
+    "./plugins/push": {
+      "import": "./dist/plugins/push.mjs",
+      "require": "./dist/plugins/push.cjs",
+      "types": "./dist/plugins/push.d.ts"
+    },
+    "./plugins/ui": {
+      "import": "./dist/plugins/ui.mjs",
+      "require": "./dist/plugins/ui.cjs",
+      "types": "./dist/plugins/ui.d.ts"
+    },
+    "./plugins/vuetify": {
+      "import": "./dist/plugins/vuetify.mjs",
+      "require": "./dist/plugins/vuetify.cjs",
+      "types": "./dist/plugins/vuetify.d.ts"
+    },
+    "./plugins/main": {
+      "import": "./dist/plugins/main.mjs",
+      "require": "./dist/plugins/main.cjs",
+      "types": "./dist/plugins/main.d.ts"
+    },
+    "./plugins/client": {
+      "import": "./dist/plugins/client.mjs",
+      "require": "./dist/plugins/client.cjs",
+      "types": "./dist/plugins/client.d.ts"
+    },
+    "./nuxt": {
+      "import": "./dist/nuxt/index.mjs",
+      "require": "./dist/nuxt/index.cjs",
+      "types": "./dist/nuxt/index.d.ts"
+    },
+    "./nuxt/plugin.client": {
+      "import": "./dist/nuxt/plugin.client.mjs",
+      "require": "./dist/nuxt/plugin.client.cjs",
+      "types": "./dist/nuxt/plugin.client.d.ts"
+    },
+    "./nuxt/plugin.server": {
+      "import": "./dist/nuxt/plugin.server.mjs",
+      "require": "./dist/nuxt/plugin.server.cjs",
+      "types": "./dist/nuxt/plugin.server.d.ts"
+    },
+    "./package.json": "./package.json"
+  },
   "author": "Jak Guru <jak@jak.guru>",
   "license": "MIT",
   "scripts": {
     "watch": "nodemon",
-    "build": "rm -rf dist && npx rollup -c",
-    "build:watch": "rm -rf dist && npx rollup -c -w",
+    "build": "npx unbuild --sourcemap",
+    "build:watch": "nodemon",
     "type-check": "npx tsc --noEmit",
-    "lint": "eslint . --ext=.ts,.mjs",
-    "format": "eslint . --ext=.ts,.mjs --fix",
+    "lint": "eslint . --ext=.ts,.d.ts",
+    "format": "eslint . --ext=.ts,.d.ts --fix",
     "docs:dev": "npx vitepress dev docs",
     "docs:build": "npx vitepress build docs",
     "docs:preview": "npx vitepress preview docs",
     "docs:api": "npx typedoc",
     "docs:api:watch": "npx typedoc --watch",
-    "playground:watch:src": "NODE_OPTIONS='--max-old-space-size=8192' npx rollup -c --watch --watch.onEnd=\"touch .playground\"",
     "playground:vue:prepare": "cd playgrounds/vueprint-playground-vue && npm install",
     "playground:nuxt:prepare": "cd playgrounds/vueprint-playground-nuxt && npm install",
-    "playground:vue": "npx concurrently \"yarn playground:watch:src\" \"sleep 10 && npx nodemon --config nodemon-playground-vue.json\"",
-    "playground:nuxt": "npx concurrently \"yarn playground:watch:src\" \"sleep 10 && npx nodemon --config nodemon-playground-nuxt.json\""
+    "playground:vue": "npx nodemon --config nodemon-playground-vue.json",
+    "playground:nuxt": "npx concurrently \"yarn build:watch\" \"npx nodemon --config nodemon-playground-nuxt.json\""
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^25.0.7",
@@ -49,6 +188,7 @@
     "typedoc": "^0.25.11",
     "typedoc-plugin-markdown": "^3.17.1",
     "typescript": "^5.1.6",
+    "unbuild": "^2.0.0",
     "vitepress": "^1.0.0-rc.45"
   },
   "engines": {
@@ -59,17 +199,9 @@
       "plugin:adonis/typescriptApp",
       "prettier"
     ],
+    "parser": "@typescript-eslint/parser",
     "parserOptions": {
-      "parser": {
-        "js": "espree",
-        "mjs": "espree",
-        "ts": "@typescript-eslint/parser"
-      },
       "sourceType": "module",
-      "extraFileExtensions": [
-        ".js",
-        ".mjs"
-      ],
       "warnOnUnsupportedTypeScriptVersion": false
     },
     "plugins": [

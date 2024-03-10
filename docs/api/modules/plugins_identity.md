@@ -20,4 +20,4 @@ A plugin for managing user identity and authentication
 
 #### Defined in
 
-[plugins/identity.ts:26](https://github.com/jakguru/vueprint/blob/cca61f2/plugins/identity.ts#L26)
+src/plugins/identity.ts:18

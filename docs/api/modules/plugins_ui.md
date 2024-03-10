@@ -1,5 +1,9 @@
 # Module: plugins/ui
 
+## Interfaces
+
+- [UiPluginOptions](../interfaces/plugins_ui.UiPluginOptions.md)
+
 ## Variables
 
 ### <a id="uiplugin" name="uiplugin"></a> UiPlugin
@@ -12,8 +16,8 @@ A plugin for additional non-vuetify UI components
 
 | Name | Type |
 | :------ | :------ |
-| `install` | (`app`: `App`\<`any`\>) => `void` |
+| `install` | (`app`: `App`\<`any`\>, `options?`: [`UiPluginOptions`](../interfaces/plugins_ui.UiPluginOptions.md)) => `void` |
 
 #### Defined in
 
-[plugins/ui.ts:19](https://github.com/jakguru/vueprint/blob/cca61f2/plugins/ui.ts#L19)
+src/plugins/ui.ts:12
