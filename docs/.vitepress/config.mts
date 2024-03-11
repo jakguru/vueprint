@@ -2,6 +2,7 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  base: '/vueprint/',
   lang: 'en-US',
   title: "VuePrint",
   description: "A BluePrint for Vue 3 Projects providing much of the desired functionality in a consistent and easily configurable manner",
