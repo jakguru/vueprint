@@ -2,6 +2,13 @@
   "name": "@jakguru/vueprint",
   "version": "0.1.0",
   "description": "Groundwork Libraries and Plugins for use in Vue3 based Projects",
+  "bugs": {
+    "url": "https://github.com/jakguru/vueprint/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jakguru/vueprint.git"
+  },
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",

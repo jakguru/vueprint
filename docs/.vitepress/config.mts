@@ -54,16 +54,17 @@ export default defineConfig({
           {text: "The Push Service", link: "/whats-included/push-service" },
           {text: "The UI Service", link: "/whats-included/ui-service" },
           {text: "The Vuetify Service", link: "/whats-included/vuetify-service" },
-          {text: "Color Utilities", link: "/whats-included/color-utilities" },
-          {text: "Debug Utilities", link: "/whats-included/debug-utilities" },
-          {text: "Validation Utilities", link: "/whats-included/validation-utilities" },
+          {text: "Color Utilities", link: "/api/modules/utilities_colors" },
+          {text: "Debug Utilities", link: "/api/modules/utilities_debug" },
+          {text: "Validation Utilities", link: "/api/modules/utilities_validation" },
         ],
         collapsed: true,
       },
+      { text: 'Full API', link: '/api/' },
     ],
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
+      { icon: 'github', link: 'https://github.com/jakguru/vueprint' }
     ],
 
     search: {

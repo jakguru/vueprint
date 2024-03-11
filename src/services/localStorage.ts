@@ -7,6 +7,15 @@ import { ref, watch } from 'vue'
 import { getDebugger } from '../utilities/debug'
 const debug = getDebugger('LocalStorage')
 
+declare global {
+  interface Window {
+    _vueprint_loaded?: {
+      localstorage?: boolean
+      cron?: boolean
+    }
+  }
+}
+
 /**
  * A SSR-friendly local storage service that uses secure-ls to store and retrieve data.
  */
