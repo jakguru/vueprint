@@ -13,6 +13,6 @@ VuePrint is designed to speed the development of Vue and Nuxt projects by pre-in
 
 Additionally, it provides some useful utility functions which can be used to speed up development of your application:
 
-* [Color Utilities](./color-utilities)
-* [Debug Utilities](./debug-utilities)
-* [Validation Utilities](./validation-utilities)
+* [Color Utilities](/api/modules/utilities_colors)
+* [Debug Utilities](/api/modules/utilities_debug)
+* [Validation Utilities](/api/modules/utilities_validation)
