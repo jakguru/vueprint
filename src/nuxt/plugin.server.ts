@@ -1,5 +1,5 @@
 import VueMainBootstrap from '../plugins/main'
-import { defineNuxtPlugin, Plugin, useRuntimeConfig } from '#app'
+import { defineNuxtPlugin, Plugin, useRuntimeConfig } from '#imports'
 import { getDebugger } from '../utilities/debug'
 import { defu } from 'defu'
 
