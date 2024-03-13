@@ -10,7 +10,7 @@ import { BusService } from './bus'
 import { getDebugger } from '../utilities/debug'
 import { LocalStorageService } from './localStorage'
 import { IdentityService } from './identity'
-import { MiliCron } from '@jakguru/milicron'
+import { MiliCron } from '../libs/milicron'
 
 const debug = getDebugger('Push')
 const fbug = getDebugger('Firebase', '#1B3A57', '#FFCA28')

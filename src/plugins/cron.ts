@@ -1,6 +1,6 @@
 import './augmentations'
 import type { App } from 'vue'
-import { MiliCron } from '@jakguru/milicron'
+import { MiliCron } from '../libs/milicron'
 
 /**
  * @todo: change milicron to use something other than the nodejs event emitter as a foundation

@@ -1,12 +1,13 @@
 export * as validation from './validation'
 export * as debug from './debug'
 export * as colors from './colors'
+import { inject, ref, watch, computed, onMounted, onBeforeUnmount, nextTick } from 'vue'
+import { getDebugger } from './debug'
 import type { BusService, BusEvent } from '../services/bus'
-import type { MiliCron } from '@jakguru/milicron'
+import type { MiliCron } from '../libs/milicron'
 import type { IdentityService } from '../services/identity'
 import type { PushService } from '../services/push'
 import type { WatchStopHandle } from 'vue'
-import { inject, ref, watch, computed, onMounted, onBeforeUnmount, nextTick } from 'vue'
 import type { Ref, ComputedRef } from 'vue'
 
 declare global {
@@ -56,7 +57,11 @@ export interface ApplicationVueprintState {
  * @param hooks The hooks that will be used when an application property changes state
  * @returns An object containing the state of the application
  */
-export const useVueprint = (hooks?: ApplicationHooks): ApplicationVueprintState => {
+export const useVueprint = (
+  hooks?: ApplicationHooks,
+  debug: boolean = false
+): ApplicationVueprintState => {
+  const dbg = debug ? () => {} : getDebugger('useVueprint')
   const mounted = ref(false)
   const bus = inject<BusService>('bus')
   const cron = inject<MiliCron>('cron')
@@ -232,7 +237,11 @@ export const useVueprint = (hooks?: ApplicationHooks): ApplicationVueprintState 
       cron.$once('* * * * * * *', () => {
         booted.value.cron = true
       })
+      dbg('Cron service starting')
       cron.start()
+      dbg('Cron service started')
+    } else {
+      dbg('No cron service found')
     }
     if (window) {
       if (!window._vueprint_loaded) {

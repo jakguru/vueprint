@@ -1,4 +1,4 @@
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2/dist/sweetalert2.js'
 import merge from 'lodash.merge'
 import * as Tone from 'tone'
 import { Notyf } from 'notyf'

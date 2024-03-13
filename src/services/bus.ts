@@ -93,6 +93,36 @@ export interface BusEventCallbackSignatures {
    * @returns void
    */
   'authentication:refreshable': (from?: string) => void
+  /**
+   * Notify that the local storage has changed
+   * @param from The ID of the tab that triggered the event
+   * @returns void
+   */
+  'ls:change': (from?: string) => void
+  /**
+   * Notify that the local storage has been loaded
+   * @param from The ID of the tab that triggered the event
+   * @returns void
+   */
+  'ls:loaded': (from?: string) => void
+  /**
+   * Notify that the local storage has been saved
+   * @param from The ID of the tab that triggered the event
+   * @returns void
+   */
+  'ls:setDataToLocalStorage': (key, data, from?: string) => void
+  /**
+   * Notify that the local storage has been cleared
+   * @param from The ID of the tab that triggered the event
+   * @returns void
+   */
+  'ls:clear': (from?: string) => void
+  /**
+   * Notify that the local storage has been reset
+   * @param from The ID of the tab that triggered the event
+   * @returns void
+   */
+  'ls:resetAllKeys': (from?: string) => void
 }
 
 /**

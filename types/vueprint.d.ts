@@ -36,4 +36,8 @@ declare global {
   }
 }
 
+declare class TinyEmitter {
+  public e: Record<string, any>
+}
+
 export {}

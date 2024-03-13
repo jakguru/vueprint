@@ -71,23 +71,17 @@ export default defineNuxtModule({
       })
     })
     nuxt.options.build.transpile.push('vuetify')
-    // nuxt.options.alias.vueprint =
-    //   nuxt.options.alias.vueprint ||
-    //   // FIXME: remove this deprecated call. Ensure it works in Nuxt 2 to 3
-    //   resolveModule('@jakguru/vueprint/dist/nuxt/index.mjs', {
-    //     paths: [nuxt.options.rootDir, import.meta.url],
-    //   })
     nuxt.options.runtimeConfig.public.vueprint = defu(
       nuxt.options.runtimeConfig.public.vueprint as VueprintModuleOptions,
       vueprintOptions
     )
     const resolver = createResolver(import.meta.url)
     addPlugin({
-      src: resolver.resolve('./plugin.server.mjs'),
+      src: resolver.resolve('./plugin.server'),
       mode: 'server',
     })
     addPlugin({
-      src: resolver.resolve('./plugin.client.mjs'),
+      src: resolver.resolve('./plugin.client'),
       mode: 'client',
     })
   },

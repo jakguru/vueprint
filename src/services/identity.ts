@@ -1,7 +1,7 @@
 import { isAxiosInstance } from './api'
 import { BusService } from './bus'
 import { LocalStorageService } from './localStorage'
-import { MiliCron } from '@jakguru/milicron'
+import { MiliCron } from '../libs/milicron'
 import type { Ref, ComputedRef, WatchStopHandle } from 'vue'
 import { Axios } from 'axios'
 import { getDebugger } from '../utilities/debug'

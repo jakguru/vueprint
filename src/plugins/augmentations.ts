@@ -7,7 +7,7 @@ import type { SwalService } from '../services/ui'
 import type { ToastService } from '../services/ui'
 import type { NotyfService } from '../services/ui'
 import type { SoundsService } from '../services/ui'
-import type { MiliCron } from '@jakguru/milicron'
+import type { MiliCron } from '../libs/milicron'
 
 declare module 'vue' {
   interface ComponentCustomProperties {

@@ -69,6 +69,9 @@ export default defineBuildConfig({
   failOnWarn: false,
   name: pkg.name,
   sourcemap: true,
+  rollup: {
+    inlineDependencies: true,
+  },
   declaration: 'compatible',
   externals,
   hooks: {
