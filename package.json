@@ -164,7 +164,7 @@
   "license": "MIT",
   "scripts": {
     "watch": "nodemon",
-    "build": "nuxt:types:generate && npx unbuild --sourcemap",
+    "build": "yarn nuxt:types:generate && npx unbuild --sourcemap",
     "build:watch": "nodemon",
     "type-check": "npx tsc --noEmit",
     "lint": "eslint . --ext=.ts,.d.ts",
