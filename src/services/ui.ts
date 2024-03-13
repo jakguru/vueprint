@@ -2,7 +2,7 @@ import Swal from 'sweetalert2'
 import merge from 'lodash.merge'
 import * as Tone from 'tone'
 import { Notyf } from 'notyf'
-import 'notyf/notyf.min.css'
+// import 'notyf/notyf.min.css'
 import { getDebugger } from '../utilities/debug'
 
 export type SwalService = typeof Swal

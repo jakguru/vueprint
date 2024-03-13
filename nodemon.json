@@ -6,12 +6,12 @@
         "build.config.ts",
         "package.json"
     ],
-    "ext": "ts,json,env",
+    "ext": "ts,json,env,scss",
     "ignore": [
         "node_modules",
         "dist",
         "docs",
         "tests"
     ],
-    "exec": "npx unbuild --sourcemap"
+    "exec": "yarn nuxt:types:generate && npx unbuild --sourcemap"
 }

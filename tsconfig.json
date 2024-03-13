@@ -1,8 +1,11 @@
 {
-    "extends": "adonis-preset-ts/tsconfig.json",
+    "extends": [
+        "adonis-preset-ts/tsconfig.json"
+    ],
     "include": [
         "**/*",
-        "types/**/*.d.ts"
+        "types/**/*.d.ts",
+        "./shims.d.ts"
     ],
     "exclude": [
         "node_modules",
@@ -27,6 +30,10 @@
             "dom.iterable",
             "scripthost"
         ],
+        "typeRoots": [
+            "./node_modules/@types",
+            "./types"
+        ],
         "paths": {
             "#app": [
                 "./node_modules/nuxt/dist/app"
@@ -34,11 +41,10 @@
             "#app/*": [
                 "./node_modules/nuxt/dist/app/*"
             ],
-        },
-        "typeRoots": [
-            "./node_modules/@types",
-            "./types"
-        ]
+            "#imports": [
+                "./.nuxt/imports"
+            ],
+        }
     },
     "ts-node": {
         "transpileOnly": true

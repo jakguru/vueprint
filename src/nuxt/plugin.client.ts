@@ -1,18 +1,18 @@
 import VueMainBootstrap from '../plugins/main'
 import VueClientBootstrap from '../plugins/client'
-import { defineNuxtPlugin, Plugin, useRuntimeConfig } from 'nuxt/app'
+import { defineNuxtPlugin, useRuntimeConfig } from 'nuxt/app'
 import { getDebugger } from '../utilities/debug'
 import { defu } from 'defu'
 
 const debug = getDebugger('Nuxt:Plugin:Client')
 
-const plugin: Plugin = defineNuxtPlugin({
+const plugin = defineNuxtPlugin({
   name: 'vueprint:client',
   async setup(nuxtApp) {
     const {
       public: { vueprint: vueprintOptions },
     } = useRuntimeConfig()
-    if (process.client) {
+    if (!process.server) {
       const opts = defu(vueprintOptions, {
         vuetify: {
           options: {

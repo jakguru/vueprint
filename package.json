@@ -23,6 +23,11 @@
       "require": "./dist/index.cjs",
       "types": "./dist/index.d.ts"
     },
+    "./dist/vueprint.css": {
+      "require": "./dist/vueprint.css",
+      "import": "./dist/vueprint.css",
+      "browser": "./dist/vueprint.css"
+    },
     "./utilities": {
       "import": "./dist/utilities/index.mjs",
       "require": "./dist/utilities/index.cjs",
@@ -159,7 +164,7 @@
   "license": "MIT",
   "scripts": {
     "watch": "nodemon",
-    "build": "npx unbuild --sourcemap",
+    "build": "nuxt:types:generate && npx unbuild --sourcemap",
     "build:watch": "nodemon",
     "type-check": "npx tsc --noEmit",
     "lint": "eslint . --ext=.ts,.d.ts",
@@ -172,25 +177,33 @@
     "playground:vue:prepare": "cd playgrounds/vueprint-playground-vue && npm install",
     "playground:nuxt:prepare": "cd playgrounds/vueprint-playground-nuxt && npm install",
     "playground:vue": "npx nodemon --config nodemon-playground-vue.json",
-    "playground:nuxt": "npx concurrently \"yarn build:watch\" \"npx nodemon --config nodemon-playground-nuxt.json\""
+    "playground:nuxt": "npx concurrently \"yarn build:watch\" \"npx nodemon --config nodemon-playground-nuxt.json\"",
+    "nuxt:types:generate": "rm -rf .nuxt && npx nuxi prepare playground && mv playground/.nuxt .nuxt && rm -rf playground"
   },
   "devDependencies": {
+    "@nuxt/module-builder": "^0.5.5",
+    "@nuxt/schema": "^3.10.3",
+    "@nuxt/test-utils": "^3.11.0",
     "@rollup/plugin-commonjs": "^25.0.7",
     "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-typescript": "^11.1.6",
+    "@types/fs-extra": "^11.0.4",
     "adonis-preset-ts": "^2.1.0",
     "concurrently": "^8.2.2",
     "eslint": "^8.44.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-adonis": "^2.1.1",
     "eslint-plugin-prettier": "^5.0.0",
+    "fs-extra": "^11.2.0",
     "less": "^4.2.0",
     "node-sass": "^9.0.0",
     "nodemon": "^3.1.0",
+    "nuxt": "^3.10.3",
     "prettier": "^3.0.0",
     "rollup": "^4.9.1",
     "rollup-plugin-styles": "^4.0.0",
+    "sass": "^1.71.1",
     "stylus": "^0.63.0",
     "typedoc": "^0.25.11",
     "typedoc-plugin-markdown": "^3.17.1",
@@ -249,7 +262,6 @@
     "lodash.merge": "^4.6.2",
     "luxon": "^3.4.4",
     "notyf": "^3.10.0",
-    "nuxt": "^3.10.3",
     "push.js": "^1.0.12",
     "secure-ls": "^1.2.6",
     "sweetalert2": "^11.10.6",

@@ -1,5 +1,3 @@
-import '@mdi/font/css/materialdesignicons.css'
-import 'vuetify/styles'
 import type { VuetifyOptions, ThemeDefinition } from 'vuetify'
 import { createVuetify } from 'vuetify'
 import merge from 'lodash.merge'

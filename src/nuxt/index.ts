@@ -82,7 +82,13 @@ export default defineNuxtModule({
       vueprintOptions
     )
     const resolver = createResolver(import.meta.url)
-    addPlugin(resolver.resolve('./plugin.server.mjs'))
-    addPlugin(resolver.resolve('./plugin.client.mjs'))
+    addPlugin({
+      src: resolver.resolve('./plugin.server.mjs'),
+      mode: 'server',
+    })
+    addPlugin({
+      src: resolver.resolve('./plugin.client.mjs'),
+      mode: 'client',
+    })
   },
 })

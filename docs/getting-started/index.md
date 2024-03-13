@@ -31,6 +31,7 @@ VuePrint has 2 plugins for use in a standard Vue project:
 import { createApp } from 'vue'
 import VueMainBootstrap from '@jakguru/vueprint/plugins/main'
 import VueClientBootstrap from '@jakguru/vueprint/plugins/client'
+import '@jakguru/vueprint/dist/vueprint.css'
 import App from './App.vue'
 
 import type {
@@ -73,6 +74,10 @@ export default defineNuxtConfig({
   ...
   modules: ['@jakguru/vueprint/nuxt'],
   vueprint: vueprintModuleOptions,
+  build: {
+    transpile: ['@jakguru/vueprint'],
+  },
+  css: ['@jakguru/vueprint/dist/vueprint.css'],
 })
 
 ```
