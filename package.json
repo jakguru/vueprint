@@ -158,6 +158,11 @@
       "require": "./dist/nuxt/plugin.server.cjs",
       "types": "./dist/nuxt/plugin.server.d.ts"
     },
+    "./pwa/worker": {
+      "import": "./dist/pwa/worker.mjs",
+      "require": "./dist/pwa/worker.cjs",
+      "types": "./dist/pwa/worker.d.ts"
+    },
     "./package.json": "./package.json"
   },
   "author": "Jak Guru <jak@jak.guru>",

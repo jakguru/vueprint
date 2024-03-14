@@ -59,6 +59,19 @@ export interface WebPushNotificationOptions {
 }
 
 /**
+ * See {@link https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorker/state | ServiceWorker.State}
+ */
+type ServiceWorkerState =
+  | undefined // The ServiceWorker is not registered
+  | 'parsed' // The initial state of a service worker after it is downloaded and confirmed to be runnable.
+  | 'installing' // The service worker in this state is considered an installing worker. This is primarily used to ensure that the service worker is not active until all of the core caches are populated.
+  | 'installed' // The service worker in this state is considered a waiting worker.
+  | 'activating' // The service worker in this state is considered an active worker. No functional events are dispatched until the state becomes activated.
+  | 'activated' // The service worker in this state is considered an active worker ready to handle functional events.
+  | 'waiting' // The service worker in this state is considered a waiting worker. Unclear if this is a valid state since it is not documented in the MDN documentation.
+  | 'redundant' // A new service worker is replacing the current service worker, or the current service worker is being discarded due to an install failure.
+
+/**
  * A service which manages desktop notifications and integration with Firebase Messaging.
  */
 export class PushService {
@@ -79,6 +92,8 @@ export class PushService {
   readonly #onUnauthenticatedForFirebase: FirebaseTokenAuthenticationCallback
   readonly #serviceWorkerPath: undefined | null | string
   readonly #serviceWorkerMode: undefined | null | 'classic' | 'module'
+  readonly #serviceWorkerState: Ref<ServiceWorkerState>
+
   #serviceWorkerRegistrationWatchStopHandle: WatchStopHandle | undefined
   #serviceWorkerRegistrationTokenWatchStopHandle: WatchStopHandle | undefined
   #pushPermissionWatchStopHandle: WatchStopHandle | undefined
@@ -123,6 +138,7 @@ export class PushService {
       throw new Error('Invalid or missing IdentityService instance')
     }
     this.#booted = ref(false)
+    this.#serviceWorkerState = ref(undefined)
     this.#bus = bus
     this.#ls = ls
     this.#cron = cron
@@ -199,6 +215,17 @@ export class PushService {
    */
   public get canPush() {
     return this.#canPush
+  }
+
+  /**
+   * The current state of the service worker.
+   */
+  public get serviceWorkerState() {
+    return computed(() => this.#serviceWorkerState.value)
+  }
+
+  public get appUpdatePending() {
+    return computed(() => this.#serviceWorkerState.value === 'waiting')
   }
 
   /**
@@ -292,6 +319,31 @@ export class PushService {
   }
 
   /**
+   * Update the service worker state reference so we can do things based on it.
+   */
+  #updateServiceWorkerState(registration?: ServiceWorkerRegistration) {
+    if (registration) {
+      switch (true) {
+        case null !== registration.installing:
+          this.#serviceWorkerState.value = 'installing'
+          break
+        case null !== registration.waiting:
+          this.#serviceWorkerState.value = 'waiting'
+          break
+        case null !== registration.active:
+          this.#serviceWorkerState.value = 'activated'
+          break
+      }
+      return
+    }
+    if ('undefined' !== typeof window && 'serviceWorker' in navigator) {
+      navigator.serviceWorker.ready.then((registration) => {
+        this.#updateServiceWorkerState(registration)
+      })
+    }
+  }
+
+  /**
    * Boot the service.
    */
   public boot() {
@@ -310,7 +362,8 @@ export class PushService {
           return
         }
         debug('Service Worker Registration Changed', { was, is })
-        if (this.canPush.value && this.#serviceWorkerRegistration.value) {
+        // if (this.canPush.value && is) {
+        if (is) {
           this.#updateFcmToken()
         } else if (!this.#serviceWorkerRegistrationToken.value) {
           fbug('Skipped generating Firebase Messaging Token', {
@@ -388,6 +441,10 @@ export class PushService {
     )
     this.#cron.$on('*/250 * * * * *', this.#update.bind(this))
     this.#bus.on('push:updated', this.#update.bind(this), { local: true, crossTab: true })
+    this.#bus.on('sw:install', this.#onServiceWorkerInstall.bind(this), {
+      local: true,
+      crossTab: true,
+    })
     this.#doUpdates(true)
     if ('undefined' !== typeof window && 'serviceWorker' in navigator) {
       if ('undefined' === typeof this.#serviceWorkerRegistration.value) {
@@ -437,6 +494,10 @@ export class PushService {
       navigator.serviceWorker.ready.then((registration) => {
         sbug('Service Worker Ready', registration)
         this.#serviceWorkerRegistration.value = registration
+        this.#updateServiceWorkerState(registration)
+      })
+      navigator.serviceWorker.addEventListener('controllerchange', (event) => {
+        sbug('Service Worker saw Controller Change', event)
       })
     }
     this.#fcmOnMessageUnsubscribe = onMessage(this.#firebaseMessaging, (payload) => {
@@ -459,6 +520,10 @@ export class PushService {
     }
     debug('Shutting Down')
     this.#bus.off('push:updated', this.#update.bind(this), { local: true, crossTab: true })
+    this.#bus.off('sw:install', this.#onServiceWorkerInstall.bind(this), {
+      local: true,
+      crossTab: true,
+    })
     this.#cron.$off('*/250 * * * * *', this.#update.bind(this))
     if (this.#serviceWorkerRegistrationWatchStopHandle) {
       this.#serviceWorkerRegistrationWatchStopHandle()
@@ -484,6 +549,32 @@ export class PushService {
     debug('Shut Down')
   }
 
+  public async update() {
+    if (!('undefined' !== typeof window && 'serviceWorker' in navigator)) {
+      debug('Not in a context with a Service Worker')
+      return
+    }
+    if (!this.appUpdatePending.value) {
+      debug('No Service Worker Update Pending')
+      return
+    }
+    const registration = await navigator.serviceWorker.ready
+    if (!registration.waiting) {
+      debug('No Waiting Service Worker')
+      return
+    }
+    const finished = new Promise<Event>((resolve) => {
+      navigator.serviceWorker.addEventListener('controllerchange', resolve, { once: true })
+    })
+    registration.waiting.postMessage({ type: 'SKIP_WAITING' })
+    await finished
+    if (window && window.location) {
+      window.location.reload()
+    } else {
+      debug('Finished waiting for Service Worker to update')
+    }
+  }
+
   #doUpdates(first: boolean = false) {
     if (!this.#ls.loaded) {
       if (first) {
@@ -493,15 +584,10 @@ export class PushService {
       }
       return
     }
-    const registration = this.#ls.get('push.serviceworker.registration') as
-      | ServiceWorkerRegistration
-      | undefined
-    if (registration) {
-      this.#serviceWorkerRegistration.value = registration
-    }
     const doNotAskForPermission = this.#ls.get('push.donotaskforpermission') || false
     this.#doNotAskForPermissionPreference.value = doNotAskForPermission
     this.#pushPermission.value = Push.Permission.get()
+    this.#updateServiceWorkerState()
   }
 
   #update() {
@@ -589,5 +675,10 @@ export class PushService {
         }
       }
     }
+  }
+
+  #onServiceWorkerInstall(event: Event) {
+    sbug('Service Worker Installed might be waiting', event)
+    this.#updateServiceWorkerState()
   }
 }

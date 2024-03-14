@@ -18,3 +18,4 @@ playgrounds/vueprint-playground-nuxt/.yarn-cache
 .yarn-cache
 .playground
 .nuxt
+docs/api/*

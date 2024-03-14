@@ -2,10 +2,119 @@ import type { NotificationPayload } from 'firebase/messaging'
 import type { Ref } from 'vue'
 import type { UserIdentity } from './identity'
 import { TinyEmitter } from 'tiny-emitter'
-import { BroadcastChannel } from 'broadcast-channel'
 import { computed, ref } from 'vue'
 import { getDebugger } from '../utilities/debug'
 const debug = getDebugger('Bus')
+
+interface BackgroundFetchRegistration {
+  id: string
+  uploadTotal: number
+  uploaded: number
+  downloadTotal: number
+  downloaded: number
+  result: 'pending' | 'success' | 'failure'
+  failureReason:
+    | 'none'
+    | 'aborted'
+    | 'bad-status'
+    | 'fetch-error'
+    | 'quota-exceeded'
+    | 'download-total-exceeded'
+  recordsAvailable: boolean
+
+  match(
+    request: Request | string,
+    options?: BackgroundFetchMatchOptions
+  ): Promise<Response | undefined>
+  matchAll(request?: Request | string, options?: BackgroundFetchMatchOptions): Promise<Response[]>
+  unregister(): Promise<boolean>
+}
+
+export interface BackgroundFetchMatchOptions {
+  ignoreSearch?: boolean
+  ignoreMethod?: boolean
+  ignoreVary?: boolean
+}
+
+export interface BackgroundFetchSettledFetch {
+  request: Request
+  response: Response | null
+}
+
+export interface Cookie {
+  name: string
+  value: string
+  domain: string
+  path: string
+  expires: number
+  size: number
+  httpOnly: boolean
+  secure: boolean
+  session: boolean
+  sameSite: 'Strict' | 'Lax' | 'None'
+}
+
+export interface PushSubscriptionChangeEvent extends ExtendableEvent {
+  waitUntil(f: Promise<any>): void
+  readonly newSubscription: PushSubscription | null
+  readonly oldSubscription: PushSubscription | null
+}
+
+export interface SyncEvent extends ExtendableEvent {
+  waitUntil(f: Promise<any>): void
+  readonly tag: string
+  readonly lastChance: boolean
+}
+
+export interface BackgroundFetchEvent extends ExtendableEvent {
+  waitUntil(f: Promise<any>): void
+  readonly id: string
+  readonly registration: BackgroundFetchRegistration
+}
+
+export interface BackgroundFetchClickEvent extends BackgroundFetchEvent {}
+
+export interface BackgroundFetchFailEvent extends BackgroundFetchEvent {
+  readonly fetches: BackgroundFetchSettledFetch[]
+}
+
+export interface BackgroundFetchSuccessEvent extends BackgroundFetchEvent {
+  readonly fetches: BackgroundFetchSettledFetch[]
+}
+
+export interface CanMakePaymentEvent extends ExtendableEvent {
+  waitUntil(f: Promise<any>): void
+  respondWith(response: Promise<boolean>): void
+}
+
+export interface ContentDeleteEvent extends ExtendableEvent {
+  waitUntil(f: Promise<any>): void
+  readonly id: string
+}
+
+export interface CookieChangeEvent extends ExtendableEvent {
+  waitUntil(f: Promise<any>): void
+  readonly changed: ReadonlyArray<Cookie>
+  readonly deleted: ReadonlyArray<Cookie>
+}
+
+export interface PaymentRequestEvent extends ExtendableEvent {
+  waitUntil(f: Promise<any>): void
+  readonly topOrigin: string
+  readonly paymentRequestOrigin: string
+  readonly paymentRequestId: string
+  readonly methodData: PaymentMethodData[]
+  readonly total: PaymentCurrencyAmount
+  readonly instrumentKey: string
+  respondWith(response: Promise<PaymentResponse>): void
+}
+
+export interface PeriodicSyncEvent extends ExtendableEvent {
+  waitUntil(f: Promise<any>): void
+  readonly tag: string
+}
+
+type EventFrom = 'service-worker' | string
 
 /**
  * Describes the events and the signatures of their callbacks
@@ -16,7 +125,7 @@ export interface BusEventCallbackSignatures {
    * Emitted when the API returns a 401 Unauthorized status
    * @param from The ID of the tab that triggered the event
    */
-  'api:unauthorized': (from?: string) => void
+  'api:unauthorized': (from?: EventFrom) => void
   /**
    * A tab has been updated
    * @param uuid The ID of the tab which has been updated
@@ -24,49 +133,49 @@ export interface BusEventCallbackSignatures {
    * @param from The ID of the tab that triggered the event
    * @returns void
    */
-  'tab:uuid': (uuid: string, active: boolean, from?: string) => void
+  'tab:uuid': (uuid: string, active: boolean, from?: EventFrom) => void
   /**
    * A tab has become active
    * @param from The ID of the tab that triggered the event
    */
-  'tab:active': (from?: string) => void
+  'tab:active': (from?: EventFrom) => void
   /**
    * A tab has become inactive
    * @param from The ID of the tab that triggered the event
    */
-  'tab:inactive': (from?: string) => void
+  'tab:inactive': (from?: EventFrom) => void
   /**
    * The push service has been updated
    * @param from The ID of the tab that triggered the event
    * @returns void
    */
-  'push:updated': (from?: string) => void
+  'push:updated': (from?: EventFrom) => void
   /**
    * The push service has been granted permission
    * @param from The ID of the tab that triggered the event
    * @returns void
    */
-  'push:permission:denied': (from?: string) => void
+  'push:permission:denied': (from?: EventFrom) => void
   /**
    * The push service has been denied permission
    * @param from The ID of the tab that triggered the event
    * @returns void
    */
-  'push:permission:granted': (from?: string) => void
+  'push:permission:granted': (from?: EventFrom) => void
   /**
    * A push notification has been received
    * @param payload The payload of the notification
    * @param from The ID of the tab that triggered the event
    * @returns void
    */
-  'push:notification': (payload: NotificationPayload, from?: string) => void
+  'push:notification': (payload: NotificationPayload, from?: EventFrom) => void
   /**
    * The Firebase token has been updated
    * @param token The new token
    * @param from The ID of the tab that triggered the event
    * @returns void
    */
-  'firebase:token:updated': (token: string | undefined, from?: string) => void
+  'firebase:token:updated': (token: string | undefined, from?: EventFrom) => void
   /**
    * The user has been authenticated and identified
    * @param bearer The bearer token
@@ -79,50 +188,69 @@ export interface BusEventCallbackSignatures {
     bearer: string,
     expiration: string,
     identity: UserIdentity,
-    from?: string
+    from?: EventFrom
   ) => void
   /**
    * The user has been logged out
    * @param from The ID of the tab that triggered the event
    * @returns void
    */
-  'identity:logout': (from?: string) => void
+  'identity:logout': (from?: EventFrom) => void
   /**
    * The user's authentication token is eligible for refresh
    * @param from The ID of the tab that triggered the event
    * @returns void
    */
-  'authentication:refreshable': (from?: string) => void
+  'authentication:refreshable': (from?: EventFrom) => void
   /**
    * Notify that the local storage has changed
    * @param from The ID of the tab that triggered the event
    * @returns void
    */
-  'ls:change': (from?: string) => void
+  'ls:change': (from?: EventFrom) => void
   /**
    * Notify that the local storage has been loaded
    * @param from The ID of the tab that triggered the event
    * @returns void
    */
-  'ls:loaded': (from?: string) => void
+  'ls:loaded': (from?: EventFrom) => void
   /**
    * Notify that the local storage has been saved
    * @param from The ID of the tab that triggered the event
    * @returns void
    */
-  'ls:setDataToLocalStorage': (key, data, from?: string) => void
+  'ls:setDataToLocalStorage': (key, data, from?: EventFrom) => void
   /**
    * Notify that the local storage has been cleared
    * @param from The ID of the tab that triggered the event
    * @returns void
    */
-  'ls:clear': (from?: string) => void
+  'ls:clear': (from?: EventFrom) => void
   /**
    * Notify that the local storage has been reset
    * @param from The ID of the tab that triggered the event
    * @returns void
    */
-  'ls:resetAllKeys': (from?: string) => void
+  'ls:resetAllKeys': (from?: EventFrom) => void
+  'sw:activate': (event: ExtendableEvent, from?: EventFrom) => void
+  'sw:install': (event: ExtendableEvent, from?: EventFrom) => void
+  'sw:fetch': (event: FetchEvent, from?: EventFrom) => void
+  'sw:message': (event: ExtendableMessageEvent, from?: EventFrom) => void
+  'sw:messageerror': (event: MessageEvent, from?: EventFrom) => void
+  'sw:notificationclick': (event: NotificationEvent, from?: EventFrom) => void
+  'sw:notificationclose': (event: NotificationEvent, from?: EventFrom) => void
+  'sw:push': (event: PushEvent, from?: EventFrom) => void
+  'sw:pushsubscriptionchange': (event: PushSubscriptionChangeEvent, from?: EventFrom) => void
+  'sw:sync': (event: SyncEvent, from?: EventFrom) => void
+  'sw:backgroundfetchabort': (event: BackgroundFetchEvent, from?: EventFrom) => void
+  'sw:backgroundfetchclick': (event: BackgroundFetchClickEvent, from?: EventFrom) => void
+  'sw:backgroundfetchfail': (event: BackgroundFetchFailEvent, from?: EventFrom) => void
+  'sw:backgroundfetchsuccess': (event: BackgroundFetchSuccessEvent, from?: EventFrom) => void
+  'sw:canmakepayment': (event: CanMakePaymentEvent, from?: EventFrom) => void
+  'sw:contentdelete': (event: ContentDeleteEvent, from?: EventFrom) => void
+  'sw:cookiechange': (event: CookieChangeEvent, from?: EventFrom) => void
+  'sw:paymentrequest': (event: PaymentRequestEvent, from?: EventFrom) => void
+  'sw:periodicsync': (event: PeriodicSyncEvent, from?: EventFrom) => void
 }
 
 /**
@@ -169,14 +297,21 @@ export function shortid() {
   return Date.now().toString(36) + Math.random().toString(36).substring(2)
 }
 
+// Extend the TinyEmitter class type
+declare class TinyEmitterWithEvents extends TinyEmitter {
+  public e: Record<BusEvent, { ctx: unknown; fn: BusEventCallback<BusEvent> }[]>
+}
+
 /**
  * A bus for transmitting and subscribing to events acrosss components and tabs
  */
 export class BusService {
   #uuid: string
   #channel?: BroadcastChannel
-  #localBus: TinyEmitter
-  #crossTabBus: TinyEmitter
+  #localBus: TinyEmitterWithEvents
+  #crossTabBus: TinyEmitterWithEvents
+  #requestResponseBus: TinyEmitterWithEvents
+  #requestResponseHandlers: Map<string, (payload: any) => unknown | Promise<unknown>>
   #active: Ref<boolean>
   #lastUpdatedAt: Ref<number | undefined>
   #alreadyTriggeredLocalEvents: Ref<Partial<BusEventAlreadyTriggered>>
@@ -188,25 +323,33 @@ export class BusService {
    */
   constructor(namespace?: string) {
     this.#uuid = shortid()
-    this.#localBus = new TinyEmitter()
-    this.#crossTabBus = new TinyEmitter()
+    this.#localBus = new TinyEmitter() as TinyEmitterWithEvents
+    this.#crossTabBus = new TinyEmitter() as TinyEmitterWithEvents
+    this.#requestResponseBus = new TinyEmitter() as TinyEmitterWithEvents
+    this.#requestResponseHandlers = new Map()
     this.#active = ref(false)
     this.#lastUpdatedAt = ref(undefined)
     this.#alreadyTriggeredLocalEvents = ref({})
     this.#alreadyTriggeredCrossTabEvents = ref({})
-    if (typeof window !== 'undefined') {
-      this.#channel = new BroadcastChannel(namespace || window.location.origin)
+    if (typeof BroadcastChannel !== 'undefined') {
+      this.#channel = new BroadcastChannel(namespace || window?.location.origin || 'vueprint')
       this.#channel.onmessage = this.#onChannelMessage.bind(this)
+    }
+    if (typeof window !== 'undefined') {
       window.addEventListener('focus', this.#onWindowFocusChange.bind(this, true))
       window.addEventListener('blur', this.#onWindowFocusChange.bind(this, false))
       window.addEventListener('visibilitychange', this.#onWindowVisibilitychange.bind(this))
       this.#onWindowVisibilitychange()
     }
+    this.#addRequestHandler('getActiveTabs', () => this.active.value)
+    this.#addRequestHandler('awaitCrossTab', async ({ event, args }) => {
+      await this.#awaitLocal(event, args)
+    })
     debug(`Initialized Bus for tab ${this.#uuid}`)
-    debug(this.#localBus)
   }
 
-  #onChannelMessage(raw: string) {
+  #onChannelMessage(e: MessageEvent<any>) {
+    const raw = e.data
     let event: BusEvent
     let args: Parameters<BusEventCallback<BusEvent>> = []
     let from: string
@@ -215,6 +358,39 @@ export class BusService {
       event = msg.event as BusEvent
       args = msg.args as Parameters<BusEventCallback<BusEvent>>
       from = msg.from as string
+      // we have to determine if this is a request which requires a response
+      if ((event as BusEvent | 'crossTabRequest') === 'crossTabRequest') {
+        const [requestId, method, payload, targets] = args as [string, string, any, '*' | string[]]
+        if (targets === '*' || targets.includes(this.#uuid)) {
+          const handler = this.#requestResponseHandlers.get(method)
+          const responsePromise = new Promise(async (resolve) => {
+            let response: any
+            try {
+              response = await handler?.(payload)
+            } catch (error) {
+              debug(`Error handling crossTabRequest "${method}"`, error)
+            }
+            resolve(response)
+          })
+          responsePromise.then((response) => {
+            this.#channel!.postMessage(
+              JSON.stringify({
+                event: 'crossTabResponse',
+                args: [requestId, response],
+                from: this.#uuid,
+              })
+            )
+          })
+        } else {
+          return
+        }
+      }
+      // we have to determine if this is a response to a request
+      if ((event as BusEvent | 'crossTabResponse') === 'crossTabResponse') {
+        const [requestId, response] = args as [string, any]
+        this.#requestResponseBus.emit(requestId, response, from)
+        return
+      }
       this.#crossTabBus.emit(event, ...args, from)
     } catch {
       return
@@ -386,37 +562,127 @@ export class BusService {
   }
 
   /**
+   * Trigger an event and await for all listeners to process it
+   * @param event The name of the event to await listener processing for
+   * @param args The arguments to pass to the event
+   * @returns A promise that resolves when all listeners have processed the event
+   *
+   * @remarks
+   * This method is especially useful within service workers where you may need to use `event.waitUntil` to ensure that all listeners have processed the event before the service worker is terminated
+   */
+  public await<K extends BusEvent>(
+    event: K,
+    options: BusEventListenOptions = {},
+    ...args: Parameters<BusEventCallback<K>>
+  ) {
+    const promises: Promise<void | void[]>[] = []
+    if (options.local) {
+      promises.push(this.#awaitLocal(event, args))
+    }
+    if (options.crossTab) {
+      promises.push(this.#awaitCrossTab(event, args))
+    }
+    if (promises.length) {
+      return Promise.all(promises)
+    }
+    return Promise.resolve()
+  }
+
+  #awaitLocal<K extends BusEvent>(event: K, args: Parameters<BusEventCallback<K>>) {
+    const promises: Promise<void>[] = []
+    if (!this.#localBus.e) {
+      if (!['sw:fetch'].includes(event)) {
+        debug(`No local bus listeners for "${event}"`)
+      }
+      return Promise.resolve()
+    }
+    if (this.#localBus.e[event]) {
+      this.#localBus.e[event].forEach(({ fn }) => {
+        promises.push(Promise.resolve((fn as any).apply(null, args)))
+      })
+    }
+    if (promises.length) {
+      return Promise.all(promises)
+    }
+    return Promise.resolve()
+  }
+
+  #awaitCrossTab<K extends BusEvent>(event: K, args: Parameters<BusEventCallback<K>>) {
+    return new Promise<void>((resolve) => {
+      this.crossTabRequest('awaitCrossTab', { event, args }).then(() => {
+        resolve(void 0)
+      })
+    })
+  }
+
+  public async crossTabRequest<ResponseType extends any = any>(
+    method: string,
+    payload: any,
+    targets: '*' | string[] = '*',
+    timeout = 500
+  ): Promise<Map<string, ResponseType | undefined>> {
+    if (!this.#channel) {
+      throw new Error('BroadcastChannel is not available')
+    }
+    const requestId = shortid()
+    const requestPayload = JSON.stringify({
+      event: 'crossTabRequest',
+      args: [requestId, method, payload, targets],
+      from: this.#uuid,
+    })
+    const responses: Map<string, ResponseType | undefined> = new Map()
+    const onResponse = (response: ResponseType | undefined, from: string) => {
+      responses.set(from, response)
+    }
+    const promiseForResponses = new Promise((resolve) => {
+      this.#requestResponseBus.on(requestId, onResponse)
+      setTimeout(resolve, timeout)
+    })
+    this.#channel.postMessage(requestPayload)
+    await promiseForResponses
+    this.#requestResponseBus.off(requestId, onResponse)
+    return responses
+  }
+
+  #addRequestHandler(method: string, handler: (payload: any) => unknown | Promise<unknown>) {
+    this.#requestResponseHandlers.set(method, handler)
+  }
+
+  public addRequestHandler(method: string, handler: (payload: any) => unknown | Promise<unknown>) {
+    const protectedMethods = ['getActiveTabs', 'awaitCrossTab']
+    if (protectedMethods.includes(method)) {
+      throw new Error(`Method "${method}" is protected and cannot be overridden`)
+    }
+    this.#addRequestHandler(method, handler)
+  }
+
+  /**
    * Get the active tabs
    * @param wait The time to wait before returning the active tabs
    * @returns The active tabs
    */
   public async getActiveTabs(wait = 500) {
-    return (await new Promise((resolve) => {
-      const knownTabs = new Map()
-      const onTabUuid = (uuid: string, active: boolean) => {
-        knownTabs.set(uuid, active)
-      }
-      this.on('tab:uuid', onTabUuid, { local: false, crossTab: true })
-      setTimeout(() => {
-        this.off('tab:uuid', onTabUuid, { local: false, crossTab: true })
-        const tabs = Array.from(knownTabs.entries())
-        tabs.push([this.#uuid, this.#active.value])
-        const sorted = tabs.sort((a, b) => {
-          const [aUuid, aActive] = a
-          const [bUuid, bActive] = b
-          if (aActive === bActive) {
-            return aUuid.localeCompare(bUuid, undefined, {
-              numeric: false,
-              sensitivity: 'base',
-              ignorePunctuation: true,
-            })
-          }
-          return aActive === true ? -1 : 1
+    const knownTabs = new Map()
+    const responses = await this.crossTabRequest<boolean>('getActiveTabs', undefined, '*', wait)
+    responses.forEach((response, from) => {
+      knownTabs.set(from, response)
+    })
+    const tabs = Array.from(knownTabs.entries())
+    tabs.push([this.#uuid, this.#active.value])
+    const sorted = tabs.sort((a, b) => {
+      const [aUuid, aActive] = a
+      const [bUuid, bActive] = b
+      if (aActive === bActive) {
+        return aUuid.localeCompare(bUuid, undefined, {
+          numeric: false,
+          sensitivity: 'base',
+          ignorePunctuation: true,
         })
-        const ids = sorted.map((tab) => tab[0]) as Array<string>
-        return resolve(ids)
-      }, wait)
-    })) as Array<string>
+      }
+      return aActive === true ? -1 : 1
+    })
+    const ids = sorted.map((tab) => tab[0]) as Array<string>
+    return ids
   }
 
   /**

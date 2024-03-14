@@ -1,3 +1,5 @@
+declare const self: (ServiceWorkerGlobalScope & typeof globalThis) | (Window & typeof globalThis)
+
 /**
  * Generate a function that will log messages to the console
  * @param name The name that will be used to prefix the log messages
@@ -12,9 +14,24 @@ export const getDebugger = (
   background: string = '#41B883'
 ) => {
   return (...args: any[]) => {
-    if ('undefined' === typeof window) {
+    if (
+      'undefined' === typeof window &&
+      ('undefined' === typeof ServiceWorkerGlobalScope ||
+        !(self instanceof ServiceWorkerGlobalScope))
+    ) {
       console.log(`[${name}]`, ...args)
       return
+    }
+    if (
+      'undefined' !== typeof ServiceWorkerGlobalScope &&
+      self instanceof ServiceWorkerGlobalScope
+    ) {
+      if (!name.startsWith('[') && !name.endsWith(']')) {
+        name = `[${name}]`
+        const oldColor = color
+        color = background
+        background = oldColor
+      }
     }
     console.groupCollapsed(
       `%c${name}`,

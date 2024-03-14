@@ -8,7 +8,7 @@ import type { MiliCron } from '../libs/milicron'
 import type { IdentityService } from '../services/identity'
 import type { PushService } from '../services/push'
 import type { WatchStopHandle } from 'vue'
-import type { Ref, ComputedRef } from 'vue'
+import type { ComputedRef } from 'vue'
 
 declare global {
   interface Window {
@@ -47,9 +47,11 @@ export interface ApplicationVueprintState {
   // If the application is currently mounted
   booted: ComputedRef<boolean>
   // If all pre-mount services have been booted
-  mounted: Ref<boolean>
+  mounted: ComputedRef<boolean>
   // If all post-mount services have been booted
   ready: ComputedRef<boolean>
+  // If the application is updatable
+  updateable: ComputedRef<boolean>
 }
 
 /**
@@ -125,7 +127,16 @@ export const useVueprint = (
   const isDependanciesBooted = computed(() =>
     Object.values(dependanciesBooted.value).every((v) => v === true)
   )
+  const isMounted = computed(() => mounted.value)
   const isReady = computed(() => isBooted.value && isDependanciesBooted.value)
+  const updateable = computed(
+    () =>
+      isBooted.value &&
+      isReady.value &&
+      mounted.value &&
+      'undefined' !== typeof push &&
+      push.appUpdatePending.value
+  )
   let bootedWatchCanceller: WatchStopHandle | undefined
   let readyWatchCanceller: WatchStopHandle | undefined
   let identityBootedWatchCanceller: WatchStopHandle | undefined
@@ -315,10 +326,12 @@ export const useVueprint = (
   })
   return {
     // If the application is currently mounted
-    mounted,
+    mounted: isMounted,
     // If all pre-mount services have been booted
     booted: isBooted,
     // If all post-mount services have been booted
     ready: isReady,
+    // If the application is updatable
+    updateable,
   }
 }

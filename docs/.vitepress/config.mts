@@ -58,6 +58,7 @@ export default defineConfig({
           {text: "Color Utilities", link: "/api/modules/utilities_colors" },
           {text: "Debug Utilities", link: "/api/modules/utilities_debug" },
           {text: "Validation Utilities", link: "/api/modules/utilities_validation" },
+          {text: "Service Worker Provider", link: "/whats-included/service-worker-provider" },
         ],
         collapsed: true,
       },

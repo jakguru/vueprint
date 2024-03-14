@@ -27,6 +27,7 @@
         "src/nuxt/index.ts",
         "src/nuxt/plugin.client.ts",
         "src/nuxt/plugin.server.ts",
+        "src/pwa/worker.ts",
     ],
     "entryPointStrategy": "resolve",
     "tsconfig": "./tsconfig.typedoc.json",
