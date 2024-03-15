@@ -1,4 +1,5 @@
 import type { App } from 'vue'
+import { ref } from 'vue'
 import Webfont from 'webfontloader'
 import { getDebugger } from '../utilities/debug'
 
@@ -8,12 +9,14 @@ export interface WebfontloaderPluginOptions extends WebFont.Config {}
 
 export const WebfontloaderPlugin = {
   install: (app: App, options?: WebfontloaderPluginOptions) => {
+    const installed = ref(false)
     if (
+      installed.value === false &&
       options &&
       (options.custom || options.google || options.typekit || options.fontdeck || options.monotype)
     ) {
-      options.loading = () => {
-        if (options.loading) {
+      const onLoading = () => {
+        if (options && options.loading && 'function' === typeof options.loading) {
           options.loading()
         }
         if (app.config.globalProperties.$bus) {
@@ -21,8 +24,8 @@ export const WebfontloaderPlugin = {
         }
         debug('Webfonts loading')
       }
-      options.active = () => {
-        if (options.active) {
+      const onActive = () => {
+        if (options && options.active && 'function' === typeof options.active) {
           options.active()
         }
         if (app.config.globalProperties.$bus) {
@@ -30,8 +33,8 @@ export const WebfontloaderPlugin = {
         }
         debug('Webfonts active')
       }
-      options.inactive = () => {
-        if (options.inactive) {
+      const onInactive = () => {
+        if (options && options.inactive && 'function' === typeof options.inactive) {
           options.inactive()
         }
         if (app.config.globalProperties.$bus) {
@@ -40,11 +43,12 @@ export const WebfontloaderPlugin = {
         debug('Webfonts inactive')
       }
       try {
-        Webfont.load(options)
+        Webfont.load({ ...options, loading: onLoading, active: onActive, inactive: onInactive })
+        installed.value = true
       } catch (error) {
         debug('Error loading webfonts', error)
       }
-    } else {
+    } else if (installed.value === false) {
       debug('No webfonts to load')
     }
   },
