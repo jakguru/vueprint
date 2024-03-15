@@ -9,6 +9,7 @@ import type { ApiPluginOptions } from '../plugins/api'
 import type { PushPluginOptions } from '../plugins/push'
 import type { IdentityPluginOptions } from '../plugins/identity'
 import type { UiPluginOptions } from '../plugins/ui'
+import type { WebfontloaderPluginOptions } from '../plugins/webfontloader'
 
 export interface VueprintModuleOptions {
   bus?: BusPluginOptions
@@ -18,6 +19,7 @@ export interface VueprintModuleOptions {
   identity?: IdentityPluginOptions
   push?: PushPluginOptions
   ui?: UiPluginOptions
+  webfontloader?: WebfontloaderPluginOptions
 }
 
 declare module '@nuxt/schema' {

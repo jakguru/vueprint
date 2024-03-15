@@ -251,6 +251,9 @@ export interface BusEventCallbackSignatures {
   'sw:cookiechange': (event: CookieChangeEvent, from?: EventFrom) => void
   'sw:paymentrequest': (event: PaymentRequestEvent, from?: EventFrom) => void
   'sw:periodicsync': (event: PeriodicSyncEvent, from?: EventFrom) => void
+  'webfonts:loading': (from?: EventFrom) => void
+  'webfonts:active': (from?: EventFrom) => void
+  'webfonts:inactive': (from?: EventFrom) => void
 }
 
 /**

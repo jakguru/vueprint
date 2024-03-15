@@ -33,8 +33,8 @@ const debug = getDebugger('Service Worker')
 const fbug = getDebugger('Firebase', '#1B3A57', '#FFCA28')
 
 export interface ServiceWorkerProviderOptions {
-  namespace: string
-  firebase: Partial<FirebaseOptions>
+  namespace?: string
+  firebase?: Partial<FirebaseOptions>
 }
 
 export class ServiceWorkerProvider {
@@ -52,7 +52,16 @@ export class ServiceWorkerProvider {
     this.#booted = ref(false)
     this.#firebaseOnMessageUnsubscribe = ref(undefined)
     this.#firebaseOnBackgroundMessageUnsubscribe = ref(undefined)
-    if (options && options.firebase) {
+    if (
+      options &&
+      options.firebase &&
+      options.firebase.apiKey &&
+      options.firebase.authDomain &&
+      options.firebase.projectId &&
+      options.firebase.messagingSenderId &&
+      options.firebase.appId &&
+      options.firebase.measurementId
+    ) {
       try {
         this.#firebaseApp = initializeApp(options.firebase)
         fbug('Firebase app initialized')

@@ -500,14 +500,16 @@ export class PushService {
         sbug('Service Worker saw Controller Change', event)
       })
     }
-    this.#fcmOnMessageUnsubscribe = onMessage(this.#firebaseMessaging, (payload) => {
-      fbug('Got Firebase Messaging Payload', payload)
-      if (payload.data && payload.data.event) {
-        const { event: pushEvent, detail } = payload.data as unknown as PushedEvent
-        const busEvent = `background:${pushEvent}` as keyof BusEventCallbackSignatures
-        this.#bus.emit(busEvent, { local: true }, detail)
-      }
-    })
+    if (this.#firebaseMessaging) {
+      this.#fcmOnMessageUnsubscribe = onMessage(this.#firebaseMessaging, (payload) => {
+        fbug('Got Firebase Messaging Payload', payload)
+        if (payload.data && payload.data.event) {
+          const { event: pushEvent, detail } = payload.data as unknown as PushedEvent
+          const busEvent = `background:${pushEvent}` as keyof BusEventCallbackSignatures
+          this.#bus.emit(busEvent, { local: true }, detail)
+        }
+      })
+    }
     return booted()
   }
 

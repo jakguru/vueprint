@@ -24,6 +24,7 @@
         "src/plugins/vuetify.ts",
         "src/plugins/main.ts",
         "src/plugins/client.ts",
+        "src/plugins/webfontloader.ts",
         "src/nuxt/index.ts",
         "src/nuxt/plugin.client.ts",
         "src/nuxt/plugin.server.ts",
