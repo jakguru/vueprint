@@ -6,6 +6,7 @@ export * as push from './push'
 export * as ui from './ui'
 export * as vuetify from './vuetify'
 
+import type { MiliCron } from '../libs/milicron'
 import type { ApiService } from './api'
 import type {
   BusEventCallbackSignatures,
@@ -49,4 +50,5 @@ export {
   VuetifiableTheme,
   VuetifiableThemes,
   IdentityService,
+  MiliCron as CronService,
 }

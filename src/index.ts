@@ -24,6 +24,7 @@ import type {
   VuetifiableColors,
   VuetifiableTheme,
   VuetifiableThemes,
+  CronService,
 } from './services'
 import type {
   ApiPluginOptions,
@@ -71,4 +72,5 @@ export {
   UiPluginOptions,
   VuetifyPluginOptions,
   IdentityService,
+  CronService,
 }
