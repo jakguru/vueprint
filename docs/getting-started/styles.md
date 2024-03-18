@@ -4,8 +4,10 @@ Since VuePrint is based on Vuetify, it comes with all of Vuetify's components pr
 
 * `@jakguru/vueprint/dist/vueprint.css` - All VuePrint related styles including Vuetify, pre-bundled
 * `@jakguru/vueprint/dist/vueprint-no-vuetify.css` - All VuePrint related styles *except* for Vuetify, pre-bundled
+* `@jakguru/vueprint/dist/vueprint.scss` - All VuePrint related styles including Vuetify, unbundled
+* `@jakguru/vueprint/dist/vueprint-no-vuetify.scss` - All VuePrint related styles *except* for Vuetify, unbundled
 
-The best way to approach both is to ask the question: Does my project require [changing the Vuetify SASS variables](https://vuetifyjs.com/en/features/sass-variables/#basic-usage)? If no, then it is safe to use `vueprint.css`. Otherwise, you should use `vueprint-no-vuetify.css`.
+The best way to approach both is to ask the question: Does my project require [changing the Vuetify SASS variables](https://vuetifyjs.com/en/features/sass-variables/#basic-usage)? If no, then it is safe to use `vueprint`. Otherwise, you should use `vueprint-no-vuetify`.
 
 ## Examples with Vuetify Styles Bundled
 

@@ -33,6 +33,16 @@
       "import": "./dist/vueprint-no-vuetify.css",
       "browser": "./dist/vueprint-no-vuetify.css"
     },
+    "./dist/vueprint.scss": {
+      "require": "./dist/vueprint.scss",
+      "import": "./dist/vueprint.scss",
+      "browser": "./dist/vueprint.scss"
+    },
+    "./dist/vueprint-no-vuetify.scss": {
+      "require": "./dist/vueprint-no-vuetify.scss",
+      "import": "./dist/vueprint-no-vuetify.scss",
+      "browser": "./dist/vueprint-no-vuetify.scss"
+    },
     "./utilities": {
       "import": "./dist/utilities/index.mjs",
       "require": "./dist/utilities/index.cjs",

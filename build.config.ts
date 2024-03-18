@@ -100,42 +100,63 @@ export default defineBuildConfig({
       )
     },
     'mkdist:done': async () => {
-      const res = await new Promise((resolve, reject) => {
-        webpack(webpackConfig, (err, stats) => {
-          if (err || stats?.hasErrors()) {
-            return reject(
-              err ||
-                stats?.toString({
-                  colors: true,
-                })
+      const results = await Promise.all([
+        new Promise((resolve, reject) => {
+          webpack(webpackConfig, (err, stats) => {
+            if (err || stats?.hasErrors()) {
+              return reject(
+                err ||
+                  stats?.toString({
+                    colors: true,
+                  })
+              )
+            }
+            resolve(
+              stats!.toString({
+                colors: true,
+              })
             )
-          }
-          resolve(
-            stats!.toString({
-              colors: true,
-            })
-          )
-        })
-      })
-      console.log(res)
-      const noVuetify = await new Promise((resolve, reject) => {
-        webpack(webpackConfigForVuePrintNoVuetify, (err, stats) => {
-          if (err || stats?.hasErrors()) {
-            return reject(
-              err ||
-                stats?.toString({
-                  colors: true,
-                })
+          })
+        }),
+        new Promise((resolve, reject) => {
+          webpack(webpackConfigForVuePrintNoVuetify, (err, stats) => {
+            if (err || stats?.hasErrors()) {
+              return reject(
+                err ||
+                  stats?.toString({
+                    colors: true,
+                  })
+              )
+            }
+            resolve(
+              stats!.toString({
+                colors: true,
+              })
             )
+          })
+        }),
+        new Promise((resolve) => {
+          fs.copyFile('./src/vueprint.scss', './dist/vueprint.scss', () => {
+            resolve('Copied vueprint.scss')
+          })
+        }),
+        new Promise((resolve) => {
+          fs.copyFile('./src/vueprint-no-vuetify.scss', './dist/vueprint-no-vuetify.scss', () => {
+            resolve('Copied vueprint-no-vuetify.scss')
+          })
+        }),
+        new Promise(async (resolve) => {
+          if (fs.existsSync('./dist/style.js')) {
+            await fs.remove('./dist/style.js')
+            return resolve('Removed style.js')
+          } else {
+            return resolve('style.js does not exist')
           }
-          resolve(
-            stats!.toString({
-              colors: true,
-            })
-          )
-        })
+        }),
+      ])
+      results.forEach((result) => {
+        console.log(result)
       })
-      console.log(noVuetify)
     },
     'build:done': () => {
       const nuxtRelatedFiles = fs.readdirSync('./dist/nuxt')
