@@ -28,6 +28,11 @@
       "import": "./dist/vueprint.css",
       "browser": "./dist/vueprint.css"
     },
+    "./dist/vueprint-no-vuetify.css": {
+      "require": "./dist/vueprint-no-vuetify.css",
+      "import": "./dist/vueprint-no-vuetify.css",
+      "browser": "./dist/vueprint-no-vuetify.css"
+    },
     "./utilities": {
       "import": "./dist/utilities/index.mjs",
       "require": "./dist/utilities/index.cjs",

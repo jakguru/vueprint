@@ -38,6 +38,7 @@ export default defineConfig({
         text: 'Getting Started',
         items: [
           { text: 'Installation', link: '/getting-started/' },
+          { text: 'Styling', link: '/getting-started/styles' },
           { text: 'Typescript Augmentations', link: '/getting-started/typescript-augmentations' },
           { text: 'Configuration', link: '/getting-started/configuration' },
         ],

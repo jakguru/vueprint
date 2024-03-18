@@ -16,3 +16,4 @@ Additionally, it provides some useful utility functions which can be used to spe
 * [Color Utilities](/api/modules/utilities_colors)
 * [Debug Utilities](/api/modules/utilities_debug)
 * [Validation Utilities](/api/modules/utilities_validation)
+* [The Service Worker Provider](./service-worker-provider)

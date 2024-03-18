@@ -4,7 +4,14 @@ import fs from 'fs-extra'
 import webpack from 'webpack'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 
-const customExternals: Array<string> = ['#app', '@nuxt/schema', '#imports', 'nuxt', 'nuxt/app']
+const customExternals: Array<string> = [
+  '#app',
+  '@nuxt/schema',
+  '#imports',
+  'nuxt',
+  'nuxt/app',
+  '@vuetify/loader-shared',
+]
 const includedExternals: Array<string> = [
   '@mdi/font',
   '@mdi/font/css/materialdesignicons.css',
@@ -65,6 +72,16 @@ const webpackConfig: webpack.Configuration = {
   ],
 }
 
+const webpackConfigForVuePrintNoVuetify: webpack.Configuration = {
+  ...webpackConfig,
+  entry: './src/vueprint-no-vuetify.scss',
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: 'vueprint-no-vuetify.css',
+    }),
+  ],
+}
+
 export default defineBuildConfig({
   failOnWarn: false,
   name: pkg.name,
@@ -77,7 +94,9 @@ export default defineBuildConfig({
   hooks: {
     'build:prepare': (ctx) => {
       ctx.options.entries = ctx.options.entries.filter(
-        (entry) => !entry.input || !entry.input.endsWith('src/vueprint')
+        (entry) =>
+          !entry.input ||
+          (!entry.input.endsWith('src/vueprint') && !entry.input.includes('vueprint-no-vuetify'))
       )
     },
     'mkdist:done': async () => {
@@ -99,6 +118,24 @@ export default defineBuildConfig({
         })
       })
       console.log(res)
+      const noVuetify = await new Promise((resolve, reject) => {
+        webpack(webpackConfigForVuePrintNoVuetify, (err, stats) => {
+          if (err || stats?.hasErrors()) {
+            return reject(
+              err ||
+                stats?.toString({
+                  colors: true,
+                })
+            )
+          }
+          resolve(
+            stats!.toString({
+              colors: true,
+            })
+          )
+        })
+      })
+      console.log(noVuetify)
     },
     'build:done': () => {
       const nuxtRelatedFiles = fs.readdirSync('./dist/nuxt')

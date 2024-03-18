@@ -47,7 +47,8 @@ export default defineNuxtModule({
   // Shorthand sugar to register Nuxt hooks
   hooks: {},
   // The function holding your module logic, it can be asynchronous
-  setup(vueprintOptions, nuxt) {
+  setup(vueprintOptions: VueprintModuleOptions, nuxt) {
+    const vuetifyModuleOptions = vueprintOptions.vuetify?.moduleOptions || {}
     nuxt.hooks.hook('vite:extendConfig', (config) => {
       // @ts-expect-error
       config.plugins.push(
@@ -59,7 +60,7 @@ export default defineNuxtModule({
         })
       )
       // @ts-expect-error
-      config.plugins.push(vuetify({ autoImport: true }))
+      config.plugins.push(vuetify({ ...vuetifyModuleOptions, autoImport: true }))
       // @ts-expect-error
       config.resolve.alias = {
         // @ts-expect-error
@@ -77,6 +78,17 @@ export default defineNuxtModule({
       nuxt.options.runtimeConfig.public.vueprint as VueprintModuleOptions,
       vueprintOptions
     )
+    if (
+      vuetifyModuleOptions &&
+      vuetifyModuleOptions.styles &&
+      // @ts-expect-error - the configFile exists in real life, but the type defintion is wrong
+      vuetifyModuleOptions.styles.configFile
+    ) {
+      nuxt.options.sourcemap = {
+        client: false,
+        server: false,
+      }
+    }
     const resolver = createResolver(import.meta.url)
     addPlugin({
       src: resolver.resolve('./plugin.server'),
