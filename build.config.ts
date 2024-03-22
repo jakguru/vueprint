@@ -10,6 +10,7 @@ import RollupPluginLicense from 'rollup-plugin-license'
 
 const customExternals: Array<string> = [
   '#app',
+  '@nuxt/kit',
   '@nuxt/schema',
   '#imports',
   'nuxt',

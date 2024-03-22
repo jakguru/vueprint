@@ -7,6 +7,7 @@ import VueClientBootstrap from '../plugins/client'
 import { defineNuxtPlugin, useRuntimeConfig } from 'nuxt/app'
 import { getDebugger } from '../utilities/debug'
 import { defu } from 'defu'
+import type { VueprintModuleOptions } from '.'
 
 const debug = getDebugger('Nuxt:Plugin:Client')
 
@@ -17,7 +18,7 @@ const plugin = defineNuxtPlugin({
       public: { vueprint: vueprintOptions },
     } = useRuntimeConfig()
     if (!process.server) {
-      const opts = defu(vueprintOptions, {
+      const opts = defu(vueprintOptions as VueprintModuleOptions, {
         vuetify: {
           options: {
             ssr: true,

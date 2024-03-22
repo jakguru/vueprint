@@ -277,7 +277,6 @@
   },
   "dependencies": {
     "@mdi/font": "^7.4.47",
-    "@nuxt/kit": "^3.10.3",
     "axios": "^1.6.7",
     "broadcast-channel": "^7.0.0",
     "defu": "^6.1.4",
@@ -294,6 +293,7 @@
     "vuetify": "^3.5.7"
   },
   "devDependencies": {
+    "@nuxt/kit": "^3.11.1",
     "@nuxt/module-builder": "^0.5.5",
     "@nuxt/schema": "^3.11.1",
     "@nuxt/test-utils": "^3.11.0",
