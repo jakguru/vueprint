@@ -281,7 +281,7 @@
     "axios": "^1.6.7",
     "broadcast-channel": "^7.0.0",
     "defu": "^6.1.4",
-    "firebase": "^10.8.1",
+    "firebase": "^10.9.0",
     "joi": "^17.12.2",
     "luxon": "^3.4.4",
     "mitt": "^3.0.1",
