@@ -225,7 +225,7 @@
   "homepage": "https://jakguru.github.io/vueprint/",
   "scripts": {
     "watch": "nodemon",
-    "build": "yarn nuxt:types:generate && npx unbuild --sourcemap",
+    "build": "yarn nuxt:types:generate && npx unbuild --sourcemap && npx jiti bin/updateDistributedPackageJson.ts",
     "build:watch": "nodemon",
     "type-check": "npx tsc --noEmit",
     "lint": "eslint . --ext=.ts,.d.ts",

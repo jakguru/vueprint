@@ -20,6 +20,6 @@ jobs:
           echo "Updating package.json version to $VERSION"
           npm version --no-git-tag-version "$VERSION" --allow-same-version
       - run: yarn build
-      - run: npm publish --access=public
+      - run: cd dist && npm publish --access=public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
