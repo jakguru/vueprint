@@ -1,3 +1,7 @@
+/**
+ * @module @jakguru/vueprint/nuxt/plugin.client
+ */
+
 import VueMainBootstrap from '../plugins/main'
 import VueClientBootstrap from '../plugins/client'
 import { defineNuxtPlugin, useRuntimeConfig } from 'nuxt/app'

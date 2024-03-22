@@ -1,3 +1,6 @@
+/**
+ * @module @jakguru/vueprint/pwa/worker
+ */
 import { BusService } from '../services/bus'
 import { getDebugger } from '../utilities/debug'
 import { ref } from 'vue'
@@ -37,6 +40,99 @@ export interface ServiceWorkerProviderOptions {
   firebase?: Partial<FirebaseOptions>
 }
 
+/**
+ * The service worker provider acts as a wrapper around the functionality of the service worker to integrate it more closely with your application for functionality such as background messages, push notifications or application updates.
+ *
+ * ::: tip
+ * The Service Worker Provider is meant to be used in the service worker.
+ * :::
+ *
+ * ## Accessing the Service Worker Provider
+ *
+ * The Service Worker Provider should be imported from `@jakguru/vueprint/pwa/worker`
+ *
+ * ```typescript
+ * import { ServiceWorkerProvider } from '@jakguru/vueprint/pwa/worker'
+ * import type { ServiceWorkerProviderOptions } from '@jakguru/vueprint/pwa/worker'
+ * ```
+ *
+ * ## Using the Service Worker Provider
+ *
+ * ### Configuration
+ *
+ * The Service Worker Provider constructor accepts 2 arguments: `self` which is an instance of {@link https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerGlobalScope | ServiceWorkerGlobalScope}, and an optional {@link ServiceWorkerProviderOptions} object which has 2 properties:
+ *
+ * | Key | Type | Description |
+ * | --- | --- | --- |
+ * | `firebase` | [FirebaseOptions](https://firebase.google.com/docs/reference/js/app.firebaseoptions) | Firebase configuration object. Contains a set of parameters required by services in order to successfully communicate with Firebase server APIs and to associate client data with your Firebase project and Firebase application. |
+ * | `namespace` | `string` | The namespace to use in the `broadcast-channel` to ensure that messages are sent and received between tabs |
+ *
+ * ### Adding Hooks
+ *
+ * The Service Worker Provider includes an instance of the {@link BusService} under the hood, so you can use the same {@link BusService.on}, {@link BusService.once}, {@link BusService.off}, {@link BusService.emit} and {@link BusService.await} methods which you would normally use with the Bus Service.
+ *
+ * ### Booting the Service Worker Provider
+ *
+ * After initializing the Service Worker Provider instance, you will need to call {@link ServiceWorkerProvider.boot | instance.boot()} to activate all of processes.
+ *
+ * #### Available Service Worker Events
+ *
+ * | Event | Description | Awaited | Experimental |
+ * | --- | --- | --- | --- |
+ * | `sw:activate` | The {@link https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerGlobalScope/activate_event | activate} event of the {@link https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerGlobalScope | ServiceWorkerGlobalScope} interface is fired when a {@link https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerRegistration | ServiceWorkerRegistration} acquires a new {@link https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerRegistration/active | ServiceWorkerRegistration.active} worker. | ✅ | |
+ * | `sw:install` | The {@link https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerGlobalScope/install_event | install} event of the {@link https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerGlobalScope | ServiceWorkerGlobalScope} interface is fired when a {@link https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerRegistration | ServiceWorkerRegistration} acquires a new {@link https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerRegistration/installing | ServiceWorkerRegistration.installing} worker. | ✅ | |
+ * | `sw:fetch` | The {@link https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerGlobalScope/fetch_event | fetch} event is fired in the service worker's global scope when the main app thread makes a network request. It enables the service worker to intercept network requests and send customized responses (for example, from a local cache). | ✅ | |
+ * | `sw:message` | The {@link https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerGlobalScope/message_event | message} event of the {@link https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerGlobalScope | ServiceWorkerGlobalScope} interface occurs when incoming messages are received. Controlled pages can use the {@link https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorker/postMessage | ServiceWorker.postMessage()} method to send messages to service workers. The service worker can optionally send a response back via the {@link https://developer.mozilla.org/en-US/docs/Web/API/Client/postMessage | Client.postMessage()}, corresponding to the controlled page. | ✅ | |
+ * | `sw:messageerror` | The {@link https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerGlobalScope/messageerror_event | messageerror} event of the {@link https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerGlobalScope | ServiceWorkerGlobalScope} interface occurs when incoming messages can't be deserialized. | | |
+ * | `sw:notificationclick` | The {@link https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerGlobalScope/notificationclick_event | notificationclick} event of the {@link https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerGlobalScope | ServiceWorkerGlobalScope} interface is fired to indicate that a system notification spawned by {@link https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerRegistration/showNotification | ServiceWorkerRegistration.showNotification(}) has been clicked. | ✅ | |
+ * | `sw:notificationclose` | The {@link https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerGlobalScope/notificationclose_event | notificationclose} event of the {@link https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerGlobalScope | ServiceWorkerGlobalScope} interface fires when a user closes a displayed notification spawned by {@link https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerRegistration/showNotification | ServiceWorkerRegistration.showNotification()}. | ✅ | |
+ * | `sw:push` | The {@link https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerGlobalScope/push_event | push} event is sent to a service worker's global scope (represented by the {@link https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerGlobalScope | ServiceWorkerGlobalScope} interface) when the service worker has received a push message. | ✅ | |
+ * | `sw:pushsubscriptionchange` | The {@link https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerGlobalScope/pushsubscriptionchange_event | pushsubscriptionchange} event is sent to the {@link https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerGlobalScope | global scope} of a {@link https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorker | ServiceWorker} to indicate a change in push subscription that was triggered outside the application's control. | ✅ | |
+ * | `sw:sync` | The {@link https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerGlobalScope/sync_event | sync} event of the {@link https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerGlobalScope | ServiceWorkerGlobalScope} interface is fired when the page (or worker) that registered the event with the SyncManager is running and as soon as network connectivity is available. | ✅ | |
+ * | `sw:backgroundfetchabort` | The {@link https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerGlobalScope/backgroundfetchabort_event | backgroundfetchabort} event of the {@link https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerGlobalScope | ServiceWorkerGlobalScope} interface is fired when the user or the app itself cancels a background fetch operation. | ✅ | ✅ |
+ * | `sw:backgroundfetchclick` | The {@link https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerGlobalScope/backgroundfetchclick_event | backgroundfetchclick} event of the {@link https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerGlobalScope | ServiceWorkerGlobalScope} interface is fired when the user clicks on the UI that the browser provides to show the user the progress of the background fetch operation. | ✅ | ✅ |
+ * | `sw:backgroundfetchfail` | The {@link https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerGlobalScope/backgroundfetchfail_event | backgroundfetchfail} event of the {@link https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerGlobalScope | ServiceWorkerGlobalScope} interface is fired when a background fetch operation has failed: that is, when at least one network request in the fetch has failed to complete successfully. | ✅ | ✅ |
+ * | `sw:backgroundfetchsuccess` | The {@link https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerGlobalScope/backgroundfetchsuccess_event | backgroundfetchsuccess} event of the {@link https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerGlobalScope | ServiceWorkerGlobalScope} interface is fired when a background fetch operation has completed successfully: that is, when all network requests in the fetch have completed successfully. | ✅ | ✅ |
+ * | `sw:canmakepayment` | The {@link https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerGlobalScope/canmakepayment_event | canmakepayment} event of the {@link https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerGlobalScope | ServiceWorkerGlobalScope} interface is fired on a payment app's service worker to check whether it is ready to handle a payment. Specifically, it is fired when the merchant website calls new PaymentRequest(). | ✅ | ✅ |
+ * | `sw:contentdelete` | The {@link https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerGlobalScope/contentdelete_event | contentdelete} event of the {@link https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerGlobalScope | ServiceWorkerGlobalScope} interface is fired when an item is removed from the indexed content via the user agent. | ✅ | ✅ |
+ * | `sw:cookiechange` | The {@link https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerGlobalScope/cookiechange_event | cookiechange} event of the {@link https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerGlobalScope | ServiceWorkerGlobalScope} interface is fired when a cookie change occurs that matches the service worker's cookie change subscription list. | ✅ | ✅ |
+ * | `sw:paymentrequest` | The {@link https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerGlobalScope/paymentrequest_event | paymentrequest} event of the {@link https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerGlobalScope | ServiceWorkerGlobalScope} interface is fired on a payment app when a payment flow has been initiated on the merchant website via the PaymentRequest.show() method. | ✅ | ✅ |
+ * | `sw:periodicsync` | The {@link https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerGlobalScope/periodicsync_event | periodicsync} event of the {@link https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerGlobalScope | ServiceWorkerGlobalScope} interface is fired at timed intervals, specified when registering a PeriodicSyncManager. | ✅ | ✅ |
+ *
+ * ## Practical Example
+ *
+ * ```typescript
+ * import { ServiceWorkerProvider } from '@jakguru/vueprint/pwa/worker'
+ * import type { ServiceWorkerProviderOptions } from '@jakguru/vueprint/pwa/worker'
+ * import type { FirebaseOptions } from 'firebase/app'
+ *
+ * declare global {
+ *   interface ImportMeta {
+ *     env: Record<string, string>
+ *   }
+ * }
+ *
+ * declare const self: ServiceWorkerGlobalScope & typeof globalThis
+ *
+ * const firebase: FirebaseOptions = {
+ *   apiKey: import.meta.env.VITE_FCM_CONFIG_API_KEY || '',
+ *   authDomain: import.meta.env.VITE_FCM_CONFIG_AUTH_DOMAIN || '',
+ *   projectId: import.meta.env.VITE_FCM_CONFIG_PROJECT_ID || '',
+ *   storageBucket: import.meta.env.VITE_FCM_CONFIG_STORAGE_BUCKET || '',
+ *   messagingSenderId: import.meta.env.VITE_FCM_CONFIG_MESSAGING_SENDER_ID || '',
+ *   appId: import.meta.env.VITE_FCM_CONFIG_APP_ID || '',
+ *   measurementId: import.meta.env.VITE_FCM_CONFIG_MEASUREMENT_ID || '',
+ * }
+ *
+ * const options: ServiceWorkerProviderOptions = {
+ *   namespace: import.meta.env.VITE_APP_NAMESPACE,
+ *   firebase,
+ * }
+ *
+ * const instance = new ServiceWorkerProvider(self, options)
+ * instance.boot()
+ * ```
+ */
 export class ServiceWorkerProvider {
   readonly #self: ServiceWorkerGlobalScope
   readonly #bus: BusService
@@ -46,6 +142,11 @@ export class ServiceWorkerProvider {
   readonly #firebaseOnMessageUnsubscribe: Ref<Unsubscribe | undefined>
   readonly #firebaseOnBackgroundMessageUnsubscribe: Ref<Unsubscribe | undefined>
 
+  /**
+   * Create a new Service Worker Provider instance.
+   * @param self The service worker's global scope
+   * @param options The options to be used by the service worker provider
+   */
   constructor(self: ServiceWorkerGlobalScope, options?: ServiceWorkerProviderOptions) {
     this.#self = self
     this.#bus = new BusService(options && options.namespace ? options.namespace : 'vueprint')
@@ -89,22 +190,40 @@ export class ServiceWorkerProvider {
     debug('Initialized')
   }
 
+  /**
+   * The service worker's global scope
+   */
   public get self() {
     return this.#self
   }
 
+  /**
+   * Exposes the {@link BusService.on} method
+   */
   public get on() {
     return this.#bus.on.bind(this.#bus)
   }
 
+  /**
+   * Exposes the {@link BusService.off} method
+   */
   public get off() {
     return this.#bus.off.bind(this.#bus)
   }
 
+  /**
+   * Exposes the {@link BusService.once} method
+   */
   public get once() {
     return this.#bus.once.bind(this.#bus)
   }
 
+  /**
+   * Trigger an event
+   * @param event The name of the event to emit
+   * @param options The options for emitting the event
+   * @param args The arguments to pass to the event callback
+   */
   public emit<K extends BusEvent>(
     event: K,
     options: BusEventListenOptions = {},
@@ -125,10 +244,16 @@ export class ServiceWorkerProvider {
     }
   }
 
+  /**
+   * Exposes the {@link BusService.await} method
+   */
   public get await() {
     return this.#bus.await.bind(this.#bus)
   }
 
+  /**
+   * Boot the service worker provider
+   */
   public boot() {
     if (this.#booted.value) {
       return

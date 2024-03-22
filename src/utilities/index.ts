@@ -1,3 +1,6 @@
+/**
+ * @module @jakguru/vueprint/utilities
+ */
 export * as validation from './validation'
 export * as debug from './debug'
 export * as colors from './colors'

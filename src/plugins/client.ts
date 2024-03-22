@@ -1,4 +1,7 @@
-import type { App } from 'vue'
+/**
+ * @module @jakguru/vueprint/plugins/client
+ */
+import type { App, Plugin } from 'vue'
 import { PushPlugin, PushPluginOptions } from './push'
 import { UiPlugin, UiPluginOptions } from './ui'
 import { WebfontloaderPlugin, WebfontloaderPluginOptions } from './webfontloader'
@@ -15,7 +18,7 @@ export interface VueClientBootstrapOptions {
 /**
  * A plugin which bootstraps all of the Vue plugins which can only be loaded in a client environment, in the correct order
  */
-const VueClientBootstrap = {
+const VueClientBootstrap: Plugin<VueClientBootstrapOptions> = {
   install: (app: App, options?: VueClientBootstrapOptions) => {
     app.use(PushPlugin, options?.push)
     app.use(UiPlugin, { sounds: options?.ui?.sounds })

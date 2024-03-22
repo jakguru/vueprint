@@ -1,3 +1,6 @@
+/**
+ * @module @jakguru/vueprint/services/bus
+ */
 import type { NotificationPayload } from 'firebase/messaging'
 import type { Ref } from 'vue'
 import type { UserIdentity } from './identity'
@@ -306,7 +309,74 @@ declare class TinyEmitterWithEvents extends TinyEmitter {
 }
 
 /**
- * A bus for transmitting and subscribing to events acrosss components and tabs
+ * The bus service is a service which allows event-based communication between components, tabs and services. It offers an API similar to the [NodeJS EventEmitter](https://nodejs.org/docs/latest-v18.x/api/events.html#class-eventemitter) class.
+ * @remarks
+ *
+ * ## Accessing the Bus Service
+ *
+ * The Bus Service is both injectable and accessible from the global `Vue` instance:
+ *
+ * ```vue
+ *
+ * <script lang="ts">
+ * import { defineComponent, inject } from 'vue'
+ * import type { BusService } from '@jakguru/vueprint'
+ * export default defineComponent({
+ *     setup() {
+ *         const bus = inject<BusService>('bus')
+ *         return {}
+ *     }
+ *     mounted() {
+ *         const bus: BusService = this.config.globalProperties.$bus
+ *     }
+ * })
+ * </script>
+ * ```
+ *
+ * ## Using the Bus Service
+ *
+ * ### Triggering an Event
+ *
+ * To trigger an event, simply use the {@link BusService.emit} method, where the first argument is the event that you are triggering, the second argument are the {@link BusEventListenOptions} used to determine where an event is triggered to, and the remaining arguments are the arguments which will be passed to the listening callbacks.
+ *
+ * ```typescript
+ * bus.emit(
+ *     'some-custom-event',
+ *     { crossTab: true, local: true },
+ *     customArg1,
+ *     customArg2
+ * )
+ * ```
+ *
+ * ### Listening to an Event
+ *
+ * To listen to an event, you can use the {@link BusService.on} and {@link BusService.once} methods, where the first argument is the event that you are listening to, the second argument is the callback which will be triggered when the event occurs, and the last argument is the {@link BusEventListenOptions} used to determine the scope of events to subscribe to.
+ *
+ * ```typescript
+ * const someEventCallback = (arg1, arg2, from) => {
+ *     // do something here
+ * }
+ *
+ * bus.on(
+ *     'some-custom-event',
+ *     someEventCallback,
+ *     { crossTab: true, local: true }
+ * )
+ * ```
+ *
+ * To remove a callback from the listen of callbacks triggered when an event occurs, you can use {@link BusService.off}, where the first argument is the event that you want to stop listening to, the second argument is the callback which should stop being triggered, and the last argument are the {@link BusEventListenOptions} used to determine the scope of events to unsubscribe from.
+ *
+ * ### Using Custom Events
+ *
+ * In order to use custom events in typescript, you will need to add some Typescript Augmentations. For more information, see [Typescript Augmentations](/getting-started/typescript-augmentations)
+ *
+ * ### Determining if we are currently in the main tab
+ *
+ * To determine if the current tab is the main tab, the {@link BusService.isMain} method can be used.
+ *
+ * ### Cross-Tab Requests
+ *
+ * It is now possible to make requests to other tabs and await their responses. This is done using the {@link BusService.crossTabRequest} and {@link BusService.addRequestHandler} methods.
  */
 export class BusService {
   #uuid: string
@@ -618,6 +688,14 @@ export class BusService {
     })
   }
 
+  /**
+   * Make a request to all tabs and await their responses
+   * @param method The method to call
+   * @param payload The payload to send to the method being called
+   * @param targets The uuids of the tabs to send the request to. Accepts "*" for all tabs
+   * @param timeout The amount of time to wait for a response
+   * @returns A map of responses from the tabs
+   */
   public async crossTabRequest<ResponseType extends any = any>(
     method: string,
     payload: any,
@@ -651,6 +729,11 @@ export class BusService {
     this.#requestResponseHandlers.set(method, handler)
   }
 
+  /**
+   * Add a function which will handle requests for a method called by {@link BusService.crossTabRequest}
+   * @param method The method which the handler will handle requests for
+   * @param handler The function which will handle requests and return results
+   */
   public addRequestHandler(method: string, handler: (payload: any) => unknown | Promise<unknown>) {
     const protectedMethods = ['getActiveTabs', 'awaitCrossTab']
     if (protectedMethods.includes(method)) {

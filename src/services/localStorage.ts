@@ -1,3 +1,6 @@
+/**
+ * @module @jakguru/vueprint/services/localStorage
+ */
 import dot from 'dot-object'
 import merge from 'lodash.merge'
 import type SecureLS from 'secure-ls'
@@ -17,7 +20,27 @@ declare global {
 }
 
 /**
- * A SSR-friendly local storage service that uses secure-ls to store and retrieve data.
+ * The Local Storage service is an SSR-Friendly service used to store information used by the application. It keeps all information encrypted using [secure-ls](https://www.npmjs.com/package/secure-ls) as a driver, while ensuring that all components of the application and all instances of the application in the same browser are kept in sync.
+ * ## Accessing the Local Storage Service
+ *
+ * The Local Storage Service is both injectable and accessible from the global `Vue` instance:
+ *
+ * ```vue
+ *
+ * <script lang="ts">
+ * import { defineComponent, inject } from 'vue'
+ * import type { LocalStorageService } from '@jakguru/vueprint'
+ * export default defineComponent({
+ *     setup() {
+ *         const ls = inject<LocalStorageService>('ls')
+ *         return {}
+ *     }
+ *     mounted() {
+ *         const ls: LocalStorageService = this.config.globalProperties.$ls
+ *     }
+ * })
+ * </script>
+ * ```
  */
 export class LocalStorageService {
   #namespace: string

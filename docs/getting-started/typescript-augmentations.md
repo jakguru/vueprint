@@ -6,7 +6,7 @@ In order to be able to extend VuePrint's services to fit your application, you s
 
 The `BusEventCallbackSignatures` interface is used by the bus to determine which events are expected and what the function which is called when that event occurs should look like.
 
-For more information and examples, see [services/bus.BusEventCallbackSignatures](/api/interfaces/services_bus.BusEventCallbackSignatures)
+For more information and examples, see [the BusEventCallbackSignatures Documentation](/api/interfaces/jakguru_vueprint_services_bus.BusEventCallbackSignatures)
 
 ```typescript
 declare module '@jakguru/vueprint' {

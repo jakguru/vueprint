@@ -1,3 +1,6 @@
+/**
+ * @module @jakguru/vueprint/utilities/validation
+ */
 import Joi from 'joi'
 import type { useI18n } from 'vue-i18n'
 
@@ -13,8 +16,8 @@ export class ErrorWithTranslatedMessage extends Error {}
  * @param input The input to check
  * @returns A boolean indicating whether the input is a valid Luhn number
  */
-export const isValidLuhn = (input: string | null) => {
-  if (!input) {
+export const isValidLuhn = (input: unknown) => {
+  if (!isGoodString(input)) {
     return false
   }
   // Ensure the input is a string and remove any non-digit characters
@@ -55,7 +58,11 @@ export function getDeserializedSchema(serialized: string) {
  * @param label The label of the field being validated
  * @returns The translated error message
  */
-export function getJoiValidationErrorI18n(error: Error | undefined, t: I18nT, label = 'the Field') {
+export function getJoiValidationErrorI18n(
+  error: Error | undefined,
+  t: I18nT,
+  label = 'the Field'
+): string {
   if (!error) {
     return ''
   }
@@ -65,4 +72,13 @@ export function getJoiValidationErrorI18n(error: Error | undefined, t: I18nT, la
   const detail = error.details[0]
   const { type } = detail
   return t(`validation.${type}`, { label })
+}
+
+/**
+ * Check if a variable is a string which is not empty
+ * @param string The variable which should be tested
+ * @returns {boolean} Whether the string is a good string
+ */
+export const isGoodString = (string: unknown) => {
+  return typeof string === 'string' && string.trim().length > 0
 }

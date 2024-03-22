@@ -1,7 +1,7 @@
 {
   "name": "@jakguru/vueprint",
   "version": "0.1.0",
-  "description": "Groundwork Libraries and Plugins for use in Vue3 based Projects",
+  "description": "A BluePrint for Vue 3 Projects providing much of the desired functionality in a consistent and easily configurable manner",
   "bugs": {
     "url": "https://github.com/jakguru/vueprint/issues"
   },
@@ -43,6 +43,36 @@
       "import": "./dist/vueprint-no-vuetify.scss",
       "browser": "./dist/vueprint-no-vuetify.scss"
     },
+    "./vueprint.css": {
+      "require": "./dist/vueprint.css",
+      "import": "./dist/vueprint.css",
+      "browser": "./dist/vueprint.css"
+    },
+    "./vueprint-no-vuetify.css": {
+      "require": "./dist/vueprint-no-vuetify.css",
+      "import": "./dist/vueprint-no-vuetify.css",
+      "browser": "./dist/vueprint-no-vuetify.css"
+    },
+    "./vueprint.scss": {
+      "require": "./dist/vueprint.scss",
+      "import": "./dist/vueprint.scss",
+      "browser": "./dist/vueprint.scss"
+    },
+    "./vueprint-no-vuetify.scss": {
+      "require": "./dist/vueprint-no-vuetify.scss",
+      "import": "./dist/vueprint-no-vuetify.scss",
+      "browser": "./dist/vueprint-no-vuetify.scss"
+    },
+    "./libs": {
+      "import": "./dist/libs/index.mjs",
+      "require": "./dist/libs/index.cjs",
+      "types": "./dist/libs/index.d.ts"
+    },
+    "./libs/milicron": {
+      "import": "./dist/libs/milicron.mjs",
+      "require": "./dist/libs/milicron.cjs",
+      "types": "./dist/libs/milicron.d.ts"
+    },
     "./utilities": {
       "import": "./dist/utilities/index.mjs",
       "require": "./dist/utilities/index.cjs",
@@ -77,6 +107,11 @@
       "import": "./dist/services/bus.mjs",
       "require": "./dist/services/bus.cjs",
       "types": "./dist/services/bus.d.ts"
+    },
+    "./services/cron": {
+      "import": "./dist/services/cron.mjs",
+      "require": "./dist/services/cron.cjs",
+      "types": "./dist/services/cron.d.ts"
     },
     "./services/identity": {
       "import": "./dist/services/identity.mjs",
@@ -187,6 +222,7 @@
   },
   "author": "Jak Guru <jak@jak.guru>",
   "license": "MIT",
+  "homepage": "https://jakguru.github.io/vueprint/",
   "scripts": {
     "watch": "nodemon",
     "build": "yarn nuxt:types:generate && npx unbuild --sourcemap",
@@ -198,7 +234,7 @@
     "docs:build": "npx vitepress build docs",
     "docs:preview": "npx vitepress preview docs",
     "docs:api": "npx typedoc",
-    "docs:api:watch": "npx typedoc --watch",
+    "docs:api:watch": "nodemon --config docs.api.nodemon.json",
     "nuxt:types:generate": "rm -rf .nuxt && npx nuxi prepare playground && mv playground/.nuxt .nuxt && rm -rf playground"
   },
   "engines": {
@@ -278,6 +314,7 @@
     "eslint-plugin-adonis": "^2.1.1",
     "eslint-plugin-prettier": "^5.0.0",
     "fs-extra": "^11.2.0",
+    "jiti": "^1.21.0",
     "less": "^4.2.0",
     "lodash.merge": "^4.6.2",
     "mini-css-extract-plugin": "^2.8.1",
@@ -301,11 +338,14 @@
     "tiny-emitter": "^2.1.0",
     "typedoc": "^0.25.11",
     "typedoc-plugin-markdown": "^3.17.1",
+    "typedoc-plugin-mdn-links": "^3.1.18",
+    "typedoc-plugin-missing-exports": "^2.2.0",
+    "typedoc-plugin-vue": "^1.1.0",
     "typescript": "^5.1.6",
     "unbuild": "^2.0.0",
     "vitepress": "^1.0.0-rc.45",
+    "webfontloader": "^1.6.28",
     "webpack": "^5.90.3",
-    "webpack-cli": "^5.1.4",
-    "webfontloader": "^1.6.28"
+    "webpack-cli": "^5.1.4"
   }
 }

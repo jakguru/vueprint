@@ -1,127 +1,149 @@
 {
-    "entryPoints": [
-        "src/index.ts",
-        "src/utilities/index.ts",
-        "src/utilities/colors.ts",
-        "src/utilities/validation.ts",
-        "src/utilities/debug.ts",
-        "src/services/index.ts",
-        "src/services/api.ts",
-        "src/services/bus.ts",
-        "src/services/identity.ts",
-        "src/services/localStorage.ts",
-        "src/services/push.ts",
-        "src/services/ui.ts",
-        "src/services/vuetify.ts",
-        "src/plugins/index.ts",
-        "src/plugins/api.ts",
-        "src/plugins/bus.ts",
-        "src/plugins/cron.ts",
-        "src/plugins/identity.ts",
-        "src/plugins/ls.ts",
-        "src/plugins/push.ts",
-        "src/plugins/ui.ts",
-        "src/plugins/vuetify.ts",
-        "src/plugins/main.ts",
-        "src/plugins/client.ts",
-        "src/plugins/webfontloader.ts",
-        "src/nuxt/index.ts",
-        "src/nuxt/plugin.client.ts",
-        "src/nuxt/plugin.server.ts",
-        "src/pwa/worker.ts",
-    ],
-    "entryPointStrategy": "resolve",
-    "tsconfig": "./tsconfig.typedoc.json",
-    "exclude": [
-        "node_modules/**/*",
-        "dist/**/*",
-        "docs/**/*",
-        "templates/**/*",
-        "playgrounds/**/*"
-    ],
-    "compilerOptions": {
-        "skipLibCheck": true,
+  "entryPoints": [
+    "src/index.ts",
+    "src/libs/milicron.ts",
+    "src/utilities/colors.ts",
+    "src/utilities/validation.ts",
+    "src/utilities/debug.ts",
+    "src/services/api.ts",
+    "src/services/bus.ts",
+    "src/services/cron.ts",
+    "src/services/identity.ts",
+    "src/services/localStorage.ts",
+    "src/services/push.ts",
+    "src/services/ui.ts",
+    "src/services/vuetify.ts",
+    "src/plugins/api.ts",
+    "src/plugins/bus.ts",
+    "src/plugins/cron.ts",
+    "src/plugins/identity.ts",
+    "src/plugins/ls.ts",
+    "src/plugins/push.ts",
+    "src/plugins/ui.ts",
+    "src/plugins/vuetify.ts",
+    "src/plugins/main.ts",
+    "src/plugins/client.ts",
+    "src/plugins/webfontloader.ts",
+    "src/nuxt/plugin.client.ts",
+    "src/nuxt/plugin.server.ts",
+    "src/pwa/worker.ts"
+  ],
+  "entryPointStrategy": "resolve",
+  "tsconfig": "./tsconfig.typedoc.json",
+  "exclude": [
+    "node_modules/**/*",
+    "dist/**/*",
+    "docs/**/*",
+    "templates/**/*",
+    "playgrounds/**/*"
+  ],
+  "compilerOptions": {
+    "skipLibCheck": true
+  },
+  "out": "docs/api",
+  "json": "docs/api/reflections.json",
+  "plugin": [
+    "typedoc-plugin-vue",
+    "typedoc-plugin-mdn-links",
+    "typedoc-plugin-markdown"
+  ],
+  "sort": [
+    "instance-first",
+    "required-first",
+    "kind",
+    "visibility",
+    "alphabetical"
+  ],
+  "readme": "none",
+  "excludeNotDocumented": false,
+  "excludeExternals": false,
+  "excludePrivate": true,
+  "excludeProtected": true,
+  "excludeInternal": false,
+  "excludeReferences": false,
+  "githubPages": false,
+  "theme": "default",
+  "hideGenerator": true,
+  "includeVersion": false,
+  "searchInComments": true,
+  "sourceLinkTemplate": "https://github.com/jakguru/vueprint/blob/{gitRevision}/{path}#L{line}",
+  "validation": {
+    "notExported": true,
+    "invalidLink": true,
+    "notDocumented": true
+  },
+  "externalSymbolLinkMappings": {
+    "global": {
+      "Boolean": "https://developer.mozilla.org/en-US/docs/Glossary/Boolean/JavaScript",
+      "String": "https://developer.mozilla.org/en-US/docs/Glossary/String",
+      "Void": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void",
+      "Number": "https://developer.mozilla.org/en-US/docs/Glossary/Number",
+      "Set": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set",
+      "Error": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error",
+      "Promise": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
+      "ServiceWorkerGlobalScope": "https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerGlobalScope"
     },
-    "out": "docs/api",
-    "json": "docs/api/reflections.json",
-    "plugin": [
-        "typedoc-plugin-markdown"
-    ],
-    "readme": "none",
-    "excludeExternals": false,
-    "excludePrivate": true,
-    "excludeProtected": true,
-    "excludeInternal": true,
-    "excludeReferences": true,
-    "githubPages": false,
-    "theme": "default",
-    "hideGenerator": true,
-    "includeVersion": false,
-    "searchInComments": true,
-    "sourceLinkTemplate": "https://github.com/jakguru/vueprint/blob/{gitRevision}/{path}#L{line}",
-    "validation": {
-        "notExported": true,
-        "invalidLink": true,
-        "notDocumented": true
+    "typescript": {
+      "Boolean": "https://developer.mozilla.org/en-US/docs/Glossary/Boolean/JavaScript",
+      "String": "https://developer.mozilla.org/en-US/docs/Glossary/String",
+      "Void": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void",
+      "Number": "https://developer.mozilla.org/en-US/docs/Glossary/Number",
+      "Set": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set",
+      "Error": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error",
+      "Promise": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise"
     },
-    "externalSymbolLinkMappings": {
-        "global": {
-            "Boolean": "https://developer.mozilla.org/en-US/docs/Glossary/Boolean/JavaScript",
-            "String": "https://developer.mozilla.org/en-US/docs/Glossary/String",
-            "Void": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void",
-            "Number": "https://developer.mozilla.org/en-US/docs/Glossary/Number",
-            "Set": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set",
-            "Error": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error",
-            "Promise": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise"
-        },
-        "typescript": {
-            "Boolean": "https://developer.mozilla.org/en-US/docs/Glossary/Boolean/JavaScript",
-            "String": "https://developer.mozilla.org/en-US/docs/Glossary/String",
-            "Void": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void",
-            "Number": "https://developer.mozilla.org/en-US/docs/Glossary/Number",
-            "Set": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set",
-            "Error": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error",
-            "Promise": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise"
-        },
-        "events": {
-            "EventEmitter": "https://nodejs.org/docs/latest-v18.x/api/events.html#class-eventemitter",
-            "EventEmitter.on": "https://nodejs.org/docs/latest-v18.x/api/events.html#emitteroneventname-listener",
-            "EventEmitter.once": "https://nodejs.org/docs/latest-v18.x/api/events.html#emitteronceeventname-listener",
-            "EventEmitter.off": "https://nodejs.org/docs/latest-v18.x/api/events.html#emitteroffeventname-listener",
-            "EventEmitter.removeAllListeners": "https://nodejs.org/docs/latest-v18.x/api/events.html#emitterremovealllistenerseventname"
-        },
-        "EventEmitter": {
-            "on": "https://nodejs.org/docs/latest-v18.x/api/events.html#emitteroneventname-listener",
-            "once": "https://nodejs.org/docs/latest-v18.x/api/events.html#emitteronceeventname-listener",
-            "off": "https://nodejs.org/docs/latest-v18.x/api/events.html#emitteroffeventname-listener",
-            "removeAllListeners": "https://nodejs.org/docs/latest-v18.x/api/events.html#emitterremovealllistenerseventname"
-        },
-        "@types/luxon": {
-            "DateTime": "https://moment.github.io/luxon/api-docs/index.html#datetime"
-        },
-        "luxon": {
-            "DateTime": "https://moment.github.io/luxon/api-docs/index.html#datetime"
-        },
-        "axios": {
-            "InternalAxiosRequestConfig": "https://github.com/axios/axios/blob/main/index.d.ts",
-            "AxiosResponse": "https://github.com/axios/axios/blob/main/index.d.ts",
-            "AxiosRequestConfig": "https://github.com/axios/axios/blob/main/index.d.ts"
-        },
-        "knex": {
-            "QueryBuilder": "https://knexjs.org/guide/query-builder.html",
-            "Knex.QueryBuilder": "https://knexjs.org/guide/query-builder.html",
-        },
-        "Knex": {
-            "QueryBuilder": "https://knexjs.org/guide/query-builder.html",
-            "Knex.QueryBuilder": "https://knexjs.org/guide/query-builder.html",
-        },
-        "vuetify": {
-            "VuetifyOptions": "https://vuetifyjs.com/en/features/global-configuration/#setup",
-            "ThemeDefinition": "https://vuetifyjs.com/en/features/theme/#api"
-        }
+    "events": {
+      "EventEmitter": "https://nodejs.org/docs/latest-v18.x/api/events.html#class-eventemitter",
+      "EventEmitter.on": "https://nodejs.org/docs/latest-v18.x/api/events.html#emitteroneventname-listener",
+      "EventEmitter.once": "https://nodejs.org/docs/latest-v18.x/api/events.html#emitteronceeventname-listener",
+      "EventEmitter.off": "https://nodejs.org/docs/latest-v18.x/api/events.html#emitteroffeventname-listener",
+      "EventEmitter.removeAllListeners": "https://nodejs.org/docs/latest-v18.x/api/events.html#emitterremovealllistenerseventname"
     },
-    "entryDocument": "index.md",
-    "hideBreadcrumbs": true,
-    "hideInPageTOC": true,
-    "namedAnchors": true,
+    "EventEmitter": {
+      "on": "https://nodejs.org/docs/latest-v18.x/api/events.html#emitteroneventname-listener",
+      "once": "https://nodejs.org/docs/latest-v18.x/api/events.html#emitteronceeventname-listener",
+      "off": "https://nodejs.org/docs/latest-v18.x/api/events.html#emitteroffeventname-listener",
+      "removeAllListeners": "https://nodejs.org/docs/latest-v18.x/api/events.html#emitterremovealllistenerseventname"
+    },
+    "@types/luxon": {
+      "DateTime": "https://moment.github.io/luxon/api-docs/index.html#datetime"
+    },
+    "luxon": {
+      "DateTime": "https://moment.github.io/luxon/api-docs/index.html#datetime"
+    },
+    "axios": {
+      "InternalAxiosRequestConfig": "https://github.com/axios/axios/blob/main/index.d.ts",
+      "Axios": "https://github.com/axios/axios/blob/main/index.d.ts#L46",
+      "AxiosResponse": "https://github.com/axios/axios/blob/main/index.d.ts#L246",
+      "AxiosRequestConfig": "https://github.com/axios/axios/blob/main/index.d.ts#L183"
+    },
+    "knex": {
+      "QueryBuilder": "https://knexjs.org/guide/query-builder.html",
+      "Knex.QueryBuilder": "https://knexjs.org/guide/query-builder.html"
+    },
+    "Knex": {
+      "QueryBuilder": "https://knexjs.org/guide/query-builder.html",
+      "Knex.QueryBuilder": "https://knexjs.org/guide/query-builder.html"
+    },
+    "vuetify": {
+      "VuetifyOptions": "https://vuetifyjs.com/en/features/global-configuration/#setup",
+      "ThemeDefinition": "https://vuetifyjs.com/en/features/theme/#api"
+    },
+    "vue": {
+      "Plugin": "https://github.com/vuejs/core/blob/main/packages/runtime-core/src/apiCreateApp.ts#L168"
+    },
+    "@vue/runtime-core": {
+      "Plugin": "https://github.com/vuejs/core/blob/main/packages/runtime-core/src/apiCreateApp.ts#L168"
+    },
+    "@vue/reactivity": {
+      "Ref": "https://github.com/vuejs/core/blob/main/packages/reactivity/src/ref.ts#L33",
+      "ComputedRef": "https://github.com/vuejs/core/blob/main/packages/reactivity/src/computed.ts#L11"
+    }
+  },
+  "entryDocument": "index.md",
+  "hideBreadcrumbs": false,
+  "hideInPageTOC": true,
+  "namedAnchors": true,
+  "objectLiteralTypeDeclarationStyle": "list",
+  "allReflectionsHaveOwnDocument": false
 }

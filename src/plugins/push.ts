@@ -1,5 +1,8 @@
+/**
+ * @module @jakguru/vueprint/plugins/push
+ */
 import './augmentations'
-import type { App } from 'vue'
+import type { App, Plugin } from 'vue'
 import type { FirebaseOptions } from 'firebase/app'
 import type { FirebaseTokenAuthenticationCallback } from '../services/push'
 import { PushService } from '../services/push'
@@ -18,7 +21,7 @@ export interface PushPluginOptions {
 /**
  * A plugin for managing push notifications and integration with Firebase Cloud Messaging
  */
-export const PushPlugin = {
+export const PushPlugin: Plugin<PushPluginOptions> = {
   install: (app: App, options?: PushPluginOptions) => {
     const firebaseOptions = options?.firebaseOptions || {}
     const onAuthenticatedForFirebase = options?.onAuthenticatedForFirebase || (() => {})

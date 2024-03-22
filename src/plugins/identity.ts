@@ -1,5 +1,8 @@
+/**
+ * @module @jakguru/vueprint/plugins/identity
+ */
 import './augmentations'
-import type { App } from 'vue'
+import type { App, Plugin } from 'vue'
 import type { TokenRefreshCallback } from '../services/identity'
 import { IdentityService } from '../services/identity'
 import { DateTime } from 'luxon'
@@ -15,7 +18,7 @@ export interface IdentityPluginOptions {
 /**
  * A plugin for managing user identity and authentication
  */
-export const IdentityPlugin = {
+export const IdentityPlugin: Plugin<IdentityPluginOptions> = {
   install: (app: App, options?: IdentityPluginOptions) => {
     const tokenRefreshBuffer = options?.tokenRefreshBuffer || 60 * 5
     const tokenRefresh =

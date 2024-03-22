@@ -1,4 +1,7 @@
-import type { App } from 'vue'
+/**
+ * @module @jakguru/vueprint/plugins/webfontloader
+ */
+import type { App, Plugin } from 'vue'
 import { ref } from 'vue'
 import Webfont from 'webfontloader'
 import { getDebugger } from '../utilities/debug'
@@ -7,7 +10,7 @@ const debug = getDebugger('Webfontloader')
 
 export interface WebfontloaderPluginOptions extends WebFont.Config {}
 
-export const WebfontloaderPlugin = {
+export const WebfontloaderPlugin: Plugin<WebfontloaderPluginOptions> = {
   install: (app: App, options?: WebfontloaderPluginOptions) => {
     const installed = ref(false)
     if (

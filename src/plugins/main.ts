@@ -1,4 +1,7 @@
-import type { App } from 'vue'
+/**
+ * @module @jakguru/vueprint/plugins/main
+ */
+import type { App, Plugin } from 'vue'
 import { BusPlugin, BusPluginOptions } from './bus'
 import { CronPlugin } from './cron'
 import { LocalStoragePlugin, LocalStoragePluginOptions } from './ls'
@@ -20,7 +23,7 @@ export interface VueMainBootstrapOptions {
 /**
  * A plugin which bootstraps all of the Vue plugins which can be loaded in both a client and server environment, in the correct order
  */
-const VueMainBootstrap = {
+const VueMainBootstrap: Plugin<VueMainBootstrapOptions> = {
   install: (app: App, options?: VueMainBootstrapOptions) => {
     app.use(BusPlugin, options?.bus)
     app.use(CronPlugin)

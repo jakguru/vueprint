@@ -1,5 +1,8 @@
+/**
+ * @module @jakguru/vueprint/plugins/ui
+ */
 import './augmentations'
-import type { App } from 'vue'
+import type { App, Plugin } from 'vue'
 import { swal, toast, SoundsService, notyf } from '../services/ui'
 
 export interface UiPluginOptions {
@@ -9,7 +12,7 @@ export interface UiPluginOptions {
 /**
  * A plugin for additional non-vuetify UI components
  */
-export const UiPlugin = {
+export const UiPlugin: Plugin<UiPluginOptions> = {
   install: (app: App, options?: UiPluginOptions) => {
     app.provide('swal', swal)
     app.config.globalProperties.$swal = swal

@@ -48,18 +48,18 @@ export default defineConfig({
         text: 'What\'s Included',
         items: [
           { text: 'What\'s Included', link: '/whats-included/' },
-          {text: "The API Service", link: "/whats-included/api-service" },
-          {text: "The Bus Service", link: "/whats-included/bus-service" },
-          {text: "The Cron Service", link: "/whats-included/cron-service" },
-          {text: "The Identity Service", link: "/whats-included/identity-service" },
-          {text: "The Local Storage Service", link: "/whats-included/local-storage-service" },
-          {text: "The Push Service", link: "/whats-included/push-service" },
-          {text: "The UI Service", link: "/whats-included/ui-service" },
-          {text: "The Vuetify Service", link: "/whats-included/vuetify-service" },
-          {text: "Color Utilities", link: "/api/modules/utilities_colors" },
-          {text: "Debug Utilities", link: "/api/modules/utilities_debug" },
-          {text: "Validation Utilities", link: "/api/modules/utilities_validation" },
-          {text: "Service Worker Provider", link: "/whats-included/service-worker-provider" },
+          { text: "The API Service", link: "/api/classes/jakguru_vueprint_services_api.ApiService" },
+          { text: "The Bus Service", link: "/api/classes/jakguru_vueprint_services_bus.BusService" },
+          { text: "The Cron Service", link: "/api/classes/jakguru_vueprint_libs_milicron.MiliCron" },
+          { text: "The Identity Service", link: "/api/classes/jakguru_vueprint_services_identity.IdentityService" },
+          { text: "The Local Storage Service", link: "/api/classes/jakguru_vueprint_services_localStorage.LocalStorageService" },
+          { text: "The Push Service", link: "/api/classes/jakguru_vueprint_services_push.PushService" },
+          { text: "The UI Service", link: "/api/modules/jakguru_vueprint_services_ui" },
+          { text: "The Vuetify Service", link: "/api/modules/jakguru_vueprint_services_vuetify" },
+          { text: "Color Utilities", link: "/api/modules/jakguru_vueprint_utilities_colors" },
+          { text: "Debug Utilities", link: "/api/modules/jakguru_vueprint_utilities_debug" },
+          { text: "Validation Utilities", link: "/api/modules/jakguru_vueprint_utilities_validation" },
+          { text: "Service Worker Provider", link: "/api/classes/jakguru_vueprint_pwa_worker.ServiceWorkerProvider" },
         ],
         collapsed: true,
       },
@@ -67,11 +67,17 @@ export default defineConfig({
     ],
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/jakguru/vueprint' }
+      { icon: 'github', link: 'https://github.com/jakguru/vueprint' },
+      { icon: 'npm', link: 'https://www.npmjs.com/package/@jakguru/vueprint' }
     ],
 
     search: {
       provider: 'local'
+    }
+  },
+  markdown: {
+    toc: {
+      level: [2, 3, 4]
     }
   }
 })

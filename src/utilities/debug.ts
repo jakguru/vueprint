@@ -1,3 +1,6 @@
+/**
+ * @module @jakguru/vueprint/utilities/debug
+ */
 declare const self: (ServiceWorkerGlobalScope & typeof globalThis) | (Window & typeof globalThis)
 
 /**

@@ -1,3 +1,6 @@
+/**
+ * @module @jakguru/vueprint/utilities/colors
+ */
 import colors from 'vuetify/util/colors'
 import { getInstance } from '../services/vuetify'
 import type Colors from 'vuetify/util/colors'
@@ -7,6 +10,19 @@ const { round } = Math
 
 let colorsPopulated = false
 const stringToColor = new Map<string, string>()
+
+/**
+ * A numeric value between 0 and 255 representing the red channel of an RGB color
+ */
+export type RgbChannelRed = number
+/**
+ * A numeric value between 0 and 255 representing the green channel of an RGB color
+ */
+export type RgbChannelGreen = number
+/**
+ * A numeric value between 0 and 255 representing the blue channel of an RGB color
+ */
+export type RgbChannelBlue = number
 
 /**
  * Get a map of color names to their hex values
@@ -73,7 +89,14 @@ export function colorToCssColor(color: string) {
  * @param hex The hex color to convert to an RGB object
  * @returns an object with the r, g, and b values of the hex color
  */
-export function hexToRGBObject(hex: string) {
+export function hexToRGBObject(hex: string): {
+  /** The red channel value  */
+  r: RgbChannelRed
+  /** The green channel value  */
+  g: RgbChannelGreen
+  /** The blue channel value  */
+  b: RgbChannelBlue
+} {
   // Remove the # character if it exists
   hex = hex.replace('#', '')
 
@@ -107,9 +130,13 @@ export function hexToRGBA(hex: string, alpha = 1) {
  * @param {number} p An intermediary value calculated from the lightness, used to adjust the RGB value based on the lightness.
  * @param {number} q Another intermediary value calculated from the lightness and saturation, used to fine-tune the RGB adjustment.
  * @param {number} t Represents the hue component adjusted to fit within one of three ranges for RGB conversion. It should be modified based on the specific RGB channel (red, green, blue) being calculated.
- * @returns {number} The calculated RGB value (for a single channel: R, G, or B) based on the input hue and intermediary values.
+ * @returns {number} The calculated RGB channel value for a single channel: R, G, or B based on the input hue and intermediary values.
  */
-export function hueToRgb(p: number, q: number, t: number) {
+export function hueToRgbChannelValue(
+  p: number,
+  q: number,
+  t: number
+): RgbChannelRed | RgbChannelGreen | RgbChannelBlue {
   if (t < 0) t += 1
   if (t > 1) t -= 1
   if (t < 1 / 6) return p + (q - p) * 6 * t
@@ -120,7 +147,7 @@ export function hueToRgb(p: number, q: number, t: number) {
 
 /**
  * Converts an HSL color value to RGB. Conversion formula
- * adapted from https://en.wikipedia.org/wiki/HSL_color_space.
+ * adapted from {@link https://en.wikipedia.org/wiki/HSL_color_space | this Wikipedia Article}.
  * Assumes h, s, and l are contained in the set [0, 1] and
  * returns r, g, and b in the set [0, 255].
  *
@@ -129,7 +156,18 @@ export function hueToRgb(p: number, q: number, t: number) {
  * @param   {number}  l       The lightness
  * @return  {Array}           The RGB representation
  */
-export function hslToRgb(h: number, s: number, l: number) {
+export function hslToRgb(
+  h: number,
+  s: number,
+  l: number
+): [
+  /** The red channel value  */
+  RgbChannelRed,
+  /** The green channel value  */
+  RgbChannelGreen,
+  /** The blue channel value  */
+  RgbChannelBlue,
+] {
   let r
   let g
   let b
@@ -139,9 +177,9 @@ export function hslToRgb(h: number, s: number, l: number) {
   } else {
     const q = l < 0.5 ? l * (1 + s) : l + s - l * s
     const p = 2 * l - q
-    r = hueToRgb(p, q, h + 1 / 3)
-    g = hueToRgb(p, q, h)
-    b = hueToRgb(p, q, h - 1 / 3)
+    r = hueToRgbChannelValue(p, q, h + 1 / 3)
+    g = hueToRgbChannelValue(p, q, h)
+    b = hueToRgbChannelValue(p, q, h - 1 / 3)
   }
 
   return [round(r * 255), round(g * 255), round(b * 255)]
@@ -188,7 +226,7 @@ export function colorToCssWithAlpha(color: string, alpha = 1) {
  * @param alpha The alpha value to use for the Lottie color array
  * @returns a Lottie color array
  */
-export function colorToLottie(color: string, alpha = 1) {
+export function colorToLottie(color: string, alpha = 1): [number, number, number, number] {
   color = colorToCssColor(color)
   if (!color) {
     return [0, 0, 0, alpha]

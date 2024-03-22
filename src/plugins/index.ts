@@ -1,3 +1,6 @@
+/**
+ * @module @jakguru/vueprint/plugins
+ */
 import './augmentations'
 export * as api from './api'
 export * as bus from './bus'

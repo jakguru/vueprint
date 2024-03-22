@@ -1,5 +1,5 @@
 # Vueprint
 
-Groundwork Libraries and Plugins for use in Vue3 based Projects
+A BluePrint for Vue 3 Projects providing much of the desired functionality in a consistent and easily configurable manner
 
 For more information, please see the [VuePrint Documentation](https://jakguru.github.io/vueprint/)

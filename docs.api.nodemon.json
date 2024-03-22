@@ -1,0 +1,18 @@
+{
+    "watch": [
+        "src/**/*",
+        "types/**/*",
+        ".env",
+        "build.config.ts",
+        "package.json",
+        "bin/updateTypedocConfig.ts"
+    ],
+    "ext": "ts,json",
+    "ignore": [
+        "node_modules",
+        "dist",
+        "docs",
+        "tests"
+    ],
+    "exec": "npx jiti bin/updateTypedocConfig.ts && npx typedoc"
+}

@@ -1,3 +1,6 @@
+/**
+ * @module @jakguru/vueprint/services/push
+ */
 import type { FirebaseApp, FirebaseOptions } from 'firebase/app'
 import type { Messaging, Unsubscribe } from 'firebase/messaging'
 import type { ComputedRef, Ref, WatchStopHandle } from 'vue'
@@ -72,7 +75,38 @@ type ServiceWorkerState =
   | 'redundant' // A new service worker is replacing the current service worker, or the current service worker is being discarded due to an install failure.
 
 /**
- * A service which manages desktop notifications and integration with Firebase Messaging.
+ * The Push service handles the integration between the application and the browser API's for Push / Desktop notifications and the service workers which are used to enable background push notifications.
+ *
+ * ## Accessing the Push Service
+ *
+ * The Push Service is both injectable and accessible from the global `Vue` instance:
+ *
+ * ```vue
+ *
+ * <script lang="ts">
+ * import { defineComponent, inject } from 'vue'
+ * import type { PushService } from '@jakguru/vueprint'
+ * export default defineComponent({
+ *     setup() {
+ *         const push = inject<PushService>('push')
+ *         return {}
+ *     }
+ *     mounted() {
+ *         const push: PushService = this.config.globalProperties.$push
+ *     }
+ * })
+ * </script>
+ * ```
+ *
+ * ## Using the Push Service
+ *
+ * ### Determining Push Permission State
+ *
+ * Using the accessor {@link PushService.canPush} and {@link PushService.canRequestPermission}, you can determine if the visitor has already permitted push notifications (or web push notifications) or if the application is allowed to request those permissions. This can be used to display a prompt in the UI to request permissions for Push notifications.
+ *
+ * It is also possible to activate the permission flow of the browser by triggering {@link PushService.requestPushPermission} method, or to request that the application disable the {@link PushService.canRequestPermission} from returning `true` by triggering the {@link PushService.doNotRequestPushPermission} method.
+ *
+ * It is also possible to manually trigger a desktop notification by calling the {@link PushService.createWebPushNotification} method.
  */
 export class PushService {
   readonly #booted: Ref<boolean>
@@ -224,6 +258,9 @@ export class PushService {
     return computed(() => this.#serviceWorkerState.value)
   }
 
+  /**
+   * If there is an update pending for the service worker.
+   */
   public get appUpdatePending() {
     return computed(() => this.#serviceWorkerState.value === 'waiting')
   }
@@ -258,6 +295,10 @@ export class PushService {
     this.#bus.emit('push:updated', { local: true, crossTab: true })
   }
 
+  /**
+   * Create a web push notification (otherwise known as a desktop notification).
+   * @param options The options for the web push notification
+   */
   public createWebPushNotification(options: WebPushNotificationOptions) {
     if (!this.canPush.value) {
       return

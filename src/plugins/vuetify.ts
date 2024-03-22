@@ -1,5 +1,8 @@
+/**
+ * @module @jakguru/vueprint/plugins/vuetify
+ */
 import './augmentations'
-import type { App } from 'vue'
+import type { App, Plugin } from 'vue'
 import type { VuetifiableThemes } from '../services/vuetify'
 export type { VuetifiableTheme, VuetifiableColors } from '../services/vuetify'
 import type { VuetifyOptions } from 'vuetify'
@@ -33,7 +36,7 @@ export interface VuetifyPluginOptions {
 /**
  * A wrapper plugin for the Vuetify UI framework
  */
-export const VuetifyPlugin = {
+export const VuetifyPlugin: Plugin<VuetifyPluginOptions> = {
   install: (app: App, options?: VuetifyPluginOptions) => {
     const defaultTheme = options?.defaultTheme || 'main'
     const themes = options?.themes || {

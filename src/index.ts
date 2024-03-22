@@ -1,6 +1,11 @@
+/**
+ * @module @jakguru/vueprint
+ */
 export * as utilities from './utilities'
 export * as services from './services'
 export * as plugins from './plugins'
+export * as libs from './libs'
+export * as nuxt from './nuxt'
 import type { ApplicationHook, ApplicationHooks } from './utilities'
 import type {
   ApiService,
@@ -25,6 +30,7 @@ import type {
   VuetifiableTheme,
   VuetifiableThemes,
   CronService,
+  TokenRefreshCallback,
 } from './services'
 import type {
   ApiPluginOptions,
@@ -37,8 +43,9 @@ import type {
   UiPluginOptions,
   VuetifyPluginOptions,
 } from './plugins'
+import type { MiliCron, EventCallback } from './libs'
+import type { VueprintModuleOptions } from './nuxt'
 
-export const PACKAGE_NAME = '@jakguru/vueprint'
 export {
   ApplicationHook,
   ApplicationHooks,
@@ -73,4 +80,8 @@ export {
   VuetifyPluginOptions,
   IdentityService,
   CronService,
+  MiliCron,
+  EventCallback,
+  VueprintModuleOptions,
+  TokenRefreshCallback,
 }

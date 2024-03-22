@@ -24,14 +24,14 @@ VuePrint can be included as a simple plugin in a Vue project, or as a Module in 
 
 VuePrint has 2 plugins for use in a standard Vue project:
 
-* The [Vue Main Plugin](/api/modules/plugins_main) which provides services which can be loaded in both server and client environments
-* The [Vue Client Plugin](/api/modules/plugins_client) which provides services which can only be loaded in a client environment
+* The [Vue Main Plugin](/api/interfaces/jakguru_vueprint_plugins_main.VueMainBootstrapOptions) which provides services which can be loaded in both server and client environments
+* The [Vue Client Plugin](/api/interfaces/jakguru_vueprint_plugins_client.VueClientBootstrapOptions) which provides services which can only be loaded in a client environment
 
 ```typescript [src/main.ts]
 import { createApp } from 'vue'
 import VueMainBootstrap from '@jakguru/vueprint/plugins/main'
 import VueClientBootstrap from '@jakguru/vueprint/plugins/client'
-import '@jakguru/vueprint/dist/vueprint.css'
+import '@jakguru/vueprint/vueprint.css'
 import App from './App.vue'
 
 import type {
@@ -55,8 +55,8 @@ app.mount('#app')
 
 #### Read More for Vue Integration
 
-* [VueMainBootstrapOptions Interface](/api/interfaces/plugins_main.VueMainBootstrapOptions)
-* [VueClientBootstrapOptions Inteface](/api/interfaces/plugins_client.VueClientBootstrapOptions)
+* [VueMainBootstrapOptions Interface](/api/interfaces/jakguru_vueprint_plugins_main.VueMainBootstrapOptions)
+* [VueClientBootstrapOptions Inteface](/api/interfaces/jakguru_vueprint_plugins_client.VueClientBootstrapOptions)
 
 ### Nuxt Integration
 
@@ -77,18 +77,18 @@ export default defineNuxtConfig({
   build: {
     transpile: ['@jakguru/vueprint'],
   },
-  css: ['@jakguru/vueprint/dist/vueprint.css'],
+  css: ['@jakguru/vueprint/vueprint.css'],
 })
 
 ```
 
 #### Read More for Nuxt Integration
 
-* [VueprintModuleOptions Interface](/api/interfaces/nuxt.VueprintModuleOptions)
+* [VueprintModuleOptions Interface](/api/interfaces/jakguru_vueprint._jakguru_vueprint_nuxt.VueprintModuleOptions)
 
 ## Initialization
 
-Once installed and integrated, VuePrint needs to be initialized. The best way to do this is to use the [useVueprint](/api/modules/utilities#usevueprint) function from within the `setup` function of the main application component.
+Once installed and integrated, VuePrint needs to be initialized. The best way to do this is to use the [useVueprint](/api/modules/jakguru_vueprint._jakguru_vueprint_utilities#usevueprint) function from within the `setup` function of the main application component.
 
 For example:
 
@@ -124,7 +124,7 @@ export default defineComponent({
 
 :::
 
-The `useVueprint` function returns a [ApplicationVueprintState](/api/interfaces/utilities.ApplicationVueprintState) object which contains information which can be used to ensure that the state / statuses of references and computed references are not updated until after the application has booted & mounted correctly, in order to prevent hydration mismatches.
+The `useVueprint` function returns a [ApplicationVueprintState](/api/interfaces/jakguru_vueprint._jakguru_vueprint_utilities.ApplicationVueprintState) object which contains information which can be used to ensure that the state / statuses of references and computed references are not updated until after the application has booted & mounted correctly, in order to prevent hydration mismatches.
 
 ```typescript [App.vue]
 

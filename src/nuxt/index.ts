@@ -1,3 +1,7 @@
+/**
+ * @module @jakguru/vueprint/nuxt
+ */
+
 import { defineNuxtModule, createResolver, addPlugin } from '@nuxt/kit'
 import { defu } from 'defu'
 import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'

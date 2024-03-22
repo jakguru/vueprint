@@ -1,5 +1,8 @@
+/**
+ * @module @jakguru/vueprint/plugins/ls
+ */
 import './augmentations'
-import type { App } from 'vue'
+import type { App, Plugin } from 'vue'
 import { LocalStorageService } from '../services/localStorage'
 
 /**
@@ -12,7 +15,7 @@ export interface LocalStoragePluginOptions {
 /**
  * A plugin for interacting with local browser storage
  */
-export const LocalStoragePlugin = {
+export const LocalStoragePlugin: Plugin<LocalStoragePluginOptions> = {
   install: (app: App, options?: LocalStoragePluginOptions) => {
     const instance = new LocalStorageService(options?.namespace || 'app')
     app.provide('ls', instance)
