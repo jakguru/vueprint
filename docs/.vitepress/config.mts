@@ -64,6 +64,7 @@ export default defineConfig({
         collapsed: true,
       },
       { text: 'Full API', link: '/api/' },
+      { text: 'Bugs & Issues', link: 'https://github.com/jakguru/vueprint/issues' },
     ],
 
     socialLinks: [
@@ -73,6 +74,11 @@ export default defineConfig({
 
     search: {
       provider: 'local'
+    },
+
+    footer: {
+      message: 'Vueprint a commercial work product released under the MIT License and is provided as-is with no warranty or guarantee of support.',
+      copyright: 'Copyright © 2024-present Jak Guru LLC'
     }
   },
   markdown: {

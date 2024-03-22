@@ -13,13 +13,13 @@ jobs:
           node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
       - run: yarn install --frozen-lockfile --no-progress
-      - run: yarn build
       - run: |
           # Get the version from the release tag, stripping any non-numeric characters except for `.`
           VERSION=$(echo "${{ github.ref }}" | sed -e 's/[^0-9\.]//g')
           # Update the version in package.json
           echo "Updating package.json version to $VERSION"
           npm version --no-git-tag-version "$VERSION" --allow-same-version
+      - run: yarn build
       - run: npm publish --access=public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

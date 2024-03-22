@@ -1,6 +1,8 @@
 MIT License
 
-Copyright (c) 2023 Jak Giveon
+Vueprint a commercial work product released under the MIT License and is provided as-is with no warranty or guarantee of support.
+
+Copyright (c) 2024 Jak Guru LLC
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
