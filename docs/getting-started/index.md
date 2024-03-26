@@ -84,11 +84,11 @@ export default defineNuxtConfig({
 
 #### Read More for Nuxt Integration
 
-* [VueprintModuleOptions Interface](/api/interfaces/jakguru_vueprint._jakguru_vueprint_nuxt.VueprintModuleOptions)
+* [VueprintModuleOptions Interface](/api/interfaces/jakguru_vueprint_nuxt.VueprintModuleOptions)
 
 ## Initialization
 
-Once installed and integrated, VuePrint needs to be initialized. The best way to do this is to use the [useVueprint](/api/modules/jakguru_vueprint._jakguru_vueprint_utilities#usevueprint) function from within the `setup` function of the main application component.
+Once installed and integrated, VuePrint needs to be initialized. The best way to do this is to use the [useVueprint](/api/modules/jakguru_vueprint_utilities#usevueprint) function from within the `setup` function of the main application component.
 
 For example:
 
@@ -124,7 +124,7 @@ export default defineComponent({
 
 :::
 
-The `useVueprint` function returns a [ApplicationVueprintState](/api/interfaces/jakguru_vueprint._jakguru_vueprint_utilities.ApplicationVueprintState) object which contains information which can be used to ensure that the state / statuses of references and computed references are not updated until after the application has booted & mounted correctly, in order to prevent hydration mismatches.
+The `useVueprint` function returns a [ApplicationVueprintState](/api/interfaces/jakguru_vueprint_utilities.ApplicationVueprintState) object which contains information which can be used to ensure that the state / statuses of references and computed references are not updated until after the application has booted & mounted correctly, in order to prevent hydration mismatches.
 
 ```typescript [App.vue]
 
