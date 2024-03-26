@@ -1,10 +1,13 @@
 {
   "entryPoints": [
     "src/index.ts",
+    "src/libs/index.ts",
     "src/libs/milicron.ts",
+    "src/utilities/index.ts",
     "src/utilities/colors.ts",
     "src/utilities/validation.ts",
     "src/utilities/debug.ts",
+    "src/services/index.ts",
     "src/services/api.ts",
     "src/services/bus.ts",
     "src/services/cron.ts",
@@ -13,6 +16,7 @@
     "src/services/push.ts",
     "src/services/ui.ts",
     "src/services/vuetify.ts",
+    "src/plugins/index.ts",
     "src/plugins/api.ts",
     "src/plugins/bus.ts",
     "src/plugins/cron.ts",
@@ -24,6 +28,7 @@
     "src/plugins/main.ts",
     "src/plugins/client.ts",
     "src/plugins/webfontloader.ts",
+    "src/nuxt/index.ts",
     "src/nuxt/plugin.client.ts",
     "src/nuxt/plugin.server.ts",
     "src/pwa/worker.ts"
@@ -138,6 +143,10 @@
     "@vue/reactivity": {
       "Ref": "https://github.com/vuejs/core/blob/main/packages/reactivity/src/ref.ts#L33",
       "ComputedRef": "https://github.com/vuejs/core/blob/main/packages/reactivity/src/computed.ts#L11"
+    },
+    "webfontloader": {
+      "WebFont": "https://github.com/typekit/webfontloader?tab=readme-ov-file#configuration",
+      "Config": "https://github.com/typekit/webfontloader?tab=readme-ov-file#configuration"
     }
   },
   "entryDocument": "index.md",

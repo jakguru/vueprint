@@ -290,7 +290,8 @@
     "vite-plugin-vuetify": "^2.0.2",
     "vue": "^3.4.21",
     "vue-i18n": "^9.10.1",
-    "vuetify": "^3.5.7"
+    "vuetify": "^3.5.7",
+    "sweetalert2": "^11.10.6"
   },
   "devDependencies": {
     "@nuxt/kit": "^3.11.1",
@@ -335,7 +336,6 @@
     "secure-ls": "^1.2.6",
     "style-loader": "^3.3.4",
     "stylus": "^0.63.0",
-    "sweetalert2": "^11.10.6",
     "tiny-emitter": "^2.1.0",
     "typedoc": "^0.25.11",
     "typedoc-plugin-markdown": "^3.17.1",

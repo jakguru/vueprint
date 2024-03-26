@@ -13,6 +13,7 @@ The configuration of VuePrint is meant to be simple and easy, while providing th
 | `push` | [PushPluginOptions](/api/interfaces/jakguru_vueprint_plugins_push.PushPluginOptions) | Defines the options for the Local Storage Service |
 | `ui` | [UiPluginOptions](/api/interfaces/jakguru_vueprint_plugins_ui.UiPluginOptions) | Defines the list of options for the UI Service |
 | `vuetify` | [VuetifyPluginOptions](/api/interfaces/jakguru_vueprint_plugins_vuetify.VuetifyPluginOptions) | Defines the list options for the Vuetify Service |
+| `webfontloader` | [WebfontloaderPluginOptions](/api/interfaces/jakguru_vueprint_plugins_webfontloader.WebfontloaderPluginOptions) | Defines the options for loading custom external fonts using [WebFontLoader](https://github.com/typekit/webfontloader)
 
 ## Vue Main Plugin Options
 
@@ -30,6 +31,7 @@ The configuration of VuePrint is meant to be simple and easy, while providing th
 | --- | --- | --- |
 | `push` | [PushPluginOptions](/api/interfaces/jakguru_vueprint_plugins_push.PushPluginOptions) | Defines the options for the Local Storage Service |
 | `ui` | [UiPluginOptions](/api/interfaces/jakguru_vueprint_plugins_ui.UiPluginOptions) | Defines the list of options for the UI Service |
+| `webfontloader` | [WebfontloaderPluginOptions](/api/interfaces/jakguru_vueprint_plugins_webfontloader.WebfontloaderPluginOptions) | Defines the options for loading custom external fonts using [WebFontLoader](https://github.com/typekit/webfontloader)
 
 ## ApiPluginOptions Options
 
@@ -87,3 +89,7 @@ The [VuetifiableTheme](/api/interfaces/jakguru_vueprint_services_vuetify.Vuetifi
 | Key | Type | Description |
 | --- | --- | --- |
 | `colors` | [VuetifiableColors](/api/interfaces/jakguru_vueprint_services_vuetify.VuetifiableColors) | An object in `key`:`color` format which defines the colors which will be used by the Vuetify theme |
+
+## WebfontloaderPluginOptions Options
+
+See the [WebFontLoader Documentation](https://github.com/typekit/webfontloader) for more information

@@ -17,6 +17,8 @@ const customExternals: Array<string> = [
   'nuxt/app',
   '@vuetify/loader-shared',
   'sweetalert2',
+  '@types/webfontloader',
+  'webfontloader',
 ]
 const includedExternals: Array<string> = [
   '@mdi/font',

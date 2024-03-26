@@ -56,6 +56,7 @@ export default defineConfig({
           { text: "The Push Service", link: "/api/classes/jakguru_vueprint_services_push.PushService" },
           { text: "The UI Service", link: "/api/modules/jakguru_vueprint_services_ui" },
           { text: "The Vuetify Service", link: "/api/modules/jakguru_vueprint_services_vuetify" },
+          { text: "The Webfont Loader Plugin", link: "/api/modules/jakguru_vueprint_plugins_webfontloader" },
           { text: "Color Utilities", link: "/api/modules/jakguru_vueprint_utilities_colors" },
           { text: "Debug Utilities", link: "/api/modules/jakguru_vueprint_utilities_debug" },
           { text: "Validation Utilities", link: "/api/modules/jakguru_vueprint_utilities_validation" },
@@ -79,6 +80,10 @@ export default defineConfig({
     footer: {
       message: 'Vueprint a commercial work product released under the MIT License and is provided as-is with no warranty or guarantee of support.',
       copyright: 'Copyright © 2024-present Jak Guru LLC'
+    },
+
+    outline: {
+      level: [2, 3]
     }
   },
   markdown: {

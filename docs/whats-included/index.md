@@ -10,6 +10,7 @@ VuePrint is designed to speed the development of Vue and Nuxt projects by pre-in
 * [The Push Service](/api/classes/jakguru_vueprint_services_push.PushService)
 * [The UI Service](/api/modules/jakguru_vueprint_services_ui)
 * [The Vuetify Service](/api/modules/jakguru_vueprint_services_vuetify)
+* [The Webfont Loader Plugin](/api/modules/jakguru_vueprint_plugins_webfontloader)
 
 Additionally, it provides some useful utility functions which can be used to speed up development of your application:
 

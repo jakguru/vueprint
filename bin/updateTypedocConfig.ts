@@ -121,6 +121,10 @@ const base = {
       ComputedRef:
         'https://github.com/vuejs/core/blob/main/packages/reactivity/src/computed.ts#L11',
     },
+    'webfontloader': {
+      WebFont: 'https://github.com/typekit/webfontloader?tab=readme-ov-file#configuration',
+      Config: 'https://github.com/typekit/webfontloader?tab=readme-ov-file#configuration',
+    },
   },
   entryDocument: 'index.md',
   hideBreadcrumbs: false,
@@ -145,6 +149,14 @@ const run = async () => {
       if ('.' === file) {
         return 'src/index.ts'
       } else {
+        let f = `${file.replace(/\.\//gm, 'src/')}.ts`
+        if (fs.existsSync(join(BASEDIR, f))) {
+          return f
+        }
+        f = `${file.replace(/\.\//gm, 'src/')}/index.ts`
+        if (fs.existsSync(join(BASEDIR, f))) {
+          return f
+        }
         return `${file.replace(/\.\//gm, 'src/')}.ts`
       }
     })
