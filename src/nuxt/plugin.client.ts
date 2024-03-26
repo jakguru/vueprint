@@ -17,7 +17,7 @@ const plugin = defineNuxtPlugin({
     const {
       public: { vueprint: vueprintOptions },
     } = useRuntimeConfig()
-    if (!process.server) {
+    if (window && window.document && document) {
       const opts = defu(vueprintOptions as VueprintModuleOptions, {
         vuetify: {
           options: {
