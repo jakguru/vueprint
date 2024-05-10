@@ -4,6 +4,7 @@ import type { VuetifyPluginOptions } from '../plugins/vuetify'
 import type { ApiPluginOptions } from '../plugins/api'
 import type { PushPluginOptions } from '../plugins/push'
 import type { IdentityPluginOptions } from '../plugins/identity'
+import type Webfont from 'webfontloader'
 
 declare interface VueprintModuleOptions {
   bus?: BusPluginOptions
@@ -33,6 +34,7 @@ declare global {
       localstorage?: boolean
       cron?: boolean
     }
+    Webfont?: Webfont
   }
 }
 

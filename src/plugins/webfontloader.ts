@@ -6,9 +6,10 @@
  *
  * While not directly accessible, the `ready` computed referenced from the response of the [useVueprint](/api/modules/jakguru_vueprint_utilities#usevueprint) function indicates that the font-loader has completed loading.
  */
+import 'webfontloader'
 import type { App, Plugin } from 'vue'
 import { ref } from 'vue'
-import * as Webfont from 'webfontloader'
+import type Webfont from 'webfontloader'
 import { getDebugger } from '../utilities/debug'
 
 const debug = getDebugger('Webfontloader')
@@ -103,11 +104,20 @@ export const WebfontloaderPlugin: Plugin<WebfontloaderPluginOptions> = {
         }
         debug('Webfonts inactive')
       }
-      try {
-        Webfont.load({ ...options, loading: onLoading, active: onActive, inactive: onInactive })
-        installed.value = true
-      } catch (error) {
-        debug('Error loading webfonts', error)
+      if ('undefined' !== typeof window && 'undefined' !== typeof window.WebFont) {
+        try {
+          window.WebFont.load({
+            ...options,
+            loading: onLoading,
+            active: onActive,
+            inactive: onInactive,
+          })
+          installed.value = true
+        } catch (error) {
+          debug('Error loading webfonts', error)
+        }
+      } else if ('undefined' === typeof window.WebFont) {
+        debug('WebFont not loaded in global scope')
       }
     } else if (installed.value === false) {
       debug('No webfonts to load')
