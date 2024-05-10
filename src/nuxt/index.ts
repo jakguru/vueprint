@@ -38,6 +38,8 @@ declare module '@nuxt/schema' {
   }
 }
 
+const resolver = createResolver(import.meta.url)
+
 export default defineNuxtModule({
   meta: {
     name: 'vueprint',
@@ -93,7 +95,6 @@ export default defineNuxtModule({
         server: false,
       }
     }
-    const resolver = createResolver(import.meta.url)
     addPlugin({
       src: resolver.resolve('./plugin.server'),
       mode: 'server',
