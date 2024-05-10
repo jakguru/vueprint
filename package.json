@@ -285,13 +285,13 @@
     "luxon": "^3.4.4",
     "mitt": "^3.0.1",
     "notyf": "^3.10.0",
+    "sweetalert2": "^11.10.6",
     "tone": "^14.7.77",
     "vite-plugin-node-polyfills": "^0.21.0",
     "vite-plugin-vuetify": "^2.0.2",
     "vue": "^3.4.21",
     "vue-i18n": "^9.10.1",
-    "vuetify": "^3.5.7",
-    "sweetalert2": "^11.10.6"
+    "vuetify": "^3.5.7"
   },
   "devDependencies": {
     "@nuxt/kit": "^3.11.1",
