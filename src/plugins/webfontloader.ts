@@ -8,7 +8,7 @@
  */
 import type { App, Plugin } from 'vue'
 import { ref } from 'vue'
-import Webfont from 'webfontloader'
+import * as Webfont from 'webfontloader'
 import { getDebugger } from '../utilities/debug'
 
 const debug = getDebugger('Webfontloader')

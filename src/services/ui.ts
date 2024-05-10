@@ -65,12 +65,11 @@
  *
  */
 
-import Swal from 'sweetalert2/dist/sweetalert2.js'
+import Swal from 'sweetalert2/src/sweetalert2.js'
 import * as SwalTypes from 'sweetalert2'
 import merge from 'lodash.merge'
 import * as Tone from 'tone'
 import { Notyf } from 'notyf'
-// import 'notyf/notyf.min.css'
 import { getDebugger } from '../utilities/debug'
 
 export interface SwalService {
