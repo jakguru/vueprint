@@ -291,7 +291,8 @@
     "vite-plugin-vuetify": "^2.0.2",
     "vue": "^3.4.21",
     "vue-i18n": "^9.10.1",
-    "vuetify": "^3.5.7"
+    "vuetify": "^3.5.7",
+    "webfontloader": "^1.6.28"
   },
   "devDependencies": {
     "@nuxt/kit": "^3.11.1",
@@ -345,7 +346,6 @@
     "typescript": "^5.1.6",
     "unbuild": "^2.0.0",
     "vitepress": "^1.0.0-rc.45",
-    "webfontloader": "^1.6.28",
     "webpack": "^5.91.0",
     "webpack-cli": "^5.1.4"
   }
