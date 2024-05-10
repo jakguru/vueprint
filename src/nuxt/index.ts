@@ -2,7 +2,7 @@
  * @module @jakguru/vueprint/nuxt
  */
 
-import { defineNuxtModule, createResolver, addPlugin } from '@nuxt/kit'
+import { defineNuxtModule, addPlugin } from '@nuxt/kit'
 import { defu } from 'defu'
 import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
 import { nodePolyfills } from 'vite-plugin-node-polyfills'
@@ -37,8 +37,6 @@ declare module '@nuxt/schema' {
     ['vueprint']?: VueprintModuleOptions
   }
 }
-
-const resolver = createResolver(import.meta.url)
 
 export default defineNuxtModule({
   meta: {
@@ -96,11 +94,11 @@ export default defineNuxtModule({
       }
     }
     addPlugin({
-      src: resolver.resolve('./plugin.server'),
+      src: '@jakguru/vueprint/nuxt/plugin.server',
       mode: 'server',
     })
     addPlugin({
-      src: resolver.resolve('./plugin.client'),
+      src: '@jakguru/vueprint/nuxt/plugin.client',
       mode: 'client',
     })
   },
