@@ -335,7 +335,7 @@
     "sass": "^1.72.0",
     "sass-loader": "^14.1.1",
     "secure-ls": "^1.2.6",
-    "style-loader": "^3.3.4",
+    "style-loader": "^4.0.0",
     "stylus": "^0.63.0",
     "tiny-emitter": "^2.1.0",
     "typedoc": "^0.25.11",
