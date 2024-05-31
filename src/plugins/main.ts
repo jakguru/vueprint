@@ -8,6 +8,7 @@ import { LocalStoragePlugin, LocalStoragePluginOptions } from './ls'
 import { VuetifyPlugin, VuetifyPluginOptions } from './vuetify'
 import { ApiPlugin, ApiPluginOptions } from './api'
 import { IdentityPlugin, IdentityPluginOptions } from './identity'
+import { doApplicationMount, doApplicationUnmount } from '../services/installer'
 
 /**
  * The options for the main Vue bootstrap
@@ -31,6 +32,10 @@ const VueMainBootstrap: Plugin<VueMainBootstrapOptions> = {
     app.use(VuetifyPlugin, options?.vuetify)
     app.use(ApiPlugin, options?.api)
     app.use(IdentityPlugin, options?.identity)
+    const originalMount = app.mount
+    const originalUnmount = app.unmount
+    app.mount = doApplicationMount.bind(app, originalMount)
+    app.unmount = doApplicationUnmount.bind(app, originalUnmount)
   },
 }
 

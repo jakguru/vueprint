@@ -78,7 +78,7 @@ export default defineConfig({
     },
 
     footer: {
-      message: 'Vueprint a commercial work product released under the MIT License and is provided as-is with no warranty or guarantee of support.',
+      message: 'Vueprint is a commercial work product released under the MIT License and is provided as-is with no warranty or guarantee of support.',
       copyright: 'Copyright © 2024-present Jak Guru LLC'
     },
 
