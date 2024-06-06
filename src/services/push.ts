@@ -377,7 +377,11 @@ export class PushService {
       }
       return
     }
-    if ('undefined' !== typeof window && 'serviceWorker' in navigator) {
+    if (
+      'undefined' !== typeof window &&
+      'undefined' !== typeof navigator &&
+      'serviceWorker' in navigator
+    ) {
       navigator.serviceWorker.ready.then((registration) => {
         this.#updateServiceWorkerState(registration)
       })
@@ -487,7 +491,11 @@ export class PushService {
       crossTab: true,
     })
     this.#doUpdates(true)
-    if ('undefined' !== typeof window && 'serviceWorker' in navigator) {
+    if (
+      'undefined' !== typeof window &&
+      'undefined' !== typeof navigator &&
+      'serviceWorker' in navigator
+    ) {
       if ('undefined' === typeof this.#serviceWorkerRegistration.value) {
         if (!this.#serviceWorkerPath || !this.#serviceWorkerMode) {
           debug('Service Worker Path or Mode not set, skipping registration')
@@ -593,7 +601,13 @@ export class PushService {
   }
 
   public async update() {
-    if (!('undefined' !== typeof window && 'serviceWorker' in navigator)) {
+    if (
+      !(
+        'undefined' !== typeof window &&
+        'undefined' !== typeof navigator &&
+        'serviceWorker' in navigator
+      )
+    ) {
       debug('Not in a context with a Service Worker')
       return
     }
