@@ -65,7 +65,7 @@
  *
  */
 
-import Swal from 'sweetalert2/src/sweetalert2.js'
+import Swal from 'sweetalert2'
 import * as SwalTypes from 'sweetalert2'
 import merge from 'lodash.merge'
 import * as Tone from 'tone'

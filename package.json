@@ -286,7 +286,7 @@
     "luxon": "^3.4.4",
     "mitt": "^3.0.1",
     "notyf": "^3.10.0",
-    "sweetalert2": "^11.10.6",
+    "sweetalert2": "^11.11.1",
     "tone": "^15.0.3",
     "vite-plugin-node-polyfills": "^0.21.0",
     "vite-plugin-vuetify": "^2.0.3",
