@@ -17,7 +17,13 @@ export interface ApiPluginOptions {
  */
 export const ApiPlugin: Plugin<ApiPluginOptions> = {
   install: (app: App, options?: ApiPluginOptions) => {
-    const baseURL = options?.baseURL || window ? window.location.origin : 'http://localhost:3000'
+    const origin =
+      'undefined' !== typeof window &&
+      'object' === typeof window.location &&
+      'string' === typeof window.location.origin
+        ? window.location.origin
+        : 'http://localhost:3000'
+    const baseURL = options?.baseURL || origin
     const instance = initializeApi(
       baseURL,
       app.config.globalProperties.$ls!,
