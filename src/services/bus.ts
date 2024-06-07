@@ -404,8 +404,14 @@ export class BusService {
     this.#lastUpdatedAt = ref(undefined)
     this.#alreadyTriggeredLocalEvents = ref({})
     this.#alreadyTriggeredCrossTabEvents = ref({})
+    const origin =
+      'undefined' !== typeof window &&
+      'object' === typeof window.location &&
+      'string' === typeof window.location.origin
+        ? window.location.origin
+        : 'vueprint'
     if (typeof BroadcastChannel !== 'undefined') {
-      this.#channel = new BroadcastChannel(namespace || window?.location.origin || 'vueprint')
+      this.#channel = new BroadcastChannel(namespace || origin || 'vueprint')
       this.#channel.onmessage = this.#onChannelMessage.bind(this)
     }
     if (typeof window !== 'undefined') {

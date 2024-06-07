@@ -226,7 +226,7 @@
   "scripts": {
     "dev": "cd playground && npx vite",
     "watch": "nodemon",
-    "build": "yarn nuxt:types:generate && npx unbuild --sourcemap && npx jiti bin/updateDistributedPackageJson.ts",
+    "build": "npx unbuild --sourcemap && npx jiti bin/updateDistributedPackageJson.ts",
     "build:watch": "nodemon",
     "type-check": "npx tsc --noEmit",
     "lint": "eslint . --ext=.ts,.d.ts",
@@ -235,8 +235,7 @@
     "docs:build": "npx vitepress build docs",
     "docs:preview": "npx vitepress preview docs",
     "docs:api": "npx typedoc",
-    "docs:api:watch": "nodemon --config docs.api.nodemon.json",
-    "nuxt:types:generate": "rm -rf .nuxt && npx nuxi prepare playground && mv playground/.nuxt .nuxt && rm -rf playground"
+    "docs:api:watch": "nodemon --config docs.api.nodemon.json"
   },
   "engines": {
     "node": ">=18.0.0"
@@ -286,7 +285,6 @@
     "luxon": "^3.4.4",
     "mitt": "^3.0.1",
     "notyf": "^3.10.0",
-    "sweetalert2": "^11.11.1",
     "tone": "^15.0.3",
     "vite-plugin-node-polyfills": "^0.21.0",
     "vite-plugin-vuetify": "^2.0.3",
@@ -339,6 +337,7 @@
     "secure-ls": "^1.2.6",
     "style-loader": "^4.0.0",
     "stylus": "^0.63.0",
+    "sweetalert2": "^11.11.1",
     "tiny-emitter": "^2.1.0",
     "typedoc": "^0.25.11",
     "typedoc-plugin-markdown": "^3.17.1",

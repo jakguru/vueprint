@@ -13,5 +13,5 @@
         "docs",
         "tests"
     ],
-    "exec": "yarn nuxt:types:generate && npx unbuild --sourcemap && npx jiti bin/updateDistributedPackageJson.ts"
+    "exec": "npx unbuild --sourcemap && npx jiti bin/updateDistributedPackageJson.ts"
 }
