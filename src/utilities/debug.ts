@@ -18,9 +18,14 @@ export const getDebugger = (
 ) => {
   return (...args: any[]) => {
     if (
-      'undefined' === typeof window &&
-      ('undefined' === typeof ServiceWorkerGlobalScope ||
-        !(self instanceof ServiceWorkerGlobalScope))
+      ('undefined' === typeof window &&
+        ('undefined' === typeof ServiceWorkerGlobalScope ||
+          !(self instanceof ServiceWorkerGlobalScope))) ||
+      ('undefined' !== typeof window &&
+        'object' === typeof window.process &&
+        'object' === typeof window.__modules__ &&
+        'function' === typeof window.__export__ &&
+        'function' === typeof window.__dynamic_import__)
     ) {
       console.log(`[${name}]`, ...args)
       return

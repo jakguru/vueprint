@@ -35,6 +35,9 @@ declare global {
       cron?: boolean
     }
     Webfont?: Webfont
+    __modules__?: any
+    __export__?: any
+    __dynamic_import__?: any
   }
 }
 
