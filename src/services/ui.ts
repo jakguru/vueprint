@@ -251,6 +251,23 @@ export class SoundsService {
   }
 
   /**
+   * Lists the available sound keys
+   * @returns A list of the available sound keys
+   */
+  public list() {
+    return Object.keys(this.#sounds)
+  }
+
+  /**
+   * Returns all the Tone.Player objects for all sounds
+   */
+  public all() {
+    const ret = { ...this.#sounds }
+    Object.freeze(ret)
+    return ret
+  }
+
+  /**
    * Adds sounds to the service
    * @param sounds A map of sound names to their urls
    */
