@@ -14,7 +14,8 @@ import { getDebugger } from '../utilities/debug'
 import { LocalStorageService } from './localStorage'
 import { IdentityService } from './identity'
 import { MiliCron } from '../libs/milicron'
-import { ApiService } from './api'
+import { isAxiosInstance } from './api'
+import type { ApiService } from './api'
 
 const debug = getDebugger('Push')
 const fbug = getDebugger('Firebase', '#1B3A57', '#FFCA28')
@@ -174,7 +175,7 @@ export class PushService {
     if (!(identity instanceof IdentityService)) {
       throw new Error('Invalid or missing IdentityService instance')
     }
-    if (!(api instanceof ApiService)) {
+    if (!isAxiosInstance(api)) {
       throw new Error('Invalid or missing ApiService instance')
     }
     this.#booted = ref(false)
