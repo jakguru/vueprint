@@ -33,6 +33,7 @@ export const PushPlugin: Plugin<PushPluginOptions> = {
       app.config.globalProperties.$ls!,
       app.config.globalProperties.$cron!,
       app.config.globalProperties.$identity!,
+      app.config.globalProperties.$api!,
       firebaseOptions,
       onAuthenticatedForFirebase,
       onUnauthenticatedForFirebase,

@@ -14,6 +14,7 @@ import { getDebugger } from '../utilities/debug'
 import { LocalStorageService } from './localStorage'
 import { IdentityService } from './identity'
 import { MiliCron } from '../libs/milicron'
+import { ApiService } from './api'
 
 const debug = getDebugger('Push')
 const fbug = getDebugger('Firebase', '#1B3A57', '#FFCA28')
@@ -39,7 +40,7 @@ export interface PushedEvent {
  * Describes the shape of the callback that is used to store the Firebase Messaging Token in an external service which requires it.
  */
 export interface FirebaseTokenAuthenticationCallback {
-  (token: string, signal?: AbortSignal): Promise<void> | void
+  (token: string, api: ApiService, signal?: AbortSignal): Promise<void> | void
 }
 
 /**
@@ -114,6 +115,7 @@ export class PushService {
   readonly #ls: LocalStorageService
   readonly #cron: MiliCron
   readonly #identity: IdentityService
+  readonly #api: ApiService
   readonly #firebaseApp: FirebaseApp
   readonly #firebaseMessaging: Messaging
   readonly #serviceWorkerRegistration: Ref<ServiceWorkerRegistration | undefined>
@@ -153,6 +155,7 @@ export class PushService {
     ls: LocalStorageService,
     cron: MiliCron,
     identity: IdentityService,
+    api: ApiService,
     firebaseOptions: FirebaseOptions,
     onAuthenticatedForFirebase: FirebaseTokenAuthenticationCallback,
     onUnauthenticatedForFirebase: FirebaseTokenAuthenticationCallback,
@@ -171,12 +174,16 @@ export class PushService {
     if (!(identity instanceof IdentityService)) {
       throw new Error('Invalid or missing IdentityService instance')
     }
+    if (!(api instanceof ApiService)) {
+      throw new Error('Invalid or missing ApiService instance')
+    }
     this.#booted = ref(false)
     this.#serviceWorkerState = ref(undefined)
     this.#bus = bus
     this.#ls = ls
     this.#cron = cron
     this.#identity = identity
+    this.#api = api
     this.#serviceWorkerRegistration = ref(undefined)
     this.#serviceWorkerRegistrationToken = ref(undefined)
     this.#pushPermission = ref(undefined)
@@ -695,6 +702,7 @@ export class PushService {
             try {
               await this.#onAuthenticatedForFirebase(
                 this.#serviceWorkerRegistrationToken.value!,
+                this.#api,
                 this.#apiFirebaseOperationAbortController!.signal
               )
               fbug('Registered Firebase Messaging Token')
@@ -713,6 +721,7 @@ export class PushService {
             try {
               await this.#onUnauthenticatedForFirebase(
                 this.#serviceWorkerRegistrationToken.value!,
+                this.#api,
                 this.#apiFirebaseOperationAbortController!.signal
               )
               fbug('Unregistered Firebase Messaging Token')
