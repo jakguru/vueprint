@@ -10096,9 +10096,9 @@ typedoc-plugin-markdown@^3.17.1:
     handlebars "^4.7.7"
 
 typedoc-plugin-mdn-links@^3.1.28:
-  version "3.1.28"
-  resolved "https://registry.yarnpkg.com/typedoc-plugin-mdn-links/-/typedoc-plugin-mdn-links-3.1.28.tgz#7f0672fdf0c235f9b61eba73edf59ff88c2a6630"
-  integrity sha512-ADOSEMfEGZfyLFq8qNzS66zguPqIrrKFgspJmrXZGaGiUoHLqV8VY5V/MP2sMFnMY90uaVgeYwcVKKoutWekzw==
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/typedoc-plugin-mdn-links/-/typedoc-plugin-mdn-links-3.2.2.tgz#e85be534b19766300fefdcca9e25b89a75bf0c3e"
+  integrity sha512-3xlxS32c29Mey5SxqgCEF1lYYceQyoILhJM0Ewh2ISW8Ql3NzhC3SGpuvft4YtzpZIdB+YR7aIMkhlDquA0M+Q==
 
 typedoc-plugin-missing-exports@^2.2.0:
   version "2.2.0"
