@@ -559,6 +559,7 @@ export class PushService {
     }
     if (this.#firebaseMessaging) {
       this.#fcmOnMessageUnsubscribe = onMessage(this.#firebaseMessaging, (payload) => {
+        this.#bus.emit('push:firebase:message', { local: true }, payload)
         fbug('Got Firebase Messaging Payload', payload)
         if (payload.data && payload.data.event) {
           const { event: pushEvent, detail } = payload.data as unknown as PushedEvent
@@ -566,6 +567,7 @@ export class PushService {
           this.#bus.emit(busEvent, { local: true }, detail)
         }
       })
+      fbug('Firebase Messaging On Message Subscribed')
     }
     return booted()
   }

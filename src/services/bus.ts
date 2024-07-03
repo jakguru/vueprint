@@ -1,7 +1,7 @@
 /**
  * @module @jakguru/vueprint/services/bus
  */
-import type { NotificationPayload } from 'firebase/messaging'
+import type { NotificationPayload, MessagePayload } from 'firebase/messaging'
 import type { Ref } from 'vue'
 import type { UserIdentity } from './identity'
 import { TinyEmitter } from 'tiny-emitter'
@@ -257,6 +257,7 @@ export interface BusEventCallbackSignatures {
   'webfonts:loading': (from?: EventFrom) => void
   'webfonts:active': (from?: EventFrom) => void
   'webfonts:inactive': (from?: EventFrom) => void
+  'push:firebase:message': (payload: MessagePayload, from?: EventFrom) => void
 }
 
 /**
@@ -649,7 +650,7 @@ export class BusService {
    * @remarks
    * This method is especially useful within service workers where you may need to use `event.waitUntil` to ensure that all listeners have processed the event before the service worker is terminated
    */
-  public await<K extends BusEvent>(
+  public async await<K extends BusEvent>(
     event: K,
     options: BusEventListenOptions = {},
     ...args: Parameters<BusEventCallback<K>>
@@ -662,9 +663,9 @@ export class BusService {
       promises.push(this.#awaitCrossTab(event, args))
     }
     if (promises.length) {
-      return Promise.all(promises)
+      return await Promise.all(promises)
     }
-    return Promise.resolve()
+    return await Promise.resolve()
   }
 
   #awaitLocal<K extends BusEvent>(event: K, args: Parameters<BusEventCallback<K>>) {

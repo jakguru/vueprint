@@ -160,8 +160,7 @@ export class ServiceWorkerProvider {
       options.firebase.authDomain &&
       options.firebase.projectId &&
       options.firebase.messagingSenderId &&
-      options.firebase.appId &&
-      options.firebase.measurementId
+      options.firebase.appId
     ) {
       try {
         this.#firebaseApp = initializeApp(options.firebase)
@@ -247,8 +246,12 @@ export class ServiceWorkerProvider {
   /**
    * Exposes the {@link BusService.await} method
    */
-  public get await() {
-    return this.#bus.await.bind(this.#bus)
+  public async await<K extends BusEvent>(
+    event: K,
+    options: BusEventListenOptions = {},
+    ...args: Parameters<BusEventCallback<K>>
+  ) {
+    return this.#bus.await(event as BusEvent, options, ...args)
   }
 
   /**

@@ -45,9 +45,27 @@
           </v-col>
           <v-col cols="12" sm="4" md="3" xl="2">
             <v-card>
-              <v-list-item title="Updateable">
+              <v-list-item title="Updateable" @click="doUpdate">
                 <template #append>
                   <v-icon :color="updateable ? 'green' : 'red'">{{ updateable ? 'mdi-check' : 'mdi-close' }}</v-icon>
+                </template>
+              </v-list-item>
+            </v-card>
+          </v-col>
+          <v-col cols="12" sm="4" md="3" xl="2">
+            <v-card>
+              <v-list-item title="Can Request Push" @click="doOnRequestPush">
+                <template #append>
+                  <v-icon :color="canRequestPush ? 'green' : 'red'">{{ canRequestPush ? 'mdi-check' : 'mdi-close' }}</v-icon>
+                </template>
+              </v-list-item>
+            </v-card>
+          </v-col>
+          <v-col cols="12" sm="4" md="3" xl="2">
+            <v-card>
+              <v-list-item title="Can Push">
+                <template #append>
+                  <v-icon :color="canPush ? 'green' : 'red'">{{ canPush ? 'mdi-check' : 'mdi-close' }}</v-icon>
                 </template>
               </v-list-item>
             </v-card>
@@ -60,13 +78,15 @@
 
 <script lang="ts">
 import { defineComponent, computed, inject } from 'vue'
+// @ts-ignore stupid typescript
 import { useVueprint, getBootStatuses } from '@jakguru/vueprint/utilities'
-import type { SwalService } from '@jakguru/vueprint'
+import type { SwalService, PushService } from '@jakguru/vueprint'
 export default defineComponent({
   setup() {
     const { mounted, booted, ready, updateable } = useVueprint({}, true)
     const complete = computed(() => mounted.value && booted.value && ready.value)
     const swal = inject<SwalService>('swal')
+    const push = inject<PushService>('push')
     const onReadyOrCompleteClick = () => {
       const status = getBootStatuses()
       status.mounted = mounted.value
@@ -81,7 +101,27 @@ export default defineComponent({
         })
       }
     }
-    return { mounted, booted, ready, complete, updateable, onReadyOrCompleteClick }
+    const canRequestPush = computed(() => {
+      if (!mounted.value || !ready.value || !push) {
+        return false
+      }
+      return push.canRequestPermission.value
+    })
+
+    const doOnRequestPush = () => {
+      if (push && push.canRequestPermission.value) {
+        push.requestPushPermission()
+      }
+    }
+
+    const doUpdate = () => {
+      if (updateable.value && push) {
+        push.update()
+      }
+    }
+
+    const canPush = computed(() => push && push.canPush.value)
+    return { mounted, booted, ready, complete, updateable, doUpdate, onReadyOrCompleteClick, canRequestPush, doOnRequestPush, canPush }
   },
 })
 </script>

@@ -1,5 +1,7 @@
 import { createApp } from 'vue'
+// @ts-ignore - this actually works
 import VueMainBootstrap from '@jakguru/vueprint/plugins/main'
+// @ts-ignore - this actually works
 import VueClientBootstrap from '@jakguru/vueprint/plugins/client'
 import '@jakguru/vueprint/vueprint.scss'
 import App from './App.vue'
@@ -41,6 +43,18 @@ const vueprintMainPluginOptions: VueMainBootstrapOptions = {
 
 const vueprintClientPluginOptions: VueClientBootstrapOptions = {
   // Configuration for the Client plugin
+  push: {
+    firebaseOptions: {
+      apiKey: 'AIzaSyD2Sae2shhrOHh_EwsyRxTa4Kg9QLMsZ_s',
+      authDomain: 'vueprint-development.firebaseapp.com',
+      projectId: 'vueprint-development',
+      storageBucket: 'vueprint-development.appspot.com',
+      messagingSenderId: '583302108349',
+      appId: '1:583302108349:web:51c168ac2bfefa22be13d4',
+    },
+    serviceWorkerMode: 'module',
+    serviceWorkerPath: '/dev-sw.js?dev-sw',
+  },
 }
 
 const app = createApp(App)
