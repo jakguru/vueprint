@@ -47,6 +47,20 @@ export const getBrowserInfo = () => {
     'undefined' === typeof window.navigator ||
     'undefined' === typeof window.navigator.userAgent
   ) {
+    if (
+      'undefined' !== typeof ServiceWorkerGlobalScope &&
+      self instanceof ServiceWorkerGlobalScope
+    ) {
+      return {
+        browserName: 'Service Worker',
+        browserVersion: '0.0.0',
+        osName: 'Unknown',
+        osVersion: '0.0.0',
+        platformType: 'Service Worker',
+        engineName: 'Service Worker',
+        engineVersion: '0.0.0',
+      }
+    }
     return {
       browserName: 'SSR',
       browserVersion: '0.0.0',
