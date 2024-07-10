@@ -112,9 +112,9 @@ export const showOpenFilePicker = async (
     },
     options
   )
-
-  return new Promise((resolve, reject) => {
-    const input = document.createElement('input')
+  let input: HTMLInputElement | undefined
+  const ret = new Promise((resolve) => {
+    input = document.createElement('input')
     input.type = 'file'
     input.style.display = 'none'
 
@@ -123,9 +123,10 @@ export const showOpenFilePicker = async (
     if (opts.types && opts.types.length) {
       input.accept = opts.types.map((type) => Object.keys(type.accept).join(',')).join(',')
     }
-
-    // Handle file selection
-    input.onchange = () => {
+    input.addEventListener('change', (e: Event) => {
+      if (!input) {
+        return
+      }
       if (input.files && input.files.length) {
         const files = Array.from(input.files)
         const handles = files.map((file) => ({
@@ -137,16 +138,41 @@ export const showOpenFilePicker = async (
       } else {
         resolve([] as FileSystemFileHandle[])
       }
-    }
+    })
 
-    input.onerror = () => {
-      reject(new Error('An error occurred with the file input'))
-    }
+    input.addEventListener('error', (e: Event) => {
+      resolve([] as FileSystemFileHandle[])
+    })
+
+    input.addEventListener('cancel', (e: Event) => {
+      resolve([] as FileSystemFileHandle[])
+    })
 
     document.body.appendChild(input)
     input.click()
-    document.body.removeChild(input)
   })
+  const res: FileSystemFileHandle[] = (await ret) as FileSystemFileHandle[]
+  if (input) {
+    document.body.removeChild(input)
+  }
+  /**
+   * Because of iOS quirks (since you can technically upload something from the camera roll), we need to filter out any handles of files which do not match the types specified in the options.
+   */
+  if (opts.types && opts.types.length) {
+    const acceptedExtensions = new Set<string>()
+    opts.types.forEach((type) => {
+      Object.keys(type.accept).forEach((key) => {
+        type.accept[key].forEach((ext) => {
+          acceptedExtensions.add(ext)
+        })
+      })
+    })
+    return res.filter((handle) => {
+      const ext = handle.name.split('.').pop()
+      return ext ? acceptedExtensions.has(`.${ext}`) : false
+    })
+  }
+  return res as FileSystemFileHandle[]
 }
 
 /**
