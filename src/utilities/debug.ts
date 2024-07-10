@@ -2,7 +2,7 @@
  * @module @jakguru/vueprint/utilities/debug
  */
 declare const self: (ServiceWorkerGlobalScope & typeof globalThis) | (Window & typeof globalThis)
-
+import { getBrowserInfo } from './browser'
 /**
  * Generate a function that will log messages to the console
  * @param name The name that will be used to prefix the log messages
@@ -16,6 +16,7 @@ export const getDebugger = (
   color: string = '#34495E',
   background: string = '#41B883'
 ) => {
+  const browserInfo = getBrowserInfo()
   return (...args: any[]) => {
     if (
       ('undefined' === typeof window &&
@@ -29,6 +30,11 @@ export const getDebugger = (
     ) {
       console.log(`[${name}]`, ...args)
       return
+    }
+    if (browserInfo.browserName === 'Safari') {
+      console.log(`%c${name}`,
+      `background-color: ${background}; color: ${color}; padding: 2px 4px;`,
+      ...args)
     }
     if (
       'undefined' !== typeof ServiceWorkerGlobalScope &&
