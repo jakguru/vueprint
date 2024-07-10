@@ -123,7 +123,7 @@ export const showOpenFilePicker = async (
     if (opts.types && opts.types.length) {
       input.accept = opts.types.map((type) => Object.keys(type.accept).join(',')).join(',')
     }
-    input.addEventListener('change', (e: Event) => {
+    input.addEventListener('change', (_e: Event) => {
       if (!input) {
         return
       }
@@ -140,11 +140,11 @@ export const showOpenFilePicker = async (
       }
     })
 
-    input.addEventListener('error', (e: Event) => {
+    input.addEventListener('error', (_e: Event) => {
       resolve([] as FileSystemFileHandle[])
     })
 
-    input.addEventListener('cancel', (e: Event) => {
+    input.addEventListener('cancel', (_e: Event) => {
       resolve([] as FileSystemFileHandle[])
     })
 
