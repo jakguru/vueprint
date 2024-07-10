@@ -93,6 +93,16 @@
       "require": "./dist/utilities/debug.cjs",
       "types": "./dist/utilities/debug.d.ts"
     },
+    "./utilities/browser": {
+      "import": "./dist/utilities/browser.mjs",
+      "require": "./dist/utilities/browser.cjs",
+      "types": "./dist/utilities/browser.d.ts"
+    },
+    "./utilities/files": {
+      "import": "./dist/utilities/files.mjs",
+      "require": "./dist/utilities/files.cjs",
+      "types": "./dist/utilities/files.d.ts"
+    },
     "./services": {
       "import": "./dist/services/index.mjs",
       "require": "./dist/services/index.cjs",

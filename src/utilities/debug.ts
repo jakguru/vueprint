@@ -32,9 +32,12 @@ export const getDebugger = (
       return
     }
     if (browserInfo.browserName === 'Safari') {
-      console.log(`%c${name}`,
-      `background-color: ${background}; color: ${color}; padding: 2px 4px;`,
-      ...args)
+      console.log(
+        `%c${name}`,
+        `background-color: ${background}; color: ${color}; padding: 2px 4px;`,
+        ...args
+      )
+      return
     }
     if (
       'undefined' !== typeof ServiceWorkerGlobalScope &&

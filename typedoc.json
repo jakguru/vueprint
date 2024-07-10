@@ -7,6 +7,8 @@
     "src/utilities/colors.ts",
     "src/utilities/validation.ts",
     "src/utilities/debug.ts",
+    "src/utilities/browser.ts",
+    "src/utilities/files.ts",
     "src/services/index.ts",
     "src/services/api.ts",
     "src/services/bus.ts",

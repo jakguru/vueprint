@@ -4,6 +4,8 @@
 export * as validation from './validation'
 export * as debug from './debug'
 export * as colors from './colors'
+export * as files from './files'
+export * as browser from './browser'
 import { useVueprint, getBootStatuses } from '../services/installer'
 import type { ComputedRef } from 'vue'
 
