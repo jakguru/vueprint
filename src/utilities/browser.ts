@@ -42,7 +42,11 @@ export interface BrowserInfo {
  * @returns BrowserInfo
  */
 export const getBrowserInfo = () => {
-  if (!window || !window.navigator || !window.navigator.userAgent) {
+  if (
+    'undefined' === typeof window ||
+    'undefined' === typeof window.navigator ||
+    'undefined' === typeof window.navigator.userAgent
+  ) {
     return {
       browserName: 'SSR',
       browserVersion: '0.0.0',
