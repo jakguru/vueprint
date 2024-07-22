@@ -24,12 +24,7 @@ import type {
   PeriodicSyncEvent,
 } from '../services/bus'
 import type { FirebaseApp, FirebaseOptions } from 'firebase/app'
-import type {
-  Messaging,
-  Unsubscribe,
-  MessagePayload,
-  NotificationPayload,
-} from 'firebase/messaging/sw'
+import type { Messaging, Unsubscribe, MessagePayload } from 'firebase/messaging/sw'
 import type { Ref } from 'vue'
 
 const debug = getDebugger('Service Worker')
