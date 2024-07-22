@@ -15,6 +15,7 @@ import { LocalStorageService } from './localStorage'
 import { IdentityService } from './identity'
 import { MiliCron } from '../libs/milicron'
 import { isAxiosInstance } from './api'
+import Joi from 'joi'
 import type { ApiService } from './api'
 
 const debug = getDebugger('Push')
@@ -62,6 +63,26 @@ export interface WebPushNotificationOptions {
   onError?: (error: Error) => void
   onShow?: (event: Event) => void
 }
+
+/**
+ * Describes the schema for the options for creating a web push notification.
+ * @see {@link WebPushNotificationOptions}
+ */
+export const webPushNotificationOptionsSchema = Joi.object<WebPushNotificationOptions>({
+  title: Joi.string().required(),
+  body: Joi.string().optional(),
+  icon: Joi.string().optional(),
+  link: Joi.string().uri().optional(),
+  requireInteraction: Joi.boolean().optional(),
+  timeout: Joi.number().optional(),
+  vibrate: Joi.array().items(Joi.number()).optional(),
+  silent: Joi.boolean().optional(),
+  closeOnClick: Joi.boolean().optional(),
+  onClick: Joi.func().optional(),
+  onClose: Joi.func().optional(),
+  onError: Joi.func().optional(),
+  onShow: Joi.func().optional(),
+})
 
 /**
  * See {@link https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorker/state | ServiceWorker.State}
@@ -311,46 +332,52 @@ export class PushService {
     if (!this.canPush.value) {
       return
     }
+    const { error, value: wpopts } = webPushNotificationOptionsSchema.validate(options)
+    if (error) {
+      debug('Web Push Notification Options Error', error)
+      return
+    }
     const opts = {
-      body: options.body,
-      icon: options.icon,
-      link: options.link,
-      requireInteraction: options.requireInteraction,
-      timeout: options.timeout,
-      vibrate: options.vibrate,
-      silent: options.silent,
+      body: wpopts.body,
+      icon: wpopts.icon,
+      link: wpopts.link,
+      requireInteraction: wpopts.requireInteraction,
+      timeout: wpopts.timeout,
+      vibrate: wpopts.vibrate,
+      silent: wpopts.silent,
       onClick: function (event: Event) {
         debug('Web Push Notification Clicked', event)
-        if (options.onClick) {
-          options.onClick(event)
+        if (wpopts.onClick) {
+          wpopts.onClick(event)
         }
-        if (options.closeOnClick) {
+        if (wpopts.closeOnClick) {
           window.focus()
           this.close()
         }
       },
       onClose: function (event: Event) {
         debug('Web Push Notification Closed', event)
-        if (options.onClose) {
-          options.onClose(event)
+        if (wpopts.onClose) {
+          wpopts.onClose(event)
         }
       },
       onError: function (error: Error) {
         debug('Web Push Notification Error', error)
-        if (options.onError) {
-          options.onError(error)
+        if (wpopts.onError) {
+          wpopts.onError(error)
         }
       },
       onShow: function (event: Event) {
         debug('Web Push Notification Shown', event)
-        if (options.onShow) {
-          options.onShow(event)
+        if (wpopts.onShow) {
+          wpopts.onShow(event)
         }
       },
     }
     try {
+      debug('Creating Web Push Notification', wpopts.title, opts)
       // @ts-ignore - Push.js has incorrect types for notification creation options
-      Push.create(options.title, opts)
+      Push.create(wpopts.title, opts)
     } catch (error) {
       debug('Web Push Notification Error', error)
     }

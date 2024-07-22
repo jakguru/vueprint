@@ -258,6 +258,12 @@ export interface BusEventCallbackSignatures {
   'webfonts:active': (from?: EventFrom) => void
   'webfonts:inactive': (from?: EventFrom) => void
   'push:firebase:message': (payload: MessagePayload, from?: EventFrom) => void
+  'on:fcm:message': (
+    background: boolean,
+    payload: MessagePayload,
+    args: any[],
+    from?: EventFrom
+  ) => void
 }
 
 /**

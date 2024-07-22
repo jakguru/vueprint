@@ -349,18 +349,16 @@ export class ServiceWorkerProvider {
 
   #onFcmMessage(background: boolean, payload: MessagePayload, ...args: any[]) {
     fbug('Incoming Message:', { background, payload, args })
-    if (background && payload.notification) {
-      const { body, icon, title } = payload.notification as NotificationPayload
-      const notificationTitle = title || body
-      if (notificationTitle) {
-        return this.#self.registration.showNotification(notificationTitle, {
-          badge: icon,
-          body,
-          icon,
-          tag: payload.collapseKey,
-        })
-      }
-    }
+    this.emit(
+      'on:fcm:message',
+      {
+        local: true,
+        crossTab: true,
+      },
+      background,
+      payload,
+      args
+    )
   }
 
   #onSwActivate(event: ExtendableEvent) {
